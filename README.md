@@ -6,7 +6,15 @@ This project is developed as part of MS2 Interactive Front End module at Code In
 
 ## Cloning This Repository
 
-Once you've made a copy, run the development server:
+Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the project:
+
+```bash
+npx create-next-app --example environment-variables environment-variables-app
+# or
+yarn create next-app --example environment-variables environment-variables-app
+```
+
+run the development server:
 
 ```bash
 npm run dev
