@@ -1,12 +1,44 @@
 import Head from 'next/head'
 import styles from '../scss/index.module.scss'
-import { searchAssociations } from './../services/wordAssociationsService'
+import Search from '../components/search'
+import Results from './../components/results'
+import { searchAssociations } from '../services/wordAssociationsService'
+import { randomTerm } from '../helpers/random.helper'
+import { useState } from 'react'
 
-const Index = () => {
+const Index = (props) => {
 
-  let returnedResults = '';
-  function searchFunction(returnedResults) {
-    return returnedResults
+  const [searchText, setSearchText] = useState(props.searchText)
+  const [selection, setSelection] = useState('')
+  const [synonyms, setSynonyms] = useState(props.synonyms)
+  const [loading, setLoading] = useState(false);
+
+  const onSearchTextChange = (text) => {
+    // Calculate the argument text, not the searchText function until load terms below
+    setSearchText(text);
+    // Before loading words, check if text is empty.
+    if (text) {
+      loadSynonyms(text);
+    }
+  };
+
+  const onSelectionChange = (selection) => {
+    // will take the closest language from the function arguments
+    setSelection(selection);
+    loadSynonyms(selection);
+  };
+
+  const loadSynonyms = async (searchText) => {
+    setLoading(true);
+    const res = await searchAssociations(searchText);
+
+    // There is no value in res yet because of cancelConfig helper.
+    // If there's a response and there's data in the response, set loading to false and load words.
+
+    if (res && res.data) {
+      setLoading(false);
+      setSynonyms(res.data.items);
+    }
   }
 
   return (
@@ -25,11 +57,17 @@ const Index = () => {
           The endless Thesaurus searcher! Type your word!
         </p>
 
-        <input id="userInput" type="text" onChange={searchFunction} />
-        <div className={styles.grid} id="synonyms">
-          {returnedResults}
+        <Search
+            searchText={searchText}
+            onSearchTextChange={onSearchTextChange}
+        />
 
-        </div>
+        <Results
+            loading={loading}
+            synonyms={synonyms}
+            selection={selection}
+            onSelectionChange={onSelectionChange}
+        />
 
 
         <div className={styles.grid}>
@@ -76,5 +114,16 @@ const Index = () => {
     </div>
   )
 }
+
+export const getServerSideProps = async () => {
+  const searchText = randomTerm();
+  const res = await searchAssociations(searchText);
+  return {
+    props: {
+      searchText: searchText,
+      synonyms: res.data.items
+    }
+  };
+};
 
 export default Index;

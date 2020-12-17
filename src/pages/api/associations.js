@@ -22,12 +22,13 @@ import axios from "axios";
 //https://twinword-word-associations-v1.p.rapidapi.com/associations/?entry=sound"
 
 const axiosConfig = {
-    url: '/associations/',
+    // url: '/associations/',
     method: 'GET',
-    baseURL: 'https://twinword-word-associations-v1.p.rapidapi.com',
+    baseURL: 'https://twinword-word-associations-v1.p.rapidapi.com/associations/',
     // params: {entry: 'capable'},
     headers: {
-        'x-rapidapi-key': process.env.NEXT_PUBLIC_X_RAPID_API_KEY,
+        // 'x-rapidapi-key': 'process.env.NEXT_PUBLIC_X_RAPID_API_KEY',
+        'x-rapidapi-key': 'f0824ef05dmsh55b3a496c3722e9p1d9397jsnce7b62d4ddc5',
         'x-rapidapi-host': 'twinword-word-associations-v1.p.rapidapi.com'
     }
 };
@@ -38,8 +39,11 @@ export default async (req, res) => {
 
     const response = await axios.get(
         `?entry=${q}`,
+        // req,
         axiosConfig
     );
 
     res.json(response.data);
 }
+
+//http://localhost:3000/api/associations?entry=capable

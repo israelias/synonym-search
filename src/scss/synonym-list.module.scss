@@ -1,0 +1,19 @@
+.synonymList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.loader {
+  width: 250px;
+}
+
+.message {
+  padding-top: 25px;
+}
+
+.synonymSelect {
+  select {
+    width: 160px;
+  }
+}
