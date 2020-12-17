@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TextInput = ({label, value, onChange, placeHolder, className}) => {
+const TextInput = ({ label, value, onChange, placeHolder, className }) => {
     const textInputClass = className ? `${className} field` : 'field';
 
     return (

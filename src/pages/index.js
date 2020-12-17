@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from '../scss/index.module.scss'
-import { searchSynonym } from './../services/thesaurusService'
+import { searchAssociations } from './../services/wordAssociationsService'
 
 const Index = () => {
 
