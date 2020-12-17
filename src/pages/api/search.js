@@ -1,21 +1,30 @@
 import axios from 'axios'
 
 const axiosConfig = {
-  baseURL: 'http://thesaurus.altervista.org/thesaurus/v1'
+  baseURL: 'http://thesaurus.altervista.org/'
 }
 
 export default async (req, res) => {
 
   // Set the default constants for each request and call their values via default keywords in the query.
 
-  const wordKey = process.env.NEXT_PUBLIC_API_KEY;
+  // const wordKey = process.env.NEXT_PUBLIC_API_KEY;
   // const wordKey = '3bNeZozwdybX2kCmeL5D';
-  const wordOutput = 'json';
-  const wordLang = 'en_US';
+  // const wordOutput = 'json';
+  // const wordLang = 'en_US';
 
   // The query needs to be read from the internal caller params.
 
-  const { word, language=wordLang, key=wordKey, output=wordOutput } = req.query;
+  // const { word, language=wordLang, key=wordKey, output=wordOutput } = req.query;
+
+  const {
+    query: {
+      word,
+      language = 'en_US',
+      key = process.env.NEXT_PUBLIC_API_KEY,
+      output = 'json'
+    }
+  } = req
 
   // http://thesaurus.altervista.org/thesaurus/v1?word=capable&language=en_US&key=3bNeZozwdybX2kCmeL5D&output=json
   //?word=capable&language=en_US&key=3bNeZozwdybX2kCmeL5D&output=json
@@ -28,7 +37,7 @@ export default async (req, res) => {
   // .response.list.synonyms returns "word (generic term)|war (antonym)"
 
   const response = await axios.get(
-      `?word=${word}&language=${language}&key=${key}output=${output}`,
+      `thesaurus/v1?word=${word}&language=${language}&key=${key}output=${output}`,
       axiosConfig
   );
 

@@ -1,8 +1,14 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import styles from '../scss/index.module.scss'
 import { searchSynonym } from './../services/thesaurusService'
 
 const Index = () => {
+
+  let returnedResults = '';
+  function searchFunction(returnedResults) {
+    return returnedResults
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -12,13 +18,18 @@ const Index = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to <a href="https://nextjs.org">Synonym Chaser!</a>
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
+          The endless Thesaurus searcher! Type your word!
         </p>
+
+        <input id="userInput" type="text" onChange={searchFunction} />
+        <div className={styles.grid} id="synonyms">
+          {returnedResults}
+
+        </div>
 
 
         <div className={styles.grid}>
