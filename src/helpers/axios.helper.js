@@ -24,7 +24,9 @@ async function axiosGetCancellable(url, config) {
     cancelConfig.cancelToken = cancelConfig.request.token;
 
     // Then copy the values from config and merge to this cancelConfig.
-
+    // Works the same way as setState(prevState => { return {...prevState, ...updatedValues}; });
+    // in merging update objects.
+    // Object.assign is used as we are controlling states in Index via useState hooks and not setState methods.
     Object.assign(cancelConfig, config);
 
     // This will always throw an uncaught error on the browser, but we expect this.

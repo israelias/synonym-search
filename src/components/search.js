@@ -11,6 +11,7 @@ const Search = (props) => {
                 className={styles.searchInput}
                 label="Search a Term"
                 value={searchText}
+                placeholder={searchText}
                 onChange={(value) => onSearchTextChange(value)}
             />
         </div>

@@ -4,7 +4,12 @@ import styles from './../scss/synonym-list.module.scss';
 
 // Creates a list item out of a single search result.
 
-const Results = ({ synonyms, loading, selection, onSelectionChange }) => {
+const Results = (props) => {
+
+    const { synonyms, loading, selection, onSelectionChange } = props;
+
+    // const synonyms = [{value: '', label: 'All'}, ...LANGUAGES];
+
     if (loading) {
         return <img src="/img/loader.gif" className={styles.loader}/>;
     }

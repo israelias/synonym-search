@@ -15,9 +15,9 @@ const RadioInput = ({ value, onChange, options, className }) => {
                         {options.map((option) => (
                             <option
                                 className={styles.synonymListItem}
-                                key={option.value}
-                                value={option.value}>
-                                {option.value}
+                                key={option}
+                                value={option}>
+                                {option}
                             </option>
                         ))}
                     </select>
