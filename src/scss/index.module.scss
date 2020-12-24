@@ -1,3 +1,5 @@
+
+
 .container {
   min-height: 100vh;
   padding: 0 0.5rem;
@@ -8,13 +10,49 @@
 }
 
 .main {
-  padding: 5rem 0;
+  padding: 3rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  & > * {
+    display: flex;
+    flex: 1 0 auto;
+    max-width: 50vw;
+  }
+
+  .mainResults {
+    margin-left: 40vw;
+  }
+
+  .mainSaves {
+    margin-right: 40vw;
+  }
 }
+
+.bodyHeader {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 0 0;
+}
+
+.tabs:after, .tabs:before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -.1em;
+  height: .1em;
+  width: 1px;
+  background: inherit;
+}
+
+
+
+
+
+
 
 .footer {
   width: 100%;
@@ -49,7 +87,7 @@
 .title {
   margin: 0;
   line-height: 1.15;
-  font-size: 4rem;
+  font-size: 2rem;
 }
 
 .title,
@@ -58,8 +96,8 @@
 }
 
 .description {
-  line-height: 1.5;
-  font-size: 1.5rem;
+  line-height: 1;
+  font-size: 1rem;
 }
 
 .code {

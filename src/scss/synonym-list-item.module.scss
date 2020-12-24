@@ -1,7 +1,9 @@
-//@import '../scss/colors';
+@import '../scss/variables';
+
+
 
 .synonymListItem {
-  width: 350px;
+  //width: 350px;
   margin: 10px;
   display: flex;
   flex-direction: column;
@@ -15,6 +17,16 @@
 .synonymTerm {
   margin-bottom: 10px;
   font-weight: 700;
+
+  min-height: calc(2em + $rib-space * 1);
+  border-top: thin solid black;
+
+  display: flex;
+  align-items: center;
+  padding: .5em 0;
+
+  font-size: 11px;
+  line-height: $ribs-lh;
 }
 
 .description {

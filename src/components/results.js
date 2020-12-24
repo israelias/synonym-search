@@ -6,7 +6,9 @@ import styles from './../scss/synonym-list.module.scss';
 
 const Results = (props) => {
 
-    const { synonyms, loading, selection, onSelectionChange } = props;
+    const { synonyms, loading, selection, onSelectionChange, className } = props;
+
+    const resultsClass = className ? className : '';
 
     // const synonyms = [{value: '', label: 'All'}, ...LANGUAGES];
 
@@ -19,7 +21,7 @@ const Results = (props) => {
     }
 
     return (
-        <div className={styles.synonymList}>
+        <div className={resultsClass}>
             <RadioInput
                 className={styles.synonymSelect}
                 value={selection}

@@ -7,7 +7,7 @@ import { axiosGetCancellable } from "../helpers/axios.helper";
 const axiosConfig = {
     // url: '/associations/',
     method: 'GET',
-    baseURL: 'https://twinword-word-associations-v1.p.rapidapi.com/associations/',
+    baseURL: 'https://twinword-word-associations-v1.p.rapidapi.com/',
     // params: {entry: 'capable'},
     headers: {
         // 'x-rapidapi-key': process.env.NEXT_PUBLIC_X_RAPID_API_KEY,
@@ -26,21 +26,33 @@ function searchAssociations(searchText, selection) {
 
     // If searchSynonym is called from the serverside, we call the external API directly along with our axiosConfig.
 
-    if (isServer()) {
-        return axios.get(
-            `?entry=${query}`,
-            axiosConfig
-        );
-    }
+    // UNCOMMENT when @fix
 
-    // If searchSynonym is called from the clientside, we use our internal API route.
-    // This merges our authorization params with the cancel config.
-    // We don't include axiosConfig a this calls to our own directory.
-    // This happens on the server side, nothing at client side.
-    // API keys and secrets are fully on the server side and are secured.
-    // Prepend `api/` to the url call as this is routed to localhost:3000
+    // if (isServer()) {
+    //     return axios.get(
+    //         `?entry=${query}`,
+    //         axiosConfig
+    //     );
+    // }
 
-    return axiosGetCancellable(`api/associations/?entry=${query}`);
+    /*
+        If searchSynonym is called from the clientside, we use our internal API route.
+        This merges our authorization params with the cancel config.
+        We don't include axiosConfig a this calls to our own directory.
+        This happens on the server side, nothing at client side.
+        API keys and secrets are fully on the server side and are secured.
+        Prepend `api/` to the url call as this is routed to localhost:3000
+     */
+
+    // UNCOMMENT when @fix
+    // return axiosGetCancellable(`api/associations/?entry=${query}`);
+
+    // TEMPORARY: ALWAYS CALL THE EXTERNAL ENDPOINT AS DYNAMIC ROUTE IS NOT WORKING
+    // @ fix
+    return axios.get(
+        `associations/?entry=${query}`,
+        axiosConfig
+    );
 }
 
 // Evaluates to true if we're running on server.

@@ -2,11 +2,15 @@ import Head from 'next/head'
 import styles from '../scss/index.module.scss'
 import Search from '../components/search'
 import Results from './../components/results'
+import Saves from './../components/saves'
 import { searchAssociations } from '../services/wordAssociationsService'
 import { randomTerm } from '../helpers/random.helper'
-import { useState } from 'react'
+import { useState, useEffect, useReducer, useRef, useCallback } from 'react'
+import { PREVIOUSWORDS } from './../constants/words.constant';
+import { useInView } from 'react-intersection-observer'
+import React from 'react'
 
-const Index = (props) => {
+const Index = ( props, allSavedWords ) => {
 
   /*
     Add local states to state variables via useState Hooks, which adds
@@ -53,6 +57,8 @@ const Index = (props) => {
 
   const [loading, setLoading] = useState(false);
 
+  const[savedWords, setSavedWords] = useState([]);
+
   /*
     Define `onSearchTextChange`, the Search component's onChange event handler,
     to accept any text argument.
@@ -65,6 +71,7 @@ const Index = (props) => {
 
   const onSearchTextChange = (text) => {
     setSearchText(text);
+    addToSavedWords(text);
     if (text) {
       loadSynonyms(text, selection);
     }
@@ -79,9 +86,44 @@ const Index = (props) => {
    */
 
   const onSelectionChange = (selection) => {
-    setSelection(selection);
+    setSearchText(selection);
+    addToSavedWords(selection);
     loadSynonyms(searchText, selection);
   };
+
+  const addToSavedWords = (selection) => {
+    let nowwa = getAllSavedWords(allSavedWords, selection);
+    savedWords.current = nowwa;
+    console.log(savedWords.current);
+    setConstant(allSavedWords);
+  }
+
+  function getStringCopies(data) {
+    // const currentText = [];
+    // let i;
+    // for (i = 0; i < data.length; i+=1) {
+    //   let ion = data.args
+    //   let aya = ion.stringify()
+    //   // let aya = ion.args
+    //   if (aya[i] === searchText || aya[i] === selection) {
+    //     currentText.push(aya[i]);
+    //     console.log(aya[i]);
+    //   }
+    //   return currentText;
+
+      // data.forEach(a => {
+      //   if (a === searchText || a === loading) {
+      //     currentText.push(a);
+      //     console.log(a);
+      //   }
+      // })
+
+      // push(el);
+      // console.log(PREVIOUSWORDS.map(word => {
+      //   word.toString()
+      // }));
+    // }
+  }
 
   /*
    Define `loadSynonyms`, the asynchronous function to handle our API calls,
@@ -106,6 +148,7 @@ const Index = (props) => {
     if (res && res.data) {
       setLoading(false);
       setSynonyms(res.data.associations_array);
+      getStringCopies(res.data.associations);
     }
   }
 
@@ -116,38 +159,54 @@ const Index = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <header className={styles.bodyHeader}>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Synonym Chaser!</a>
         </h1>
 
-        <p className={styles.description}>
-          The endless Thesaurus searcher! Type your word!
-        </p>
 
-        <Search
-            searchText={searchText}
-            onSearchTextChange={onSearchTextChange}
+        <div id="tabs" className="tabs scaling-header tabs--visible">
+          <div className="tabs__items">
+            <ul delayed-unhide-root="tabs" className="tabs__items-inner scaling-header__inner">
+              <li data-index="0" className="tabs__item scaling-header__item"><a href="/typefaces/akkurat?tab=specimen"
+                                                                                className="nx-link-active tabs__button scaling-header__link">Stack</a>
+              </li>
+              <li data-index="1" className="tabs__item scaling-header__item tabs__item--active"><a
+                  href="/typefaces/akkurat?tab=about"
+                  className="nx-link-active-exact nx-link-active tabs__button scaling-header__link tabs__button--active"
+                  aria-current="page">Search</a></li>
+              <li>
+                <Search
+                    className={styles.mainSearch}
+                    searchText={searchText}
+                    onSearchTextChange={onSearchTextChange}
+                />
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </header>
+
+      <main className={styles.main}>
+
+
+        <Saves
+          className={styles.mainSaves}
+          words={[].concat(new Array ([selection].concat(new Array (synonyms.filter(synonym =>
+            synonym === selection || synonym === searchText
+          )))) ) }
         />
 
+
         <Results
+            className={styles.mainResults}
             loading={loading}
             synonyms={synonyms}
             selection={selection}
             onSelectionChange={onSelectionChange}
         />
 
-
-        <div className={styles.grid}>
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-        </div>
       </main>
 
       <footer className={styles.footer}>
@@ -170,9 +229,40 @@ export const getServerSideProps = async () => {
   return {
     props: {
       searchText: searchText,
-      synonyms: res.data.associations_array
+      synonyms: res.data.associations_array,
+      saves: [],
     }
   };
 };
+
+export function getString(props) {
+  const currentText =
+  push(el);
+  console.log(PREVIOUSWORDS.map(word => {
+    word.toString()
+  }));
+}
+
+
+export function getAllSavedWords(previous, current) {
+  let allSavedWords = [];
+  let previousWords = [ ...PREVIOUSWORDS];
+  if (previousWords) {
+    allSavedWords.push(previous);
+  }
+  if (current) {
+    allSavedWords.concat(current)
+    return {
+      allSavedWords
+    }
+  }
+  console.log(allSavedWords)
+}
+
+export function setConstant(el) {
+  PREVIOUSWORDS.push(el);
+  console.log(PREVIOUSWORDS.map(word => {word.toString()}));
+}
+
 
 export default Index;

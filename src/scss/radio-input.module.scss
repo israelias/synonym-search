@@ -2,7 +2,13 @@
   margin-bottom: 20px;
 }
 
-//@import '../scss/colors';
+@import '../scss/variables';
+
+.synonymListGroup {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
 .synonymListItem {
   width: 350px;
@@ -17,8 +23,39 @@
 }
 
 .synonymTerm {
-  margin-bottom: 10px;
-  font-weight: 700;
+
+  min-height: calc(2em + $rib-space * 1);
+  border-top: thin solid black;
+
+  display: flex;
+  align-items: center;
+  padding: .5em 0;
+
+  font-size: 12px;
+  line-height: $ribs-lh;
+
+  width: 100%;
+}
+
+.savedListItem {
+  width: 350px;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  a:hover {
+    color: green;
+  }
+}
+
+.listItemButton {
+  display: inline-block;
+  //flex-direction: column;
+  //padding: 0;
+  width: 2%;
+  margin-left: auto;
+  margin-right: 8px;
 }
 
 .description {
