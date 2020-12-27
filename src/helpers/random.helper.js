@@ -1,7 +1,7 @@
 import WORDS from './../constants/words.constant'
 
 function randomTerm() {
-    const words = ['capable', 'enduring', 'not here', 'uninterruptedly', 'client side', 'information architecture'];
+    const words = ['capable', 'enduring', 'about', 'uninterruptedly', 'understanding', 'information'];
     return words[Math.floor(Math.random() * words.length)];
 }
 
