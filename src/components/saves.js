@@ -5,8 +5,8 @@ import ListItem from "./shared/list-item";
 import Button from "./shared/button";
 import style from '../scss/radio-input.module.scss'
 
-const Saves = (props) => {
-    const { words, className } = props;
+const Saves = ({ words, className }) => {
+    // const { words, className } = props;
     const savesListClass = className ? className : '';
     // const value = words ? '-' : '';
 
@@ -27,10 +27,15 @@ const Saves = (props) => {
            {words.map((word, index) => (
                 <ListItem
                     id={index}
-                    key={word}
-                    word={word}
-                    onClick={deleteListItem(null, word)}
-                />
+                    key={word.id}
+                    word={word}>
+                    <Button
+                        className={style.listItemButton}
+                        onClick={() => dispatch({
+                            type: 'remove', index
+                        })}
+                    />
+                </ListItem>
             ))}
 
         </ul>

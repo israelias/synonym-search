@@ -3,10 +3,11 @@ import styles from '../scss/index.module.scss'
 import Search from '../components/search'
 import Results from './../components/results'
 import Saves from './../components/saves'
+import { searchThesaurus } from '../services/mwThesaurusService'
 import { searchAssociations } from '../services/wordAssociationsService'
 import { randomTerm } from '../helpers/random.helper'
 import { useState, useEffect, useReducer, useRef, useCallback } from 'react'
-import { PREVIOUSWORDS } from './../constants/words.constant';
+import { PREVIOUSWORDS } from '../constants/words.constant';
 import { useInView } from 'react-intersection-observer'
 import React from 'react'
 
@@ -21,6 +22,8 @@ const Index = ( props, allSavedWords ) => {
     the second is a function that lets us update that state value.
     We will call this function from an event handler further below.
    */
+
+  const inputRef = useRef();
 
   /*
     `searchText` state variable.
@@ -57,7 +60,20 @@ const Index = ( props, allSavedWords ) => {
 
   const [loading, setLoading] = useState(false);
 
-  const[savedWords, setSavedWords] = useState([]);
+  const[savedWords, dispatch] = useReducer((state, action) => {
+    switch (action, type) {
+      case 'add':
+        return [
+            ...state,
+          {
+            id: state.length,
+            name: action.name
+          }
+        ];
+      default:
+        return state;
+    }
+  },[]);
 
   /*
     Define `onSearchTextChange`, the Search component's onChange event handler,
@@ -71,7 +87,6 @@ const Index = ( props, allSavedWords ) => {
 
   const onSearchTextChange = (text) => {
     setSearchText(text);
-    addToSavedWords(text);
     if (text) {
       loadSynonyms(text, selection);
     }
@@ -87,43 +102,12 @@ const Index = ( props, allSavedWords ) => {
 
   const onSelectionChange = (selection) => {
     setSearchText(selection);
-    addToSavedWords(selection);
     loadSynonyms(searchText, selection);
+    dispatch ({
+      type: 'add',
+      name: inputRef.current.value
+    })
   };
-
-  const addToSavedWords = (selection) => {
-    let nowwa = getAllSavedWords(allSavedWords, selection);
-    savedWords.current = nowwa;
-    console.log(savedWords.current);
-    setConstant(allSavedWords);
-  }
-
-  function getStringCopies(data) {
-    // const currentText = [];
-    // let i;
-    // for (i = 0; i < data.length; i+=1) {
-    //   let ion = data.args
-    //   let aya = ion.stringify()
-    //   // let aya = ion.args
-    //   if (aya[i] === searchText || aya[i] === selection) {
-    //     currentText.push(aya[i]);
-    //     console.log(aya[i]);
-    //   }
-    //   return currentText;
-
-      // data.forEach(a => {
-      //   if (a === searchText || a === loading) {
-      //     currentText.push(a);
-      //     console.log(a);
-      //   }
-      // })
-
-      // push(el);
-      // console.log(PREVIOUSWORDS.map(word => {
-      //   word.toString()
-      // }));
-    // }
-  }
 
   /*
    Define `loadSynonyms`, the asynchronous function to handle our API calls,
@@ -139,7 +123,7 @@ const Index = ( props, allSavedWords ) => {
 
   const loadSynonyms = async (searchText, selection) => {
     setLoading(true);
-    const res = await searchAssociations(searchText, selection);
+    const res = await searchThesaurus(searchText, selection);
     // setSynonyms(res.data.associations_array);
 
     // There is no value in res yet because of cancelConfig helper.
@@ -147,8 +131,7 @@ const Index = ( props, allSavedWords ) => {
 
     if (res && res.data) {
       setLoading(false);
-      setSynonyms(res.data.associations_array);
-      getStringCopies(res.data.associations);
+      setSynonyms(res.data[0].meta.syns[0]);
     }
   }
 
@@ -193,9 +176,7 @@ const Index = ( props, allSavedWords ) => {
 
         <Saves
           className={styles.mainSaves}
-          words={[].concat(new Array ([selection].concat(new Array (synonyms.filter(synonym =>
-            synonym === selection || synonym === searchText
-          )))) ) }
+          words={savedWords}
         />
 
 
@@ -205,6 +186,7 @@ const Index = ( props, allSavedWords ) => {
             synonyms={synonyms}
             selection={selection}
             onSelectionChange={onSelectionChange}
+            ref={inputRef}
         />
 
       </main>
@@ -225,44 +207,22 @@ const Index = ( props, allSavedWords ) => {
 
 export const getServerSideProps = async () => {
   const searchText = randomTerm();
-  const res = await searchAssociations(searchText);
+  // const resA = await searchAssociations(searchText);
+  const res = await searchThesaurus(searchText);
+  console.log(res)
   return {
     props: {
       searchText: searchText,
-      synonyms: res.data.associations_array,
-      saves: [],
+      synonyms: res.data[0].meta.syns[0],
+      thesaurus: {
+        id: res.data[0].meta['uuid'],
+        type: res.data[0].fl,
+        syns: res.data[0].meta.syns[0],
+        defs: res.data[0].shortdef,
+        complete: res.data[0].def[0].sseq[0]
+      }
     }
   };
 };
-
-export function getString(props) {
-  const currentText =
-  push(el);
-  console.log(PREVIOUSWORDS.map(word => {
-    word.toString()
-  }));
-}
-
-
-export function getAllSavedWords(previous, current) {
-  let allSavedWords = [];
-  let previousWords = [ ...PREVIOUSWORDS];
-  if (previousWords) {
-    allSavedWords.push(previous);
-  }
-  if (current) {
-    allSavedWords.concat(current)
-    return {
-      allSavedWords
-    }
-  }
-  console.log(allSavedWords)
-}
-
-export function setConstant(el) {
-  PREVIOUSWORDS.push(el);
-  console.log(PREVIOUSWORDS.map(word => {word.toString()}));
-}
-
 
 export default Index;
