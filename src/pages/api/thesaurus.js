@@ -3,18 +3,29 @@ import axios from 'axios'
 // DIRECT BROWSER URL
 // https://dictionaryapi.com/api/v3/references/thesaurus/json/test?key=c212ac04-42cc-42dd-91fa-635bef08991c
 
-// const reqKey = process.env.NEXT_PUBLIC_MW_THESAURUS_KEY;
+const reqKey = process.env.NEXT_PUBLIC_MW_THESAURUS_KEY;
 
 const axiosConfig = {
     baseURL: 'https://dictionaryapi.com/api/v3/references/thesaurus/json/',
+    // method: 'GET'
 };
 
 export default async (req, res) => {
-    const { q, k='c212ac04-42cc-42dd-91fa-635bef08991c' } = req.query;
+    // const { q, key='c212ac04-42cc-42dd-91fa-635bef08991c' } = req.query;
+    // const {
+    //     query: { q, key='c212ac04-42cc-42dd-91fa-635bef08991c' }
+    // } = req
+    const { q } = req.query
+    // const { q, reqKey } = req.query;
+    // const k = 'c212ac04-42cc-42dd-91fa-635bef08991c'
+
+    // const uri = 'https://dictionaryapi.com/api/v3/references/' + encodeURI('thesaurus') + '/json/' + encodeURI(req) + '?key=' + encodeURI(k);
 
     const response = await axios.get(
-        `${q}?key=${k}`,
-        axiosConfig
+        `https://dictionaryapi.com/api/v3/references/thesaurus/json/${q}?key=c212ac04-42cc-42dd-91fa-635bef08991c`,
+        // req,
+        // `thesaurus/json/${encodeURI(req)}?key=${encodeURI(k)}`,
+        // axiosConfig
     );
 
     res.json(response.data)

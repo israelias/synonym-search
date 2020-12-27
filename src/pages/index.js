@@ -61,7 +61,7 @@ const Index = ( props, allSavedWords ) => {
   const [loading, setLoading] = useState(false);
 
   const[savedWords, dispatch] = useReducer((state, action) => {
-    switch (action, type) {
+    switch (action.type) {
       case 'add':
         return [
             ...state,
@@ -70,6 +70,10 @@ const Index = ( props, allSavedWords ) => {
             name: action.name
           }
         ];
+      case 'remove':
+        return state.filter((_, index) => index !== action.index);
+      case 'clear':
+        return [];
       default:
         return state;
     }
@@ -102,11 +106,18 @@ const Index = ( props, allSavedWords ) => {
 
   const onSelectionChange = (selection) => {
     setSearchText(selection);
-    loadSynonyms(searchText, selection);
-    dispatch ({
-      type: 'add',
-      name: inputRef.current.value
-    })
+    if (typeof selection === 'string') {
+      loadSynonyms(selection);
+      dispatch({
+        type: 'add',
+        name: selection
+      })
+    }
+    // loadSynonyms(searchText, selection);
+    // dispatch ({
+    //   type: 'add',
+    //   name: selection
+    // })
   };
 
   /*
@@ -131,7 +142,7 @@ const Index = ( props, allSavedWords ) => {
 
     if (res && res.data) {
       setLoading(false);
-      setSynonyms(res.data[0].meta.syns[0]);
+      setSynonyms(res.data[0].meta.syns.flat());
     }
   }
 
@@ -178,6 +189,9 @@ const Index = ( props, allSavedWords ) => {
           className={styles.mainSaves}
           words={savedWords}
         />
+        <button onClick={() => dispatch({ type: 'clear' })}>
+          Clear
+        </button>
 
 
         <Results
@@ -186,6 +200,7 @@ const Index = ( props, allSavedWords ) => {
             synonyms={synonyms}
             selection={selection}
             onSelectionChange={onSelectionChange}
+            value={selection}
             ref={inputRef}
         />
 
@@ -210,10 +225,15 @@ export const getServerSideProps = async () => {
   // const resA = await searchAssociations(searchText);
   const res = await searchThesaurus(searchText);
   console.log(res)
+  const synonymArrays = res.data[0].meta.syns;
+  const numberOfDefs = synonymArrays.length;
+  const flattenedSynonymArrays = [].concat.apply([], synonymArrays);
   return {
     props: {
       searchText: searchText,
-      synonyms: res.data[0].meta.syns[0],
+      numberOfDefs: res.data[0].meta.syns[0].length,
+      synonyms: flattenedSynonymArrays,
+      // synonyms: res.data[0].meta.syns[0],
       thesaurus: {
         id: res.data[0].meta['uuid'],
         type: res.data[0].fl,

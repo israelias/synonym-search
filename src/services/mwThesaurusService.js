@@ -1,17 +1,23 @@
 import axios from 'axios'
 import { axiosGetCancellable } from "../helpers/axios.helper";
+import qs from 'query-string'
+import useSWR from 'swr'
 
 const reqKey = process.env.NEXT_PUBLIC_MW_THESAURUS_KEY;
 
 const axiosConfig = {
-    baseURL: 'https://dictionaryapi.com/api/v3/references/thesaurus/json/',
+    baseURL: 'https://dictionaryapi.com/api/v3/references/',
 };
 
 function searchThesaurus(searchText, selection) {
     const query = selection ? selection : searchText;
     const key = 'c212ac04-42cc-42dd-91fa-635bef08991c';
 
-    if (isServer()) {
+    // const fetcher = url => fetch(url).then(res => res.json());
+    // const { data, error } = useSWR("/api/thesaurus", fetcher);
+    return axios.get(`thesaurus/json/${query}?key=${key}`, axiosConfig)
+
+    // if (isServer()) {
         // const { word } = axios.get(`${query}?key=${key}`, axiosConfig)
         //     .then((response) => {
         //         word.id = response.data[0].meta.uuid;
@@ -20,10 +26,10 @@ function searchThesaurus(searchText, selection) {
         //         word.defs = response.data[0].shortdef;
         //         word.complete = response.data[0].def[0].sseq[0];
         // })
-        return axios.get(`${query}?key=${key}`, axiosConfig);
-    }
+        // return axios.get(`thesaurus/json/${query}?key=${key}`, axiosConfig);
+    // }
 
-    return axiosGetCancellable(`api/thesaurus/json/${query}?key=${key}`);
+    // return axiosGetCancellable(`/api/thesaurus/${query}?key=${key}`);
 
     // if (isServer()) {
     //     return axios.get(`${query}?key=${key}`, axiosConfig);
