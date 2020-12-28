@@ -1,0 +1,19 @@
+.collection {
+  position: relative;
+  overflow: hidden;
+}
+
+// target child when parent is hovered
+
+.collection:hover .overlay {
+  // -----------^
+  position: absolute;
+  opacity: .3;
+}
+
+//import styles from "./Home.module.css";
+//
+//<div className={`${styles.collection} card`}>
+//    <div id="overlay" className={styles.overlay}></div>
+//    // --------------------------------^
+//</div>

@@ -1,3 +1,5 @@
+@import '../scss/variables';
+
 .button {
   margin-bottom: 20px;
 }
@@ -24,7 +26,7 @@
 
 .synonymTerm {
 
-  min-height: calc(2em + $rib-space * 1);
+  min-height: calc(2em + #{$rib-space} * 1);
   border-top: thin solid black;
 
   display: flex;
