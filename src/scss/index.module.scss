@@ -13,9 +13,9 @@
   padding: 3rem 0;
   flex: 1;
   display: flex;
-  flex-direction: column;
+  //flex-direction: column;
   justify-content: center;
-  align-items: center;
+  //align-items: center;
 
   & > * {
     display: flex;
@@ -24,11 +24,11 @@
   }
 
   .mainResults {
-    margin-left: 40vw;
+    margin-left: auto;
   }
 
   .mainSaves {
-    margin-right: 40vw;
+    margin-right: auto;
     flex-direction: column;
   }
 }

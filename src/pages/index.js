@@ -113,11 +113,6 @@ const Index = ( props, allSavedWords ) => {
         name: selection
       })
     }
-    // loadSynonyms(searchText, selection);
-    // dispatch ({
-    //   type: 'add',
-    //   name: selection
-    // })
   };
 
   /*
@@ -145,6 +140,9 @@ const Index = ( props, allSavedWords ) => {
       setSynonyms(res.data[0].meta.syns.flat());
     }
   }
+
+  const onItemButtonClick = () =>
+      dispatch({type: 'remove', index});
 
   return (
     <div className={styles.container}>
@@ -187,12 +185,14 @@ const Index = ( props, allSavedWords ) => {
 
         <Saves
           className={styles.mainSaves}
-          words={savedWords}
-        />
-        <button onClick={() => dispatch({ type: 'clear' })}>
-          Clear
-        </button>
+          words={savedWords}>
+          <button
+              className="button is-small"
+              onClick={() => dispatch({type: 'clear'})}>
+            Clear
+          </button>
 
+        </Saves>
 
         <Results
             className={styles.mainResults}
