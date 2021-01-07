@@ -4,7 +4,6 @@ import Search from '../components/search'
 import Results from './../components/results'
 import Saves from './../components/saves'
 import { searchThesaurus } from '../services/mwThesaurusService'
-import { searchAssociations } from '../services/wordAssociationsService'
 import { randomTerm } from '../helpers/random.helper'
 import { useState, useEffect, useReducer, useRef, useCallback } from 'react'
 import { PREVIOUSWORDS } from '../constants/words.constant';
@@ -156,27 +155,12 @@ const Index = ( props, allSavedWords ) => {
           Welcome to <a href="https://nextjs.org">Synonym Chaser!</a>
         </h1>
 
+        <Search
+            className={styles.mainSearch}
+            searchText={searchText}
+            onSearchTextChange={onSearchTextChange}
+        />
 
-        <div id="tabs" className="tabs scaling-header tabs--visible">
-          <div className="tabs__items">
-            <ul delayed-unhide-root="tabs" className="tabs__items-inner scaling-header__inner">
-              <li data-index="0" className="tabs__item scaling-header__item"><a href="/typefaces/akkurat?tab=specimen"
-                                                                                className="nx-link-active tabs__button scaling-header__link">Stack</a>
-              </li>
-              <li data-index="1" className="tabs__item scaling-header__item tabs__item--active"><a
-                  href="/typefaces/akkurat?tab=about"
-                  className="nx-link-active-exact nx-link-active tabs__button scaling-header__link tabs__button--active"
-                  aria-current="page">Search</a></li>
-              <li>
-                <Search
-                    className={styles.mainSearch}
-                    searchText={searchText}
-                    onSearchTextChange={onSearchTextChange}
-                />
-              </li>
-            </ul>
-          </div>
-        </div>
 
       </header>
 

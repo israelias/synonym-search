@@ -1,16 +1,34 @@
 import React from 'react';
-import Button from './button'
+import { makeStyles } from '@material-ui/core/styles';
 import styles from "../../scss/radio-input.module.scss";
+import Avatar from '@material-ui/core/Avatar';
+import Chip from '@material-ui/core/Chip';
 
-const ListItem = ({ word, onClick, children }) => {
-    const value = word ? '-' : '';
+const useStyles = makeStyles((theme) => ({
+    chip: {
+        margin: theme.spacing(0.5),
+    },
+}));
+
+const ListItem = ({ word, value, onDelete, color, variant, size, children }) => {
+    const classes = useStyles();
+    const itemColor = color ? color : 'secondary';
+    const itemVariant = variant ? variant : 'default';
+    const itemSize = size ? size : 'medium';
 
     return (
-        <li className={styles.savedListItem}>
-            <span className={styles.synonymTerm}>
-                {word.name}
-            </span>
+        <li>
             {children}
+            <Chip
+                color={itemColor}
+                variant={itemVariant}
+                size={itemSize}
+                label={word.name}
+                onDelete={(e) => onDelete(e.target.value)}
+                avatar={<Avatar>{value}</Avatar>}
+                className={classes.chip}
+            />
+
         </li>
     );
 }
