@@ -20,17 +20,17 @@ export default function MyApp(props) {
     // Leverage user preference dynamically with useMediaQuery / prefers-color-scheme
     // to config auto dark mode.
 
-    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-
-    const theme = React.useMemo(
-        () =>
-            createMuiTheme({
-                palette: {
-                    type: prefersDarkMode ? 'dark' : 'light',
-                },
-            }),
-        [prefersDarkMode],
-    );
+    // const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+    //
+    // const theme = React.useMemo(
+    //     () =>
+    //         createMuiTheme({
+    //             palette: {
+    //                 type: prefersDarkMode ? 'dark' : 'light',
+    //             },
+    //         }),
+    //     [prefersDarkMode],
+    // );
 
     return (
         <React.Fragment>

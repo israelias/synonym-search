@@ -6,6 +6,22 @@ import Chip from '@material-ui/core/Chip';
 import ListItem from "./shared/list-item";
 import Button from "./shared/button";
 import style from '../scss/radio-input.module.scss'
+import useScrollTrigger from "@material-ui/core/useScrollTrigger";
+import Slide from "@material-ui/core/Slide";
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import theme from './../context/theme'
+import Timeline from '@material-ui/lab/Timeline';
+
+
+function ShowOnScroll({props, children}) {
+    const trigger = useScrollTrigger();
+    return (
+        <Slide appear={true} direction="right" in={!trigger}>
+            <div>{children}</div>
+        </Slide>
+    );
+}
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -50,7 +66,19 @@ const Saves = ({ words, onItemButtonClick, children }) => {
 
     return (
         <div>
-            <ul className={styles.synonymList}>
+            {/*<ShowOnScroll>*/}
+            {/*    <AppBar position="fixed" elevation={0} color='transparent'>*/}
+            {/*        <Toolbar>*/}
+            {/*            <Avatar variant='square' color='secondary'>SYN</Avatar>*/}
+            {/*        </Toolbar>*/}
+            {/*    </AppBar>*/}
+            {/*    <Toolbar />*/}
+            {/*</ShowOnScroll>*/}
+
+
+            {/*<ul className={styles.synonymList}>*/}
+                <Timeline align="alternate">
+                    {children}
                {words.map((word, index) => (
                     <ListItem
                         id={index}
@@ -60,10 +88,11 @@ const Saves = ({ words, onItemButtonClick, children }) => {
                         onDelete={handleDelete(word)}>
                     </ListItem>
                 ))}
-            </ul>
-            {children}
+            {/*</ul>*/}
+            </Timeline>
         </div>
     );
 }
 
 export default Saves;
+

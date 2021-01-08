@@ -1,21 +1,20 @@
 import React from 'react'
 import TextInput from "./shared/text-input";
-import styles from './../scss/search.module.scss'
+import Container from '@material-ui/core/Container'
 
 const Search = (props) => {
     const {searchText, onSearchTextChange} = props;
 
     return (
-        <div className={styles.search}>
+        <Container maxWidth='100%' >
             <TextInput
-                className={styles.searchInput}
                 label="Search a Term"
                 value={searchText}
                 placeholder={searchText}
                 helperText="any word..."
                 onChange={(value) => onSearchTextChange(value)}
             />
-        </div>
+        </Container>
     )
 };
 

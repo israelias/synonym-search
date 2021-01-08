@@ -45,6 +45,7 @@ const StyledTab = withStyles((theme) => ({
 
 const styles = {
     root: {
+        display: 'flex',
         padding: '0 30px',
 
     },
@@ -120,6 +121,6 @@ const ResultsContainer = (props) => {
             ))}
         </div>
     );
-};
+}
 
 export default ResultsContainer;

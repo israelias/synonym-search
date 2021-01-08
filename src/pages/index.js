@@ -8,6 +8,42 @@ import Saves from './../components/saves'
 import { searchThesaurus } from '../services/mwThesaurusService'
 import { randomTerm } from '../helpers/random.helper'
 import { useState, useEffect, useReducer, useRef, useCallback } from 'react'
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import Slide from '@material-ui/core/Slide';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Grow from '@material-ui/core/Grow'
+import Fade from '@material-ui/core/Grow'
+import Typography from '@material-ui/core/Typography';
+import { palette, spacing, typography, flexbox } from '@material-ui/system';
+import Avatar from "@material-ui/core/Avatar";
+
+function HideOnScroll({ props, children }) {
+  const trigger = useScrollTrigger();
+  return (
+      <Fade appear={true} direction="left" in={!trigger}>
+        <div>{children}</div>
+      </Fade>
+  );
+}
+
+function ShowOnScroll({props, children}) {
+  const trigger = useScrollTrigger();
+  return (
+      <Slide appear={true} direction="right" in={!trigger}>
+        <div>{children}</div>
+      </Slide>
+  );
+}
+
+const styles = {
+  header: {
+    marginLeft: '20vw',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'between'
+  }
+}
 
 const Index = ( props, allSavedWords ) => {
 
@@ -137,42 +173,49 @@ const Index = ( props, allSavedWords ) => {
     }
   }
 
-  const onItemButtonClick = () =>
-      dispatch({type: 'remove', index});
 
   return (
     <>
       <Grid container spacing={3}>
-        <Grid item xs={1} sm={3}
-        >
-          <Saves
-              words={savedWords}>
+
+        <Grid item component='aside' xs={2} display="flex" position='fixed'>
+          <ShowOnScroll>
+            <AppBar position="fixed" elevation={0} color='transparent'>
+              <Toolbar>
+                <Avatar variant='square' color='secondary'>SYN</Avatar>
+              </Toolbar>
+            </AppBar>
+            <Toolbar/>
+          </ShowOnScroll>
+          <Saves words={savedWords}>
             <button
                 className="button is-small"
                 onClick={() => dispatch({type: 'clear'})}>
               Clear
             </button>
-
           </Saves>
 
         </Grid>
 
+        <Grid item component='main' xs={10} spacing={3} marginLeft='20vw'>
+          <HideOnScroll>
+            <AppBar position="fixed" color='transparent' elevation={0}>
+              <Toolbar>
+                <Grid style={styles.header} item xs={12} spacing={3} marginLeft='20vw' display='flex'>
+                  {/*<Typography variant='h5' component='h1'>*/}
+                  {/*  <Avatar variant='square' color='primary'>SYN</Avatar>*/}
+                  {/*</Typography>*/}
 
+                  <Search
+                      searchText={searchText}
+                      onSearchTextChange={onSearchTextChange}
+                  />
+                </Grid>
 
-        <Grid item component='main' xs={12} sm={9} spacing={3}>
-          <header>
-            <h1>
-              Welcome to <a href="https://nextjs.org">Synonym Chaser!</a>
-            </h1>
-
-            <Search
-                searchText={searchText}
-                onSearchTextChange={onSearchTextChange}
-            />
-
-
-          </header>
-
+              </Toolbar>
+            </AppBar>
+            <Toolbar />
+          </HideOnScroll>
 
           <ResultsContainer
               loading={loading}
