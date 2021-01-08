@@ -1,5 +1,8 @@
 import Head from 'next/head'
-import styles from '../scss/index.module.scss'
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid'
+import Box from '@material-ui/core/Box'
+// import styles from '../scss/index.module.scss'
 import Search from '../components/search'
 import Results from './../components/results'
 import Saves from './../components/saves'
@@ -144,63 +147,74 @@ const Index = ( props, allSavedWords ) => {
       dispatch({type: 'remove', index});
 
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Synonym Chaser</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className={styles.bodyHeader}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Synonym Chaser!</a>
-        </h1>
-
-        <Search
-            className={styles.mainSearch}
-            searchText={searchText}
-            onSearchTextChange={onSearchTextChange}
-        />
-
-
-      </header>
-
-      <main className={styles.main}>
-
-
-        <Saves
-          className={styles.mainSaves}
-          words={savedWords}>
-          <button
-              className="button is-small"
-              onClick={() => dispatch({type: 'clear'})}>
-            Clear
-          </button>
-
-        </Saves>
-
-        <Results
-            className={styles.mainResults}
-            loading={loading}
-            synonyms={synonyms}
-            selection={selection}
-            onSelectionChange={onSelectionChange}
-            value={selection}
-            ref={inputRef}
-        />
-
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      <Grid container spacing={3}>
+        <Grid item xs={1} sm={3}
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+          <Saves
+              words={savedWords}>
+            <button
+                className="button is-small"
+                onClick={() => dispatch({type: 'clear'})}>
+              Clear
+            </button>
+
+          </Saves>
+
+        </Grid>
+
+        // var(--main-padding-top) var(--main-padding-right) var(--main-padding-bottom) var(--main-padding-left)
+
+
+        // padding: calc(8rem - 1.6rem);
+        // padding-top: 0.8rem;
+        // padding-right: 1.6rem;
+        // padding-bottom: 1.2rem;
+        // font-size: 14px;
+
+        // on mobile .8rem padding all around
+
+
+
+        <Grid item component='main' xs={12} sm={9} spacing={3}>
+          <header>
+            <h1>
+              Welcome to <a href="https://nextjs.org">Synonym Chaser!</a>
+            </h1>
+
+            <Search
+                searchText={searchText}
+                onSearchTextChange={onSearchTextChange}
+            />
+
+
+          </header>
+
+
+          <Results
+              loading={loading}
+              synonyms={synonyms}
+              selection={selection}
+              onSelectionChange={onSelectionChange}
+              value={selection}
+              ref={inputRef}
+          />
+
+          <footer>
+            Footer
+          </footer>
+
+
+        </Grid>
+
+      </Grid>
+
+    </>
   )
 }
 
