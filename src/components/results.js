@@ -2,7 +2,6 @@ import React from "react";
 import RadioInput from "./shared/radio-input"
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography'
-import styles from './../scss/synonym-list.module.scss';
 
 const reStyles = {
     root: {
@@ -108,7 +107,6 @@ const Results = ({result, onSelectionChange, className}) => {
                         </Typography>
 
                         <RadioInput
-                            className={styles.synonymSelect}
                             options={sense[1]}
                             definition={sense[0]}
                             onChange={(value) => onSelectionChange(value)}

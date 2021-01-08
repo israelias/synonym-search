@@ -12,6 +12,10 @@ import TimelineContent from '@material-ui/lab/TimelineContent';
 import TimelineDot from '@material-ui/lab/TimelineDot';
 import TimelineOppositeContent from '@material-ui/lab/TimelineOppositeContent';
 import Typography from '@material-ui/core/Typography';
+import timestamp from 'time-stamp'
+import Moment from 'react-moment';
+import moment from 'moment/min/moment-with-locales';
+
 
 const useStyles = makeStyles((theme) => ({
     chip: {
@@ -24,6 +28,8 @@ const ListItem = ({ word, value, onDelete, color, variant, size, children }) => 
     const itemColor = color ? color : 'secondary';
     const itemVariant = variant ? variant : 'outlined';
     const itemSize = size ? size : 'medium';
+    const dateToFormat = timestamp.utc('HH:mm')
+    Moment.globalMoment = moment;
 
     return (
         <li>
@@ -31,11 +37,15 @@ const ListItem = ({ word, value, onDelete, color, variant, size, children }) => 
 
             <TimelineItem>
                 <TimelineOppositeContent>
-                    <Typography color="textSecondary">09:30 am</Typography>
+                    <Typography color="textSecondary" variant="caption" size="small">{
+
+                        <Moment>{Date.parse(new Date())}</Moment>
+                    }
+                    }</Typography>
                 </TimelineOppositeContent>
                 <TimelineSeparator>
-                    <TimelineDot/>
-                    <TimelineConnector/>
+                    <TimelineDot variant="outlined" />
+                    <TimelineConnector color="secondary"/>
                 </TimelineSeparator>
                 <TimelineContent>
             <Chip

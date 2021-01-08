@@ -1,11 +1,9 @@
 import React, { useReducer } from 'react';
-import styles from "../scss/synonym-list.module.scss";
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Chip from '@material-ui/core/Chip';
 import ListItem from "./shared/list-item";
 import Button from "./shared/button";
-import style from '../scss/radio-input.module.scss'
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Slide from "@material-ui/core/Slide";
 import AppBar from '@material-ui/core/AppBar';
@@ -32,6 +30,9 @@ const useStyles = makeStyles((theme) => ({
             margin: theme.spacing(0.5),
         },
     },
+    list: {
+        listStyle: 'none',
+    }
 }));
 
 const Saves = ({ words, onItemButtonClick, children }) => {
@@ -59,7 +60,7 @@ const Saves = ({ words, onItemButtonClick, children }) => {
     if (!words || words.length === 0) {
         return (
             <div>
-                <span className={styles.message}>Everything you select will save here.</span>
+                <span>Everything you select will save here.</span>
             </div>
         )
     }
@@ -77,7 +78,7 @@ const Saves = ({ words, onItemButtonClick, children }) => {
 
 
             {/*<ul className={styles.synonymList}>*/}
-                <Timeline align="alternate">
+                <Timeline align="alternate" className={classes.list} >
                     {children}
                {words.map((word, index) => (
                     <ListItem

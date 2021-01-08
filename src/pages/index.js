@@ -37,11 +37,20 @@ function ShowOnScroll({props, children}) {
 }
 
 const styles = {
+  aside: {
+    position: 'fixed',
+  },
+  main: {
+    position: '',
+    marginLeft: '33vw',
+    flexWrap: 'wrap',
+    width: '100%'
+  },
   header: {
     marginLeft: '20vw',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'between'
+    justifyContent: 'between',
   }
 }
 
@@ -178,7 +187,7 @@ const Index = ( props, allSavedWords ) => {
     <>
       <Grid container spacing={3}>
 
-        <Grid item component='aside' xs={2} display="flex" position='fixed'>
+        <Grid item component='aside' style={styles.aside} xs={2} display="flex" position='fixed'>
           <ShowOnScroll>
             <AppBar position="fixed" elevation={0} color='transparent'>
               <Toolbar>
@@ -197,7 +206,7 @@ const Index = ( props, allSavedWords ) => {
 
         </Grid>
 
-        <Grid item component='main' xs={10} spacing={3} marginLeft='20vw'>
+        <Grid item component='main' style={styles.main} xs={10} spacing={3} marginLeft='20vw'>
           <HideOnScroll>
             <AppBar position="fixed" color='transparent' elevation={0}>
               <Toolbar>

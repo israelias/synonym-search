@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Results from "./results"
-// import styles from './../scss/synonym-list.module.scss';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import MenuItem from '@material-ui/core/MenuItem';
