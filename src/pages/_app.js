@@ -20,23 +20,24 @@ export default function MyApp(props) {
     // Leverage user preference dynamically with useMediaQuery / prefers-color-scheme
     // to config auto dark mode.
 
-    // const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-    //
-    // const theme = React.useMemo(
-    //     () =>
-    //         createMuiTheme({
-    //             palette: {
-    //                 type: prefersDarkMode ? 'dark' : 'light',
-    //             },
-    //         }),
-    //     [prefersDarkMode],
-    // );
+    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+
+    const theme = React.useMemo(
+        () =>
+            createMuiTheme({
+                palette: {
+                    type: prefersDarkMode ? 'dark' : 'light',
+                },
+            }),
+        [prefersDarkMode],
+    );
 
     return (
         <React.Fragment>
             <Head>
                 <title>Synonym Chaser</title>
                 <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/>
+                <link rel="icon" href="/favicon.ico"/>
             </Head>
             <ThemeProvider theme={theme}>
                 {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}

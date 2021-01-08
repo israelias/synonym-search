@@ -1,5 +1,4 @@
 import React from 'react'
-// import styles from '../../scss/radio-input.module.scss'
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -98,9 +97,8 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-const RadioInput = ({ value, onChange, options, className }) => {
+const RadioInput = ({ onChange, options, definition }) => {
     const classes = useStyles();
-    const radioInputClass = className ? `${className} field` : 'field';
 
     return (
         <div>
@@ -114,20 +112,6 @@ const RadioInput = ({ value, onChange, options, className }) => {
                             <Typography style={styles.text}>
                                 {option}
                             </Typography>
-                            {/*<TextField*/}
-                            {/*    component='div'*/}
-                            {/*    id="standard-full-width"*/}
-                            {/*    label="Label"*/}
-                            {/*    style={{margin: 8}}*/}
-                            {/*    placeholder="Placeholder"*/}
-                            {/*    helperText="Full width!"*/}
-                            {/*    fullWidth*/}
-                            {/*    margin="normal"*/}
-                            {/*    InputLabelProps={{*/}
-                            {/*        shrink: true,*/}
-                            {/*    }}*/}
-                            {/*    variant="outlined"*/}
-                            {/*/>*/}
                         </Box>
                         <input
                             // className="radio is-primary"
@@ -135,7 +119,7 @@ const RadioInput = ({ value, onChange, options, className }) => {
                             type="radio"
                             id={option}
                             value={option}
-                            name="Radio Options"
+                            name={definition}
                             checked={false}
                             onChange={(e) => onChange(e.target.value)}
                         />
