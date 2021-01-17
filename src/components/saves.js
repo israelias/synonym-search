@@ -37,16 +37,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Saves = ({ words, onItemButtonClick, children }) => {
     const classes = useStyles();
-    // const [words, dispatch] = useReducer((state, action) => {
-    //     switch (action.type) {
-    //         case 'remove':
-    //             return state.filter((_, index) => index !== action.index);
-    //         case 'clear':
-    //             return [];
-    //         default:
-    //             return state;
-    //     }
-    // }, []);
 
     const handleDelete = () => {
         console.info('You clicked the delete icon.');
@@ -67,18 +57,7 @@ const Saves = ({ words, onItemButtonClick, children }) => {
 
     return (
         <div>
-            {/*<ShowOnScroll>*/}
-            {/*    <AppBar position="fixed" elevation={0} color='transparent'>*/}
-            {/*        <Toolbar>*/}
-            {/*            <Avatar variant='square' color='secondary'>SYN</Avatar>*/}
-            {/*        </Toolbar>*/}
-            {/*    </AppBar>*/}
-            {/*    <Toolbar />*/}
-            {/*</ShowOnScroll>*/}
-
-
-            {/*<ul className={styles.synonymList}>*/}
-                <Timeline align="alternate" className={classes.list} >
+             <Timeline align="alternate" className={classes.list} >
                     {children}
                {words.map((word, index) => (
                     <ListItem
@@ -89,7 +68,6 @@ const Saves = ({ words, onItemButtonClick, children }) => {
                         onDelete={handleDelete(word)}>
                     </ListItem>
                 ))}
-            {/*</ul>*/}
             </Timeline>
         </div>
     );
