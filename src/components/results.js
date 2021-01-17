@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography'
 const reStyles = {
     root: {
         position: 'relative',
-        // padding: '0 30px',
     },
     senseBox: {
         display: 'flex',
@@ -23,7 +22,6 @@ const reStyles = {
         borderLeftStyle: 'solid',
         flex: '1',
         padding: '0 1rem 0 1rem',
-        // position: 'relative'
     },
     senseIndex: {
         position: 'absolute',
@@ -50,19 +48,7 @@ const reStyles = {
         color: '#000',
         transition: '.3 ease .3'
     },
-    labelSpan: {
-        // writingMode: 'vertical-lr',
-    }
 };
-//height: 100%;
-//     overflow: hidden;
-//     text-overflow: ellipsis;
-//     -webkit-text-orientation: mixed;
-//     text-orientation: mixed;
-//     -ms-writing-mode: tb-lr;
-//     writing-mode: vertical-lr;
-//     transform-origin: 0;
-//     transform: rotate(180deg);
 
 const Results = ({result, onSelectionChange, className}) => {
     const resultsClass = className ? className : '';
@@ -82,16 +68,6 @@ const Results = ({result, onSelectionChange, className}) => {
             }, {}
         )
     )
-
-    // const senses = synonymSet.reduce(function (senses, field, index) {
-    //     senses[definitionSet[index]] = field;
-    //     return senses;
-    // }, {})
-
-    // Object.entries(syns.reduce(function (thisList, field, index) {
-    //     thisList[defs[index]] = field;
-    //     return thisList;
-    // }, {}))
 
 
     return (

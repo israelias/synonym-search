@@ -6,7 +6,7 @@ const Search = (props) => {
     const {searchText, onSearchTextChange} = props;
 
     return (
-        <Container maxWidth='100%' >
+        <Container>
             <TextInput
                 label="Search a Term"
                 value={searchText}

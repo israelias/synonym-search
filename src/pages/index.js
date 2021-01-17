@@ -1,9 +1,7 @@
 import React from 'react'
-import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid'
-import Box from '@material-ui/core/Box'
 import Search from '../components/search'
-import ResultsContainer from './../components/resultsContainer'
+import ResultsContainer from './../components/ResultsContainer'
 import Saves from './../components/saves'
 import { searchThesaurus } from '../services/mwThesaurusService'
 import { randomTerm } from '../helpers/random.helper'
@@ -12,10 +10,7 @@ import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Grow from '@material-ui/core/Grow'
 import Fade from '@material-ui/core/Grow'
-import Typography from '@material-ui/core/Typography';
-import { palette, spacing, typography, flexbox } from '@material-ui/system';
 import Avatar from "@material-ui/core/Avatar";
 
 function HideOnScroll({ props, children }) {
@@ -54,7 +49,7 @@ const styles = {
   }
 }
 
-const Index = ( props, allSavedWords ) => {
+const Index = ( props ) => {
 
   /*
     Add local states to state variables via useState Hooks, which adds
@@ -206,14 +201,11 @@ const Index = ( props, allSavedWords ) => {
 
         </Grid>
 
-        <Grid item component='main' style={styles.main} xs={10} spacing={3} marginLeft='20vw'>
+        <Grid item component='main' style={styles.main} xs={10} >
           <HideOnScroll>
             <AppBar position="fixed" color='transparent' elevation={0}>
               <Toolbar>
-                <Grid style={styles.header} item xs={12} spacing={3} marginLeft='20vw' display='flex'>
-                  {/*<Typography variant='h5' component='h1'>*/}
-                  {/*  <Avatar variant='square' color='primary'>SYN</Avatar>*/}
-                  {/*</Typography>*/}
+                <Grid style={styles.header} item xs={12} display='flex'>
 
                   <Search
                       searchText={searchText}
@@ -231,7 +223,6 @@ const Index = ( props, allSavedWords ) => {
               results={results}
               selection={selection}
               onSelectionChange={onSelectionChange}
-              // value={selection}
           />
 
           <footer>
@@ -247,7 +238,7 @@ const Index = ( props, allSavedWords ) => {
   )
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   // const searchText = randomTerm();
   const searchText = 'about'
   const res = await searchThesaurus(searchText);

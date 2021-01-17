@@ -62,21 +62,21 @@ MyDocument.getInitialProps = async (ctx) => {
 
     // @ THIS WAS PRODUCING A BUILD ERROR
 
-    // return {
-    //     ...initialProps,
-    //     // Styles fragment is rendered after the app and page rendering finish.
-    //     styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],
-    // };
+    return {
+        ...initialProps,
+        // Styles fragment is rendered after the app and page rendering finish.
+        styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],
+    };
 
     // @ THIS FIXED THE EXPORT
 
-    if (Object.keys(initialProps).length > 0) {
-        // return pageProps only when its present
-        return {
-            ...initialProps,
-            // Styles fragment is rendered after the app and page rendering finish.
-            styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],};
-
-    }
-    return {};
+    // if (Object.keys(initialProps).length > 0) {
+    //     // return pageProps only when its present
+    //     return {
+    //         ...initialProps,
+    //         // Styles fragment is rendered after the app and page rendering finish.
+    //         styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],};
+    //
+    // }
+    // return {};
 };

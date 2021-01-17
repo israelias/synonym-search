@@ -2,7 +2,6 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import TextField from '@material-ui/core/TextField';
 
 const styles = {
     box: {
@@ -11,13 +10,11 @@ const styles = {
         width: '100%',
         display: 'flex',
         alignItems: 'stretch',
-        // 768 up its not column
         flexDirection: 'column',
         flex: '1',
         paddingLeft: '2px',
         boxSizing: 'border-box',
 
-        // parent level box
         maxWidth: 'max-width: calc(50% - 5px)',
 
     },
@@ -45,14 +42,8 @@ const styles = {
         borderBottom: '1px solid',
         paddingLeft: 0,
         paddingRight: 0,
-
-        //md up for MAIN.
         fontSize: '16px',
         lineHeight: 1.2435,
-
-        //mobile
-        // fontSize: '18px',
-        // lineHeight: 1.2395,
     },
     input: {
         visibility: 'hidden',
@@ -71,20 +62,8 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         flex: '1',
         paddingLeft: '2px',
-
-        // 600px up (should be 768)
-        // [theme.breakpoints.up('sm')]: {
-        //     fontSize: '13px'
-        //     // fontSize: theme.palette.primary.main,
-        // },
-
-        // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-        // border: 0,
-        // borderRadius: 3,
         boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-        // color: 'white',
-        // height: 48,
-        // padding: '0 30px',
+
     },
     text: {
         whitespace: 'nowrap',
@@ -98,13 +77,12 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const RadioInput = ({ onChange, options, definition }) => {
-    const classes = useStyles();
 
     return (
         <div>
             <div >
                 {options.map((option) => (
-                    <>
+                    <div key={`option-${definition}-${option}`}>
                         <Box component='label'
                              style={styles.box}
                              width={1} borderBottom={1}
@@ -114,7 +92,6 @@ const RadioInput = ({ onChange, options, definition }) => {
                             </Typography>
                         </Box>
                         <input
-                            // className="radio is-primary"
                             style={styles.input}
                             type="radio"
                             id={option}
@@ -123,7 +100,7 @@ const RadioInput = ({ onChange, options, definition }) => {
                             checked={false}
                             onChange={(e) => onChange(e.target.value)}
                         />
-                    </>
+                    </div>
                 ))}
             </div>
 
