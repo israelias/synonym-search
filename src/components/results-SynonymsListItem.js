@@ -1,26 +1,12 @@
 import React, {useContext, useState} from 'react'
 import {makeStyles} from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import TextField from '@material-ui/core/TextField';
 import ListItem from '@material-ui/core/ListItem'
-import Display from "./SubString";
-import ListSubheader from "@material-ui/core/ListSubheader";
-import List from '@material-ui/core/List'
-// import {WordProvider, WordContext} from './word.context'
-import ListItemText from '@material-ui/core/ListItemText';
-import {useHistory, useDispatchHistory} from "./word.context";
-import {HistoryStateContext, HistoryDispatchContext} from './word.context'
-import WordBadge from './list-badge'
-import Badge from '@material-ui/core/Badge';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ItemContent from './../shared/list-item-content'
-
+import {useHistory, useDispatchHistory} from "../context/words.context";
+import ItemContent from './../components/results-ItemFeature'
 
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',
-        // flexDirection: 'column',
     },
     wordBox: {
         position: 'relative',
@@ -105,7 +91,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-const ListButton = ({
+const ListItemButton = ({
                         onChange,
                         options,
                         definition,
@@ -153,4 +139,4 @@ const ListButton = ({
     );
 };
 
-export default ListButton;
+export default ListItemButton;
