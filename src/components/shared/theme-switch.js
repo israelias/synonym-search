@@ -1,11 +1,6 @@
-// import {useDispatchTheme} from '../../context/theme.conext'
-import Link from "next/link";
+import { useDispatchTheme} from '../../context/theme.context'
 import Fab from '@material-ui/core/Fab';
-import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
-import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 import {makeStyles} from '@material-ui/core/styles'
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
 import Checkbox from '@material-ui/core/Checkbox';
 import React from "react";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
@@ -21,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ToggleTheme = () => {
     const classes = useStyles()
-    // const themeDispatch = useDispatchTheme()
+    const themeDispatch = useDispatchTheme()
     const trigger = useScrollTrigger();
 
     return (
@@ -32,10 +27,9 @@ const ToggleTheme = () => {
                 color="secondary"
                 aria-label="switch"
                 className={classes.fab}
-                // checked={themeDispatch.darkMode}
-                // onChange={() => themeDispatch.setDarkMode(!themeDispatch.darkMode)}
+                checked={themeDispatch.darkMode}
+                onChange={() => themeDispatch.setDarkMode(!themeDispatch.darkMode)}
             >
-                {/*<RadioButtonUncheckedIcon/>*/}
 
             </Fab>
         </Slide>

@@ -7,7 +7,7 @@ import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Slide from "@material-ui/core/Slide";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import theme from './../context/theme'
+import theme from '../context/theme.context'
 import Timeline from '@material-ui/lab/Timeline';
 // import View from "./../components/view"
 

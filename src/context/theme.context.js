@@ -1,10 +1,16 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import React, {createContext, useState, useContext, useReducer} from "react";
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import grey from '@material-ui/core/colors/grey';
 import yellow from '@material-ui/core/colors/yellow';
 import red from '@material-ui/core/colors/red';
+import lightblue from "@material-ui/core/colors/lightBlue";
+import deeporange from "@material-ui/core/colors/deepOrange";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
+export const ThemeDispatchContext = createContext()
+export const ThemeStateContext = ThemeProvider
 // Create a theme instance.
-const theme = createMuiTheme({
+export const theme = createMuiTheme({
     palette: {
         primary: {
             // light: '#757ce8',
@@ -49,7 +55,30 @@ const theme = createMuiTheme({
     },
 });
 
-export default theme;
+export const ThemeContextProvider = ({children}) => {
+    const [darkMode, setDarkMode] = useState(false)
+    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+
+
+    const darkTheme = createMuiTheme({
+        palette: {
+            type: 'dark'
+        }
+    })
+
+    const lightTheme = createMuiTheme({})
+
+    return (
+        <ThemeDispatchContext.Provider value={{darkMode, setDarkMode}}>
+            <ThemeStateContext theme={darkMode ? darkTheme : lightTheme}>
+                {children}
+            </ThemeStateContext>
+        </ThemeDispatchContext.Provider>
+    )
+}
+
+// export const useTheme = () => useContext(ThemeStateContext)
+export const useDispatchTheme = () => useContext(ThemeDispatchContext)
 
 // breakpoints: Object
 // direction: "ltr"
