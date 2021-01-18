@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { axiosGetCancellable } from "../helpers/axios.helper";
 import qs from 'query-string'
-import useSWR from 'swr'
 
 const reqKey = process.env.NEXT_PUBLIC_MW_THESAURUS_KEY;
 

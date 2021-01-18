@@ -12,6 +12,11 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Fade from '@material-ui/core/Grow'
 import Avatar from "@material-ui/core/Avatar";
+// import axios from "axios";
+import Link from "next/link";
+import Fab from "@material-ui/core/Fab";
+import Layout from "./../components/layout"
+// import View from "./../components/view"
 
 function HideOnScroll({ props, children }) {
   const trigger = useScrollTrigger();
@@ -179,66 +184,21 @@ const Index = ( props ) => {
 
 
   return (
-    <>
-      <Grid container spacing={3}>
-
-        <Grid item component='aside' style={styles.aside} xs={2} display="flex" position='fixed'>
-          <ShowOnScroll>
-            <AppBar position="fixed" elevation={0} color='transparent'>
-              <Toolbar>
-                <Avatar variant='square' color='secondary'>SYN</Avatar>
-              </Toolbar>
-            </AppBar>
-            <Toolbar/>
-          </ShowOnScroll>
-          <Saves words={savedWords}>
-            <button
-                className="button is-small"
-                onClick={() => dispatch({type: 'clear'})}>
-              Clear
-            </button>
-          </Saves>
-
-        </Grid>
-
-        <Grid item component='main' style={styles.main} xs={10} >
-          <HideOnScroll>
-            <AppBar position="fixed" color='transparent' elevation={0}>
-              <Toolbar>
-                <Grid style={styles.header} item xs={12} display='flex'>
-
-                  <Search
-                      searchText={searchText}
-                      onSearchTextChange={onSearchTextChange}
-                  />
-                </Grid>
-
-              </Toolbar>
-            </AppBar>
-            <Toolbar />
-          </HideOnScroll>
-
+      <>
+    <Layout search>
           <ResultsContainer
               loading={loading}
               results={results}
               selection={selection}
               onSelectionChange={onSelectionChange}
           />
-
-          <footer>
-            Footer
-          </footer>
-
-
-        </Grid>
-
-      </Grid>
-
-    </>
+    </Layout>
+      </>
   )
 }
 
 export const getStaticProps = async () => {
+  // const newWord = axios.get('https://api.wordnik.com/v4/words.json/randomWord?hasDictionaryDef=true&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&api_key=YOURAPIKEY')
   // const searchText = randomTerm();
   const searchText = 'about'
   const res = await searchThesaurus(searchText);

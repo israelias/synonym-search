@@ -3,13 +3,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Chip from '@material-ui/core/Chip';
 import ListItem from "./shared/list-item";
-import Button from "./shared/button";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Slide from "@material-ui/core/Slide";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import theme from './../context/theme'
 import Timeline from '@material-ui/lab/Timeline';
+// import View from "./../components/view"
 
 
 function ShowOnScroll({props, children}) {
