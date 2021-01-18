@@ -23,6 +23,8 @@ import Tabs from "@material-ui/core/Tabs";
 import SwipeableViews from "react-swipeable-views"
 // import View from "./../components/view"
 import Saves from "./saves";
+import { useDispatchHistory} from "../context/words.context";
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -126,31 +128,6 @@ function BottomOnScroll({props, children}) {
 //     },
 // }));
 
-// function TabPanel(props) {
-//     const {children, value, index, ...other} = props;
-//
-//     return (
-//         <div
-//             role="tabpanel"
-//             hidden={value !== index}
-//             id={`simple-tabpanel-${index}`}
-//             aria-labelledby={`simple-tab-${index}`}
-//             {...other}
-//         >
-//             {value === index && (
-//                 <Box p={3}>
-//                     <Typography>{children}</Typography>
-//                 </Box>
-//             )}
-//         </div>
-//     );
-// }
-//
-// TabPanel.propTypes = {
-//     children: PropTypes.node,
-//     index: PropTypes.any.isRequired,
-//     value: PropTypes.any.isRequired,
-// };
 
 function a11yProps(index) {
     return {
@@ -199,6 +176,7 @@ const Layout = ({ children, search, history }) => {
     const classes = useStyles();
     const theme = useTheme();
     const [value, setValue] = useState(0);
+    const wordsDispatch = useDispatchHistory()
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -323,7 +301,7 @@ const Layout = ({ children, search, history }) => {
                             <Saves>
                                 <button
                                     className="button is-small"
-                                    onClick={() => dispatch({type: 'clear'})}>
+                                    onClick={() => wordsDispatch({type: 'clear'})}>
                                     Clear
                                 </button>
                             </Saves>

@@ -1,25 +1,15 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Chip from '@material-ui/core/Chip';
-import ListItem from "./shared/list-item";
+import SavedListElement from "./shared/saved-list-element";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Slide from "@material-ui/core/Slide";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import theme from '../context/theme.context'
 import Timeline from '@material-ui/lab/Timeline';
-// import View from "./../components/view"
-
-
-function ShowOnScroll({props, children}) {
-    const trigger = useScrollTrigger();
-    return (
-        <Slide appear={true} direction="right" in={!trigger}>
-            <div>{children}</div>
-        </Slide>
-    );
-}
+import { useHistory, HistoryStateContext } from '../context/words.context'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -35,19 +25,19 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const Saves = ({ words, onItemButtonClick, children }) => {
+const Saves = ({ onItemButtonClick, children }) => {
     const classes = useStyles();
+    const wordsState = useContext(HistoryStateContext)
 
     const handleDelete = () => {
         console.info('You clicked the delete icon.');
     };
 
     function deleteListItem(word) {
-        // words.filter(item => item !== word);
-        words.filter((_, index) => index !== word.id)
+        wordsState.filter((_, index) => index !== word.id)
     }
 
-    if (!words || words.length === 0) {
+    if (!wordsState || wordsState.length === 0) {
         return (
             <div>
                 <span>Everything you select will save here.</span>
@@ -57,16 +47,16 @@ const Saves = ({ words, onItemButtonClick, children }) => {
 
     return (
         <div>
+            {children}
              <Timeline align="alternate" className={classes.list} >
-                    {children}
-               {words.map((word, index) => (
-                    <ListItem
+               {wordsState.map((word, index) => (
+                    <SavedListElement
                         id={index}
                         key={word.id}
                         word={word}
                         value="1"
                         onDelete={handleDelete(word)}>
-                    </ListItem>
+                    </SavedListElement>
                 ))}
             </Timeline>
         </div>

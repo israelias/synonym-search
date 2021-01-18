@@ -1,4 +1,3 @@
-import WORDS from './../constants/words.constant'
 
 function randomTerm() {
     const words = ['capable', 'enduring', 'about', 'uninterruptedly', 'understanding', 'information'];

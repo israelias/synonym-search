@@ -101,25 +101,6 @@ const Index = ( props ) => {
 
   const [loading, setLoading] = useState(false);
 
-  const[savedWords, dispatch] = useReducer((state, action) => {
-    switch (action.type) {
-      case 'add':
-        return [
-            ...state,
-          {
-            id: state.length,
-            name: action.name
-          }
-        ];
-      case 'remove':
-        return state.filter((_, index) => index !== action.index);
-      case 'clear':
-        return [];
-      default:
-        return state;
-    }
-  },[]);
-
   /*
     Define `onSearchTextChange`, the Search component's onChange event handler,
     to accept any text argument.
@@ -150,10 +131,6 @@ const Index = ( props ) => {
     setSelection(selection);
     if (typeof selection === 'string') {
       loadSynonyms(selection);
-      dispatch({
-        type: 'add',
-        name: selection
-      })
     }
   };
 
@@ -186,12 +163,16 @@ const Index = ( props ) => {
   return (
       <>
     <Layout search>
-          <ResultsContainer
-              loading={loading}
-              results={results}
-              selection={selection}
-              onSelectionChange={onSelectionChange}
-          />
+      <Search
+          searchText={searchText}
+          onSearchTextChange={onSearchTextChange}
+      />
+      <ResultsContainer
+          loading={loading}
+          results={results}
+          selection={selection}
+          onSelectionChange={onSelectionChange}
+      />
     </Layout>
       </>
   )

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const ListItem = ({ word, value, onDelete, color, variant, size, children }) => {
+const SavedListElement = ({ word, value, onDelete, color, variant, size, children }) => {
     const classes = useStyles();
     const itemColor = color ? color : 'secondary';
     const itemVariant = variant ? variant : 'outlined';
@@ -45,7 +45,7 @@ const ListItem = ({ word, value, onDelete, color, variant, size, children }) => 
                 size={itemSize}
                 label={word.name}
                 onDelete={(e) => onDelete(e.target.value)}
-                avatar={<Avatar>{value}</Avatar>}
+                avatar={<Avatar>{word.value > 1 && word.value}</Avatar>}
                 className={classes.chip}
             />
                     </TimelineContent>
@@ -55,4 +55,4 @@ const ListItem = ({ word, value, onDelete, color, variant, size, children }) => 
     );
 }
 
-export default ListItem;
+export default SavedListElement;
