@@ -1,4 +1,4 @@
-import React, {createContext, useState, useContext, useReducer} from "react";
+import React, {createContext, useState, useContext, useReducer, useMemo} from "react";
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import grey from '@material-ui/core/colors/grey';
 import yellow from '@material-ui/core/colors/yellow';
@@ -67,6 +67,14 @@ export const ThemeContextProvider = ({children}) => {
     })
 
     const lightTheme = createMuiTheme({})
+
+    useMemo(
+        () =>
+            prefersDarkMode ?
+                setDarkMode(true)
+                : setDarkMode(false),
+        [prefersDarkMode],
+    );
 
     return (
         <ThemeDispatchContext.Provider value={{darkMode, setDarkMode}}>

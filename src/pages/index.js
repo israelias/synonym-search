@@ -1,40 +1,10 @@
 import React from 'react'
-import Grid from '@material-ui/core/Grid'
 import Search from '../components/search'
-import ResultsContainer from './../components/ResultsContainer'
-import Saves from './../components/saves'
+import ResultsHeadList from '../components/results-headList'
 import { searchThesaurus } from '../services/mwThesaurusService'
 import { randomTerm } from '../helpers/random.helper'
 import { useState, useEffect, useReducer, useRef, useCallback } from 'react'
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import Slide from '@material-ui/core/Slide';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Fade from '@material-ui/core/Grow'
-import Avatar from "@material-ui/core/Avatar";
-// import axios from "axios";
-import Link from "next/link";
-import Fab from "@material-ui/core/Fab";
 import Layout from "./../components/layout"
-// import View from "./../components/view"
-
-function HideOnScroll({ props, children }) {
-  const trigger = useScrollTrigger();
-  return (
-      <Fade appear={true} direction="left" in={!trigger}>
-        <div>{children}</div>
-      </Fade>
-  );
-}
-
-function ShowOnScroll({props, children}) {
-  const trigger = useScrollTrigger();
-  return (
-      <Slide appear={true} direction="right" in={!trigger}>
-        <div>{children}</div>
-      </Slide>
-  );
-}
 
 const styles = {
   aside: {
@@ -159,21 +129,20 @@ const Index = ( props ) => {
     }
   }
 
-
   return (
       <>
-    <Layout search>
-      <Search
-          searchText={searchText}
-          onSearchTextChange={onSearchTextChange}
-      />
-      <ResultsContainer
-          loading={loading}
-          results={results}
-          selection={selection}
-          onSelectionChange={onSelectionChange}
-      />
-    </Layout>
+        <Layout search>
+          <Search
+              searchText={searchText}
+              onSearchTextChange={onSearchTextChange}
+          />
+          <ResultsHeadList
+              loading={loading}
+              results={results}
+              selection={selection}
+              onSelectionChange={onSelectionChange}
+          />
+        </Layout>
       </>
   )
 }

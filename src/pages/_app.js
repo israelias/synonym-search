@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
@@ -23,8 +23,8 @@ export default function MyApp(props) {
     // Leverage user preference dynamically with useMediaQuery / prefers-color-scheme
     // to config auto dark mode.
 
-    // const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-    //
+    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+
     // const theme = React.useMemo(
     //     () =>
     //         createMuiTheme({
@@ -32,6 +32,14 @@ export default function MyApp(props) {
     //                 type: prefersDarkMode ? 'dark' : 'light',
     //             },
     //         }),
+    //     [prefersDarkMode],
+    // );
+
+    // useMemo(
+    //     () =>
+    //         prefersDarkMode ?
+    //             themeDispatch.setDarkMode(true)
+    //             : themeDispatch.setDarkMode(false),
     //     [prefersDarkMode],
     // );
 
