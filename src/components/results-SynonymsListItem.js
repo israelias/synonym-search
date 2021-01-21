@@ -3,6 +3,12 @@ import {makeStyles} from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem'
 import {useHistory, useDispatchHistory} from "../context/words.context";
 import ItemContent from './../components/results-ItemFeature'
+import { useTheme } from '@material-ui/core/styles'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+import { theme } from "../context/theme.context"
+import ListItemText from "@material-ui/core/ListItemText";
+import {Counter, SameWordShowTotal } from "./../helpers/counters.helper"
+// import {isSameWord, getTotal } from "../helpers/counters.helper"
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -13,6 +19,8 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         flex: '1',
         paddingLeft: '2px',
+        paddingTop: 0,
+        paddingBottom: 0,
         boxSizing: 'border-box',
 
         whitespace: 'nowrap',
@@ -21,6 +29,12 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         borderBottom: '1px solid',
         paddingRight: 0,
+        // fontSize: "18px",
+        // lineHeight: 1.2395
+        [theme.breakpoints.up("sm")]: {
+            fontSize: "14px",
+            lineHeight: 1.2475
+        }
 
     },
     labelBefore: {
@@ -92,6 +106,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const ListItemButton = ({
+                            loading,
                         onChange,
                         options,
                         definition,
@@ -102,6 +117,8 @@ const ListItemButton = ({
                         onMouseOver
                     }) => {
     const classes = useStyles();
+    const theme = useTheme()
+    const matches = useMediaQuery(theme.breakpoints.up("sm"))
     const wordsDispatch = useDispatchHistory()
 
     return (
@@ -127,12 +144,30 @@ const ListItemButton = ({
                         onChange(option.wd);
                     }}>
 
-                    <ItemContent
-                        term={option.wd}
-                        label={headLabel}
-                        definition={senseDefinition}
-                        root={headInstance}
+                    {/*<ItemContent*/}
+                    {/*    term={option.wd}*/}
+                    {/*    label={headLabel}*/}
+                    {/*    definition={senseDefinition}*/}
+                    {/*    root={headInstance}*/}
+                    {/*/>*/}
+
+                    <ListItemText
+                        primary={option.wd}
                     />
+                    {/*<Counter*/}
+                    {/*    isOption*/}
+                    {/*    term={option.wd}*/}
+                    {/*    label={headLabel}*/}
+                    {/*    definition={senseDefinition}*/}
+                    {/*    root={headInstance}*/}
+                    {/*/>*/}
+                    <SameWordShowTotal term={option.wd}
+                                       label={headLabel}
+                                       definition={senseDefinition}
+                                       loading={loading}
+                    />
+
+
                 </ListItem>
             ))}
         </>

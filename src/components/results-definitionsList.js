@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import List from '@material-ui/core/List'
 import ListSubheader from '@material-ui/core/ListSubheader'
-import SubHeaderContent from './../components/results-SubItemFeature'
 import Display from "./shared/string-display"
 import ListItemButton from "./../components/results-SynonymsListItem"
 import Box from '@material-ui/core/Box';
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography'
+import {SameSenseShowTotal} from "../helpers/counters.helper"
+import ListItemText from "@material-ui/core/ListItemText";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
 
 const reStyles = {
     root: {
@@ -53,17 +55,14 @@ const reStyles = {
         color: '#000',
         transition: '.3 ease .3'
     },
+    icon: {
+        width: '100%'
+    },
 };
 
 const useStyles = makeStyles((theme) => ({
     root: {
         position: 'relative',
-        // padding: '0 30px',
-        // marginTop: '1.5rem'
-        // borderTop: '1px solid',
-        // borderLeftWidth: '1px',
-        // borderLeftColor: '#000',
-        // borderLeftStyle: 'solid',
     },
     senseBox: {
         display: 'flex',
@@ -124,76 +123,22 @@ const useStyles = makeStyles((theme) => ({
         borderBottom: '1px solid',
     },
     wordBoxSubHead: {
-        top: '3rem',
-        // backgroundColor: '#fafafa',
+        top: '2.5rem',
         backgroundColor: theme.palette.background.default,
-        // position: 'relative',
-        // borderBottom: '1px solid #000',
         width: '100%',
-        // display: 'flex',
-        // alignItems: 'stretch',
-        // 768 up its not column
+        // borderLeft: '1px solid',
+        borderBottom: '1px solid',
         flexDirection: 'column',
         flex: '1',
-        // paddingLeft: '2px',
         paddingLeft: '16px',
         boxSizing: 'border-box',
-
-        // parent level box
-        // maxWidth: 'calc(50% - 5px)',
-
     },
-    wordBox: {
-        position: 'relative',
-        // borderBottom: '1px solid #000',
-        width: '100%',
-        // display: 'flex',
-        // alignItems: 'stretch',
-        // 768 up its not column
-
-        // flexDirection: 'column',
-
-        flex: '1',
-        paddingLeft: '2px',
-        boxSizing: 'border-box',
-
-        whitespace: 'nowrap',
-        textOverflow: 'ellipsis',
-        minHeight: 'calc(2em + 2px)',
-        display: 'flex',
-        borderBottom: '1px solid',
-        paddingRight: 0,
-
-        // fontSize: '16px',
-        // lineHeight: 1.2435,
-
-        // parent level box
-        // maxWidth: 'calc(50% - 5px)',
-
-    },
-    textSubHead: {
-        // borderLeft: '1px solid',
-        whitespace: 'nowrap',
-        textOverflow: 'ellipsis',
-        minHeight: 'calc(2em + 2px)',
-        display: 'flex',
-        alignItems: 'center',
-        flex: 1,
-        borderBottom: '1px solid',
-        paddingLeft: 16,
-        // paddingRight: 0,
-
-        //md up for MAIN.
-        fontSize: '16px',
-        lineHeight: 1.2435,
-
-        //mobile
-        // fontSize: '18px',
-        // lineHeight: 1.2395,
+    icon: {
+        width: '100%'
     },
 }));
 
-const ResultsDefinitionsList = ({result, onSelectionChange, headWord, headLabel, headInstance}) => {
+const ResultsDefinitionsList = ({loading, result, onSelectionChange, headWord, headLabel, headInstance}) => {
     const classes = useStyles();
     const [optionWord, setOptionWord] = useState("")
 
@@ -214,12 +159,23 @@ const ResultsDefinitionsList = ({result, onSelectionChange, headWord, headLabel,
                     <ul
                         className={classes.ul}>
                         <ListSubheader
-                            className={classes.wordBoxSubHead}>
-                            <SubHeaderContent
-                                key={`sub-${headLabel}`}
-                                sense={s[0][1].dt[0][1]}
-                                label={headLabel}
-                            />
+                            className={classes.wordBoxSubHead}
+                        >
+                            <ListItemIcon className={classes.icon}>
+                                <ListItemText
+                                    primary={s[0][1].dt[0][1]}
+                                />
+                                <SameSenseShowTotal
+                                    loading={loading}
+                                    sense={s[0][1].dt[0][1]}
+                                    label={headLabel}
+                                />
+                            </ListItemIcon>
+                            {/*<SubHeaderContent*/}
+                            {/*    key={`sub-${headLabel}`}*/}
+                            {/*    sense={s[0][1].dt[0][1]}*/}
+                            {/*    label={headLabel}*/}
+                            {/*/>*/}
                             <Box component={'span'}>
                                 {s[0][1].dt[1] ?
                                     <Display sampleString={s[0][1].dt[1][1][0].t}
@@ -227,20 +183,21 @@ const ResultsDefinitionsList = ({result, onSelectionChange, headWord, headLabel,
                                              optionWord={optionWord}/>
                                     : <span>{s[0][1].dt[0][1]}.</span>}
                             </Box>
-                            <Box style={reStyles.senseBox}>
-                                <Box style={reStyles.senseWrap}>
-                                    <Typography style={reStyles.senseIndex}>
-                                        {index}
-                                    </Typography>
-                                    <Typography style={reStyles.senseLabel}>
-                                        {headLabel}
-                                    </Typography>
-                                </Box>
-                            </Box>
+                            {/*<Box style={reStyles.senseBox}>*/}
+                            {/*    <Box style={reStyles.senseWrap}>*/}
+                            {/*        <Typography style={reStyles.senseIndex}>*/}
+                            {/*            {index}*/}
+                            {/*        </Typography>*/}
+                            {/*        <Typography style={reStyles.senseLabel}>*/}
+                            {/*            {headLabel}*/}
+                            {/*        </Typography>*/}
+                            {/*    </Box>*/}
+                            {/*</Box>*/}
                         </ListSubheader>
                         {
                             s[0][1].syn_list &&
                             <ListItemButton
+                                loading={loading}
                                 options={s[0][1].syn_list[0]}
                                 definition="Synonyms"
                                 headWord={headWord}
@@ -254,6 +211,7 @@ const ResultsDefinitionsList = ({result, onSelectionChange, headWord, headLabel,
                         {
                             s[0][1].phrase_list &&
                             <ListItemButton
+                                loading={loading}
                                 options={s[0][1].phrase_list[0]}
                                 definition="Synonymous Phrases"
                                 headWord={headWord}
@@ -267,6 +225,7 @@ const ResultsDefinitionsList = ({result, onSelectionChange, headWord, headLabel,
                         {
                             s[0][1].sim_list &&
                             <ListItemButton
+                                loading={loading}
                                 options={[].concat(s[0][1].sim_list).flat()}
                                 definition="Similar Words"
                                 headWord={headWord}
