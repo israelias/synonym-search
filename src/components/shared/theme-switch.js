@@ -9,6 +9,7 @@ import Slide from "@material-ui/core/Slide";
 const useStyles = makeStyles((theme) => ({
     fab: {
         position: 'fixed',
+        zIndex: 1200,
         bottom: theme.spacing(2),
         left: theme.spacing(2),
     },

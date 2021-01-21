@@ -12,6 +12,7 @@ import TimelineDot from '@material-ui/lab/TimelineDot';
 import TimelineOppositeContent from '@material-ui/lab/TimelineOppositeContent';
 import Typography from '@material-ui/core/Typography';
 import timestamp from 'time-stamp'
+import {useDispatchHistory} from "../../context/words.context";
 
 const useStyles = makeStyles((theme) => ({
     chip: {
@@ -19,12 +20,21 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const SavedListElement = ({ word, value, onDelete, color, variant, size, children }) => {
+const SavedListElement = ({ word, value, id, onDelete, color, variant, size, children }) => {
     const classes = useStyles();
     const itemColor = color ? color : 'secondary';
     const itemVariant = variant ? variant : 'outlined';
     const itemSize = size ? size : 'medium';
     const dateToFormat = timestamp.utc('HH:mm')
+    const wordsDispatch = useDispatchHistory()
+
+    //id: state.length,
+    //                             name: action.name,
+    //                             value: 1,
+    //                             root: action.headWord,
+    //                             label: action.headLabel,
+    //                             uuid: action.headInstance,
+    //                             sense: action.senseDefinition,
 
     return (
         <li>
@@ -32,23 +42,31 @@ const SavedListElement = ({ word, value, onDelete, color, variant, size, childre
 
             <TimelineItem>
                 <TimelineOppositeContent>
-                    <Typography color="textSecondary" variant="caption" size="small"></Typography>
+                    <Typography color="textSecondary" variant="caption" size="small">
+                        {word.sense}
+                    </Typography>
                 </TimelineOppositeContent>
                 <TimelineSeparator>
                     <TimelineDot variant="outlined" />
                     <TimelineConnector color="secondary"/>
                 </TimelineSeparator>
                 <TimelineContent>
-            <Chip
-                color={itemColor}
-                variant={itemVariant}
-                size={itemSize}
-                label={word.name}
-                onDelete={(e) => onDelete(e.target.value)}
-                avatar={<Avatar>{word.value > 1 && word.value}</Avatar>}
-                className={classes.chip}
-            />
-                    </TimelineContent>
+                    <Chip
+                        color={itemColor}
+                        variant={itemVariant}
+                        size={itemSize}
+                        label={word.name}
+                        onDelete={() => {
+                            wordsDispatch({
+                                type: 'remove',
+                                index: id,
+                            });}}
+                        // onDelete={(e) => onDelete(e.target.value)}
+                        avatar={
+                            <Avatar>{word.value > 0 && word.value}</Avatar>}
+                        className={classes.chip}
+                    />
+                </TimelineContent>
             </TimelineItem>
 
         </li>

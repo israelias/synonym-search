@@ -8,11 +8,16 @@ const useStyles = makeStyles(theme => ({
         textDecoration: "none",
         backgroundColor: theme.palette.action.hover,
         // display: 'flex',
-        color: theme.palette.secondary.light
+        color: theme.palette.primary.light
     },
     inactive: {
         display: "none",
         visibility: "hidden",
+    },
+    display: {
+        // fontFamily: 'monospace',
+        fontWeight: '300',
+        lineHeight: 3,
     }
 }));
 
@@ -49,7 +54,7 @@ const Display = ({
     const sub_2 = subString[1]
 
     return (
-        <Box component='span'>
+        <Box component='span' className={classes.display}>
             <span>{
                 sub_1
             }</span>
