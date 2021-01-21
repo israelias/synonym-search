@@ -1,5 +1,5 @@
 import React, {createContext, useState, useContext, useReducer, useMemo} from "react";
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, useTheme, ThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
 import grey from '@material-ui/core/colors/grey';
 import yellow from '@material-ui/core/colors/yellow';
 import red from '@material-ui/core/colors/red';
@@ -9,32 +9,25 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 export const ThemeDispatchContext = createContext()
 export const ThemeStateContext = ThemeProvider
-// Create a theme instance.
-export const theme = createMuiTheme({
-    palette: {
-        primary: {
-            // light: '#757ce8',
-            main: yellow[600],
-            // dark: '#002884',
-            // contrastText: '#fff',
-        },
-        secondary: {
-            // light: '#ff7961',
-            main: grey[900],
-            // dark: '#ba000d',
-            // contrastText: '#000',
-        },
-        error: {
-            main: red.A400,
-        },
-        background: {
-            // default: '#fff',
-        },
-    },
 
-    // typography: {
-    //     fontFamily: 'Raleway, Arial',
-    // },
+export const theme = createMuiTheme({
+    breakpoints: {
+        values: {
+            sm: 450,
+            md: 600,
+            lg: 900,
+        }
+    },
+    typography: {
+        body1: {
+            fontSize: "18px",
+            lineHeight: 1.2395,
+            '@media (min-width:600px)': {
+                fontSize: '14px',
+                lineHeight: 1.2475,
+            },
+        }
+    },
 
     overrides: {
         MuiCssBaseline: {
@@ -44,6 +37,16 @@ export const theme = createMuiTheme({
                 },
             },
         },
+        MuiTypography: {
+            body1: {
+                fontSize: "18px",
+                lineHeight: 1.2395,
+                '@media (min-width:600px)': {
+                    fontSize: '14px',
+                    lineHeight: 1.2475,
+                },
+            }
+        }
     },
 
     props: {
@@ -52,6 +55,9 @@ export const theme = createMuiTheme({
             // The default props to change
             disableRipple: true, // No more ripple, on the whole application 💣!
         },
+        MuiListRoot: {
+            color: "#988534"
+        }
     },
 });
 
@@ -62,11 +68,31 @@ export const ThemeContextProvider = ({children}) => {
 
     const darkTheme = createMuiTheme({
         palette: {
-            type: 'dark'
+            type: 'dark',
+            primary: {
+                main: yellow[600]
+            },
+            secondary: {
+                main: lightblue[500]
+            },
+            background: {
+                default: '#000',
+            }, ...theme
         }
     })
 
-    const lightTheme = createMuiTheme({})
+    const lightTheme = createMuiTheme({
+        palette: {
+            type: 'light',
+            primary: {
+                main: '#ff3200'
+                // main: '#39AB10'
+            },
+            secondary: {
+                main: grey[900]
+            }, ...theme
+        }
+    })
 
     useMemo(
         () =>
@@ -78,7 +104,13 @@ export const ThemeContextProvider = ({children}) => {
 
     return (
         <ThemeDispatchContext.Provider value={{darkMode, setDarkMode}}>
-            <ThemeStateContext theme={darkMode ? darkTheme : lightTheme}>
+            <ThemeStateContext
+                theme={
+                    // theme
+                    darkMode ?
+                        darkTheme
+                        : lightTheme
+                }>
                 {children}
             </ThemeStateContext>
         </ThemeDispatchContext.Provider>
