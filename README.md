@@ -1,13 +1,49 @@
-## Synonym Chaser App
+# Synonym Chaser App
 
-This app creates a cloud of search inputs out of returned results from an inital query via Thesaurus API. Clicking any of the search-text-buttons adds that word to a list and refreshes the cloud with results from that word, and so on. The result is an interactive Thesaurus experience that tracks a cart of all the words that lead to the current one.
+Synonymous is as an interactive Thesaurus that tracks and sorts a history of all search queries leading up to the current one. Using React reducer and context hooks, the app's Saved List tab functions as a shopping cart with a list of items saved (queried) from dynamic Results -- a list of products.
 
-This project is developed as part of MS2 Interactive Front End module at Code Institute. It is developed with React via [Next.js](https://nextjs.org/) and bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This project is developed as part of MS2 Interactive Front End module at Code Institute. It is written to work with [Thesaurus API]() 's JSON response format, and is developed with [React]() via [Next.js](https://nextjs.org/), bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and deployed with [Vercel](https://vercel.com/import?filter=next.js&utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment))
 
-Deploy it to the cloud with [Vercel](https://vercel.com/import?filter=next.js&utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+___
+___
+## UX
+___
+### Design
+___
+#### Wireframes
+___
 
+- Schematic mockups commenced in January 2021 to establish relationships between disparate components, and assign appropriate responsibilities. See [PDF of Wireframes]().
 
-[Back to top](#table-of-contents)
+<br>
+<details><summary> List of Wireframes </summary>
+<br>
+
+- Schematic Wires
+  - [Components]()
+- Search: Landing
+  - [Web]()
+- Results: Introduction
+  - [Web]()
+- Display: Technologies
+  - [Web]()
+- Use Case: Examples
+  - [Web]()
+
+<br>
+</details>
+<br>
+
+#### Typography
+___
+
+- Roboto with Material UI. Responsive Font Sizes..
+
+#### Color
+___
+
+- Default schemes: Deep-orange on light mode. Blue on dark mode. Background is black or white. Feature is on words.
+
 ___
 ___
 ## Features
@@ -18,36 +54,47 @@ ___
 #### Search
 ___
 
-  - Text about search
+  - The app utilizes Axios to manage responses from the API. The app's Search component is written to auto-cancel in the middle of typing so as to reduce the amount of requests to the API.  The Search component is built from Material-UI input elements and uses State hooks elicit *side-effects* `onSearchTextChange`.
 
-#### Results
+#### Results ( the products )
 ___
-  - Text about results
+  - The Results component is programmed to showcase all Synonyms, Related Words, Synonymous Phrases, and Similar Words deeply nested in each of many definitions of all words matching the queried *searchText*.
+  - Clicking any of the words in Results adds that word to a Saved-List session ([via Context API and Reducer hooks](https://nextjs.org/docs/deployment)), produces new results from that word, and so on. The Results component is written to work specifically with the JSON response from the Thesaurus API.
+- To note, on succinctly representing the API response:
+  - Each query has several head-words ("about" as preposition, as adverb...):
+    - Each headWord has several definitions ("about" as in to be, "about as in to...):
+      - Each headWord defined in a particular way has:
+        - A definition.
+        - A string that uses the word in a sentence ([see Display String](https://nextjs.org/docs/deployment))
+        - A list of Synonyms
+        - A list of Related words
+        - A list of Synonymous Phrases
+        - A list of Similar Words
+- The Results component is essentially a wrapper to showcase the words as packaged options.
+-  Component Sub Features:
+   -  Ability to see if and how many times a word has been queried before.
+   -  Ability to see if and how many words have been queried with the same definition.
+   -  Ability to see if and how many definitions queried share the same root.
+   -  Ability to match definition in a string (See Display String).
 
-#### Saved List
+#### Display String ( the preview )
 ___
-  -  text about saved list
+  -  The app offers the ability to "test" or "preview" how interchangeable or synonymous a word is relative to its definition. Much like previewing sizes, matches, colors in a list of products while shopping, the Display String offers a user's own subjective understanding of a word to determine further searching within a word's particular definition (clicking, `onSelectionChange`) or starting a new search (typing, `onSearchTextChange`).
 
-#### Dashboard Static Landscape Mode
+#### Saved List ( the cart )
 ___
-- The project features a dashboard mode, which is a version of the static/expanded state with the side menu open. In this mode, the side menu functions as a document outline with at-a-glance info and data visualization enabled by Scrollspy events occurring in the adjacent body.
+  -  Each saved word instance retains properties of the Results family it is "taken" from -- such as the word's particular definition, label, root word -- to increment values of duplicates and group words by sense definitions while ensuring each instance, no matter identical at name value, is distinct if the definition and sense is different.
+-  Component Sub Features:
+   -  Ability to remove individual words from the list.
+   -  Ability to clear the list.
 
-#### Display string
+#### Counters Context ( and useReducer )
 ___
-  -  Text about display string
+  -  Text about `wordsHistoryDispatch`
 
-#### Clear/Add/Remove
+#### Theme Context ( and useMemo, useMediaQuery )
 ___
-  -  Text about reducers
-
-
-#### Mode
-___
-- Text about theme
-
-#### Context / theme / counters
-___
-- Text about hooks
+- Text about theme provider
 
 ___
 ### Features Left to Implement
@@ -75,7 +122,7 @@ ___
 ___
 
 
-1. [Nextjs 5.8.2:](https://mdbootstrap.com/docs/standard/getting-started/installation/)
+1. [Nextjs 5.8.2:]()
     - MDBootstrap's free kit is the primary front-end framework used to do much of the heavy.
 2. [Material UI 5.2.3:](https://ionicons.com/)
     - A curated selection of [components](https://ionicons.com/)'s premium designed icons are attached to index.html's `head` as a set of differential JS script tags ([unpkg.com](https://unpkg.com/browse/ionicons@5.2.3/dist/)) and are featured in main navigational button icons.
