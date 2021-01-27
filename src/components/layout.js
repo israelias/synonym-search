@@ -1,143 +1,83 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import React, { useState } from 'react'
-import {makeStyles, useTheme} from "@material-ui/core/styles";
+import React, {useContext, useState} from 'react'
+import {makeStyles, useTheme, fade, withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Avatar from "@material-ui/core/Avatar";
 import ToggleTheme from "./shared/theme-switch";
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import Slide from '@material-ui/core/Slide';
-import Fade from '@material-ui/core/Grow'
-import Fab from '@material-ui/core/Fab';
-import Typography from '@material-ui/core/Typography';
-import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
-import Zoom from '@material-ui/core/Zoom';
 import BackToTop from './shared/back-top-button'
-import Box from "@material-ui/core/Box";
-import PropTypes from "prop-types";
-import Tab from "@material-ui/core/Tab";
-import Tabs from "@material-ui/core/Tabs";
-// import NavBar from './navbar'
-import SwipeableViews from "react-swipeable-views"
-// import View from "./../components/view"
-import Saves from "./saves";
-import { useDispatchHistory} from "../context/words.context";
-
+import SavedList from "./saves-List";
+import HeaderElements from "./../components/shared/header-elements"
+import {useDispatchTheme} from "../context/theme.context";
+import ResultsHeader from "./../components/results-header"
+import SavesHeader from "./../components/saves-header"
 
 const useStyles = makeStyles(theme => ({
-    root: {
+    menuButton: {
+        marginRight: theme.spacing(2),
+        width: '12ch',
+        '&:focus': {
+            width: '20ch',
+        },
+    },
+    search: {
+        position: 'relative',
+        borderRadius: theme.shape.borderRadius,
+        backgroundColor: fade(theme.palette.common.white, 0.15),
+        '&:hover': {
+            backgroundColor: fade(theme.palette.common.white, 0.25),
+        },
+        marginLeft: theme.spacing(1),
+        width: 'auto',
+    },
+    searchIcon: {
+        padding: theme.spacing(0, 2),
+        height: '100%',
+        position: 'absolute',
+        pointerEvents: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    inputRoot: {
+        color: 'inherit',
+    },
+    inputInput: {
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+        transition: theme.transitions.create('width'),
+        width: '12ch',
+        '&:focus': {
+            width: '20ch',
+        },
+    },
+    main: {
         bottom: theme.spacing(2),
         right: theme.spacing(3),
         left: theme.spacing(3),
         top: theme.spacing(3),
-        paddingLeft: '10px',
+        // paddingLeft: '10px',
+        paddingLeft: '0.8rem',
         paddingRight: '0.8rem',
         paddingTop: '0.8rem',
         paddingBottom: 0,
         display: 'flex',
         flexDirection: 'column',
-    },
-    movement: {
-        flexGrow: 1,
-        // backgroundColor: theme.palette.background.paper,
+        '@media (min-width:600px)': {
+            paddingRight: '1.6rem',
+            paddingBottom: '1.2rem',
+        },
     },
     frame: {
+        top: '38px',
         minWidth: '100%',
         maxWidth: '100%',
-        marginTop: '38px',
+        // marginTop: '38px',
         marginBottom: '38px',
     },
-    main: {
-        borderLeft: '1px solid',
-        borderRight: '1px solid',
-        paddingRight: '0.8rem',
-        paddingLeft: '0.8rem',
-    },
-    nav: {
-        backgroundColor: theme.palette.background.default
-    },
-    link: {
-        position: 'fixed',
-        top: theme.spacing(2),
-        left: theme.spacing(8),
-    },
-    logo: {
-        position: 'fixed',
-        top: theme.spacing(2),
-        left: theme.spacing(2),
-    },
-    title: {
-        textAlign: 'right',
-        paddingLeft: '15vw'
-    },
-    headingTwo: {
-        [theme.breakpoints.up("sm")]: {
-            backgroundColor: "black",
-        }
-    },
-    header: {
-        borderBottom: "1px solid",
-        backgroundColor: theme.palette.background.default,
-    },
-    backToHome: {
-        margin: '3rem 0 0'
-    }
 }));
 
-function HeaderElements({props, children}) {
-    const trigger = useScrollTrigger();
-    return (
-        <Fade appear={true} direction="left" in={!trigger}>
-            <div>{children}</div>
-        </Fade>
-    );
-}
-
-function NavElements({props, children}) {
-    const trigger = useScrollTrigger();
-    return (
-        <Slide appear={true} direction="right" in={!trigger}>
-            {children}
-        </Slide>
-    );
-}
-
-function BottomOnScroll({props, children}) {
-    const trigger = useScrollTrigger();
-    return (
-        <Slide appear={true} direction="down" in={!trigger}>
-            <div>{children}</div>
-        </Slide>
-    );
-}
-
-// const useStyles = makeStyles((theme) => ({
-//     root: {
-//         flexGrow: 1,
-//         backgroundColor: theme.palette.background.paper,
-//     },
-//     nav: {
-//         backgroundColor: theme.palette.background.default
-//     },
-//     test: {
-//         position: 'fixed',
-//         bottom: theme.spacing(2),
-//         left: theme.spacing(2),
-//     },
-// }));
-
-
-function a11yProps(index) {
-    return {
-        id: `tab-${index}`,
-        'aria-controls': `panel-${index}`,
-    };
-}
-
-function View ({ children, value, index, search, ...other }) {
-    const classes = useStyles()
+function TabPanel(props) {
+    const {children, value, index, ...other} = props;
 
     return (
         <div
@@ -148,171 +88,53 @@ function View ({ children, value, index, search, ...other }) {
             {...other}
         >
             {value === index && (
-                <Box p={3}>
-                    <Typography>
-                        {children}
+                <>
+                    {children}
+                </>
 
-                        {!search && (
-
-                            <Link href="/">
-                                <a>
-                                    <Fab
-                                        button
-                                        size="small"
-                                        color="secondary">
-                                        <KeyboardArrowLeftIcon/>
-                                    </Fab>
-                                </a>
-                            </Link>
-                        )}
-                    </Typography>
-                </Box>
             )}
         </div>
     );
 }
 
-const Layout = ({ children, search, history }) => {
+const Layout = ({ children, search, history, searchText, loading, onSearchTextChange }) => {
     const classes = useStyles();
     const theme = useTheme();
-    const [value, setValue] = useState(0);
-    const wordsDispatch = useDispatchHistory()
+    const themeDispatch = useDispatchTheme()
 
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
-
-    const handleChangeIndex = (index) => {
-        setValue(index);
-    };
-
-    const handleThisClick = (event, newValue) => {
-        setValue(newValue)
-    }
+    const value = themeDispatch.value
 
     return (
         <div className={classes.root}>
-            <header>
-                <NavElements>
-                    <AppBar
-                        position="fixed"
-                        elevation={0}
-                        className={classes.nav}>
-                        <Toolbar>
-                            <Fab
-                                button
-                                size="small"
-                                color="secondary"
-                                className={classes.logo}>
-                                <Avatar
-                                    variant='square'
-                                    color='secondary'>
-                                    SYN
-                                </Avatar>
-                            </Fab>
-                            {value === 0 ? (
-                                <Fab
-                                    button
-                                    className={classes.link}
-                                    size="small"
-                                    value={value}
-                                    color="secondary" onChange={handleThisClick}>
-                                    S
-                                </Fab>
-                            ) : (
-                                <Fab
-                                    button
-                                    className={classes.link}
-                                    size="small"
-                                    value={value}
-                                    color="secondary" onChange={handleThisClick}>
-                                    <KeyboardArrowLeftIcon/>
-                                </Fab>
-                            )}
-                        </Toolbar>
-                    </AppBar>
-                </NavElements>
-                <HeaderElements>
-                    <AppBar
-                        position="fixed"
-                        elevation={0}
-                        color={'transparent'}
-                        className={classes.title}>
-                        <Toolbar>
-                            <Grid className={classes.movement}>
-                                <Tabs
-                                    value={value}
-                                    onChange={handleChange}
-                                    // indicatorColor="primary"
-                                    // textColor="primary"
-                                    // variant="fullWidth"
-                                    aria-label="tab menu">
+            <HeaderElements>
+                {value === 0 ?
+                    <ResultsHeader
+                        loading={loading}
+                        onSearchTextChange={onSearchTextChange}
+                        searchText={searchText} />
+                    :
+                    <SavesHeader />
+                }
+                <Toolbar />
+            </HeaderElements>
 
-                                    <Tab
-                                        label="Search"
-                                        id="tab-search"
-                                        aria-controls="panel-search"/>
-
-                                    <Tab
-                                        label="History"
-                                        id="tab-history"
-                                        aria-controls="panel-history"/>
-
-                                </Tabs>
-                            </Grid>
-
-                            <Grid
-                                className={classes.title}
-                                item xs={12}
-                                spacing={3}
-                                display='flex'>
-                                {value === 0 ? (
-                                    <div>
-                                        <Typography component='h1' variant='h5'>
-                                            Synonymous
-                                        </Typography>
-                                    </div>
-                                ) : (
-                                    <div>
-                                        <h2>
-                                            Saves
-                                        </h2>
-                                    </div>
-                                )}
-                            </Grid>
-
-                        </Toolbar>
-                    </AppBar>
-                </HeaderElements>
-            </header>
             <Grid item className={classes.frame}>
                 <ToggleTheme/>
                 <Toolbar id="back-to-top-anchor"/>
                 <main className={classes.main}>
-                    <SwipeableViews
-                        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                        index={value}
-                        onChangeIndex={handleChangeIndex}
-                    >
-                        <View index={0} value={value} dir={theme.direction}>
-                            {children}
-                        </View>
-                        <View index={1} value={value} dir={theme.direction}>
-                            <Saves>
-                                <button
-                                    className="button is-small"
-                                    onClick={() => wordsDispatch({type: 'clear'})}>
-                                    Clear
-                                </button>
-                            </Saves>
-                        </View>
-                    </SwipeableViews>
-
+                    <TabPanel value={value} index={0}>
+                        {children}
+                    </TabPanel>
+                    <TabPanel value={value} index={1}>
+                        <SavedList />
+                    </TabPanel>
                 </main>
             </Grid>
             <BackToTop/>
+
         </div>
     )
 }
 
 export default Layout
+
