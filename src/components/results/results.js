@@ -2,8 +2,8 @@ import React, {useState, useEffect } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Collapse from "@material-ui/core/Collapse"
 import List from '@material-ui/core/List';
-import ResultsHeadList from './../components/results-headList'
-import {useDispatchTheme} from "../context/theme.context";
+import Root from './root'
+import {useDispatchTheme} from "../../context/theme.context";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -54,7 +54,7 @@ const ResultsContainer = ({
                     else {
                         metaDispatch.setMeta(true)
                         return (
-                            <ResultsHeadList
+                            <Root
                                 index={index}
                                 key={`result-${index}-${result.hwi.hw}`}
                                 loading={loading}

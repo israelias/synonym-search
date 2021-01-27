@@ -1,5 +1,5 @@
 import {fade, makeStyles, useTheme} from "@material-ui/core/styles";
-import {useHistory} from "../context/words.context";
+import {useHistory} from "../../context/words.context";
 import React, {useState} from "react";
 import Typography from "@material-ui/core/Typography";
 import Grow from "@material-ui/core/Grow";
@@ -7,17 +7,17 @@ import Fab from "@material-ui/core/Fab";
 import Badge from "@material-ui/core/Badge";
 import Avatar from "@material-ui/core/Avatar";
 import QueryBuilderIcon from "@material-ui/icons/QueryBuilder";
-import Search from "./.././components/search"
+import Search from "../search/search"
 import Zoom from "@material-ui/core/Zoom";
-import Clear from "./shared/clear-input";
+import Clear from "../shared/clear-input";
 import KeyboardArrowLeftIcon from "@material-ui/icons/KeyboardArrowLeft";
 import Toolbar from "@material-ui/core/Toolbar";
 import Grid from "@material-ui/core/Grid";
-import ToggleTheme from "./shared/theme-switch";
-import SavedList from "./saves-List";
-import BackToTop from "./shared/back-top-button";
-import HeaderElements from "./../components/shared/header-elements"
-import {useDispatchTheme} from "../context/theme.context";
+import ToggleTheme from "../shared/theme-switch";
+import SavedList from "../saves/saves-List";
+import BackToTop from "../shared/back-top-button";
+import HeaderElements from "../layout/header-elements"
+import {useDispatchTheme} from "../../context/theme.context";
 
 import Box from "@material-ui/core/Box";
 

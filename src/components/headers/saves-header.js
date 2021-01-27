@@ -5,9 +5,9 @@ import Grow from "@material-ui/core/Grow";
 import Fab from "@material-ui/core/Fab";
 import Avatar from "@material-ui/core/Avatar";
 import Zoom from "@material-ui/core/Zoom";
-import Clear from "./shared/clear-input";
+import Clear from "../shared/clear-input";
 import KeyboardArrowLeftIcon from "@material-ui/icons/KeyboardArrowLeft";
-import {useDispatchTheme} from "../context/theme.context";
+import {useDispatchTheme} from "../../context/theme.context";
 
 
 const useStyles = makeStyles(theme => ({

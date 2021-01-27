@@ -2,10 +2,10 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListSubheader from '@material-ui/core/ListSubheader';
-import { useHistory, useDispatchHistory } from '../context/words.context'
+import { useHistory, useDispatchHistory } from '../../context/words.context'
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import { SameSenseShowTotal } from "../helpers/counters.helper";
+import { SameSenseShowTotal } from "../../helpers/counters.helper";
 import Avatar from "@material-ui/core/Avatar";
 import Chip from "@material-ui/core/Chip";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -99,6 +99,7 @@ const SavedList = () => {
                     <ul
                         className={classes.ul}>
                         <ListSubheader
+                            key={`defs-${index}`}
                             // className={classes.subheader}
                         >
                             <ListItemIcon className={classes.icon}>
@@ -115,6 +116,7 @@ const SavedList = () => {
                         {result[1].map((word, i) => (
                             <ListItem
                                 component="li"
+                                key={`saves-${word.name}`}
                                 className={classes.wordBox}
                             >
                                 <Chip
