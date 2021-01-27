@@ -1,82 +1,114 @@
 import React from 'react'
-import { Link } from "react-scroll";
-import { makeStyles } from "@material-ui/core/styles";
+import { ReplaceSubStringNode } from "../../helpers/string.helper"
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Box from '@material-ui/core/Box'
+import Chip from "@material-ui/core/Chip";
+import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
+import FormatQuoteRoundedIcon from '@material-ui/icons/FormatQuoteRounded';
 
 const useStyles = makeStyles(theme => ({
     active: {
         textDecoration: "none",
         backgroundColor: theme.palette.action.hover,
         // display: 'flex',
-        color: theme.palette.primary.light
+        fontWeight: 400,
+        color: theme.palette.primary.light,
+        transitionProperty: 'width',
+        transitionDelay: '100',
     },
     inactive: {
-        display: "none",
-        visibility: "hidden",
+        textDecoration: "none",
+        backgroundColor: theme.palette.action.hover,
+        // display: 'flex',
+        color: theme.palette.primary.light
     },
     display: {
         // fontFamily: 'monospace',
         fontWeight: '300',
-        lineHeight: 3,
-    }
+        // fontSize: '300',
+        lineHeight: '1.1rem',
+        // height: "5em",
+        color: theme.palette.text.primary,
+        paddingTop: '.8rem',
+        paddingBottom: '.8rem',
+        marginLeft: '16px',
+    },
+    iconLeft: {
+        color: theme.palette.primary.light,
+        fontSize: "small",
+        marginLeft: '-16px',
+        marginRight: '16px',
+        borderBottom: '1px solid',
+    },
+    iconRight: {
+        color: theme.palette.primary.light,
+        fontSize: "small",
+        // marginLeft: '-16px'
+    },
 }));
 
-function SubString(string, word) {
-    const sample = string.split(`{it}${word}{/it}`).join('TEST');
+const StyledChip = withStyles((theme) => ({
+    root: {
+        right: '-16px',
+        marginRight: '16px',
+        marginLeft: '-16px',
+    },
+    label: {
+        display: 'none',
+    },
+    avatar: {
+        marginRight: '2px !important',
+        color: theme.palette.primary.light,
+        // backgroundColor: theme.palette.primary.light,
+    },
+    icon: {
+        marginRight: '2px !important',
+        color: theme.palette.primary.light,
+        // backgroundColor: theme.palette.primary.light,
+    },
+}))(Chip);
 
+function Quotes() {
     return (
-        <span>
-            {string.split(`{it}${word}{/it}`)}
-        </span>
+        <StyledChip
+            variant="outlined"
+            color="default"
+            size="small"
+            icon={<FormatQuoteRoundedIcon />}
+            // avatar={<Avatar>Q</Avatar>}
+        />
     )
 }
 
-// returns an array of two substrings
-
-function splitStringByHeadWord(string, word) {
-    return string.split(`{it}${word}{/it}`)
-}
-
-// returns a new string joined by the new word
-
-function joinStringByOptionWord(substring, option) {
-    return substring.join(option)
-}
 
 const Display = ({
                      sampleString,
                      optionWord,
-                     headWord
                  }) => {
     const classes = useStyles()
-    const subString = splitStringByHeadWord(sampleString, headWord)
+    const subString = ReplaceSubStringNode(sampleString)
     const sub_1 = subString[0]
     const sub_2 = subString[1]
 
+
     return (
-        <Box component='span' className={classes.display}>
-            <span>{
-                sub_1
-            }</span>
-            <Link
-                to={optionWord}
-                key={optionWord}
-                activeClass={classes.active}
-                inactiveClass={classes.inactive}
-                spy={true}
-                hashSpy={true}
-                isDynamic={true}
-                offset={-200}
-            >
-                <span
-                    className={classes.active}>{
-                        optionWord
-                    }</span>
-            </Link>
-            <span>{
-                sub_2
-            }</span>
+
+        <Box
+            component='div'
+            spacing={2}
+            className={classes.display}
+        >
+            <FormatQuoteIcon className={classes.iconLeft}/>
+            <span>{sub_1}</span>
+
+                <span className={classes.active}>
+                    {optionWord}
+                </span>
+
+            <span>{sub_2}.</span>
+            <FormatQuoteIcon className={classes.iconRight}/>
         </Box>
+
     )
 }
 
