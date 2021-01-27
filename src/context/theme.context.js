@@ -61,7 +61,7 @@ export const theme = createMuiTheme({
     },
 });
 
-export const ThemeContextProvider = ({children}) => {
+export const ThemeContextProvider = ({ children }) => {
     const [darkMode, setDarkMode] = useState(false)
     const [value, setValue] = useState(0)
     const [meta, setMeta] = useState(true)
@@ -104,14 +104,23 @@ export const ThemeContextProvider = ({children}) => {
     );
 
     return (
-        <ThemeDispatchContext.Provider value={{darkMode, setDarkMode, value, setValue, meta, setMeta}}>
+        <ThemeDispatchContext.Provider
+            value={{
+                darkMode,
+                setDarkMode,
+                value,
+                setValue,
+                meta,
+                setMeta
+            }}>
             <ThemeStateContext
                 theme={
                     // theme
                     darkMode ?
                         darkTheme
                         : lightTheme
-                }>
+                }
+            >
                 {children}
             </ThemeStateContext>
         </ThemeDispatchContext.Provider>
@@ -119,34 +128,3 @@ export const ThemeContextProvider = ({children}) => {
 }
 
 export const useDispatchTheme = () => useContext(ThemeDispatchContext)
-
-// breakpoints: Object
-// direction: "ltr"
-// mixins: Object
-// overrides: Object
-// palette: Object
-// common: Object
-// type: "light"
-// primary: Object
-// secondary: Object
-// error: Object
-// warning: Object
-// info: Object
-// success: Object
-// grey: Object
-// contrastThreshold: 3
-// getContrastText: f E()
-// augmentColor: f B()
-// tonalOffset: 0.2
-// text: Object
-// divider:
-// rgba(0, 0, 0, 0.12)
-// background: Object
-// action: Object
-// props: Object
-// shadows: Array(25)
-// typography: Object
-// spacing: f e()
-// shape: Object
-// transitions: Object
-// zIndex: Object

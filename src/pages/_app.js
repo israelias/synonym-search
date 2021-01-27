@@ -1,11 +1,9 @@
-import React, { useEffect, useMemo } from 'react';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import {ThemeContextProvider, useDispatchTheme} from '../context/theme.context'
-import {HistoryProvider} from '../context/words.context'
+import { ThemeContextProvider } from '../context/theme.context'
+import { HistoryProvider } from '../context/words.context'
 
 export default function MyApp(props) {
     const { Component, pageProps } = props;
@@ -17,31 +15,6 @@ export default function MyApp(props) {
             jssStyles.parentElement.removeChild(jssStyles);
         }
     }, []);
-
-    const themeDispatch = useDispatchTheme()
-
-    // Leverage user preference dynamically with useMediaQuery / prefers-color-scheme
-    // to config auto dark mode.
-
-    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-
-    // const theme = React.useMemo(
-    //     () =>
-    //         createMuiTheme({
-    //             palette: {
-    //                 type: prefersDarkMode ? 'dark' : 'light',
-    //             },
-    //         }),
-    //     [prefersDarkMode],
-    // );
-
-    // useMemo(
-    //     () =>
-    //         prefersDarkMode ?
-    //             themeDispatch.setDarkMode(true)
-    //             : themeDispatch.setDarkMode(false),
-    //     [prefersDarkMode],
-    // );
 
     return (
         <React.Fragment>

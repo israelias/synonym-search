@@ -1,11 +1,11 @@
 import React from 'react'
-import Search from '../components/search'
+import Search from '../components/search/search'
 import { searchThesaurus } from '../services/mwThesaurusService'
 import { randomTerm } from '../helpers/random.helper'
 import { useState, useEffect, useReducer, useRef, useCallback } from 'react'
-import Layout from "./../components/layout"
+import Layout from "../components/layout/layout"
 import Typography from '@material-ui/core/Typography'
-import ResultsContainer from './../components/results-Container'
+import Results from '../components/results/results'
 import {makeStyles} from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
@@ -135,7 +135,7 @@ const Index = ( props ) => {
             searchText={searchText}
             onSearchTextChange={onSearchTextChange}
         >
-          <ResultsContainer
+          <Results
               loading={loading}
               results={results}
               selection={selection}
