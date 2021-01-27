@@ -1,11 +1,11 @@
-import React, {createContext, useState, useContext, useReducer, useMemo} from "react";
+import React, { createContext, useState, useContext, useMemo} from "react";
 import { createMuiTheme, useTheme, ThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import grey from '@material-ui/core/colors/grey';
 import yellow from '@material-ui/core/colors/yellow';
 import red from '@material-ui/core/colors/red';
 import lightblue from "@material-ui/core/colors/lightBlue";
 import deeporange from "@material-ui/core/colors/deepOrange";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 export const ThemeDispatchContext = createContext()
 export const ThemeStateContext = ThemeProvider
@@ -63,8 +63,9 @@ export const theme = createMuiTheme({
 
 export const ThemeContextProvider = ({children}) => {
     const [darkMode, setDarkMode] = useState(false)
+    const [value, setValue] = useState(0)
+    const [meta, setMeta] = useState(true)
     const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-
 
     const darkTheme = createMuiTheme({
         palette: {
@@ -103,7 +104,7 @@ export const ThemeContextProvider = ({children}) => {
     );
 
     return (
-        <ThemeDispatchContext.Provider value={{darkMode, setDarkMode}}>
+        <ThemeDispatchContext.Provider value={{darkMode, setDarkMode, value, setValue, meta, setMeta}}>
             <ThemeStateContext
                 theme={
                     // theme
@@ -117,7 +118,6 @@ export const ThemeContextProvider = ({children}) => {
     )
 }
 
-// export const useTheme = () => useContext(ThemeStateContext)
 export const useDispatchTheme = () => useContext(ThemeDispatchContext)
 
 // breakpoints: Object
