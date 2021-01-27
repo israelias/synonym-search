@@ -1,8 +1,4 @@
-import axios from 'axios'
 import { axiosGetCancellable } from "../helpers/axios.helper";
-import qs from 'query-string'
-
-const reqKey = process.env.NEXT_PUBLIC_MW_THESAURUS_KEY;
 
 const axiosConfig = {
     baseURL: 'https://dictionaryapi.com/api/v3/references/',
@@ -10,7 +6,8 @@ const axiosConfig = {
 
 function searchThesaurus(searchText, selection) {
     const query = selection ? selection : searchText;
-    const key = 'c212ac04-42cc-42dd-91fa-635bef08991c';
+    // const key = 'c212ac04-42cc-42dd-91fa-635bef08991c';
+    const key = process.env.NEXT_PUBLIC_MW_THESAURUS_KEY;
 
     // return axios.get(`thesaurus/json/${query}?key=${key}`, axiosConfig)
 
