@@ -1,30 +1,26 @@
 import React from 'react'
 import Search from '../components/search'
-import ResultsHeadList from '../components/results-headList'
 import { searchThesaurus } from '../services/mwThesaurusService'
 import { randomTerm } from '../helpers/random.helper'
 import { useState, useEffect, useReducer, useRef, useCallback } from 'react'
 import Layout from "./../components/layout"
+import Typography from '@material-ui/core/Typography'
+import ResultsContainer from './../components/results-Container'
+import {makeStyles} from "@material-ui/core/styles";
 
-const styles = {
-  aside: {
-    position: 'fixed',
-  },
-  main: {
-    position: '',
-    marginLeft: '33vw',
-    flexWrap: 'wrap',
-    width: '100%'
-  },
-  header: {
-    marginLeft: '20vw',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'between',
+const useStyles = makeStyles({
+  body1: {
+    fontSize: "18px",
+    lineHeight: 1.2395,
+    '@media (min-width:600px)': {
+      fontSize: '14px',
+      lineHeight: 1.2475,
+    },
   }
-}
+}, {name: 'MuiTypography'});
 
 const Index = ( props ) => {
+  const classes = useStyles()
 
   /*
     Add local states to state variables via useState Hooks, which adds
@@ -82,9 +78,10 @@ const Index = ( props ) => {
    */
 
   const onSearchTextChange = (text) => {
+    setLoading(true);
     setSearchText(text);
     if (text) {
-      loadSynonyms(text, selection);
+      loadSynonyms(text);
     }
   };
 
@@ -97,6 +94,7 @@ const Index = ( props ) => {
    */
 
   const onSelectionChange = (selection) => {
+    setLoading(true);
     setSearchText(selection);
     setSelection(selection);
     if (typeof selection === 'string') {
@@ -117,7 +115,7 @@ const Index = ( props ) => {
   */
 
   const loadSynonyms = async (searchText, selection) => {
-    setLoading(true);
+    // setLoading(true);
     const res = await searchThesaurus(searchText, selection);
 
     // There is no value in res yet because of cancelConfig helper.
@@ -131,12 +129,13 @@ const Index = ( props ) => {
 
   return (
       <>
-        <Layout search>
-          <Search
-              searchText={searchText}
-              onSearchTextChange={onSearchTextChange}
-          />
-          <ResultsHeadList
+        <Layout
+            search
+            loading={loading}
+            searchText={searchText}
+            onSearchTextChange={onSearchTextChange}
+        >
+          <ResultsContainer
               loading={loading}
               results={results}
               selection={selection}
