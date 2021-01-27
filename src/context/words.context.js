@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useReducer} from "react";
+import React, { createContext, useContext, useReducer} from "react";
 
 export const HistoryStateContext = createContext()
 export const HistoryDispatchContext = createContext()
@@ -7,7 +7,6 @@ export const HistoryProvider = ({children}) => {
     const [savedWords, dispatch] = useReducer((state, action) => {
         switch (action.type) {
             case 'add':
-                // const {existing} = state.filter(s => s.name === action.name && s.uuid === action.uuid)
                 const wordIndex = state.findIndex(word =>
                     word.uuid === action.headInstance ||
                     word.name === action.name &&
