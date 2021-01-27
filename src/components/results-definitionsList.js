@@ -102,10 +102,11 @@ const ResultsDefinitionsList = ({
             <ul
                 className={classes.ul}>
                 <ListSubheader
+                    key={`subheader-def-${sense}`}
                     className={classes.wordBoxSubHead}
                     id={sense[0][1].dt[0][1]}
                 >
-                    <ListItemIcon className={classes.icon}>
+                    <ListItemIcon className={classes.icon} key={`icon-${sense[0][1].dt[0][1]}-${headLabel}`}>
                         <ListItemText
                             primary={
                                 <ReplaceNodeTags
@@ -123,6 +124,7 @@ const ResultsDefinitionsList = ({
                     </ListItemIcon>
                         {sense[0][1].dt[1] &&
                             <Display
+                                key={`display-${sense[0][1].dt[1][1][0].t}`}
                                 sampleString={sense[0][1].dt[1][1][0].t}
                                 optionWord={optionWord}
                                 // trigger={trigger}
@@ -138,6 +140,7 @@ const ResultsDefinitionsList = ({
                     //     "Synonyms"
                     // </Box>
                     <ListItemButton
+                        key={`synonyms-of-${headWord}`}
                         loading={loading}
                         options={sense[0][1].syn_list[0]}
                         definition="Synonyms"
@@ -154,6 +157,7 @@ const ResultsDefinitionsList = ({
                 {
                     sense[0][1].rel_list &&
                     <ListItemButton
+                        key={`related-words-to-${headWord}`}
                         loading={loading}
                         options={sense[0][1].rel_list[0]}
                         definition="Related Words"
@@ -169,6 +173,7 @@ const ResultsDefinitionsList = ({
                 {
                     sense[0][1].phrase_list &&
                     <ListItemButton
+                        key={`synonymous-phrases-of-${headWord}`}
                         loading={loading}
                         options={sense[0][1].phrase_list[0]}
                         definition="Synonymous Phrases"
@@ -184,6 +189,7 @@ const ResultsDefinitionsList = ({
                 {
                     sense[0][1].sim_list &&
                     <ListItemButton
+                        key={`similar-words-to-${headWord}`}
                         loading={loading}
                         options={[].concat(sense[0][1].sim_list).flat()}
                         definition="Similar Words"

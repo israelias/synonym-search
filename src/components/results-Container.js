@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Collapse from "@material-ui/core/Collapse"
 import List from '@material-ui/core/List';
@@ -47,14 +47,16 @@ const ResultsContainer = ({
                 className={classes.root}
                 id='results-head-list'>
 
-                {results.map((result) => {
+                {results.map((result, index) => {
                     if (!result.meta) {
                         metaDispatch.setMeta(false)
                     }
                     else {
                         metaDispatch.setMeta(true)
                         return (
-                            < ResultsHeadList
+                            <ResultsHeadList
+                                index={index}
+                                key={`result-${index}-${result.hwi.hw}`}
                                 loading={loading}
                                 uuid={
                                     result.meta.target ?

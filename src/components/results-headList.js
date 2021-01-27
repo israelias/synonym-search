@@ -45,20 +45,22 @@ const ResultsHeadList = ({
                              senses,
                              loading,
                              selection,
-                             onSelectionChange
+                             onSelectionChange, index
                          }) => {
 
     const classes = useStyles();
 
     return (
             <li
-                key={`result-${uuid}-${root}`}
+                // key={`result-${uuid}-${root}`}
+                key={`head-${index}-${root}`}
                 id={`result-${uuid}`}
                 className={classes.listSection}>
 
                 {/*<ul className={classes.ul}>*/}
                     <ListSubheader
                         component={'div'}
+                        key={`head-content-${root}`}
                         className={classes.subheader}>
                         <ListItemIcon className={classes.icon}>
                             <ListItemText
@@ -77,12 +79,14 @@ const ResultsHeadList = ({
                     {/*<li className={classes.listSection}>*/}
                         <div
                             // className={classes.root}
+                            key={`sub-${uuid}-${root}`}
                             id={`sub-${uuid}-${root}`}
                             // subheader={<li/>}
                         >
-                            {senses.map((sense) => (
+                            {senses.map((sense, index) => (
 
                                     <ResultsDefinitionsList
+                                        key={`res-def-${root}-${label}-${index}`}
                                         loading={loading}
                                         sense={
                                             sense

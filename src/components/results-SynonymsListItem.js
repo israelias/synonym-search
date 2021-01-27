@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React from 'react'
 import ListItem from '@material-ui/core/ListItem'
 import { useDispatchHistory } from "../context/words.context";
 import { useTheme, makeStyles } from '@material-ui/core/styles'
