@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
+import React from "react";
+import { makeStyles } from '@material-ui/core/styles';
 import ListSubheader from '@material-ui/core/ListSubheader';
-import ResultsDefinitionsList from "./results-definitionsList"
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
-import { SameHeadShowTotal } from "../helpers/counters.helper"
+import { SameHeadShowTotal } from "../../helpers/counters.helper"
+import Sense from "./sense"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -38,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const ResultsHeadList = ({
+const Root = ({
                              root,
                              label,
                              uuid,
@@ -85,25 +84,17 @@ const ResultsHeadList = ({
                         >
                             {senses.map((sense, index) => (
 
-                                    <ResultsDefinitionsList
-                                        key={`res-def-${root}-${label}-${index}`}
-                                        loading={loading}
-                                        sense={
-                                            sense
-                                        }
-                                        headWord={
-                                            root
-                                        }
-                                        headInstance={
-                                            uuid
-                                        }
-                                        headLabel={
-                                            label
-                                        }
-                                        onSelectionChange={
-                                            (value) => onSelectionChange(value)
-                                        }
-                                    />
+                                <Sense
+                                    key={`res-def-${root}-${label}-${index}`}
+                                    loading={loading}
+                                    sense={sense}
+                                    root={root}
+                                    uuid={uuid}
+                                    label={label}
+                                    onSelectionChange={
+                                        (value) => onSelectionChange(value)
+                                    }
+                                />
 
                             ))}
                         </div>
@@ -116,4 +107,4 @@ const ResultsHeadList = ({
     );
 }
 
-export default ResultsHeadList;
+export default Root;

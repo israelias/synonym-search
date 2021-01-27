@@ -1,10 +1,9 @@
-import React, {useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Collapse from "@material-ui/core/Collapse"
 import List from '@material-ui/core/List';
 import Root from './root'
-import {useDispatchTheme} from "../../context/theme.context";
-
+import { useDispatchTheme } from "../../context/theme.context";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,14 +16,14 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const ResultsContainer = ({
-                             results,
-                             loading,
-                             selection,
-                             onSelectionChange
-                         }) => {
-
+const Results = ({
+                     results,
+                     loading,
+                     selection,
+                     onSelectionChange
+                 }) => {
     const classes = useStyles();
+    const metaDispatch = useDispatchTheme()
 
     if (loading) {
         return <span>Loading.</span>
@@ -33,9 +32,6 @@ const ResultsContainer = ({
     if (!results || results.length === 0) {
         return <span>No associations found.</span>
     }
-
-    const metaDispatch = useDispatchTheme()
-
 
     return (
 
@@ -67,15 +63,13 @@ const ResultsContainer = ({
                                 label={result.fl}
                                 senses={result.def[0].sseq}
                                 onSelectionChange={onSelectionChange}
-
                             />
                         )
                     }
-
                 })}
             </List>
         </Collapse>
     );
 }
 
-export default ResultsContainer;
+export default Results;

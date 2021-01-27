@@ -1,23 +1,19 @@
 import React, { useState } from "react";
-import List from '@material-ui/core/List'
-import ListSubheader from '@material-ui/core/ListSubheader'
-import Display from "./shared/string-display"
-import ListItemButton from "./../components/results-SynonymsListItem"
-import Box from '@material-ui/core/Box';
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from '@material-ui/core/Typography'
-import {SameSenseShowTotal} from "../helpers/counters.helper"
+import ListSubheader from '@material-ui/core/ListSubheader'
+import Box from '@material-ui/core/Box';
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
-import {ReplaceNodeTags, ReplaceSubString} from "./../helpers/string.helper"
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import { SameSenseShowTotal } from "../../helpers/counters.helper"
+import { ReplaceNodeTags } from "../../helpers/string.helper"
+import Display from "../shared/string-display"
+import Option from "./option"
 
 const useStyles = makeStyles((theme) => ({
     senseBox: {
         display: 'flex',
         flex: '0 0 100%',
         position: 'relative',
-        // marginBottom: '1.5rem',
     },
     ul: {
         width: '100%',
@@ -74,16 +70,16 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const ResultsDefinitionsList = ({
+const Sense = ({
                                     loading,
                                     sense,
                                     onSelectionChange,
-                                    headWord,
-                                    headLabel,
-                                    headInstance
+                                    root,
+                                    label,
+                                    uuid
                                 }) => {
     const classes = useStyles();
-    const [optionWord, setOptionWord] = useState(headWord)
+    const [optionWord, setOptionWord] = useState(root)
 
     function onScrollTrigger(word) {
         setOptionWord(word)
@@ -106,7 +102,9 @@ const ResultsDefinitionsList = ({
                     className={classes.wordBoxSubHead}
                     id={sense[0][1].dt[0][1]}
                 >
-                    <ListItemIcon className={classes.icon} key={`icon-${sense[0][1].dt[0][1]}-${headLabel}`}>
+                    <ListItemIcon
+                        className={classes.icon}
+                        key={`icon-${sense[0][1].dt[0][1]}-${label}`}>
                         <ListItemText
                             primary={
                                 <ReplaceNodeTags
@@ -119,7 +117,7 @@ const ResultsDefinitionsList = ({
                         <SameSenseShowTotal
                             loading={loading}
                             sense={sense[0][1].dt[0][1]}
-                            label={headLabel}
+                            label={label}
                         />
                     </ListItemIcon>
                         {sense[0][1].dt[1] &&
@@ -127,11 +125,8 @@ const ResultsDefinitionsList = ({
                                 key={`display-${sense[0][1].dt[1][1][0].t}`}
                                 sampleString={sense[0][1].dt[1][1][0].t}
                                 optionWord={optionWord}
-                                // trigger={trigger}
                             />
                         }
-
-
                 </ListSubheader>
                 {
                     sense[0][1].syn_list &&
@@ -139,15 +134,15 @@ const ResultsDefinitionsList = ({
                     // <Box component="li" className={classes.senseLabel}>
                     //     "Synonyms"
                     // </Box>
-                    <ListItemButton
-                        key={`synonyms-of-${headWord}`}
+                    <Option
+                        key={`synonyms-of-${root}`}
                         loading={loading}
                         options={sense[0][1].syn_list[0]}
                         definition="Synonyms"
-                        headWord={headWord}
-                        headLabel={headLabel}
-                        headInstance={headInstance}
-                        senseDefinition={sense[0][1].dt[0][1]}
+                        root={root}
+                        label={label}
+                        uuid={uuid}
+                        sense={sense[0][1].dt[0][1]}
                         onMouseOver={(word) => onMouseOver(word)}
                         onChange={(value) => onSelectionChange(value)}
                         onScrollTrigger={(word) => onScrollTrigger(word)}
@@ -156,15 +151,15 @@ const ResultsDefinitionsList = ({
                 }
                 {
                     sense[0][1].rel_list &&
-                    <ListItemButton
-                        key={`related-words-to-${headWord}`}
+                    <Option
+                        key={`related-words-to-${root}`}
                         loading={loading}
                         options={sense[0][1].rel_list[0]}
                         definition="Related Words"
-                        headWord={headWord}
-                        headLabel={headLabel}
-                        headInstance={headInstance}
-                        senseDefinition={sense[0][1].dt[0][1]}
+                        root={root}
+                        label={label}
+                        uuid={uuid}
+                        sense={sense[0][1].dt[0][1]}
                         onMouseOver={(word) => onMouseOver(word)}
                         onChange={(value) => onSelectionChange(value)}
                         onScrollTrigger={(word) => onScrollTrigger(word)}
@@ -172,15 +167,15 @@ const ResultsDefinitionsList = ({
                 }
                 {
                     sense[0][1].phrase_list &&
-                    <ListItemButton
-                        key={`synonymous-phrases-of-${headWord}`}
+                    <Option
+                        key={`synonymous-phrases-of-${root}`}
                         loading={loading}
                         options={sense[0][1].phrase_list[0]}
                         definition="Synonymous Phrases"
-                        headWord={headWord}
-                        headLabel={headLabel}
-                        headInstance={headInstance}
-                        senseDefinition={sense[0][1].dt[0][1]}
+                        root={root}
+                        label={label}
+                        uuid={uuid}
+                        sense={sense[0][1].dt[0][1]}
                         onMouseOver={(word) => onMouseOver(word)}
                         onChange={(value) => onSelectionChange(value)}
                         onScrollTrigger={(word) => onScrollTrigger(word)}
@@ -188,15 +183,15 @@ const ResultsDefinitionsList = ({
                 }
                 {
                     sense[0][1].sim_list &&
-                    <ListItemButton
-                        key={`similar-words-to-${headWord}`}
+                    <Option
+                        key={`similar-words-to-${root}`}
                         loading={loading}
                         options={[].concat(sense[0][1].sim_list).flat()}
                         definition="Similar Words"
-                        headWord={headWord}
-                        headLabel={headLabel}
-                        headInstance={headInstance}
-                        senseDefinition={sense[0][1].dt[0][1]}
+                        root={root}
+                        label={label}
+                        uuid={uuid}
+                        sense={sense[0][1].dt[0][1]}
                         onMouseOver={(word) => onMouseOver(word)}
                         onChange={(value) => onSelectionChange(value)}
                         onScrollTrigger={(word) => onScrollTrigger(word)}
@@ -209,4 +204,4 @@ const ResultsDefinitionsList = ({
     );
 };
 
-export default ResultsDefinitionsList;
+export default Sense;

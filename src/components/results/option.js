@@ -1,11 +1,10 @@
 import React from 'react'
-import ListItem from '@material-ui/core/ListItem'
-import { useDispatchHistory } from "../context/words.context";
 import { useTheme, makeStyles } from '@material-ui/core/styles'
-import useMediaQuery from '@material-ui/core/useMediaQuery'
+import ListItem from '@material-ui/core/ListItem'
 import ListItemText from "@material-ui/core/ListItemText";
-import { SameWordShowTotal } from "../helpers/counters.helper"
 import { InView } from "react-intersection-observer";
+import { useDispatchHistory } from "../../context/words.context";
+import { SameWordShowTotal } from "../../helpers/counters.helper"
 
 const useStyles = makeStyles((theme) => ({
     view: {
@@ -30,26 +29,23 @@ const useStyles = makeStyles((theme) => ({
             fontSize: "14px",
             lineHeight: 1.2475
         },
-
-
     },
 }))
 
-const ListItemButton = ({
-                            loading,
-                            onChange,
-                            options,
-                            definition,
-                            headWord,
-                            senseDefinition,
-                            headInstance,
-                            headLabel,
-                            onMouseOver,
-                            onScrollTrigger,
+const Option = ({
+                    loading,
+                    onChange,
+                    options,
+                    definition,
+                    root,
+                    sense,
+                    uuid,
+                    label,
+                    onMouseOver,
+                    onScrollTrigger,
                     }) => {
     const classes = useStyles();
     const theme = useTheme()
-    const matches = useMediaQuery(theme.breakpoints.up("sm"))
     const wordsDispatch = useDispatchHistory()
 
     return (
@@ -57,7 +53,7 @@ const ListItemButton = ({
             {options.map((option) => (
                 <InView
                     as="li"
-                    key={`item-${senseDefinition}-${option.wd}`}
+                    key={`item-${sense}-${option.wd}`}
                     className={classes.view}
                     threshold={.2}
                     // trackVisibility={true}
@@ -77,13 +73,14 @@ const ListItemButton = ({
                             wordsDispatch({
                                 type: 'add',
                                 name: option.wd,
-                                headWord: headWord,
-                                headLabel: headLabel,
-                                headInstance: headInstance,
-                                senseDefinition: senseDefinition
+                                root: root,
+                                label: label,
+                                uuid: uuid,
+                                sense: sense
                             });
                             onChange(option.wd);
-                        }}>
+                        }}
+                    >
 
                         <ListItemText
                             primary={option.wd}
@@ -91,8 +88,8 @@ const ListItemButton = ({
 
                         <SameWordShowTotal
                             term={option.wd}
-                            label={headLabel}
-                            definition={senseDefinition}
+                            label={label}
+                            definition={sense}
                             loading={loading}
                         />
 
@@ -104,4 +101,4 @@ const ListItemButton = ({
     );
 };
 
-export default ListItemButton;
+export default Option;
