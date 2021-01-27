@@ -1,13 +1,10 @@
-import {useHistory} from "../context/words.context";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
+import React from "react";
+import { withStyles } from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
+import Zoom from "@material-ui/core/Zoom";
 import Chip from "@material-ui/core/Chip";
 import Avatar from "@material-ui/core/Avatar";
-import React from "react";
-import Zoom from "@material-ui/core/Zoom";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import {makeStyles, withStyles} from "@material-ui/core/styles";
+import { useHistory } from "../context/words.context";
 
 const StyledChip = withStyles((theme) => ({
     root: {
@@ -98,7 +95,6 @@ export const SameSenseShowTotal = ({ loading, sense, label }) => {
 
 export const SameHeadShowTotal = ({ loading, root, label, uuid }) => {
     const wordsHistory = useHistory()
-    // const sameHead = wordsHistory.filter((item) => item.uuid === uuid && item.root === root);
     const sameHead = wordsHistory.filter((item) => isSameHead(item, root, uuid));
     const headTotal = getTotal(sameHead)
     const showTotal = headTotal > 0
@@ -125,88 +121,3 @@ export const SameHeadShowTotal = ({ loading, root, label, uuid }) => {
         </Zoom>
     )
 }
-
-export const Counter = ({
-                     isHead,
-                     isSense,
-                     isOption,
-                     term,
-                     root,
-                     sense,
-                     label,
-                     definition,
-                     }) => {
-    const wordsHistory = useHistory()
-    const sameWord = wordsHistory.filter((item) => isSameWord(item, term, definition, label));
-    const sameSense = wordsHistory.filter((item) => isSameSense(item, sense, label));
-    const sameHead = wordsHistory.filter((item) => isSameHead(item, root))
-    const thisSameWordTotal = getTotal(sameWord)
-    const thisSameSenseTotal = getTotal(sameSense)
-    const thisSameHeadTotal = getTotal(sameHead)
-    const thisTotal =
-        isHead ?
-            getTotal(sameHead)
-            :
-            isSense ?
-                getTotal(sameSense)
-                :
-                getTotal(sameWord)
-
-    const showCount = thisTotal > 1
-
-    // if (!showCount) {
-    //     return <></>
-    // }
-    return (
-        <>
-            <Zoom in={showCount}
-                  style={{
-                      transitionDelay: '3000ms'
-                          // showCount ?
-                          //     '3000ms'
-                          //     :
-                          //     '0ms'
-                  }}>
-                <Tooltip
-                    title={
-                        isHead ?
-                            `You've queried ${root} as a ${label} ${thisTotal} times.`
-                            :
-                            isSense ?
-                                `I've saved ${thisTotal} words sharing the definition: ${sense}.`
-                                :
-                                `${term} used in this sense has been searched ${thisTotal} times.`
-                    }>
-                    <StyledChip
-                        variant="outlined"
-                        color={
-                            isHead ?
-                                "primary"
-                                :
-                                isSense ?
-                                    "secondary"
-                                    :
-                                    "default"
-                        }
-                        size="small"
-                        avatar={
-                            <Avatar>{
-                                thisTotal
-                            }</Avatar>
-                        }
-                        style={{
-                            marginRight:
-                                isOption ?
-                                    0
-                                    :
-                                    -16
-                        }}
-                    />
-                </Tooltip>
-            </Zoom>
-
-        </>
-    );
-}
-
-// export default Counter;

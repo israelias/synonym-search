@@ -1,15 +1,7 @@
-import {useHistory} from "../context/words.context";
-import Zoom from "@material-ui/core/Zoom";
-import Tooltip from "@material-ui/core/Tooltip";
-import Avatar from "@material-ui/core/Avatar";
-import React, {useState} from "react";
-import {getTotal} from "./counters.helper";
-import ListItemText from "@material-ui/core/ListItemText";
+import React from "react";
 import parse from 'html-react-parser';
-import {makeStyles} from "@material-ui/core/styles";
-import Box from "@material-ui/core/Box";
+import { makeStyles } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography'
-import {useInView} from "react-intersection-observer";
 
 const useStyles = makeStyles(theme => ({
     active: {
@@ -24,7 +16,6 @@ const useStyles = makeStyles(theme => ({
         lineHeight: 3,
     }
 }));
-
 
 export const ReplaceNodeTags = ({ string }) => {
     // Replace {it} with <em> and {/it} with </em> no matter what

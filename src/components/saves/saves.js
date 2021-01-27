@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const SavedList = () => {
+const Saves = () => {
     const classes = useStyles();
     const wordsState = useHistory()
     const wordsDispatch = useDispatchHistory()
@@ -147,4 +147,4 @@ const SavedList = () => {
     );
 }
 
-export default SavedList;
+export default Saves;

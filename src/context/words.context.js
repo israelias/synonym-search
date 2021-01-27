@@ -8,9 +8,9 @@ export const HistoryProvider = ({children}) => {
         switch (action.type) {
             case 'add':
                 const wordIndex = state.findIndex(word =>
-                    word.uuid === action.headInstance ||
+                    word.uuid === action.uuid ||
                     word.name === action.name &&
-                    word.sense === action.senseDefinition
+                    word.sense === action.sense
                 );
                 if (wordIndex !== -1) {
                     return state.map((word, i) => ({
@@ -24,10 +24,10 @@ export const HistoryProvider = ({children}) => {
                             id: state.length,
                             name: action.name,
                             value: 1,
-                            root: action.headWord,
-                            label: action.headLabel,
-                            uuid: action.headInstance,
-                            sense: action.senseDefinition,
+                            root: action.root,
+                            label: action.label,
+                            uuid: action.uuid,
+                            sense: action.sense,
                         }
                     ];
                 }
