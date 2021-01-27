@@ -1,11 +1,9 @@
-import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-import Fade from "@material-ui/core/Grow";
-import Slide from "@material-ui/core/Slide";
 import React from "react";
-import {makeStyles} from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import Box from "@material-ui/core/Box";
-
+import useScrollTrigger from "@material-ui/core/useScrollTrigger";
+import Slide from "@material-ui/core/Slide";
 
 const useStyles = makeStyles((theme) => ({
     header: {
@@ -26,16 +24,20 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const HeaderElements = ({props, children}) => {
+const Header = ({ children }) => {
     const classes = useStyles()
     const trigger = useScrollTrigger();
     return (
-        <Slide appear={true} direction="down" in={!trigger} >
+        <Slide
+            appear={true}
+            direction="down"
+            in={!trigger}
+        >
             <Box
                 component="header"
-                className={classes.header}>
-
-                    {children}
+                className={classes.header}
+            >
+                {children}
 
                 <Toolbar/>
             </Box>
@@ -43,4 +45,4 @@ const HeaderElements = ({props, children}) => {
     );
 }
 
-export default HeaderElements
+export default Header

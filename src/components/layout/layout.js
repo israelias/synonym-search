@@ -1,14 +1,16 @@
-import React, {useContext, useState} from 'react'
-import {makeStyles, useTheme, fade, withStyles } from "@material-ui/core/styles";
+import React from 'react'
+import { makeStyles, useTheme, fade } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Toolbar from "@material-ui/core/Toolbar";
-import ToggleTheme from "./shared/theme-switch";
-import BackToTop from './shared/back-top-button'
-import SavedList from "./saves-List";
-import HeaderElements from "./../components/shared/header-elements"
-import {useDispatchTheme} from "../context/theme.context";
-import ResultsHeader from "./../components/results-header"
-import SavesHeader from "./../components/saves-header"
+import ToggleTheme from "../shared/theme-switch";
+import BackToTop from '../shared/back-top-button'
+import Saves from "../saves/saves";
+import Header from "./header"
+import { useDispatchTheme } from "../../context/theme.context";
+import ResultsHeader from "../headers/results-header"
+import SavesHeader from "../headers/saves-header"
+import { TabPanel } from "../../helpers/views.helper"
+import View from "./view"
 
 const useStyles = makeStyles(theme => ({
     menuButton: {
@@ -76,48 +78,26 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-function TabPanel(props) {
-    const {children, value, index, ...other} = props;
-
-    return (
-        <div
-            role="tabpanel"
-            hidden={value !== index}
-            id={`panel-${index}`}
-            aria-labelledby={`tab-${index}`}
-            {...other}
-        >
-            {value === index && (
-                <>
-                    {children}
-                </>
-
-            )}
-        </div>
-    );
-}
-
-const Layout = ({ children, search, history, searchText, loading, onSearchTextChange }) => {
+const Layout = ({
+                    children,
+                    searchText,
+                    loading,
+                    onSearchTextChange
+                }) => {
     const classes = useStyles();
-    const theme = useTheme();
     const themeDispatch = useDispatchTheme()
-
     const value = themeDispatch.value
 
     return (
         <div className={classes.root}>
-            <HeaderElements>
-                {value === 0 ?
-                    <ResultsHeader
-                        loading={loading}
-                        onSearchTextChange={onSearchTextChange}
-                        searchText={searchText} />
-                    :
-                    <SavesHeader />
-                }
+            <Header>
+                <View
+                    loading={loading}
+                    onSearchTextChange={onSearchTextChange}
+                    searchText={searchText}
+                />
                 <Toolbar />
-            </HeaderElements>
-
+            </Header>
             <Grid item className={classes.frame}>
                 <ToggleTheme/>
                 <Toolbar id="back-to-top-anchor"/>
@@ -126,12 +106,11 @@ const Layout = ({ children, search, history, searchText, loading, onSearchTextCh
                         {children}
                     </TabPanel>
                     <TabPanel value={value} index={1}>
-                        <SavedList />
+                        <Saves />
                     </TabPanel>
                 </main>
             </Grid>
             <BackToTop/>
-
         </div>
     )
 }
