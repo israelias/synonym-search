@@ -24,8 +24,12 @@ const useStyles = makeStyles((theme) => ({
 
 const ToggleTheme = () => {
     const classes = useStyles()
-    const themeDispatch = useDispatchTheme()
     const trigger = useScrollTrigger();
+    const themeDispatch = useDispatchTheme()
+
+    const handleClick = (event) => {
+        themeDispatch.setDarkMode(!themeDispatch.darkMode)
+    }
 
     return (
         <Slide appear={true} direction={"up"} in={!trigger}>
@@ -34,7 +38,7 @@ const ToggleTheme = () => {
                 color="secondary"
                 aria-label="switch"
                 className={classes.fab}
-                onClick={() => themeDispatch.setDarkMode(!themeDispatch.darkMode)}
+                onClick={handleClick}
             >
                 <Avatar
                     className={classes.switch}

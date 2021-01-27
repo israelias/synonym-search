@@ -14,9 +14,15 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Clear = (props) => {
+const Clear = () => {
     const classes = useStyles()
     const wordsDispatch = useDispatchHistory()
+
+    const handleClick = (event) => {
+        wordsDispatch({
+            type: 'clear'
+        })
+    }
 
     return (
         <div className={classes.root}>
@@ -25,12 +31,11 @@ const Clear = (props) => {
                 size="small"
                 color="primary"
                 aria-label="clear"
-                onClick={() => wordsDispatch({type: 'clear'})}
+                onClick={handleClick}
             >
                 <DeleteSweepIcon />
                 Clear
             </Fab>
-
         </div>
     )
 };
