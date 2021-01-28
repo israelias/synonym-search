@@ -98,19 +98,21 @@ const Layout = ({
                 />
                 <Toolbar />
             </Header>
-            <Grid item className={classes.frame}>
-                <ToggleTheme/>
+            <Grid component="main" item className={classes.frame}>
                 <Toolbar id="back-to-top-anchor"/>
-                <main className={classes.main}>
+                <div className={classes.main}>
                     <TabPanel value={value} index={0}>
                         {children}
                     </TabPanel>
                     <TabPanel value={value} index={1}>
                         <Saves />
                     </TabPanel>
-                </main>
+                </div>
             </Grid>
+            <nav>
+            <ToggleTheme/>
             <BackToTop/>
+            </nav>
         </div>
     )
 }
