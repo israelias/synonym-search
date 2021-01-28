@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useMemo} from "react";
+import React, { createContext, useState, useContext, useMemo } from "react";
 import { createMuiTheme, useTheme, ThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import grey from '@material-ui/core/colors/grey';
@@ -8,33 +8,49 @@ import lightblue from "@material-ui/core/colors/lightBlue";
 import deeporange from "@material-ui/core/colors/deepOrange";
 
 export const ThemeDispatchContext = createContext()
-export const ThemeStateContext = ThemeProvider
+export const ThemeStateContext = createContext()
 
-export const theme = createMuiTheme({
+import createBreakpoints from '@material-ui/core/styles/createBreakpoints'
+
+const customBreakpointValues = {
+    values: {
+        sm: 450,
+        md: 600,
+        lg: 900,
+    },
+}
+
+const breakpoints = createBreakpoints({
+    ...customBreakpointValues
+})
+
+const commonSettings = {
     breakpoints: {
-        values: {
-            sm: 450,
-            md: 600,
-            lg: 900,
-        }
+        ...customBreakpointValues,
     },
     typography: {
-        body1: {
-            fontSize: "18px",
-            lineHeight: 1.2395,
-            '@media (min-width:600px)': {
-                fontSize: '14px',
-                lineHeight: 1.2475,
-            },
-        }
+        fontFamily: [
+            '-apple-system',
+            'BlinkMacSystemFont',
+            '"Segoe UI"',
+            'Roboto',
+            '"Helvetica Neue"',
+            'Arial',
+            'sans-serif',
+            '"Apple Color Emoji"',
+            '"Segoe UI Emoji"',
+            '"Segoe UI Symbol"',
+        ].join(','),
     },
-
     overrides: {
         MuiCssBaseline: {
             '@global': {
                 html: {
                     WebkitFontSmoothing: 'auto',
                 },
+                ul: {
+                    listStyle: 'none',
+                }
             },
         },
         MuiTypography: {
@@ -45,55 +61,60 @@ export const theme = createMuiTheme({
                     fontSize: '14px',
                     lineHeight: 1.2475,
                 },
+            },
+            h6: {
+                fontSize: "18px",
+                fontWeight: 400,
+                lineHeight: 1.2395,
             }
         }
     },
 
     props: {
-        // Name of the component ⚛️
         MuiButtonBase: {
-            // The default props to change
-            disableRipple: true, // No more ripple, on the whole application 💣!
+            disableRipple: true,
         },
         MuiListRoot: {
             color: "#988534"
         }
     },
-});
+}
+
+const lightTheme = createMuiTheme({
+    palette: {
+        type: 'light',
+        primary: {
+            main: '#ff3200'
+            // main: '#39AB10'
+        },
+        secondary: {
+            main: grey[900]
+        }
+    },
+    ...commonSettings
+})
+
+const darkTheme = createMuiTheme({
+    palette: {
+        type: 'dark',
+        primary: {
+            main: yellow[600]
+        },
+        secondary: {
+            main: lightblue[500]
+        },
+        background: {
+            default: '#000',
+        },
+    },
+    ...commonSettings
+})
 
 export const ThemeContextProvider = ({ children }) => {
     const [darkMode, setDarkMode] = useState(false)
     const [value, setValue] = useState(0)
     const [meta, setMeta] = useState(true)
     const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-
-    const darkTheme = createMuiTheme({
-        palette: {
-            type: 'dark',
-            primary: {
-                main: yellow[600]
-            },
-            secondary: {
-                main: lightblue[500]
-            },
-            background: {
-                default: '#000',
-            }, ...theme
-        }
-    })
-
-    const lightTheme = createMuiTheme({
-        palette: {
-            type: 'light',
-            primary: {
-                main: '#ff3200'
-                // main: '#39AB10'
-            },
-            secondary: {
-                main: grey[900]
-            }, ...theme
-        }
-    })
 
     useMemo(
         () =>
@@ -113,18 +134,18 @@ export const ThemeContextProvider = ({ children }) => {
                 meta,
                 setMeta
             }}>
-            <ThemeStateContext
-                theme={
-                    // theme
-                    darkMode ?
-                        darkTheme
-                        : lightTheme
-                }
+            <ThemeStateContext.Provider
+                value={{commonSettings}}
             >
+                <ThemeProvider theme={darkMode ?
+                    darkTheme
+                    : lightTheme}>
                 {children}
-            </ThemeStateContext>
+                </ThemeProvider>
+            </ThemeStateContext.Provider>
         </ThemeDispatchContext.Provider>
     )
 }
 
 export const useDispatchTheme = () => useContext(ThemeDispatchContext)
+export const useThemeState = () => useContext(ThemeStateContext)
