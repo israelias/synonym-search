@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Collapse from "@material-ui/core/Collapse"
 import List from '@material-ui/core/List';
 import Root from './root'
 import { useDispatchTheme } from "../../context/theme.context";
+import Skeleton from "@material-ui/lab/Skeleton"
+import {searchThesaurus} from "../../services/mwThesaurusService";
+import ContinueResultsIteration from "./../shared/continue"
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -33,6 +36,7 @@ const Results = ({
         return <span>No associations found.</span>
     }
 
+
     return (
 
         <Collapse
@@ -42,6 +46,32 @@ const Results = ({
                 component='ol'
                 className={classes.root}
                 id='results-head-list'>
+
+                {/*{results.map((result, index) => (*/}
+                {/*    <ContinueResultsIteration onSelectionChange={onSelectionChange} loading={loading} result={result} index={index}/>*/}
+                {/*))}*/}
+
+                {/*{results.map((result, index) => (*/}
+
+                {/*    result.meta ? (*/}
+                {/*        <Root*/}
+                {/*            index={index}*/}
+                {/*            key={`result-${index}-${result.hwi.hw}`}*/}
+                {/*            loading={loading}*/}
+                {/*            uuid={*/}
+                {/*                result.meta.target ?*/}
+                {/*                    result.meta.target.tuuid*/}
+                {/*                    : result.meta.uuid*/}
+                {/*            }*/}
+                {/*            root={result.hwi.hw}*/}
+                {/*            label={result.fl}*/}
+                {/*            senses={result.def[0].sseq}*/}
+                {/*            onSelectionChange={onSelectionChange}*/}
+                {/*        />*/}
+                {/*    ) : (*/}
+                {/*        <Skeleton variant="text"/>*/}
+                {/*    )*/}
+                {/*))}*/}
 
                 {results.map((result, index) => {
                     if (!result.meta) {

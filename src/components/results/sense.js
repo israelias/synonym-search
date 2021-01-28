@@ -2,19 +2,13 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ListSubheader from '@material-ui/core/ListSubheader'
 import Box from '@material-ui/core/Box';
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
+import Typography from "@material-ui/core/Typography";
 import { SameSenseShowTotal } from "../../helpers/counters.helper"
 import { ReplaceNodeTags } from "../../helpers/string.helper"
 import Display from "../shared/string-display"
 import Option from "./option"
 
 const useStyles = makeStyles((theme) => ({
-    senseBox: {
-        display: 'flex',
-        flex: '0 0 100%',
-        position: 'relative',
-    },
     ul: {
         width: '100%',
         backgroundColor: 'inherit',
@@ -24,116 +18,82 @@ const useStyles = makeStyles((theme) => ({
     wordBoxSubHead: {
         top: '2.5rem',
         backgroundColor: theme.palette.background.default,
-        width: '100%',
-        // borderLeft: '1px solid',
         borderBottom: '1px solid',
-        flexDirection: 'column',
-        flex: '1',
         paddingLeft: '16px',
         paddingBottom: '.8rem',
-        boxSizing: 'border-box',
-        // height: '6em',
+        width: '100%',
     },
-    icon: {
-        width: '100%'
-    },
-    senseLabel: {
-        position: 'absolute',
-        bottom: '0',
-        left: '-.2em',
-        direction: 'ltr',
-        textAlign: 'left',
-        whiteSpace: 'nowrap',
-        height: '100%',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        textOrientation: 'mixed',
-        writingMode: 'vertical-lr',
-        transformOrigin: '0',
-        transform: 'rotate(180deg)',
-        fontSize: '9px',
-        color: '#000',
-        transition: '.3 ease .3'
-    },
-    senseWrap: {
-        // display: 'flex',
-        // alignItems: 'center',
-        paddingRight: '1rem',
-        borderLeftWidth: '1px',
-        borderLeftColor: '#000',
-        borderLeftStyle: 'solid',
-        flex: '1',
-        padding: '0 1rem 0 1rem',
-        // position: 'relative'
-        backgroundColor: 'inherit',
-        // padding: 0,
+    heading: {
+        display: 'flex',
+        alignItems: "center",
+        width: '100%',
+        justifyContent: "space-between",
+        marginTop: '4px',
+        marginBottom: '4px',
+        paddingTop: '.8rem',
+        paddingBottom: '.4rem',
     },
 }));
 
 const Sense = ({
-                                    loading,
-                                    sense,
-                                    onSelectionChange,
-                                    root,
-                                    label,
-                                    uuid
-                                }) => {
+                   loading,
+                   index,
+                   sense,
+                   onSelectionChange,
+                   root,
+                   label,
+                   uuid
+               }) => {
+
     const classes = useStyles();
+
     const [optionWord, setOptionWord] = useState(root)
 
-    function onScrollTrigger(word) {
-        setOptionWord(word)
-    }
+    const onScrollTrigger = word => setOptionWord(word)
 
-    function onMouseOver(word) {
-        setOptionWord(word)
-    }
+    const onMouseOver = word => setOptionWord(word)
+
+    const onChange = value => onSelectionChange(value)
 
     return (
 
         <Box
-            component='div'
-            key={`sense-${sense}`}
-            className={classes.senseBox}>
-            <ul
-                className={classes.ul}>
+            component='section'>
                 <ListSubheader
-                    key={`subheader-def-${sense}`}
+                    component="div"
                     className={classes.wordBoxSubHead}
                     id={sense[0][1].dt[0][1]}
                 >
-                    <ListItemIcon
-                        className={classes.icon}
-                        key={`icon-${sense[0][1].dt[0][1]}-${label}`}>
-                        <ListItemText
-                            primary={
-                                <ReplaceNodeTags
-                                    string={
-                                        sense[0][1].dt[0][1]
-                                    }
-                                />
-                            }
-                        />
+                    <Box className={classes.heading}>
+                        <Typography
+                            variant="body2"
+                            component="h5">
+                            <ReplaceNodeTags
+                                string={
+                                    sense[0][1].dt[0][1]
+                                }
+                            />
+                        </Typography>
                         <SameSenseShowTotal
                             loading={loading}
                             sense={sense[0][1].dt[0][1]}
                             label={label}
                         />
-                    </ListItemIcon>
-                        {sense[0][1].dt[1] &&
-                            <Display
-                                key={`display-${sense[0][1].dt[1][1][0].t}`}
-                                sampleString={sense[0][1].dt[1][1][0].t}
-                                optionWord={optionWord}
-                            />
-                        }
+                    </Box>
+                    {sense[0][1].dt[1] &&
+                        <Display
+                            key={`display-${sense[0][1].dt[1][1][0].t}`}
+                            sampleString={sense[0][1].dt[1][1][0].t}
+                            optionWord={optionWord}
+                        />
+                    }
                 </ListSubheader>
+
+            <ul
+                className={classes.ul}
+            >
                 {
                     sense[0][1].syn_list &&
-                    // <Box component="ul" className={classes.senseWrap}>
-                    // <Box component="li" className={classes.senseLabel}>
-                    //     "Synonyms"
-                    // </Box>
                     <Option
                         key={`synonyms-of-${root}`}
                         loading={loading}
@@ -143,11 +103,10 @@ const Sense = ({
                         label={label}
                         uuid={uuid}
                         sense={sense[0][1].dt[0][1]}
-                        onMouseOver={(word) => onMouseOver(word)}
-                        onChange={(value) => onSelectionChange(value)}
-                        onScrollTrigger={(word) => onScrollTrigger(word)}
+                        onMouseOver={onMouseOver}
+                        onChange={onChange}
+                        onScrollTrigger={onScrollTrigger}
                     />
-                    // </Box>
                 }
                 {
                     sense[0][1].rel_list &&
@@ -160,9 +119,9 @@ const Sense = ({
                         label={label}
                         uuid={uuid}
                         sense={sense[0][1].dt[0][1]}
-                        onMouseOver={(word) => onMouseOver(word)}
-                        onChange={(value) => onSelectionChange(value)}
-                        onScrollTrigger={(word) => onScrollTrigger(word)}
+                        onMouseOver={onMouseOver}
+                        onChange={onChange}
+                        onScrollTrigger={onScrollTrigger}
                     />
                 }
                 {
@@ -176,9 +135,9 @@ const Sense = ({
                         label={label}
                         uuid={uuid}
                         sense={sense[0][1].dt[0][1]}
-                        onMouseOver={(word) => onMouseOver(word)}
-                        onChange={(value) => onSelectionChange(value)}
-                        onScrollTrigger={(word) => onScrollTrigger(word)}
+                        onMouseOver={onMouseOver}
+                        onChange={onChange}
+                        onScrollTrigger={onScrollTrigger}
                     />
                 }
                 {
@@ -192,15 +151,13 @@ const Sense = ({
                         label={label}
                         uuid={uuid}
                         sense={sense[0][1].dt[0][1]}
-                        onMouseOver={(word) => onMouseOver(word)}
-                        onChange={(value) => onSelectionChange(value)}
-                        onScrollTrigger={(word) => onScrollTrigger(word)}
+                        onMouseOver={onMouseOver}
+                        onChange={onChange}
+                        onScrollTrigger={onScrollTrigger}
                 />
                 }
-
             </ul>
         </Box>
-
     );
 };
 

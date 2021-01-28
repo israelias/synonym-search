@@ -7,28 +7,15 @@ import { useDispatchHistory } from "../../context/words.context";
 import { SameWordShowTotal } from "../../helpers/counters.helper"
 
 const useStyles = makeStyles((theme) => ({
-    view: {
-        listStyle: 'none'
-    },
     wordBox: {
-        position: 'relative',
-        width: '100%',
-        flex: '1',
         paddingLeft: '2px',
         paddingTop: 0,
         paddingBottom: 0,
-        boxSizing: 'border-box',
-
         whitespace: 'nowrap',
         textOverflow: 'ellipsis',
         minHeight: 'calc(2em + 2px)',
-        display: 'flex',
         borderBottom: '1px solid',
         paddingRight: 0,
-        [theme.breakpoints.up("sm")]: {
-            fontSize: "14px",
-            lineHeight: 1.2475
-        },
     },
 }))
 
@@ -50,14 +37,13 @@ const Option = ({
 
     return (
         <>
-            {options.map((option) => (
+            {options.map((option, index) => (
                 <InView
                     as="li"
-                    key={`item-${sense}-${option.wd}`}
-                    className={classes.view}
+                    key={`item-${definition}-${index}-${option.wd}`}
                     threshold={.2}
-                    // trackVisibility={true}
-                    // delay={100}
+                    trackVisibility={true}
+                    delay={100}
                     onChange={
                         (inView, entry) => onScrollTrigger(option.wd)
                     }>
