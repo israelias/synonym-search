@@ -7,8 +7,6 @@ import BackToTop from '../shared/back-top-button'
 import Saves from "../saves/saves";
 import Header from "./header"
 import { useDispatchTheme } from "../../context/theme.context";
-import ResultsHeader from "../headers/results-header"
-import SavesHeader from "../headers/saves-header"
 import { TabPanel } from "../../helpers/views.helper"
 import View from "./view"
 
