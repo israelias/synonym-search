@@ -18,7 +18,7 @@ const Input = ({
                    textInput,
                    onChange,
                    placeHolder,
-                   label,
+                   label
                    }) => {
     const classes = useStyles()
     return (

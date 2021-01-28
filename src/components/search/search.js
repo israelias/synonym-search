@@ -23,8 +23,6 @@ const Search = ({
                 }) => {
     const classes = useStyles()
 
-
-
     return (
         <div className={classes.root}>
             {/*<TextInput*/}
