@@ -4,9 +4,6 @@ import Collapse from "@material-ui/core/Collapse"
 import List from '@material-ui/core/List';
 import Root from './root'
 import { useDispatchTheme } from "../../context/theme.context";
-import Skeleton from "@material-ui/lab/Skeleton"
-import {searchThesaurus} from "../../services/mwThesaurusService";
-import ContinueResultsIteration from "./../shared/continue"
 
 const useStyles = makeStyles((theme) => ({
     root: {
