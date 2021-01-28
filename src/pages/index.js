@@ -1,26 +1,11 @@
 import React from 'react'
-import Search from '../components/search/search'
 import { searchThesaurus } from '../services/mwThesaurusService'
 import { randomTerm } from '../helpers/random.helper'
-import { useState, useEffect, useReducer, useRef, useCallback } from 'react'
+import { useState } from 'react'
 import Layout from "../components/layout/layout"
-import Typography from '@material-ui/core/Typography'
 import Results from '../components/results/results'
-import {makeStyles} from "@material-ui/core/styles";
-
-const useStyles = makeStyles({
-  body1: {
-    fontSize: "18px",
-    lineHeight: 1.2395,
-    '@media (min-width:600px)': {
-      fontSize: '14px',
-      lineHeight: 1.2475,
-    },
-  }
-}, {name: 'MuiTypography'});
 
 const Index = ( props ) => {
-  const classes = useStyles()
 
   /*
     Add local states to state variables via useState Hooks, which adds
