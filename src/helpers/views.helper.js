@@ -2,7 +2,7 @@ import React from "react";
 
 export const TabPanel = ({ children, value, index, ...other }) => {
     return (
-        <div
+        <section
             role="tabpanel"
             hidden={value !== index}
             id={`panel-${index}`}
@@ -14,7 +14,7 @@ export const TabPanel = ({ children, value, index, ...other }) => {
                     {children}
                 </>
             )}
-        </div>
+        </section>
     );
 }
 
