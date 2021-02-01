@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Sense = ({
                    loading,
-                   index,
                    sense,
                    onSelectionChange,
                    root,

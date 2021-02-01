@@ -68,7 +68,6 @@ const Root = ({
                 {senses.map((sense, index) => (
                     <Sense
                         key={`sense-${root}-${label}-${index}`}
-                        index={index}
                         loading={loading}
                         sense={sense}
                         root={root}
