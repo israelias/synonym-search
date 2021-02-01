@@ -33,6 +33,7 @@ const commonSettings = {
                 },
                 ul: {
                     listStyle: 'none',
+                    padding: 0,
                 }
             },
         },
@@ -45,10 +46,35 @@ const commonSettings = {
                     lineHeight: 1.2475,
                 },
             },
+            body2: {
+                marginRight: 16,
+            },
             h6: {
                 fontSize: "18px",
                 fontWeight: 400,
                 lineHeight: 1.2395,
+            }
+        },
+        MuiListItem: {
+            button: {
+                paddingLeft: '2px',
+                paddingTop: 0,
+                paddingBottom: 0,
+                whiteSpace: 'nowrap',
+                textOverflow: 'ellipsis',
+                minHeight: 'calc(2em + 2px)',
+                borderBottom: '1px solid',
+                paddingRight: 0,
+            }
+        },
+        MuiListItemText: {
+            primary: {
+                fontSize: "18px",
+                lineHeight: 1.2395,
+                '@media (min-width:600px)': {
+                    fontSize: '14px',
+                    lineHeight: 1.2475,
+                },
             }
         }
     },

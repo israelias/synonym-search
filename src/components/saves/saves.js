@@ -63,6 +63,20 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+export const GroupBySense = (element) => {
+    return Object.entries(
+        element.reduce((result, words) => {
+            result[words.sense] = [
+                ...result[words.sense]
+                || [],
+                words
+            ]
+            console.log(result)
+            return result
+        }, {})
+    )
+}
+
 const Saves = () => {
     const classes = useStyles();
     const wordsState = useHistory()
@@ -72,16 +86,7 @@ const Saves = () => {
         return <span>Your history will save here.</span>
     }
 
-    const groupBy = wordsState.reduce((result, words) => {
-            // console.log("words", words);
-            // console.log("result", result);
-            result[words.sense] =  [...result[words.sense] || [], words];
-            return result
-        }, {}
-        );
-
-    const listBy = Object.entries(groupBy)
-    // console.log(listBy)
+    const text = GroupBySense(wordsState)
 
 
     return (
@@ -92,7 +97,7 @@ const Saves = () => {
             className={classes.root}
             id='saves-head'>
 
-            {listBy.map((result, index) => (
+            {text.map((result, index) => (
                 <li
                     key={`saves-${index}`}
                     className={classes.listSection}>
@@ -127,7 +132,7 @@ const Saves = () => {
                                     onDelete={() => {
                                         wordsDispatch({
                                             type: 'remove',
-                                            index: index
+                                            id: word.id
                                         });
                                     }}
                                     avatar={

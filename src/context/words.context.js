@@ -32,7 +32,7 @@ export const HistoryProvider = ({children}) => {
                     ];
                 }
             case 'remove':
-                return state.filter((_, index) => index !== action.index);
+            return state.filter(word => word.id !== action.id);
             case 'clear':
                 return [];
             default:
