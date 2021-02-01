@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useMemo } from "react";
-import { createMuiTheme, useTheme, ThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import grey from '@material-ui/core/colors/grey';
 import yellow from '@material-ui/core/colors/yellow';
@@ -12,22 +12,7 @@ export const ThemeStateContext = createContext()
 
 import createBreakpoints from '@material-ui/core/styles/createBreakpoints'
 
-const customBreakpointValues = {
-    values: {
-        sm: 450,
-        md: 600,
-        lg: 900,
-    },
-}
-
-const breakpoints = createBreakpoints({
-    ...customBreakpointValues
-})
-
 const commonSettings = {
-    breakpoints: {
-        ...customBreakpointValues,
-    },
     typography: {
         fontFamily: [
             '-apple-system',
@@ -112,7 +97,7 @@ const darkTheme = createMuiTheme({
 
 export const ThemeContextProvider = ({ children }) => {
     const [darkMode, setDarkMode] = useState(false)
-    const [value, setValue] = useState(0)
+    const [value, setValue] = useState('search')
     const [meta, setMeta] = useState(true)
     const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
