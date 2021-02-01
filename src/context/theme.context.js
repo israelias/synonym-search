@@ -10,8 +10,6 @@ import deeporange from "@material-ui/core/colors/deepOrange";
 export const ThemeDispatchContext = createContext()
 export const ThemeStateContext = createContext()
 
-import createBreakpoints from '@material-ui/core/styles/createBreakpoints'
-
 const commonSettings = {
     typography: {
         fontFamily: [

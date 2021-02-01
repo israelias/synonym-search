@@ -71,7 +71,7 @@ const View = ({
     const wordsHistory = useHistory()
     const viewDispatch = useDispatchTheme()
     const value = viewDispatch.value
-    const home = value === 0
+    const home = value === 'search'
 
     return (
         <>
@@ -120,8 +120,8 @@ const View = ({
                             className={classes.back}
                             size="small"
                             color="secondary"
-                            onClick={() => viewDispatch.setValue(1)}
-                            {...a11yProps(1)}
+                            onClick={() => viewDispatch.setValue('saves')}
+                            {...a11yProps('saves')}
                         >
                             <Badge
                                 color="primary"
@@ -150,8 +150,8 @@ const View = ({
                             size="small"
                             color="secondary"
                             aria-label="Back to results"
-                            onClick={() => viewDispatch.setValue(0)}
-                            {...a11yProps(0)}
+                            onClick={() => viewDispatch.setValue('search')}
+                            {...a11yProps('search')}
                         >
                             <Avatar
                                 className={classes.history}
