@@ -1,8 +1,6 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from "@material-ui/core/Typography"
-import Box from "@material-ui/core/Box"
-import ListSubheader from '@material-ui/core/ListSubheader';
 import { SameHeadShowTotal } from "../../helpers/counters.helper"
 import Sense from "./sense"
 
@@ -16,6 +14,12 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         display: 'flex',
         justifyContent: 'space-between',
+        position: 'sticky',
+        top: 0,
+        zIndex: 1,
+        paddingRight: 16,
+        paddingLeft: 16,
+        color: theme.palette.text.secondary,
     },
     heading: {
         display: 'flex',
@@ -31,23 +35,17 @@ const Root = ({
                   loading,
                   selection,
                   onSelectionChange,
-                  index
              }) => {
 
     const classes = useStyles();
 
     return (
-        <li
-            key={`head-${index}-${uuid}-${root}`}
-            id={`result-${index}-${root}`}>
-
             <article>
-                <ListSubheader
-                    component={'header'}
+                <header
                     key={`head-content-${root}`}
                     className={classes.subheader}>
-
-                    <Box className={classes.heading}>
+                    <div
+                        className={classes.heading}>
                         <Typography
                             variant="h6"
                             component="h4">
@@ -58,14 +56,14 @@ const Root = ({
                                 {label}
                             </Typography>
                         </Typography>
-                    </Box>
+                    </div>
                     <SameHeadShowTotal
                         loading={loading}
                         root={root}
                         label={label}
                         uuid={uuid}
                     />
-                </ListSubheader>
+                </header>
 
                 {senses.map((sense, index) => (
                     <Sense
@@ -83,7 +81,7 @@ const Root = ({
                 ))}
 
             </article>
-        </li>
+
     );
 }
 

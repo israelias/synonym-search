@@ -1,23 +1,9 @@
 import React from 'react'
-import { useTheme, makeStyles } from '@material-ui/core/styles'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from "@material-ui/core/ListItemText";
 import { InView } from "react-intersection-observer";
 import { useDispatchHistory } from "../../context/words.context";
 import { SameWordShowTotal } from "../../helpers/counters.helper"
-
-const useStyles = makeStyles((theme) => ({
-    wordBox: {
-        paddingLeft: '2px',
-        paddingTop: 0,
-        paddingBottom: 0,
-        whitespace: 'nowrap',
-        textOverflow: 'ellipsis',
-        minHeight: 'calc(2em + 2px)',
-        borderBottom: '1px solid',
-        paddingRight: 0,
-    },
-}))
 
 const Option = ({
                     loading,
@@ -31,8 +17,6 @@ const Option = ({
                     onMouseOver,
                     onScrollTrigger,
                     }) => {
-    const classes = useStyles();
-    const theme = useTheme()
     const wordsDispatch = useDispatchHistory()
 
     return (
@@ -50,7 +34,6 @@ const Option = ({
                     <ListItem
                         button
                         component="div"
-                        className={classes.wordBox}
                         value={option.wd}
                         key={option.wd}
                         onMouseOver={(e) => onMouseOver(option.wd)}

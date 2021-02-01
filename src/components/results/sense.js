@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import ListSubheader from '@material-ui/core/ListSubheader'
-import Box from '@material-ui/core/Box';
 import Typography from "@material-ui/core/Typography";
 import { SameSenseShowTotal } from "../../helpers/counters.helper"
 import { ReplaceNodeTags } from "../../helpers/string.helper"
@@ -9,12 +7,6 @@ import Display from "../shared/string-display"
 import Option from "./option"
 
 const useStyles = makeStyles((theme) => ({
-    ul: {
-        width: '100%',
-        backgroundColor: 'inherit',
-        padding: 0,
-        position: 'relative',
-    },
     wordBoxSubHead: {
         top: '2.5rem',
         backgroundColor: theme.palette.background.default,
@@ -22,12 +14,14 @@ const useStyles = makeStyles((theme) => ({
         paddingLeft: '16px',
         paddingBottom: '.8rem',
         width: '100%',
+        position: 'sticky',
+        zIndex: 1,
+        paddingRight: 16,
+        color: theme.palette.text.secondary,
     },
     heading: {
         display: 'flex',
         alignItems: "center",
-        width: '100%',
-        justifyContent: "space-between",
         marginTop: '4px',
         marginBottom: '4px',
         paddingTop: '.8rem',
@@ -57,41 +51,37 @@ const Sense = ({
 
     return (
 
-        <Box
-            component='section'>
-                <ListSubheader
-                    component="div"
-                    className={classes.wordBoxSubHead}
-                    id={sense[0][1].dt[0][1]}
-                >
-                    <Box className={classes.heading}>
-                        <Typography
-                            variant="body2"
-                            component="h5">
-                            <ReplaceNodeTags
-                                string={
-                                    sense[0][1].dt[0][1]
-                                }
-                            />
-                        </Typography>
-                        <SameSenseShowTotal
-                            loading={loading}
-                            sense={sense[0][1].dt[0][1]}
-                            label={label}
-                        />
-                    </Box>
-                    {sense[0][1].dt[1] &&
-                        <Display
-                            key={`display-${sense[0][1].dt[1][1][0].t}`}
-                            sampleString={sense[0][1].dt[1][1][0].t}
-                            optionWord={optionWord}
-                        />
-                    }
-                </ListSubheader>
-
-            <ul
-                className={classes.ul}
+        <section>
+            <div
+                className={classes.wordBoxSubHead}
+                id={sense[0][1].dt[0][1]}
             >
+                <div className={classes.heading}>
+                    <Typography
+                        variant="body2"
+                        component="h5">
+                        <ReplaceNodeTags
+                            string={
+                                sense[0][1].dt[0][1]
+                            }
+                        />
+                    </Typography>
+                    <SameSenseShowTotal
+                        loading={loading}
+                        sense={sense[0][1].dt[0][1]}
+                        label={label}
+                    />
+                </div>
+                {sense[0][1].dt[1] &&
+                    <Display
+                        key={`display-${sense[0][1].dt[1][1][0].t}`}
+                        sampleString={sense[0][1].dt[1][1][0].t}
+                        optionWord={optionWord}
+                    />
+                }
+            </div>
+
+            <ul>
                 {
                     sense[0][1].syn_list &&
                     <Option
@@ -157,7 +147,7 @@ const Sense = ({
                 />
                 }
             </ul>
-        </Box>
+        </section>
     );
 };
 

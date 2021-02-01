@@ -33,7 +33,6 @@ const Results = ({
         return <span>No associations found.</span>
     }
 
-
     return (
 
         <Collapse
@@ -77,20 +76,23 @@ const Results = ({
                     else {
                         metaDispatch.setMeta(true)
                         return (
-                            <Root
-                                index={index}
-                                key={`result-${index}-${result.hwi.hw}`}
-                                loading={loading}
-                                uuid={
-                                    result.meta.target ?
-                                        result.meta.target.tuuid
-                                        : result.meta.uuid
-                                }
-                                root={result.hwi.hw}
-                                label={result.fl}
-                                senses={result.def[0].sseq}
-                                onSelectionChange={onSelectionChange}
-                            />
+                            <li
+                                key={`head-${index}-${result.hwi.hw}`}
+                                id={`result-${index}-${result.hwi.hw}`}>
+                                    <Root
+                                        key={`result-${index}-${result.hwi.hw}`}
+                                        loading={loading}
+                                        uuid={
+                                            result.meta.target ?
+                                                result.meta.target.tuuid
+                                                : result.meta.uuid
+                                        }
+                                        root={result.hwi.hw}
+                                        label={result.fl}
+                                        senses={result.def[0].sseq}
+                                        onSelectionChange={onSelectionChange}
+                                    />
+                            </li>
                         )
                     }
                 })}
