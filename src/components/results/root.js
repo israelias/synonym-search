@@ -39,7 +39,7 @@ const Root = ({
     return (
         <li
             key={`head-${index}-${uuid}-${root}`}
-            id={`result-${root}`}>
+            id={`result-${index}-${root}`}>
 
             <article>
                 <ListSubheader
