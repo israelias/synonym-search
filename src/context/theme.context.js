@@ -55,15 +55,29 @@ const commonSettings = {
                 lineHeight: 1.2395,
             }
         },
+        MuiList: {
+            root: {
+                maxWidth: '100%',
+                backgroundColor: 'inherit',
+                position: 'relative',
+                '@media (min-width:600px)': {
+                    marginLeft: "8rem",
+                }
+            }
+        },
         MuiListItem: {
-            button: {
-                paddingLeft: '2px',
+            root: {
+                // paddingLeft: '2px',
                 paddingTop: 0,
                 paddingBottom: 0,
                 whiteSpace: 'nowrap',
                 textOverflow: 'ellipsis',
                 minHeight: 'calc(2em + 2px)',
                 borderBottom: '1px solid',
+                // paddingRight: 0,
+            },
+            gutters: {
+                paddingLeft: '2px',
                 paddingRight: 0,
             }
         },
