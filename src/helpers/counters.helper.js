@@ -8,7 +8,8 @@ import { useHistory } from "../context/words.context";
 
 const StyledChip = withStyles((theme) => ({
     root: {
-        // marginRight: '-16px',
+        position: 'absolute',
+        right: 0,
     },
     label: {
         display: 'none',
@@ -36,7 +37,12 @@ export function getTotal(element) {
     }, 0)
 }
 
-export const SameWordShowTotal = ({ loading, term, definition, label }) => {
+export const SameWordShowTotal = ({
+                                      loading,
+                                      term,
+                                      definition,
+                                      label
+                                  }) => {
     const wordsHistory = useHistory()
     const sameWord = wordsHistory.filter((item) => isSameWord(item, term, definition, label));
     const thisSameWordTotal = getTotal(sameWord)
@@ -45,10 +51,11 @@ export const SameWordShowTotal = ({ loading, term, definition, label }) => {
     return (
         showTotal &&
         <Zoom in={!loading}
-            // style={{transitionDelay: '1500ms'}}
         >
             <Tooltip
-                title={`${term} used in this sense has been searched ${thisSameWordTotal} times.`}>
+                title={
+                    `${term} as in ${definition} has been searched and saved ${thisSameWordTotal} times.`
+                }>
                 <StyledChip
                     variant="outlined"
                     color="default"
@@ -64,19 +71,23 @@ export const SameWordShowTotal = ({ loading, term, definition, label }) => {
     )
 }
 
-export const SameSenseShowTotal = ({ loading, sense, label }) => {
+export const SameSenseShowTotal = ({
+                                       loading,
+                                       sense,
+                                       label
+                                   }) => {
     const wordsHistory = useHistory()
     const sameSense = wordsHistory.filter((item) => isSameSense(item, sense, label));
-    const senseTotal = getTotal(sameSense)
+    const senseTotal = sameSense.length
     const showTotal = senseTotal > 0
 
     return (
         showTotal &&
-        <Zoom in={!loading}
-              style={{transitionDelay: '750ms'}}
-        >
+        <Zoom in={!loading}>
             <Tooltip
-                title={`I've saved ${senseTotal} words sharing the definition: ${sense}.`}>
+                title={
+                    `I've saved ${senseTotal} words sharing the definition: ${sense}.`
+                }>
                 <StyledChip
                     variant="outlined"
                     color="secondary"
@@ -86,14 +97,18 @@ export const SameSenseShowTotal = ({ loading, sense, label }) => {
                             senseTotal
                         }</Avatar>
                     }
-                    style={{marginRight: -16}}
                 />
             </Tooltip>
         </Zoom>
     )
 }
 
-export const SameHeadShowTotal = ({ loading, root, label, uuid }) => {
+export const SameHeadShowTotal = ({
+                                      loading,
+                                      root,
+                                      label,
+                                      uuid,
+                                  }) => {
     const wordsHistory = useHistory()
     const sameHead = wordsHistory.filter((item) => isSameHead(item, root, uuid));
     const headTotal = getTotal(sameHead)
@@ -101,11 +116,11 @@ export const SameHeadShowTotal = ({ loading, root, label, uuid }) => {
 
     return (
         showTotal &&
-        <Zoom in={!loading}
-              style={{transitionDelay: '750ms'}}
-        >
+        <Zoom in={!loading}>
             <Tooltip
-                title={`You've queried ${root} as a ${label} ${headTotal} times.`}>
+                title={
+                    `${root} as a ${label} has appeared ${headTotal} times.`
+                }>
                 <StyledChip
                     variant="outlined"
                     color="primary"
@@ -115,7 +130,6 @@ export const SameHeadShowTotal = ({ loading, root, label, uuid }) => {
                             headTotal
                         }</Avatar>
                     }
-                    style={{marginRight: -16}}
                 />
             </Tooltip>
         </Zoom>
