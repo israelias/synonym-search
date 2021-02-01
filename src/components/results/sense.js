@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { SameSenseShowTotal } from "../../helpers/counters.helper"
+import { SameSenseShowTotal } from "../counters/counters"
 import { ReplaceNodeTags } from "../../helpers/string.helper"
 import Display from "../shared/string-display"
 import Option from "./option"
@@ -49,7 +49,6 @@ const Sense = ({
     const onChange = value => onSelectionChange(value)
 
     return (
-
         <section>
             <div
                 className={classes.wordBoxSubHead}

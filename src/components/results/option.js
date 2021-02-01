@@ -3,7 +3,7 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from "@material-ui/core/ListItemText";
 import { InView } from "react-intersection-observer";
 import { useDispatchHistory } from "../../context/words.context";
-import { SameWordShowTotal } from "../../helpers/counters.helper"
+import { SameWordShowTotal } from "../counters/counters"
 
 const Option = ({
                     loading,

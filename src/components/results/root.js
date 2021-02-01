@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from "@material-ui/core/Typography"
-import { SameHeadShowTotal } from "../../helpers/counters.helper"
+import { SameHeadShowTotal } from "../counters/counters"
 import Sense from "./sense"
 
 const useStyles = makeStyles((theme) => ({
@@ -40,47 +40,45 @@ const Root = ({
     const classes = useStyles();
 
     return (
-            <article>
-                <header
-                    key={`head-content-${root}`}
-                    className={classes.subheader}>
-                    <div
-                        className={classes.heading}>
+        <article>
+            <header
+                key={`head-content-${root}`}
+                className={classes.subheader}>
+                <div
+                    className={classes.heading}>
+                    <Typography
+                        variant="h6"
+                        component="h4">
+                        {root},{' '}
                         <Typography
                             variant="h6"
-                            component="h4">
-                            {root},{' '}
-                            <Typography
-                                variant="h6"
-                                component="em">
-                                {label}
-                            </Typography>
+                            component="em">
+                            {label}
                         </Typography>
-                    </div>
-                    <SameHeadShowTotal
-                        loading={loading}
-                        root={root}
-                        label={label}
-                        uuid={uuid}
-                    />
-                </header>
+                    </Typography>
+                </div>
+                <SameHeadShowTotal
+                    loading={loading}
+                    root={root}
+                    label={label}
+                    uuid={uuid}
+                />
+            </header>
 
-                {senses.map((sense, index) => (
-                    <Sense
-                        key={`sense-${root}-${label}-${index}`}
-                        loading={loading}
-                        sense={sense}
-                        root={root}
-                        uuid={uuid}
-                        label={label}
-                        onSelectionChange={
-                            (value) => onSelectionChange(value)
-                        }
-                    />
-                ))}
-
-            </article>
-
+            {senses.map((sense, index) => (
+                <Sense
+                    key={`sense-${root}-${label}-${index}`}
+                    loading={loading}
+                    sense={sense}
+                    root={root}
+                    uuid={uuid}
+                    label={label}
+                    onSelectionChange={
+                        (value) => onSelectionChange(value)
+                    }
+                />
+            ))}
+        </article>
     );
 }
 
