@@ -1,154 +1,83 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import { useHistory, useDispatchHistory } from '../../context/words.context'
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import { SameSenseShowTotal } from "../../helpers/counters.helper";
-import Avatar from "@material-ui/core/Avatar";
-import Chip from "@material-ui/core/Chip";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
+import Typography from "@material-ui/core/Typography";
+import { useHistory } from '../../context/words.context'
+import { SameSenseShowTotal } from "../counters/counters";
+import { ReplaceNodeTags } from "../../helpers/string.helper";
+import { groupBySense } from "../../helpers/counters.helper"
+import Selection from "./selection";
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        maxWidth: '100%',
-        backgroundColor: 'inherit',
-        position: 'relative',
-        [theme.breakpoints.up("sm")]: {
-            marginLeft: "8rem",
-        }
+    heading: {
+        display: 'flex',
+        alignItems: "center",
+        marginTop: '4px',
+        marginBottom: '4px',
+        paddingTop: '.8rem',
+        paddingBottom: '.4rem',
     },
-    subheader: {
+    wordBoxSubHead: {
+        top: '2.5rem',
         backgroundColor: theme.palette.background.default,
         borderBottom: '1px solid',
-        lineHeight: '2em',
-        height: '2em',
-        fontSize: '20px',
-    },
-    listSection: {
-        backgroundColor: 'inherit'
-    },
-    ul: {
-        backgroundColor: 'inherit',
-        padding: 0,
-        position: 'relative',
-        // top: '3rem',
-    },
-    wordBox: {
-        position: 'relative',
+        paddingLeft: '16px',
+        paddingBottom: '.8rem',
         width: '100%',
-        flex: '1',
-        paddingLeft: '2px',
-        paddingTop: 0,
-        paddingBottom: 0,
-        boxSizing: 'border-box',
-
-        whitespace: 'nowrap',
-        textOverflow: 'ellipsis',
-        minHeight: 'calc(2em + 2px)',
-        display: 'flex',
-        borderBottom: '1px solid',
-        paddingRight: 0,
-        // fontSize: "18px",
-        // lineHeight: 1.2395
-        [theme.breakpoints.up("sm")]: {
-            fontSize: "14px",
-            lineHeight: 1.2475
-        }
-
-    },
-    icon: {
-        width: '100%'
+        position: 'sticky',
+        zIndex: 1,
+        paddingRight: 16,
+        color: theme.palette.text.secondary,
     },
 }));
 
-export const GroupBySense = (element) => {
-    return Object.entries(
-        element.reduce((result, words) => {
-            result[words.sense] = [
-                ...result[words.sense]
-                || [],
-                words
-            ]
-            console.log(result)
-            return result
-        }, {})
-    )
-}
-
 const Saves = () => {
     const classes = useStyles();
+
     const wordsState = useHistory()
-    const wordsDispatch = useDispatchHistory()
 
     if (!wordsState || wordsState.length === 0) {
         return <span>Your history will save here.</span>
     }
 
-    const text = GroupBySense(wordsState)
-
+    const selections = groupBySense(wordsState)
 
     return (
-        <>
-
         <List
             component='ol'
-            className={classes.root}
             id='saves-head'>
 
-            {text.map((result, index) => (
-                <li
-                    key={`saves-${index}`}
-                    className={classes.listSection}>
-                    <ul
-                        className={classes.ul}>
-                        <ListSubheader
-                            key={`defs-${index}`}
-                            // className={classes.subheader}
-                        >
-                            <ListItemIcon className={classes.icon}>
-                                <ListItemText
-                                    primary={result[0]}
+            {selections.map((selection, index) => (
+                <li key={`saves-${index}`}>
+                    <div
+                        key={`saves-content-${index}`}
+                        className={classes.wordBoxSubHead}>
+                        <div
+                            className={classes.heading}>
+                            <Typography
+                                variant="body2"
+                                component="h3">
+                                <ReplaceNodeTags
+                                    string={
+                                        selection[0]
+                                    }
                                 />
-                                <SameSenseShowTotal
-                                    // loading={loading}
-                                    sense={result[0]}
-                                    label={result[1][0].label}
-                                />
-                            </ListItemIcon>
-                        </ListSubheader>
-                        {result[1].map((word, i) => (
-                            <ListItem
-                                component="li"
-                                key={`saves-${word.name}`}
-                                className={classes.wordBox}
-                            >
-                                <Chip
-                                    color="default"
-                                    variant="outlined"
-                                    size="small"
-                                    label={word.name}
-                                    onDelete={() => {
-                                        wordsDispatch({
-                                            type: 'remove',
-                                            id: word.id
-                                        });
-                                    }}
-                                    avatar={
-                                        <Avatar>{word.value > 0 && word.value}</Avatar>}
-                                    className={classes.chip}
-                                />
-
-
-                            </ListItem>
-                        ))}
+                            </Typography>
+                            <SameSenseShowTotal
+                                sense={selection[0]}
+                                label={selection[1][0].label}
+                            />
+                        </div>
+                    </div>
+                    <ul>
+                        <Selection
+                            selections={selection[1]}
+                        />
 
                     </ul>
                 </li>
             ))}
         </List>
-        </>
     );
 }
 
