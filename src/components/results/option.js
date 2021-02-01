@@ -52,7 +52,6 @@ const Option = ({
                         component="div"
                         className={classes.wordBox}
                         value={option.wd}
-                        id={option.wd}
                         key={option.wd}
                         onMouseOver={(e) => onMouseOver(option.wd)}
                         onClick={() => {
