@@ -1,6 +1,5 @@
 import React from 'react'
 import { makeStyles } from "@material-ui/core/styles";
-import Box from '@material-ui/core/Box'
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
 import { ReplaceSubStringNode } from "../../helpers/string.helper"
 
@@ -27,6 +26,7 @@ const useStyles = makeStyles(theme => ({
         marginLeft: '-16px',
         marginRight: '16px',
         borderBottom: '1px solid',
+        transform: 'scale(-1, 1)'
     },
     iconRight: {
         color: theme.palette.primary.light,
@@ -43,11 +43,7 @@ const Display = ({
     const subString = ReplaceSubStringNode(sampleString)
 
     return (
-        <Box
-            component='div'
-            spacing={2}
-            className={classes.display}
-        >
+        <div className={classes.display}>
             <FormatQuoteIcon
                 className={classes.iconLeft}
             />
@@ -65,7 +61,7 @@ const Display = ({
             <FormatQuoteIcon
                 className={classes.iconRight}
             />
-        </Box>
+        </div>
     )
 }
 
