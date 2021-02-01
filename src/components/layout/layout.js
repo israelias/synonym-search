@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import ToggleTheme from "../shared/theme-switch";
@@ -42,9 +43,17 @@ const Layout = ({
     const classes = useStyles();
     const themeDispatch = useDispatchTheme()
     const value = themeDispatch.value
+    const description = `Search results for ${searchText}.`
 
     return (
         <>
+            <Head>
+                <meta
+                    name="description"
+                    content={description}
+                />
+                <meta name="og:title" content={searchText}/>
+            </Head>
             <Header>
                 <View
                     loading={loading}
