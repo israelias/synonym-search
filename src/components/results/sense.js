@@ -5,7 +5,8 @@ import { SameSenseShowTotal } from "../counters/counters"
 import { ReplaceNodeTags } from "../../helpers/string.helper"
 import Display from "../shared/string-display"
 import Option from "./option"
-import {useStyles} from "../../styles/styles"
+import {useStyles} from "../../styles/main.styles"
+import clsx from 'clsx';
 
 const Sense = ({
                    loading,
@@ -29,10 +30,10 @@ const Sense = ({
     return (
         <section>
             <div
-                className={classes.wordBoxSubHead}
+                className={clsx(classes.subheader, classes.subheaderSense)}
                 id={sense[0][1].dt[0][1]}
             >
-                <div className={classes.headingSense}>
+                <div className={clsx(classes.heading, classes.headingSense)}>
                     <Typography
                         variant="body2"
                         component="h5">

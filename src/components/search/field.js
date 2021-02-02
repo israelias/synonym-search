@@ -1,30 +1,13 @@
 import React, { useState, useRef } from 'react'
-import { makeStyles, useTheme } from '@material-ui/core/styles'
+import { useTheme } from '@material-ui/core/styles'
 import Fab from "@material-ui/core/Fab"
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Grow from "@material-ui/core/Grow"
+// import Grow from "@material-ui/core/Grow"
 import Backdrop from "@material-ui/core/Backdrop"
-import useScrollTrigger from "@material-ui/core/useScrollTrigger";
+// import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import { useDispatchTheme } from "../../context/theme.context";
 import Input from "./input"
-
-
-const useStyles = makeStyles((theme) => ({
-    // searchButton: {
-    //     transition: theme.transitions.create('width'),
-    //     transitionDelay: '2000ms',
-    //     backgroundColor: theme.palette.primary.main,
-    //     '&hover': {
-    //         backgroundColor: theme.palette.secondary.main,
-    //     },
-    //     '&focus': {
-    //         backgroundColor: theme.palette.secondary.main,
-    //     },
-    //     '&active': {
-    //         backgroundColor: theme.palette.secondary.main,
-    //     },
-    // },
-}));
+import { useStyles } from "../../styles/button.styles"
 
 const Field = ({
                    label,

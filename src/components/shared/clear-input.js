@@ -1,18 +1,10 @@
 import React from 'react'
-import { makeStyles } from "@material-ui/core/styles";
 import { useDispatchHistory } from "../../context/words.context";
 import Fab from "@material-ui/core/Fab"
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        position: 'fixed',
-        top: theme.spacing(2),
-        right: theme.spacing(8),
-        zIndex: 1200,
-    },
-}));
+import { useStyles } from "../../styles/button.styles"
+import clsx from "clsx";
 
 const Clear = () => {
     const classes = useStyles()
@@ -25,7 +17,7 @@ const Clear = () => {
     }
 
     return (
-        <div className={classes.root}>
+        <div className={clsx(classes.fab, classes.clear)}>
             <Fab
                 variant="extended"
                 size="small"

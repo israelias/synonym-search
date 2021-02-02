@@ -1,28 +1,13 @@
 import React from "react";
 import { useDispatchTheme} from '../../context/theme.context'
 import Fab from '@material-ui/core/Fab';
-import { makeStyles } from '@material-ui/core/styles'
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Slide from "@material-ui/core/Slide";
-// import FixedBottom from "./fixed-bottom"
-import FixedBottom from "./fixed-item"
+import FixedBottom from "./fixed-bottom"
 import TonalityIcon from '@material-ui/icons/Tonality';
 import Avatar from "@material-ui/core/Avatar";
-
-const useStyles = makeStyles((theme) => ({
-    fab: {
-        position: 'fixed',
-        zIndex: 1200,
-        bottom: 'offset',
-        right: theme.spacing(2),
-        [theme.breakpoints.up("sm")]: {
-            left: theme.spacing(2),
-        }
-    },
-    switch: {
-        backgroundColor: theme.palette.secondary.main,
-    },
-}));
+import { useStyles } from "../../styles/button.styles"
+import clsx from "clsx"
 
 const ToggleTheme = () => {
     const classes = useStyles()
@@ -41,7 +26,7 @@ const ToggleTheme = () => {
                     size="small"
                     color="secondary"
                     aria-label="switch"
-                    className={classes.fab}
+                    className={clsx(classes.fab, classes.fabNav, classes.fabBottom)}
                     onClick={handleClick}
                 >
                     <Avatar

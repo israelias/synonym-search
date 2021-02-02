@@ -3,7 +3,8 @@ import Typography from "@material-ui/core/Typography"
 import { SameHeadShowTotal } from "../counters/counters"
 import Sense from "./sense"
 import PropTypes from "prop-types";
-import { useStyles } from "../../styles/styles"
+import { useStyles } from "../../styles/main.styles"
+import clsx from "clsx";
 
 const Root = ({
                   root,
@@ -21,7 +22,7 @@ const Root = ({
         <article>
             <header
                 key={`head-content-${root}`}
-                className={classes.subheader}>
+                className={clsx(classes.subheader, classes.subheaderRoot)}>
                 <div
                     className={classes.heading}>
                     <Typography

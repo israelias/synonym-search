@@ -4,7 +4,7 @@ import List from '@material-ui/core/List';
 import Root from './root'
 import { useDispatchTheme } from "../../context/theme.context";
 import PropTypes from "prop-types";
-import {useStyles} from "../../styles/styles"
+import {useStyles} from "../../styles/main.styles"
 
 const Results = ({
                      results,

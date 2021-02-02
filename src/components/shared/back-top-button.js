@@ -1,21 +1,10 @@
 import React from "react";
 import Fab from '@material-ui/core/Fab';
-import { makeStyles } from '@material-ui/core/styles'
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
-
-const useStyles = makeStyles((theme) => ({
-    fab: {
-        position: 'fixed',
-        bottom: theme.spacing(2),
-        right: theme.spacing(2),
-        [theme.breakpoints.up("sm")]: {
-            left: theme.spacing(2),
-        },
-        zIndex: 1200,
-    },
-}));
+import { useStyles } from "../../styles/button.styles"
+import clsx from "clsx";
 
 const BackToTop = () => {
     const classes = useStyles()
@@ -35,7 +24,7 @@ const BackToTop = () => {
                 color="secondary"
                 size="small"
                 aria-label="scroll back to top"
-                className={classes.fab}
+                className={clsx(classes.fab, classes.fabNav, classes.fabTop)}
                 onClick={handleClick}>
                 <KeyboardArrowUpIcon/>
             </Fab>

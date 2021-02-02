@@ -1,6 +1,4 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import Fab from "@material-ui/core/Fab";
 import Badge from "@material-ui/core/Badge";
@@ -13,56 +11,7 @@ import { a11yProps } from "../../helpers/views.helper"
 import Clear from "../shared/clear-input";
 import Search from "../search/search"
 import PropTypes from "prop-types";
-import Header from "./header";
-
-const useStyles = makeStyles(theme => ({
-    history: {
-        backgroundColor: theme.palette.secondary.main,
-    },
-    back: {
-        position: 'fixed',
-        top: '.8rem',
-        right: theme.spacing(2),
-    },
-    title: {
-        width: '100%',
-        lineHeight: 1,
-        '@media (min-width:600px)': {
-            width: 'unset',
-            lineHeight: 'unset',
-        },
-    },
-    subTitle: {
-        color: theme.palette.primary.main,
-        lineHeight: 1,
-        '@media (min-width:600px)': {
-            fontSize: '1.25rem'
-        },
-    },
-    searchText: {
-        color: theme.palette.secondary.main,
-        backgroundColor: theme.palette.action.hover,
-        lineHeight: 1,
-        '@media (min-width:600px)': {
-            lineHeight: 1.5,
-            height: '1.25rem'
-        },
-        height: '1.25rem'
-    },
-    spacer: {
-        color: theme.palette.secondary.main,
-        fontSize: '20px',
-        paddingLeft: '.2rem',
-        paddingRight: '.2rem',
-        lineHeight: 1,
-    },
-    subHeading: {
-        // '@media (min-width:600px)': {
-        //     marginLeft: '.8rem',
-        // },
-        display: 'flex',
-    }
-}));
+import { useStyles } from "../../styles/layout.styles"
 
 const View = ({
                   searchText,
@@ -84,7 +33,7 @@ const View = ({
                             Synonyms
                         </Typography>
 
-                        <Box className={classes.subHeading}>
+                        <div className={classes.subHeading}>
 
                             <Typography className={classes.subTitle} component='h2' variant="subtitle2" noWrap>
                                 /Search
@@ -96,7 +45,7 @@ const View = ({
                                 {searchText}
                             </Typography>
 
-                        </Box>
+                        </div>
                     </>
                 ) : (
                     <>

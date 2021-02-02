@@ -1,5 +1,4 @@
 import React from "react";
-import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import Typography from "@material-ui/core/Typography";
 import { useHistory } from '../../context/words.context'
@@ -7,29 +6,8 @@ import { SameSenseShowTotal } from "../counters/counters";
 import { ReplaceNodeTags } from "../../helpers/string.helper";
 import { groupBySense } from "../../helpers/counters.helper"
 import Selection from "./selection";
-
-const useStyles = makeStyles((theme) => ({
-    heading: {
-        display: 'flex',
-        alignItems: "center",
-        marginTop: '4px',
-        marginBottom: '4px',
-        paddingTop: '.8rem',
-        paddingBottom: '.4rem',
-    },
-    wordBoxSubHead: {
-        top: '2.5rem',
-        backgroundColor: theme.palette.background.default,
-        borderBottom: '1px solid',
-        paddingLeft: '16px',
-        paddingBottom: '.8rem',
-        width: '100%',
-        position: 'sticky',
-        zIndex: 1,
-        paddingRight: 16,
-        color: theme.palette.text.secondary,
-    },
-}));
+import { useStyles } from "../../styles/main.styles"
+import clsx from "clsx"
 
 const Saves = () => {
     const classes = useStyles();
@@ -51,9 +29,9 @@ const Saves = () => {
                 <li key={`saves-${index}`}>
                     <div
                         key={`saves-content-${index}`}
-                        className={classes.wordBoxSubHead}>
+                        className={clsx(classes.subheader, classes.subheaderSense)}>
                         <div
-                            className={classes.heading}>
+                            className={clsx(classes.heading, classes.headingSense)}>
                             <Typography
                                 variant="body2"
                                 component="h3">
