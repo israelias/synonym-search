@@ -8,8 +8,6 @@ import FixedBottom from "./fixed-bottom"
 import TonalityIcon from '@material-ui/icons/Tonality';
 import Avatar from "@material-ui/core/Avatar";
 
-const reactFixedBottom = require("react-fixed-bottom")
-
 const useStyles = makeStyles((theme) => ({
     fab: {
         position: 'fixed',
