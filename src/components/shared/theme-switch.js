@@ -4,7 +4,8 @@ import Fab from '@material-ui/core/Fab';
 import { makeStyles } from '@material-ui/core/styles'
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Slide from "@material-ui/core/Slide";
-import FixedBottom from "./fixed-bottom"
+// import FixedBottom from "./fixed-bottom"
+import FixedBottom from "./fixed-item"
 import TonalityIcon from '@material-ui/icons/Tonality';
 import Avatar from "@material-ui/core/Avatar";
 

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from 'prop-types';
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import { SameSenseShowTotal } from "../counters/counters"
@@ -147,6 +148,28 @@ const Sense = ({
             </ul>
         </section>
     );
+};
+
+Sense.propTypes = {
+    sense: PropTypes.arrayOf(
+        PropTypes.arrayOf(
+            PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.shape({
+                    dt: PropTypes.array,
+                    phrase_list: PropTypes.array,
+                    rel_list: PropTypes.array,
+                    syn_list: PropTypes.array,
+                    sim_list: PropTypes.array,
+                })
+            ]),
+        )
+    ),
+    root: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    uuid: PropTypes.string.isRequired,
+    loading: PropTypes.bool.isRequired,
+    onSelectionChange: PropTypes.func,
 };
 
 export default Sense;

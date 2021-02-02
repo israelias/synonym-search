@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from "@material-ui/core/Typography"
 import { SameHeadShowTotal } from "../counters/counters"
 import Sense from "./sense"
+import PropTypes from "prop-types";
 
 const useStyles = makeStyles((theme) => ({
     subheader: {
@@ -81,5 +82,19 @@ const Root = ({
         </article>
     );
 }
+
+Root.propTypes = {
+    senses: PropTypes.arrayOf(
+        PropTypes.arrayOf(
+            PropTypes.array.isRequired
+        )
+    ),
+    root: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    uuid: PropTypes.string.isRequired,
+    loading: PropTypes.bool.isRequired,
+    onSelectionChange: PropTypes.func,
+    selection: PropTypes.string,
+};
 
 export default Root;

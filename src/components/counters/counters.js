@@ -6,6 +6,7 @@ import Chip from "@material-ui/core/Chip";
 import Avatar from "@material-ui/core/Avatar";
 import { useHistory } from "../../context/words.context";
 import { getSameSenseTotal, getSameHeadTotal, getSameWordTotal } from "../../helpers/counters.helper"
+import PropTypes from "prop-types";
 
 const StyledChip = withStyles((theme) => ({
     root: {
@@ -55,6 +56,13 @@ export const SameWordShowTotal = ({
     )
 }
 
+SameWordShowTotal.propTypes = {
+    definition: PropTypes.string.isRequired,
+    term: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    loading: PropTypes.bool.isRequired,
+};
+
 export const SameSenseShowTotal = ({
                                        loading,
                                        sense,
@@ -87,6 +95,12 @@ export const SameSenseShowTotal = ({
         </Zoom>
     )
 }
+
+SameSenseShowTotal.propTypes = {
+    sense: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    loading: PropTypes.bool,
+};
 
 export const SameHeadShowTotal = ({
                                       loading,
@@ -121,3 +135,10 @@ export const SameHeadShowTotal = ({
         </Zoom>
     )
 }
+
+SameHeadShowTotal.propTypes = {
+    root: PropTypes.string.isRequired,
+    uuid: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    loading: PropTypes.bool.isRequired,
+};

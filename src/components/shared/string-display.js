@@ -2,6 +2,7 @@ import React from 'react'
 import { makeStyles } from "@material-ui/core/styles";
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
 import { ReplaceSubStringNode } from "../../helpers/string.helper"
+import PropTypes from "prop-types";
 
 const useStyles = makeStyles(theme => ({
     active: {
@@ -64,5 +65,10 @@ const Display = ({
         </div>
     )
 }
+
+Display.propTypes = {
+    sampleString: PropTypes.string.isRequired,
+    optionWord: PropTypes.string.isRequired,
+};
 
 export default Display

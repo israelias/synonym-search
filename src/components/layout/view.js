@@ -12,6 +12,8 @@ import { useHistory } from "../../context/words.context";
 import { a11yProps } from "../../helpers/views.helper"
 import Clear from "../shared/clear-input";
 import Search from "../search/search"
+import PropTypes from "prop-types";
+import Header from "./header";
 
 const useStyles = makeStyles(theme => ({
     history: {
@@ -167,5 +169,11 @@ const View = ({
         </>
     )
 }
+
+View.propTypes = {
+    searchText: PropTypes.string,
+    loading: PropTypes.bool,
+    onSearchTextChange: PropTypes.func,
+};
 
 export default View

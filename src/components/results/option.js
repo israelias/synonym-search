@@ -4,6 +4,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import { InView } from "react-intersection-observer";
 import { useDispatchHistory } from "../../context/words.context";
 import { SameWordShowTotal } from "../counters/counters"
+import PropTypes from "prop-types";
 
 const Option = ({
                     loading,
@@ -67,6 +68,23 @@ const Option = ({
             ))}
         </>
     );
+};
+
+Option.propTypes = {
+    options: PropTypes.arrayOf(
+        PropTypes.shape({
+            wd: PropTypes.string
+        })
+    ),
+    definition: PropTypes.string,
+    root: PropTypes.string.isRequired,
+    sense: PropTypes.string.isRequired,
+    uuid: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    loading: PropTypes.bool.isRequired,
+    onChange: PropTypes.func,
+    onMouseOver: PropTypes.func,
+    onScrollTrigger: PropTypes.func,
 };
 
 export default Option;

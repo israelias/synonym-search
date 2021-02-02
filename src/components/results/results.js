@@ -4,6 +4,7 @@ import Collapse from "@material-ui/core/Collapse"
 import List from '@material-ui/core/List';
 import Root from './root'
 import { useDispatchTheme } from "../../context/theme.context";
+import PropTypes from "prop-types";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -32,6 +33,8 @@ const Results = ({
     if (!results || results.length === 0) {
         return <span>No associations found.</span>
     }
+
+    console.log(results)
 
     return (
 
@@ -100,5 +103,34 @@ const Results = ({
         </Collapse>
     );
 }
+
+Results.propTypes = {
+    /**
+     * General component description in JSDoc format. Markdown is *supported*.
+     */
+    results: PropTypes.arrayOf(
+        PropTypes.shape({
+            def: PropTypes.arrayOf(
+                PropTypes.shape({
+                    sseq: PropTypes.array.isRequired,
+                }),
+            ).isRequired,
+            fl: PropTypes.string.isRequired,
+            hwi: PropTypes.shape({
+                hw: PropTypes.string.isRequired,
+            }),
+            meta: PropTypes.object.isRequired,
+            shortdef: PropTypes.arrayOf(
+                PropTypes.string
+            ),
+        })
+    ).isRequired,
+    /** Description of prop "foo". */
+    loading: PropTypes.bool.isRequired,
+    /** Description of prop "foo". */
+    onSelectionChange: PropTypes.func.isRequired,
+    /** Description of prop "foo". */
+    selection: PropTypes.string
+};
 
 export default Results;

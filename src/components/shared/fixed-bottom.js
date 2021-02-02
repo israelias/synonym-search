@@ -1,79 +1,65 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { useRef, useState, useEffect } from "react";
 import throttle from 'lodash.throttle';
+import PropTypes from "prop-types";
+import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 
-const SAFARI_MOBILE_BOTTOM_MENU_HEIGHT = 44;
+const FixedBottom = ({ children, offset }) => {
+    const safariOffset = 44;
+    const anchorRef = useRef(null);
+    const [bottom, setBottom] = useState(0)
 
-export default class FixedBottom extends Component {
-    static propTypes = {
-        children: PropTypes.element.isRequired,
-        offset: PropTypes.number,
-    };
-
-    static defaultProps = {
-        offset: 0,
-    };
-
-    state = {
-        bottom: this.props.offset,
-    };
-
-    // Embrace React
-    anchorRef = React.createRef();
-
-    constructor(props) {
-        super(props);
-        // We don't want the framerate to crash, do we?
-        this.handleScroll = throttle(this.computeOffsetBottom, 200);
-    }
-
-    componentDidMount() {
-        window.addEventListener('scroll', this.handleScroll);
-    }
-
-    componentWillUnmount() {
-        // Throttled calls may be scheduled before the component unmounts
-        this.handleScroll.cancel();
-        window.removeEventListener('scroll', this.handleScroll);
-    }
-
-    computeOffsetBottom = () => {
-        if (!this.anchorRef.current) {
-            return;
-        }
-
-        const {bottom} = this.anchorRef.current.getBoundingClientRect();
-        const {offset} = this.props;
+    const getOffsetBottom = () => {
+        if (!anchorRef.current) return
+        // const {bottom} = anchorRef.current.getBoundingClientRect();
         if (Math.floor(bottom) > window.innerHeight) {
-            this.setState({bottom: offset + SAFARI_MOBILE_BOTTOM_MENU_HEIGHT});
+            setBottom(offset + safariOffset);
         } else {
-            this.setState({bottom: offset});
+            setBottom(offset);
         }
     };
 
-    render() {
-        const {bottom} = this.state;
-        const {children, offset} = this.props;
-        const node = React.cloneElement(React.Children.only(children), {
-            style: {
-                ...children.props.style,
-                bottom,
-                position: 'fixed'
-            },
-        });
-        return (
-            <>
-                {node}
-                {/* This div is used to run compute the offset without adding a ref */}
-                {/* on the rendered children */}
-                <div
-                    ref={this.anchorRef}
-                    style={{
-                        position: 'fixed',
-                        bottom: offset,
-                    }}
-                />
-            </>
-        );
-    }
+    const handleScroll = throttle(getOffsetBottom, 200)
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", () => handleScroll);
+        };
+    }, []);
+
+    //
+    // if (trigger) {
+    //     window.addEventListener('scroll', handleScroll);
+    // }
+
+
+    return (
+        <>
+            <div
+                style={{
+                    position: 'fixed',
+                    bottom: {bottom},
+                }}
+            >
+                {children}
+            </div>
+
+            <div
+                ref={anchorRef}
+                style={{
+                    position: 'fixed',
+                    bottom: {offset},
+                }}
+            />
+        </>
+
+    )
 }
+
+FixedBottom.propTypes = {
+    children: PropTypes.element.isRequired,
+    offset: PropTypes.number,
+};
+
+export default FixedBottom

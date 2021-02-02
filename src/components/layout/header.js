@@ -4,6 +4,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Box from "@material-ui/core/Box";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Slide from "@material-ui/core/Slide";
+import PropTypes from "prop-types";
 
 const useStyles = makeStyles((theme) => ({
     header: {
@@ -44,5 +45,9 @@ const Header = ({ children }) => {
         </Slide>
     );
 }
+
+Header.propTypes = {
+    children: PropTypes.node.isRequired,
+};
 
 export default Header

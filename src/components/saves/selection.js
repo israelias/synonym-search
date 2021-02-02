@@ -3,6 +3,7 @@ import ListItem from '@material-ui/core/ListItem'
 import Avatar from "@material-ui/core/Avatar";
 import Chip from "@material-ui/core/Chip";
 import { useDispatchHistory } from "../../context/words.context";
+import PropTypes from "prop-types";
 
 const Selection = ({
                     selections
@@ -40,5 +41,18 @@ const Selection = ({
         </>
     );
 };
+
+Selection.propTypes = {
+    selections: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number,
+            name: PropTypes.string,
+            value: PropTypes.number,
+            sense: PropTypes.string,
+            uuid: PropTypes.string,
+            root: PropTypes.string,
+        })
+    )
+}
 
 export default Selection;

@@ -10,20 +10,20 @@ import Input from "./input"
 
 
 const useStyles = makeStyles((theme) => ({
-    searchButton: {
-        transition: theme.transitions.create('width'),
-        transitionDelay: '2000ms',
-        backgroundColor: theme.palette.primary.main,
-        '&hover': {
-            backgroundColor: theme.palette.secondary.main,
-        },
-        '&focus': {
-            backgroundColor: theme.palette.secondary.main,
-        },
-        '&active': {
-            backgroundColor: theme.palette.secondary.main,
-        },
-    },
+    // searchButton: {
+    //     transition: theme.transitions.create('width'),
+    //     transitionDelay: '2000ms',
+    //     backgroundColor: theme.palette.primary.main,
+    //     '&hover': {
+    //         backgroundColor: theme.palette.secondary.main,
+    //     },
+    //     '&focus': {
+    //         backgroundColor: theme.palette.secondary.main,
+    //     },
+    //     '&active': {
+    //         backgroundColor: theme.palette.secondary.main,
+    //     },
+    // },
 }));
 
 const Field = ({

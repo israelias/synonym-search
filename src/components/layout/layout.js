@@ -9,6 +9,7 @@ import Header from "./header"
 import { useDispatchTheme } from "../../context/theme.context";
 import { TabPanel } from "../../helpers/views.helper"
 import View from "./view"
+import PropTypes from "prop-types";
 
 const useStyles = makeStyles(theme => ({
     main: {
@@ -78,6 +79,13 @@ const Layout = ({
         </>
     )
 }
+
+Layout.propTypes = {
+    children: PropTypes.node,
+    searchText: PropTypes.string,
+    loading: PropTypes.bool,
+    onSearchTextChange: PropTypes.func,
+};
 
 export default Layout
 
