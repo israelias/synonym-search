@@ -1,34 +1,11 @@
 import React, { useState } from "react";
 import PropTypes from 'prop-types';
-import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import { SameSenseShowTotal } from "../counters/counters"
 import { ReplaceNodeTags } from "../../helpers/string.helper"
 import Display from "../shared/string-display"
 import Option from "./option"
-
-const useStyles = makeStyles((theme) => ({
-    wordBoxSubHead: {
-        top: '2.5rem',
-        backgroundColor: theme.palette.background.default,
-        borderBottom: '1px solid',
-        paddingLeft: '16px',
-        paddingBottom: '.8rem',
-        width: '100%',
-        position: 'sticky',
-        zIndex: 1,
-        paddingRight: 16,
-        color: theme.palette.text.secondary,
-    },
-    heading: {
-        display: 'flex',
-        alignItems: "center",
-        marginTop: '4px',
-        marginBottom: '4px',
-        paddingTop: '.8rem',
-        paddingBottom: '.4rem',
-    },
-}));
+import {useStyles} from "../../styles/styles"
 
 const Sense = ({
                    loading,
@@ -55,7 +32,7 @@ const Sense = ({
                 className={classes.wordBoxSubHead}
                 id={sense[0][1].dt[0][1]}
             >
-                <div className={classes.heading}>
+                <div className={classes.headingSense}>
                     <Typography
                         variant="body2"
                         component="h5">

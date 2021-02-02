@@ -1,32 +1,9 @@
 import React from "react";
-import { makeStyles } from '@material-ui/core/styles';
 import Typography from "@material-ui/core/Typography"
 import { SameHeadShowTotal } from "../counters/counters"
 import Sense from "./sense"
 import PropTypes from "prop-types";
-
-const useStyles = makeStyles((theme) => ({
-    subheader: {
-        backgroundColor: theme.palette.background.default,
-        borderBottom: '1px solid',
-        lineHeight: '2em',
-        height: '2em',
-        fontSize: '20px',
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'space-between',
-        position: 'sticky',
-        top: 0,
-        zIndex: 1,
-        paddingRight: 16,
-        paddingLeft: 16,
-        color: theme.palette.text.secondary,
-    },
-    heading: {
-        display: 'flex',
-        alignItems: "center",
-    }
-}));
+import { useStyles } from "../../styles/styles"
 
 const Root = ({
                   root,

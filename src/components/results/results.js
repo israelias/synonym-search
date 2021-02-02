@@ -1,21 +1,10 @@
 import React from "react";
-import { makeStyles } from '@material-ui/core/styles';
 import Collapse from "@material-ui/core/Collapse"
 import List from '@material-ui/core/List';
 import Root from './root'
 import { useDispatchTheme } from "../../context/theme.context";
 import PropTypes from "prop-types";
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        maxWidth: '100%',
-        backgroundColor: 'inherit',
-        position: 'relative',
-        [theme.breakpoints.up("sm")]: {
-            marginLeft: "8rem",
-        }
-    },
-}));
+import {useStyles} from "../../styles/styles"
 
 const Results = ({
                      results,
