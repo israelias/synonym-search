@@ -137,6 +137,7 @@ export const ThemeContextProvider = ({ children }) => {
     const [darkMode, setDarkMode] = useState(false)
     const [value, setValue] = useState('search')
     const [meta, setMeta] = useState(true)
+    const [root, setRoot] = useState('')
     const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
     useMemo(
@@ -155,7 +156,8 @@ export const ThemeContextProvider = ({ children }) => {
                 value,
                 setValue,
                 meta,
-                setMeta
+                setMeta,
+                root, setRoot,
             }}>
             <ThemeStateContext.Provider
                 value={{commonSettings}}
