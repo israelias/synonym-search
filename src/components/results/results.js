@@ -23,7 +23,14 @@ const Results = ({
         return <span>No associations found.</span>
     }
 
-    console.log(results)
+    if (!results[0].meta) {
+        metaDispatch.setMeta(false)
+        return <span>Error.</span>
+    }
+    else {
+        metaDispatch.setMeta(true)
+        metaDispatch.setRoot(results[0].hwi.hw)
+    }
 
     return (
 
@@ -34,60 +41,55 @@ const Results = ({
                 component='ol'
                 className={classes.root}
                 id='results-head-list'>
+                {results.map((result, index) => (
+                    <li
+                        key={`head-${index}-${result.hwi.hw}`}
+                        id={`result-${index}-${result.hwi.hw}`}>
+                        <Root
+                            key={`result-${index}-${result.hwi.hw}`}
+                            loading={loading}
+                            uuid={
+                                result.meta.target ?
+                                    result.meta.target.tuuid
+                                    : result.meta.uuid
+                            }
+                            root={result.hwi.hw}
+                            label={result.fl}
+                            senses={result.def[0].sseq}
+                            onSelectionChange={onSelectionChange}
+                        />
+                    </li>
+                ))}
 
-                {/*{results.map((result, index) => (*/}
-                {/*    <ContinueResultsIteration onSelectionChange={onSelectionChange} loading={loading} result={result} index={index}/>*/}
-                {/*))}*/}
 
-                {/*{results.map((result, index) => (*/}
-
-                {/*    result.meta ? (*/}
-                {/*        <Root*/}
-                {/*            index={index}*/}
-                {/*            key={`result-${index}-${result.hwi.hw}`}*/}
-                {/*            loading={loading}*/}
-                {/*            uuid={*/}
-                {/*                result.meta.target ?*/}
-                {/*                    result.meta.target.tuuid*/}
-                {/*                    : result.meta.uuid*/}
-                {/*            }*/}
-                {/*            root={result.hwi.hw}*/}
-                {/*            label={result.fl}*/}
-                {/*            senses={result.def[0].sseq}*/}
-                {/*            onSelectionChange={onSelectionChange}*/}
-                {/*        />*/}
-                {/*    ) : (*/}
-                {/*        <Skeleton variant="text"/>*/}
-                {/*    )*/}
-                {/*))}*/}
-
-                {results.map((result, index) => {
-                    if (!result.meta) {
-                        metaDispatch.setMeta(false)
-                    }
-                    else {
-                        metaDispatch.setMeta(true)
-                        return (
-                            <li
-                                key={`head-${index}-${result.hwi.hw}`}
-                                id={`result-${index}-${result.hwi.hw}`}>
-                                    <Root
-                                        key={`result-${index}-${result.hwi.hw}`}
-                                        loading={loading}
-                                        uuid={
-                                            result.meta.target ?
-                                                result.meta.target.tuuid
-                                                : result.meta.uuid
-                                        }
-                                        root={result.hwi.hw}
-                                        label={result.fl}
-                                        senses={result.def[0].sseq}
-                                        onSelectionChange={onSelectionChange}
-                                    />
-                            </li>
-                        )
-                    }
-                })}
+                {/*{results.map((result, index) => {*/}
+                {/*    if (!result.meta) {*/}
+                {/*        metaDispatch.setMeta(false)*/}
+                {/*    }*/}
+                {/*    else {*/}
+                {/*        metaDispatch.setMeta(true)*/}
+                {/*        metaDispatch.setRoot(results[0].hwi.hw)*/}
+                {/*        return (*/}
+                {/*            <li*/}
+                {/*                key={`head-${index}-${result.hwi.hw}`}*/}
+                {/*                id={`result-${index}-${result.hwi.hw}`}>*/}
+                {/*                    <Root*/}
+                {/*                        key={`result-${index}-${result.hwi.hw}`}*/}
+                {/*                        loading={loading}*/}
+                {/*                        uuid={*/}
+                {/*                            result.meta.target ?*/}
+                {/*                                result.meta.target.tuuid*/}
+                {/*                                : result.meta.uuid*/}
+                {/*                        }*/}
+                {/*                        root={result.hwi.hw}*/}
+                {/*                        label={result.fl}*/}
+                {/*                        senses={result.def[0].sseq}*/}
+                {/*                        onSelectionChange={onSelectionChange}*/}
+                {/*                    />*/}
+                {/*            </li>*/}
+                {/*        )*/}
+                {/*    }*/}
+                {/*})}*/}
             </List>
         </Collapse>
     );
