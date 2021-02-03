@@ -11,7 +11,8 @@ export const useStyles = makeStyles((theme) => ({
         zIndex: 1300,
     },
     searchButton: {
-        transition: theme.transitions.create('width'),
+        transition: 'width .2s linear',
+        // transition: theme.transitions.create('width'),
         transitionDelay: '2000ms',
         backgroundColor: theme.palette.primary.main,
         '&hover': {

@@ -1,5 +1,4 @@
 import React from 'react'
-// import TextInput from "./text-input";
 import Field from "./field"
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -25,24 +24,12 @@ const Search = ({
 
     return (
         <div className={classes.root}>
-            {/*<TextInput*/}
-            {/*    className={classes.search}*/}
-            {/*    loading={loading}*/}
-            {/*    // label={`Searched ${searchText}`}*/}
-            {/*    label="Search a Term"*/}
-            {/*    value={searchText}*/}
-            {/*    placeholder={searchText}*/}
-            {/*    helperText="any word..."*/}
-            {/*    onChange={(value) => onSearchTextChange(value)}*/}
-            {/*/>*/}
-
             <Field
                 className={classes.search}
                 loading={loading}
-                // label={`Searched ${searchText}`}
                 label="Search a Term"
                 value={searchText}
-                placeholder={searchText}
+                placeHolder={"Search"}
                 helperText="any word..."
                 onChange={(value) => onSearchTextChange(value)}
             />

@@ -2,9 +2,7 @@ import React, { useState, useRef } from 'react'
 import { useTheme } from '@material-ui/core/styles'
 import Fab from "@material-ui/core/Fab"
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-// import Grow from "@material-ui/core/Grow"
 import Backdrop from "@material-ui/core/Backdrop"
-// import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import { useDispatchTheme } from "../../context/theme.context";
 import Input from "./input"
 import { useStyles } from "../../styles/button.styles"
@@ -56,6 +54,12 @@ const Field = ({
                     onClick={handleSearchButton}
                     variant={active ? "extended" : "round"}
                     style={active ? {
+                        // transition: 'width .2s linear',
+                        // width: 'auto',
+                        // height: '34px',
+                        // padding: '0 8px',
+                        // minWidth: '34px',
+                        // borderRadius: '17px',
                         backgroundColor:
                             loading ?
                                 theme.palette.warning.main
@@ -74,7 +78,7 @@ const Field = ({
                 >
                     <Input
                         label={label}
-                        placeholder={placeHolder}
+                        placeHolder={placeHolder}
                         active={active}
                         meta={meta}
                         textInput={textInput}

@@ -1,8 +1,8 @@
 import React from 'react'
-import TextField from '@material-ui/core/TextField';
 import SearchIcon from '@material-ui/icons/Search';
 import Grow from "@material-ui/core/Grow"
 import { useStyles } from "../../styles/button.styles"
+import InputBase from "@material-ui/core/InputBase"
 
 const Input = ({
                    active,
@@ -21,14 +21,16 @@ const Input = ({
                 mountOnEnter
                 unmountOnExit
             >
-                <TextField
-                    id="search-input"
-                    color="secondary"
+                <InputBase
                     className={classes.textField}
-                    label={label}
+                    id={"search-input"}
+                    color={"secondary"}
+                    size={"small"}
                     placeholder={placeHolder}
+                    label={label}
+                    autoFocus={true}
                     fullWidth
-                    size="small"
+                    autoComplete={"on"}
                     error={!meta}
                     onChange={(e) => onChange(e.target.value)}
                     inputRef={textInput}
