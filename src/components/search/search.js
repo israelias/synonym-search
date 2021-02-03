@@ -27,10 +27,10 @@ const Search = ({
             <Field
                 className={classes.search}
                 loading={loading}
-                label="Search a Term"
-                value={searchText}
+                query={searchText}
+                label={"Search a Term"}
                 placeHolder={"Search"}
-                helperText="any word..."
+                helperText={"any word..."}
                 onChange={(value) => onSearchTextChange(value)}
             />
         </div>
