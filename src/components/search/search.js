@@ -23,7 +23,11 @@ const Search = ({
     const classes = useStyles()
 
     return (
-        <div className={classes.root}>
+
+        <div
+            // className={classes.root}
+            className={classes.nav}
+        >
             <Field
                 className={classes.search}
                 loading={loading}
