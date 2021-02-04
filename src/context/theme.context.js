@@ -10,7 +10,7 @@ import deeporange from "@material-ui/core/colors/deepOrange";
 export const ThemeDispatchContext = createContext()
 export const ThemeStateContext = createContext()
 
-const commonSettings = {
+export const commonSettings = {
     typography: {
         fontFamily: [
             '-apple-system',
@@ -51,7 +51,7 @@ const commonSettings = {
             },
             h6: {
                 fontSize: "18px",
-                fontWeight: 400,
+                fontWeight: 500,
                 lineHeight: 1.2395,
             }
         },
@@ -121,10 +121,12 @@ const darkTheme = createMuiTheme({
     palette: {
         type: 'dark',
         primary: {
-            main: yellow[600]
+            main: lightblue[500],
+            // main: yellow[600]
+            // main: '#004990'
         },
         secondary: {
-            main: lightblue[500]
+            main: '#fafafa'
         },
         background: {
             default: '#000',
@@ -135,7 +137,7 @@ const darkTheme = createMuiTheme({
 
 export const ThemeContextProvider = ({ children }) => {
     const [darkMode, setDarkMode] = useState(false)
-    const [value, setValue] = useState('search')
+    const [value, setValue] = useState('launch')
     const [meta, setMeta] = useState(true)
     const [root, setRoot] = useState('')
     const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');

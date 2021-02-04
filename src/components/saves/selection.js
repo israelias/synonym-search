@@ -4,12 +4,15 @@ import Avatar from "@material-ui/core/Avatar";
 import Chip from "@material-ui/core/Chip";
 import { useDispatchHistory } from "../../context/words.context";
 import PropTypes from "prop-types";
+import {useDispatchTheme} from "../../context/theme.context";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const Selection = ({
                     selections
                 }) => {
 
     const wordsDispatch = useDispatchHistory()
+    const matches = useMediaQuery('(min-width:600px)');
 
     return (
         <>
@@ -20,8 +23,8 @@ const Selection = ({
                 >
                     <Chip
                         color="default"
-                        variant="outlined"
-                        size="small"
+                        variant={matches ? "outlined" : "default"}
+                        size={matches && "small"}
                         label={selection.name}
                         onDelete={() => {
                             wordsDispatch({
