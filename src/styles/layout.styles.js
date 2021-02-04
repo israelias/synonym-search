@@ -11,7 +11,7 @@ export const useStyles = makeStyles((theme) => ({
         paddingLeft: '0.8rem',
         paddingTop: '0.8rem',
         backgroundColor: theme.palette.background.default,
-        alignItems: 'center',
+        // alignItems: 'center',
         flexWrap: 'wrap',
         '@media (min-width:600px)': {
             alignItems: 'unset',
@@ -42,13 +42,18 @@ export const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.secondary.main,
     },
     back: {
-        position: 'fixed',
+        // position: 'fixed',
         top: '.8rem',
-        right: theme.spacing(2),
+        // right: theme.spacing(2),
+    },
+    info: {
+        // position: 'fixed',
+        top: '.8rem',
+        // right: theme.spacing(12),
     },
     title: {
-        width: '100%',
-        lineHeight: 1,
+        // width: '100%',
+        // lineHeight: 1,
         '@media (min-width:600px)': {
             width: 'unset',
             lineHeight: 'unset',
@@ -83,5 +88,102 @@ export const useStyles = makeStyles((theme) => ({
         //     marginLeft: '.8rem',
         // },
         display: 'flex',
-    }
+    },
+    footer: {
+        zIndex: 10,
+        bottom: 0,
+        right: '.8rem',
+        left: '.2rem',
+        position: 'fixed',
+        display: 'flex',
+        flexDirection: 'column',
+        paddingLeft: '0.8rem',
+        backgroundColor: theme.palette.background.default,
+        // transition: '.3s linear .3s',
+        [theme.breakpoints.up("sm")]: {
+            right: '1.6rem',
+            left: '8rem',
+        },
+        '& > *': {
+            flex: 'auto',
+            display: 'flex',
+            paddingLeft: '.8rem',
+            borderTop: '1px solid',
+            paddingTop: '.8rem',
+            paddingBottom: '.8rem',
+            minHeight: 'calc(2em + 2px)',
+            transition: '.3s linear .3s',
+        },
+        '& > :last-child': {
+            justifyContent: "space-between",
+            '@media (min-width:600px)': {
+                justifyContent: "space-between",
+            },
+        }
+    },
+    small: {
+        width: theme.spacing(3),
+        height: theme.spacing(3),
+    },
+    large: {
+        width: theme.spacing(7),
+        height: theme.spacing(7),
+    },
+    inline: {
+        color: theme.palette.primary.light,
+    },
+    fill: {
+        width: "100%",
+        height: "100%",
+    },
+    wrap: {
+        textTransform: "uppercase",
+        fontSize: '.8em',
+        fontWeight: '500',
+        padding: '.2rem',
+        border: '1px solid',
+        borderColor: theme.palette.primary.light,
+        borderRadius: '8px',
+    },
+    inactive: {
+        paddingLeft: '16px',
+        marginLeft: '-12px',
+        '& > *': {
+            marginLeft: '-12px',
+        }
+    },
+    active: {
+        marginLeft: '12px',
+        '& > *': {
+            marginLeft: '12px',
+        }
+    },
+    avatarGroup: {
+        width: "100%",
+        transition: '.3s linear .3s',
+        '& > *': {
+            transition: '.3s linear .3s',
+        }
+    },
+    navGroup: {
+        display: 'flex',
+        position: 'fixed',
+        right: theme.spacing(2),
+        justifyContent: "flex-end",
+        transition: '.3s linear .3s',
+        '& > *': {
+            transition: '.3s linear .3s',
+            marginLeft: theme.spacing(1)
+        }
+    },
+    nav: {
+        '& > *': {
+            width: '100%',
+            height: '100%',
+            '& > *': {
+                width: '100%',
+                height: '100%',
+            }
+        }
+    },
 }));

@@ -12,7 +12,10 @@ export const useStyles = makeStyles((theme) => ({
         },
     },
     fabTop: {
-        bottom: theme.spacing(2),
+        bottom: theme.spacing(6),
+        [theme.breakpoints.up("sm")]: {
+            bottom: theme.spacing(2),
+        },
     },
     fabBottom: {
         bottom: 'offset',
@@ -22,6 +25,6 @@ export const useStyles = makeStyles((theme) => ({
     },
     clear: {
         top: theme.spacing(2),
-        right: theme.spacing(8),
+        // right: theme.spacing(8),
     },
 }));

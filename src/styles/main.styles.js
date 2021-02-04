@@ -26,7 +26,7 @@ export const useStyles = makeStyles((theme) => ({
     },
     subheaderRoot: {
         lineHeight: '2em',
-        height: '2em',
+        height: '3em',
         fontSize: '20px',
         display: 'flex',
         justifyContent: 'space-between',
