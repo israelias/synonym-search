@@ -17,7 +17,10 @@ const Clear = () => {
     }
 
     return (
-        <div className={clsx(classes.fab, classes.clear)}>
+        <div
+            // className={clsx(classes.fab, classes.clear)}
+            className={classes.nav}
+        >
             <Fab
                 variant="extended"
                 size="small"
