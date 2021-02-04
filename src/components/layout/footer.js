@@ -2,11 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import {useStyles} from "../../styles/layout.styles"
 import Typography from "@material-ui/core/Typography";
-import { myGithub } from "../shared/links"
+import { MyGithub } from "../shared/links"
 import { useDispatchTheme } from "../../context/theme.context";
 import { useHistory } from "../../context/words.context";
 import { groupBySense } from "../../helpers/counters.helper"
-import clsx from "clsx";
 import Brands from "./../info/brands"
 
 const Footer = ({ children }) => {
@@ -46,7 +45,7 @@ const Footer = ({ children }) => {
                 </span>
                 <span>
                      Made by Joem Elias Sanez
-                    {myGithub}
+                    {MyGithub}
                 </span>
             </Typography>
         </footer>

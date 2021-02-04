@@ -1,7 +1,7 @@
 import Link from "@material-ui/core/Link";
 import React from "react";
 
-export const materialUI = (
+export const MaterialUI = (
     <Link
         href="https://material-ui.com/"
         target={"_blank"}
@@ -11,7 +11,7 @@ export const materialUI = (
     </Link>
 )
 
-export const nextJS = (
+export const NextJS = (
     <Link
         href="https://nextjs.org/"
         target={"_blank"}
@@ -21,7 +21,7 @@ export const nextJS = (
     </Link>
 )
 
-export const myGithub = (
+export const MyGithub = (
     <Link
         href="httpw://github.com/israelias"
         target={"_blank"}
@@ -31,7 +31,7 @@ export const myGithub = (
     </Link>
 )
 
-export const merriamWebster = (
+export const MerriamWebster = (
     <Link
         href="https://dictionaryapi.com/"
         target={"_blank"}

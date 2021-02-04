@@ -9,7 +9,6 @@ import HomeButton from "../actions/home.button"
 import SavesButton from "../actions/saves.button"
 import InfoButton from "../actions/info.button"
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-import Grow from '@material-ui/core/Grow';
 
 const View = ({
                   searchText,
