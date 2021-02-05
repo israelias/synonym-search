@@ -23,7 +23,7 @@ const Layout = ({
                 }) => {
     const classes = useStyles();
     const themeDispatch = useDispatchTheme()
-    const value = themeDispatch.value
+    const value = themeDispatch.value ? themeDispatch.value : 'launch'
     const description = `Search results for ${searchText}.`
 
     return (

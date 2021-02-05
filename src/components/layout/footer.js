@@ -17,6 +17,7 @@ const Footer = ({ children }) => {
     const history = value === 'saves'
     const wordsState = useHistory()
     const selections = groupBySense(wordsState)
+    const show = wordsState.length > 0
 
     return (
         <footer className={classes.footer}>
@@ -27,7 +28,7 @@ const Footer = ({ children }) => {
                     </Typography>
             }
             {
-                history &&
+                history && show &&
                 <Typography
                     variant={"caption"}
                     className={classes.fill}
