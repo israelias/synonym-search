@@ -3,7 +3,7 @@ import { useDispatchHistory } from "../../context/words.context";
 import Fab from "@material-ui/core/Fab"
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
-import { useStyles } from "../../styles/button.styles"
+import { useStyles } from "../../styles/layout.styles"
 
 const Clear = () => {
     const classes = useStyles()
@@ -16,7 +16,7 @@ const Clear = () => {
     }
 
     return (
-        <div className={classes.nav}>
+        <div className={classes.action}>
             <Fab
                 variant="extended"
                 size="small"
