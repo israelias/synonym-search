@@ -23,8 +23,4 @@ export const useStyles = makeStyles((theme) => ({
     switch: {
         backgroundColor: theme.palette.secondary.main,
     },
-    clear: {
-        top: theme.spacing(2),
-        // right: theme.spacing(8),
-    },
 }));

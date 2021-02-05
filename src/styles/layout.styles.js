@@ -11,7 +11,6 @@ export const useStyles = makeStyles((theme) => ({
         paddingLeft: '0.8rem',
         paddingTop: '0.8rem',
         backgroundColor: theme.palette.background.default,
-        // alignItems: 'center',
         flexWrap: 'wrap',
         '@media (min-width:600px)': {
             alignItems: 'unset',
@@ -21,8 +20,6 @@ export const useStyles = makeStyles((theme) => ({
         bottom: theme.spacing(2),
         right: theme.spacing(3),
         left: theme.spacing(3),
-        // top: theme.spacing(3),
-        // paddingLeft: '10px',
         paddingLeft: '0.8rem',
         paddingRight: '0.8rem',
         paddingTop: '0.8rem',
@@ -41,19 +38,7 @@ export const useStyles = makeStyles((theme) => ({
     history: {
         backgroundColor: theme.palette.secondary.main,
     },
-    back: {
-        // position: 'fixed',
-        top: '.8rem',
-        // right: theme.spacing(2),
-    },
-    info: {
-        // position: 'fixed',
-        top: '.8rem',
-        // right: theme.spacing(12),
-    },
     title: {
-        // width: '100%',
-        // lineHeight: 1,
         '@media (min-width:600px)': {
             width: 'unset',
             lineHeight: 'unset',
@@ -75,19 +60,6 @@ export const useStyles = makeStyles((theme) => ({
             height: '1.25rem'
         },
         height: '1.25rem'
-    },
-    spacer: {
-        color: theme.palette.secondary.main,
-        fontSize: '20px',
-        paddingLeft: '.2rem',
-        paddingRight: '.2rem',
-        lineHeight: 1,
-    },
-    subHeading: {
-        // '@media (min-width:600px)': {
-        //     marginLeft: '.8rem',
-        // },
-        display: 'flex',
     },
     footer: {
         zIndex: 10,
@@ -163,6 +135,17 @@ export const useStyles = makeStyles((theme) => ({
         transition: '.3s linear .3s',
         '& > *': {
             transition: '.3s linear .3s',
+            border: '2px solid',
+            borderColor: theme.palette.secondary.light,
+            // borderRadius:
+            '& > *': {
+                width: '100%',
+                height: '100%',
+                '& > *': {
+                    width: '100%',
+                    height: '100%',
+                }
+            }
         }
     },
     navGroup: {
@@ -186,4 +169,10 @@ export const useStyles = makeStyles((theme) => ({
             }
         }
     },
+    action: {
+        zIndex: 1200,
+    },
+    // search: {
+    //     zIndex: 1300,
+    // },
 }));
