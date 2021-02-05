@@ -4,7 +4,6 @@ import Fab from "@material-ui/core/Fab"
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
 import { useStyles } from "../../styles/button.styles"
-import clsx from "clsx";
 
 const Clear = () => {
     const classes = useStyles()
@@ -17,10 +16,7 @@ const Clear = () => {
     }
 
     return (
-        <div
-            // className={clsx(classes.fab, classes.clear)}
-            className={classes.nav}
-        >
+        <div className={classes.nav}>
             <Fab
                 variant="extended"
                 size="small"

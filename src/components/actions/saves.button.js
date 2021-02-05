@@ -3,7 +3,6 @@ import Fab from "@material-ui/core/Fab";
 import Badge from "@material-ui/core/Badge";
 import Avatar from "@material-ui/core/Avatar";
 import QueryBuilderIcon from "@material-ui/icons/QueryBuilder";
-import Grow from "@material-ui/core/Grow";
 import clsx from "clsx"
 import { useStyles } from "../../styles/layout.styles"
 import { a11yProps } from "../../helpers/views.helper"
@@ -14,14 +13,8 @@ const SavesTab = () => {
     const classes = useStyles();
     const wordsHistory = useHistory()
     const viewDispatch = useDispatchTheme()
-    const show = viewDispatch.value !== 'saves'
 
     return (
-        <Grow
-            in={show}
-            mountOnEnter
-            unmountOnExit
-        >
         <Fab
             className={classes.nav}
             size="small"
@@ -54,7 +47,6 @@ const SavesTab = () => {
                 />
             </Badge>
         </Fab>
-        </Grow>
     )
 }
 
