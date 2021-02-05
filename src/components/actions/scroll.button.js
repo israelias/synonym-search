@@ -5,10 +5,13 @@ import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
 import { useStyles } from "../../styles/button.styles"
 import clsx from "clsx";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const BackToTop = () => {
     const classes = useStyles()
     const trigger = useScrollTrigger();
+    const matches = useMediaQuery('(min-width:600px)');
+
     const handleClick = (event) => {
         const anchor = (event.target.ownerDocument || document).querySelector('#back-to-top-anchor');
 
@@ -22,7 +25,7 @@ const BackToTop = () => {
             <Fab
                 role="presentation"
                 color="secondary"
-                size="small"
+                size={matches ? "medium" : "small"}
                 aria-label="scroll back to top"
                 className={clsx(classes.fab, classes.fabNav, classes.fabTop)}
                 onClick={handleClick}>

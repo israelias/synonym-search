@@ -23,4 +23,30 @@ export const useStyles = makeStyles((theme) => ({
     switch: {
         backgroundColor: theme.palette.secondary.main,
     },
+    speedDial: {
+        margin: theme.spacing(1),
+    },
+    speedDialGroup: {
+        // padding: theme.spacing(1),
+        right: theme.spacing(2),
+        left: 'auto',
+        position: 'absolute',
+        [theme.breakpoints.up("sm")]: {
+            right: 'auto',
+            left: theme.spacing(2),
+        },
+        '& > *': {
+            alignSelf: 'flex-end',
+            [theme.breakpoints.up("sm")]: {
+                alignSelf: 'flex-start',
+            },
+            '& > *': {
+                alignSelf: 'flex-end',
+                [theme.breakpoints.up("sm")]: {
+                    alignSelf: 'flex-start',
+                },
+
+            }
+        }
+    }
 }));

@@ -65,10 +65,9 @@ const View = ({
                     /Story
                 </Typography>
             }
-
             <ButtonGroup
                 component={'nav'}
-                className={classes.navGroup}
+                className={classes.inputGroup}
             >
                 {
                     home &&
@@ -81,6 +80,11 @@ const View = ({
                 {
                     saves && <Clear/>
                 }
+            </ButtonGroup>
+            <ButtonGroup
+                component={'nav'}
+                className={classes.navGroup}
+            >
                 {
 
                     !info && <InfoButton/>

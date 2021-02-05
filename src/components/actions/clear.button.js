@@ -5,7 +5,8 @@ import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
 import { useStyles } from "../../styles/layout.styles"
 
-const Clear = () => {
+const Clear = ({ speed }) => {
+
     const classes = useStyles()
     const wordsDispatch = useDispatchHistory()
 
@@ -16,16 +17,16 @@ const Clear = () => {
     }
 
     return (
-        <div className={classes.action}>
+        <div className={classes.input}>
             <Fab
-                variant="extended"
+                variant={speed ? "round" : "extended"}
                 size="small"
                 color="primary"
                 aria-label="clear"
                 onClick={handleClick}
             >
                 <DeleteSweepIcon />
-                Clear
+                {!speed && "Clear"}
             </Fab>
         </div>
     )

@@ -169,10 +169,18 @@ export const useStyles = makeStyles((theme) => ({
             }
         }
     },
-    action: {
-        zIndex: 1200,
+    inputGroup: {
+        display: 'flex',
+        position: 'fixed',
+        top: theme.spacing(1.5),
+        right: theme.spacing(15),
+        '& > *': {
+            // transition: '.3s linear .3s',
+            // marginLeft: theme.spacing(1)
+        }
     },
-    // search: {
-    //     zIndex: 1300,
-    // },
+    input: {
+        zIndex: 1500,
+    }
+
 }));

@@ -21,26 +21,32 @@ const ToggleTheme = () => {
     }
 
     return (
-        <Slide appear={true} direction={"up"} in={!trigger}>
-            <FixedBottom offset={matches ? 16 : 48 }>
+        // <Slide appear={true} direction={"up"} in={!trigger}>
+        //     <FixedBottom offset={matches ? 16 : 48 }>
 
                 <Fab
                     size="small"
-                    color="secondary"
+                    color="primary"
                     aria-label="switch"
-                    className={clsx(classes.fab, classes.fabNav, classes.fabBottom)}
+                    // className={
+                    //     clsx(
+                    //         classes.fab,
+                    //         classes.fabNav,
+                    //         classes.fabBottom)
+                    // }
                     onClick={handleClick}
                 >
-                    <Avatar
-                        className={classes.switch}
-                        component={TonalityIcon}
-                        variant='circular'
-                        color='secondary'
-                    />
+                    <TonalityIcon />
+                    {/*<Avatar*/}
+                    {/*    className={classes.switch}*/}
+                    {/*    component={TonalityIcon}*/}
+                    {/*    variant='circular'*/}
+                    {/*    color='secondary'*/}
+                    {/*/>*/}
                 </Fab>
 
-            </FixedBottom>
-        </Slide>
+            // </FixedBottom>
+        // </Slide>
     )
 }
 

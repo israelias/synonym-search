@@ -10,7 +10,7 @@ const Search = ({
     const classes = useStyles()
 
     return (
-        <div className={classes.action}>
+        <div className={classes.input}>
             <Field
                 loading={loading}
                 query={searchText}

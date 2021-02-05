@@ -26,7 +26,7 @@ const Field = ({
     const handleSearchButton = (event) => {
         setActive(true)
         setTimeout(() => {
-            textInput.current.focus();
+            textInput.current && textInput.current.focus();
         }, 100);
     }
 
@@ -40,7 +40,15 @@ const Field = ({
 
     active && trigger ? setActive(false) : null
 
-    active && match ? setTimeout(() => setActive(false), 2000): null
+    // active && match ? setTimeout(() => setActive(false), 2000): null
+
+    useEffect(() => {
+        if (active && match) {
+            setTimeout(() => {
+                setActive(false);
+            }, 2000);
+        }
+    }, []);
 
     return (
         <ClickAwayListener

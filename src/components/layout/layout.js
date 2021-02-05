@@ -14,6 +14,7 @@ import Footer from "./footer"
 import { useDispatchTheme } from "../../context/theme.context";
 import { TabPanel } from "../../helpers/views.helper"
 import { useStyles } from "../../styles/layout.styles"
+import Speed from "./../fab/speed"
 
 const Layout = ({
                     children,
@@ -57,7 +58,8 @@ const Layout = ({
                 </TabPanel>
             </main>
             <nav>
-                <ToggleTheme/>
+                {/*<ToggleTheme/>*/}
+                <Speed />
                 <BackToTop/>
             </nav>
             <Footer>
