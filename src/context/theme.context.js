@@ -6,6 +6,7 @@ import yellow from '@material-ui/core/colors/yellow';
 import red from '@material-ui/core/colors/red';
 import lightblue from "@material-ui/core/colors/lightBlue";
 import deeporange from "@material-ui/core/colors/deepOrange";
+import cyan from "@material-ui/core/colors/cyan";
 
 export const ThemeDispatchContext = createContext()
 export const ThemeStateContext = createContext()
@@ -112,6 +113,7 @@ const lightTheme = createMuiTheme({
         },
         secondary: {
             main: grey[900]
+            // main: '#006d9f'
         }
     },
     ...commonSettings
@@ -129,7 +131,8 @@ const darkTheme = createMuiTheme({
             main: '#fafafa'
         },
         background: {
-            default: '#000',
+            default: '#151515',
+            // default: '#000'
         },
     },
     ...commonSettings
