@@ -11,7 +11,7 @@ const Logo = ({ url, name, path, darkImage }) => {
     const darkSrc = darkImage ? darkImage : path
     const viewDispatch = useDispatchTheme()
     const classes = useStyles()
-    const matches = useMediaQuery('(min-width:600px)');
+    const matches = useMediaQuery('(max-width:576.98px)');
 
     return (
         <Fab
