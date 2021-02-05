@@ -10,8 +10,9 @@ export default function MyApp(props) {
 
     const userName = `@israelias`
 
-    const title = `SynonymSEARCH with Merriam-Webster's Thesaurus: How to retain all queried words during a
-                    thesaurus search session.`
+    const siteURL = `https://synonym-chaser-845fgehna.vercel.app/`
+
+    const title = `SynonymSEARCH with Merriam-Webster's Thesaurus: How to retain all queried words during a thesaurus search session.`
 
     const shortTitle = `Synonym/Search: An Interactive Thesaurus App`
 
@@ -19,10 +20,7 @@ export default function MyApp(props) {
 
     const ogTitle = `How to retain all queried words during a thesaurus search session.`
 
-    const description = `Sustain meaning by having a persistent overview of your search impulses
-                      with this reliable and interactive Thesaurus. Our progressive iteration of Merriam-Webster's
-                      Collegiate Thesaurus is built by developers at Code Institute to bridge the missing gap between
-                      sessions: a tool that is five steps ahead of the user's impulses.`
+    const description = `Sustain meaning by having a persistent overview of your search impulses with this reliable and interactive Thesaurus. Our progressive iteration of Merriam-Webster's Collegiate Thesaurus is built by developers at Code Institute to bridge the missing gap between sessions: a tool that is five steps ahead of the user's impulses.`
 
     const ogImage = "https://raw.githubusercontent.com/israelias/synonym-chaser/master/public/images/og-image-synsearch-app.png"
 
@@ -95,7 +93,7 @@ export default function MyApp(props) {
                 {/*Complement the title to make the snippet as appealing and click-worthy as possible.*/}
                 <meta property="og:description" content={description}/>
                 <meta property="og:image" content={ogImage}/>
-                <meta property="og:url" content="https://synonym-chaser.vercel.app/"/>
+                <meta property="og:url" content={siteURL}/>
                 <meta name="og:site_name" content={ogSiteName}/>
                 <meta name="og:type" content="website"/>
                 <meta name="twitter:card" content="summary_large_image"/>
