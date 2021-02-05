@@ -27,6 +27,7 @@ const BackToTop = () => {
                 color="secondary"
                 size={matches ? "medium" : "small"}
                 aria-label="scroll back to top"
+                style={{margin: '8px'}}
                 className={clsx(classes.fab, classes.fabNav, classes.fabTop)}
                 onClick={handleClick}>
                 <KeyboardArrowUpIcon/>

@@ -53,6 +53,7 @@ const Speed = ({children, value, index, ...other}) => {
                     ariaLabel="actions"
                     className={classes.speedDialGroup}
                     FabProps={{
+                        className: clsx(classes.speedDial),
                         // className: clsx(classes.fab, classes.fabNav, classes.fabBottom),
                         size: matches ? "medium" : "small",
                         style: {padding: matches ? "12px" : "8px"}
