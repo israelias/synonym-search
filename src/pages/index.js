@@ -131,10 +131,9 @@ const Index = ( props ) => {
   )
 }
 
-export const getStaticProps = async () => {
-  // const newWord = axios.get('https://api.wordnik.com/v4/words.json/randomWord?hasDictionaryDef=true&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&api_key=YOURAPIKEY')
-  // const searchText = randomTerm();
-  const searchText = 'about'
+export const getServerSideProps = async () => {
+  const searchText = randomTerm();
+  // const searchText = 'about'
   const res = await searchThesaurus(searchText);
   console.log(res)
   return {
