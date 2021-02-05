@@ -10,9 +10,10 @@ const Info = () => {
     const theme = useTheme()
 
     return (
+
         <div className={classes.root}>
             <h3>
-                The Story Behind This Application
+                About The App
             </h3>
             <Box borderLeft={1} borderRight={1} p={2} mb={10}>
                 <Typography variant={"subtitle1"}>

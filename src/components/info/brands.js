@@ -1,15 +1,27 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import AvatarGroup from "@material-ui/lab/AvatarGroup";
 import Logo from "../shared/logo";
 import { useStyles } from "../../styles/layout.styles";
+import { useDispatchTheme } from "../../context/theme.context";
 
 const Brands = ({ children }) => {
     const classes = useStyles()
     const matches = useMediaQuery('(min-width:600px)');
+    const viewDispatch = useDispatchTheme()
     const [active, setActive] = useState(false)
+    const value = viewDispatch.value
+
+    useEffect(() => {
+        if (value === 'info') {
+            setTimeout(() => {
+                setActive(true);
+            }, 750);
+        }
+    }, []);
+
 
     return (
         <AvatarGroup
@@ -26,17 +38,20 @@ const Brands = ({ children }) => {
             <Logo
                 name="React"
                 url="https://react.org/"
-                path={"/images/reactLogo.png"}
+                path="/images/reactLogoLight.png"
+                // darkImage="/images/reactLogoDark.png"
             />
             <Logo
                 name="Next JS"
                 url="https://nextjs.org/"
-                path={"/images/nextJSLogo.svg"}
+                path="/images/nextJSLogo.svg"
             />
             <Logo
                 name="Material UI"
                 url="https://material-ui.com/"
                 path="/images/materialUILogo.png"
+                darkImage="/images/materialUILogoDark.png"
+
             />
             <Logo
                 name="Code Institute"
@@ -46,8 +61,8 @@ const Brands = ({ children }) => {
             <Logo
                 name="Merriam-Webster"
                 url="https://dictionaryapi.com/"
-                path="/images/MWLogo_forLightBackgrounds.png"
-                darkImage="/images/MWLogo_forDarkBackgrounds.png"
+                path="/images/MWLogo_forLightBackgrounds.svg"
+                darkImage="/images/MWLogo_forDarkBackgrounds.svg"
             />
         </AvatarGroup>
     );
