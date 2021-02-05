@@ -1,19 +1,6 @@
 import React from 'react'
 import Field from "./field"
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        position: 'fixed',
-        top: '.8rem',
-        right: theme.spacing(8),
-        zIndex: 1200,
-    },
-    search: {
-        zIndex: 1300,
-    },
-}));
-
+import { useStyles } from "../../styles/layout.styles"
 
 const Search = ({
                     searchText,
@@ -23,13 +10,8 @@ const Search = ({
     const classes = useStyles()
 
     return (
-
-        <div
-            // className={classes.root}
-            className={classes.nav}
-        >
+        <div className={classes.action}>
             <Field
-                className={classes.search}
                 loading={loading}
                 query={searchText}
                 label={"Search a Term"}

@@ -1,11 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react'
-import {makeStyles, useTheme} from '@material-ui/core/styles'
+import { useTheme } from '@material-ui/core/styles'
 import Fab from "@material-ui/core/Fab"
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Backdrop from "@material-ui/core/Backdrop"
 import { useDispatchTheme } from "../../context/theme.context";
 import Input from "./input"
-import { useStyles } from "../../styles/button.styles"
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 
 const Field = ({
@@ -16,7 +15,6 @@ const Field = ({
                    helperText,
                    loading
                    }) => {
-    const classes = useStyles()
     const theme = useTheme()
     const trigger = useScrollTrigger()
     const [active, setActive] = useState(false)
@@ -54,7 +52,6 @@ const Field = ({
                     onClick={handleBackDrop}
                 />
                 <Fab
-                    className={classes.searchButton}
                     size="small"
                     color="primary"
                     aria-label="search"

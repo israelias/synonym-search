@@ -1,7 +1,6 @@
 import React from 'react'
 import SearchIcon from '@material-ui/icons/Search';
 import Grow from "@material-ui/core/Grow"
-import { useStyles } from "../../styles/button.styles"
 import InputBase from "@material-ui/core/InputBase"
 import InputAdornment from '@material-ui/core/InputAdornment';
 import ErrorOutlineOutlinedIcon from '@material-ui/icons/ErrorOutlineOutlined';
@@ -20,7 +19,6 @@ const Input = ({
                    placeHolder,
                    label
                    }) => {
-    const classes = useStyles()
 
     return (
         <>
@@ -31,7 +29,6 @@ const Input = ({
                 unmountOnExit
             >
                 <InputBase
-                    className={classes.textField}
                     id={"search-input"}
                     color={"secondary"}
                     size={"medium"}
