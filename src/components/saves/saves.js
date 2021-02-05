@@ -14,6 +14,15 @@ const Saves = () => {
 
     const wordsState = useHistory()
 
+    // if (!wordsState || wordsState.length === 0) {
+    //     return (
+    //         <Typography
+    //             variant="h3"
+    //         >
+    //             Your history will <br/> save <br/> here.
+    //         </Typography>
+    //     )
+    // }
     if (!wordsState || wordsState.length === 0) {
         return <span>Your history will save here.</span>
     }
