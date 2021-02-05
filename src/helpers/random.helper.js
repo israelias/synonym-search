@@ -1,15 +1,18 @@
-
-function randomTerm() {
+/**
+ * A list of words.
+ *
+ * The server will call MWThesaurus API to query a random word on every initial page load.
+ *
+ * @return a random word from this list.
+ */
+export const randomTerm =() => {
     const words = [
         'welcome',
         'learn',
-        'thesaurus',
         'search',
         'fulfill',
-        'react',
-        'software',
-        'egregious',
         'beholden',
+        'better',
         'capable',
         'enduring',
         'about',
@@ -19,5 +22,3 @@ function randomTerm() {
     ];
     return words[Math.floor(Math.random() * words.length)];
 }
-
-export { randomTerm };
