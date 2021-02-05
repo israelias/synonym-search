@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Typography from "@material-ui/core/Typography"
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box"
@@ -10,7 +10,7 @@ import Collapse from '@material-ui/core/Collapse';
 import Grow from '@material-ui/core/Grow';
 import Zoom from '@material-ui/core/Zoom';
 import Skeleton from '@material-ui/lab/Skeleton'
-import {useDispatchTheme} from "../../context/theme.context";
+import { useDispatchTheme } from "../../context/theme.context";
 
 const useStyles = makeStyles((theme) => ({
     backdrop: {
@@ -90,16 +90,6 @@ const Launcher = () => {
     const [open, setOpen] = useState(true)
     const [showOpen, setShowOpen] = useState(true)
 
-    // const handleLaunch = () => {
-    //     setTimeout(() => {
-    //         setShowOpen(false);
-    //         setTimeout(() => {
-    //             setOpen(false);
-    //             viewDispatch.setValue('search')
-    //         }, 350);
-    //     }, 2500);
-    // }
-
     useEffect(() => {
         setTimeout(() => {
             setShowOpen(false);
@@ -109,16 +99,6 @@ const Launcher = () => {
             }, 350);
         }, 2500);
     }, []);
-
-    // setTimeout(() => {
-    //     setShowOpen(false);
-    //     setTimeout(() => {
-    //         setOpen(false);
-    //         viewDispatch.setValue('search')
-    //     }, 350);
-    // }, 2500);
-
-    // handleLaunch()
 
     return (
         <>
