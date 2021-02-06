@@ -57,15 +57,15 @@ ___
 
 
 
-<div style="text-align:center; padding-left: 3px"><a href="https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes13.jpg?raw=true" target="_blank" style="text-align:center;max-width:45%; display:flex; flex-direction: column; float:left">
+[<div style="text-align:center; padding-left: 3px"><a href="https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes13.jpg?raw=true" target="_blank" style="text-align:center;max-width:45%; display:flex; flex-direction: column; float:left">
     <img src="https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes13.jpg?raw=true" style="width:100%">
-    <small>User Inputs</small>
-</a>
+    <small>User Inputs</small></a></div>]()
 
-<a href="https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes14.jpg?raw=true" target="_blank" style="text-align:center;max-width:45%; display:flex; flex-direction: column;">
+
+[<div style="text-align:center; padding-left: 3px"><a href="https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes14.jpg?raw=true" target="_blank" style="text-align:center;max-width:45%; display:flex; flex-direction: column;">
     <img src="https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes14.jpg?raw=true" style="width:100%">
     <small>Managing Dual list states</small>
-</a></div>
+</a></div>]()
 
 <div style="text-align:center; padding-left: 3px"><a href="https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes16.jpg?raw=true" target="_blank" style="text-align:center;max-width:45%; display:flex; flex-direction: column; float:left">
     <img src="https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes16.jpg?raw=true" style="width:100%">
