@@ -7,18 +7,64 @@
 
 <!--jsconsole, json testing.-->
 
-Synonymous is as an interactive Thesaurus that tracks and sorts a history of all search queries leading up to the current one. Using React reducer and context hooks, the app's Saved List tab functions as a shopping cart with a list of items saved (queried) from dynamic Results -- a list of products.
+SynonymSearch is as an interactive Thesaurus that tracks and sorts a history of all search queries leading up to the current one. Using React reducer and context hooks, the app's Saved List tab functions as a shopping cart with a list of items saved (queried) from dynamic Results -- a list of products.
+
+SynonymSEARCH with Merriam-Webster's Thesaurus: How to retain all queried words during a thesaurus search session.
+Sustain meaning by having a persistent overview of your search impulses with this reliable and interactive Thesaurus. Our progressive iteration of Merriam-Webster's Collegiate Thesaurus is built by developers at Code Institute to bridge the missing gap between sessions: a tool that is five steps ahead of the user's impulses.
 
 This project is developed as part of MS2 Interactive Front End module at Code Institute. It is written to work with [Thesaurus API]() 's JSON response format, and is developed with [React]() via [Next.js](https://nextjs.org/), bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and deployed with [Vercel](https://vercel.com/import?filter=next.js&utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment))
 
-___
+## Contents
+
+[TOC levels=3]: "# Table of contents"
+- [Cook Book](#cook-book)
+  - [Purpose](#purpose)
+  - [UX](#ux)
+    - [User Stories](#user-stories)
+      - [First time users](#first-time-users)
+      - [Returning users](#returning-users)
+      - [Site Owner](#site-owner)
+    - [Design](#design)
+      - [Colour](#colour)
+  - [Features](#features)
+    - [Authentication & Authorization](#authentication--authorization)
+    - [Recipes](#recipes)
+  - [Database](#database)
+    - [Database Choice](#database-choice)
+    - [Database structure](#database-structure)
+
 ___
 ## UX
 ___
-### Design
+### Wireframes
 ___
-#### Wireframes
+###### [View Schematic Results Component Ideation Board](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes29.jpg?raw=true)
+
+#### Concept
 ___
+
+- Products and Cart
+
+    [ <div style="text-align:center"><img src="public/wireframes/MS2_Wireframes07.jpg?raw=true" width="500px"></div> ](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes07.jpg?raw=true)    
+
+
+- Working with the API
+
+  [ <div style="text-align:center"><img src="public/wireframes/MS2_Wireframes22.jpg?raw=true" width="500px"></div> ](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes22.jpg?raw=true)
+
+
+  - Working with the API
+
+ <div style="justify-content:'center'; display: "flex";>
+
+[<img src="public/wireframes/MS2_Wireframes22.jpg?raw=true" width="130px">](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes22.jpg?raw=true)
+[<img src="public/wireframes/MS2_Wireframes22.jpg?raw=true" width="130px">](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes22.jpg?raw=true)
+[<img src="public/wireframes/MS2_Wireframes22.jpg?raw=true" width="130px">](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes22.jpg?raw=true)  
+  [<img src="public/wireframes/MS2_Wireframes22.jpg?raw=true" width="130px">](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes22.jpg?raw=true)
+
+</div>
+
+
 
 - Schematic mockups commenced in January 2021 to establish relationships between disparate components, and assign appropriate responsibilities. See [PDF of Wireframes]().
 
@@ -27,7 +73,7 @@ ___
 <br>
 
 - Schematic Wires
-  - [Components]()
+  - [Components](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes01.jpg?raw=true)
 - Search: Landing
   - [Web]()
 - Results: Introduction
@@ -65,6 +111,8 @@ ___
 
 #### Results ( the products )
 ___
+###### [View Schematic Results Component Ideation Board](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes11.jpg?raw=true)
+
   - The Results component is programmed to showcase all Synonyms, Related Words, Synonymous Phrases, and Similar Words deeply nested in each of many definitions of all words matching the queried *searchText*.
   - Clicking any of the words in Results adds that word to a Saved-List session ([via Context API and Reducer hooks](https://nextjs.org/docs/deployment)), produces new results from that word, and so on. The Results component is written to work specifically with the JSON response from the Thesaurus API.
 - To note, on succinctly representing the API response:
@@ -86,10 +134,15 @@ ___
 
 #### Display String ( the preview )
 ___
+###### [View Schematic Display Component Ideation Board 1](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes27.jpg?raw=true)
+
+###### [View Schematic Display Component Ideation Board 2](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes28.jpg?raw=true)
+
   -  The app offers the ability to "test" or "preview" how interchangeable or synonymous a word is relative to its definition. Much like previewing sizes, matches, colors in a list of products while shopping, the Display String offers a user's own subjective understanding of a word to determine further searching within a word's particular definition (clicking, `onSelectionChange`) or starting a new search (typing, `onSearchTextChange`).
 
 #### Saved List ( the cart )
 ___
+###### [View Schematic Saved Selections Component Ideation Board](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes12.jpg?raw=true)
   -  Each saved word instance retains properties of the Results family it is "taken" from -- such as the word's particular definition, label, root word -- to increment values of duplicates and group words by sense definitions while ensuring each instance, no matter identical at name value, is distinct if the definition and sense is different.
 -  Component Sub Features:
    -  Ability to remove individual words from the list.
@@ -328,12 +381,15 @@ ___
 - Reducers reference.
 - React blogs.
 - Material UI components.
+- [Search App HTML5 markup](https://stackoverflow.com/questions/3255109/marking-up-a-search-result-list-with-html5-semantics)
+- [Intersection Observer](https://developers.google.com/web/updates/2017/09/sticky-headers)
 - The site's favicon was generated via [Real Favicon Generator.net](https://realfavicongenerator.net/) following Philippe Bernard's [comprehensive summary on favicons](https://css-tricks.com/favicon-quiz/).
 - Github Repo module.
 - The development of this README.md takes precedent from various templates and samples throughout Code Institute's course. The development of the UX section and Jesse Garret's Five Planes of UX equally take direct inspiration from Code Institute's course.
 - The Slack community at Code Institute, namely the senior leads, for being generous and quick to offer endless assistance and advice.
 - Tutor Support at Code Institute for offering invaluable technical support.
 - My mentor Aaron Sinnott for his support, time investment and for helping to push this project to be the best that it can be.
+- thanks
 
 [Back to top](#table-of-contents)
 
