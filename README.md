@@ -45,7 +45,7 @@ ___
 
 - Products and Cart
 
-    [ <div style="text-align:center"><img src="public/wireframes/MS2_Wireframes07.jpg?raw=true" width="500px"></div> ](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes07.jpg?raw=true)    
+    [ <div style="text-align:center"><img src="public/wireframes/MS2_Wireframes07.jpg?raw=true" width="500px"></div> ](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes07.jpg?raw=true)
 
 
 - Working with the API
@@ -55,12 +55,25 @@ ___
 
   - Working with the API
 
- <div style="justify-content:'center'; display: "flex";>
+ <div style="justify-content:center; display: flex; flex-wrap: wrap;">
 
-[<img src="public/wireframes/MS2_Wireframes22.jpg?raw=true" width="130px">](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes22.jpg?raw=true)
-[<img src="public/wireframes/MS2_Wireframes22.jpg?raw=true" width="130px">](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes22.jpg?raw=true)
-[<img src="public/wireframes/MS2_Wireframes22.jpg?raw=true" width="130px">](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes22.jpg?raw=true)  
-  [<img src="public/wireframes/MS2_Wireframes22.jpg?raw=true" width="130px">](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes22.jpg?raw=true)
+[<div style="text-align:center;flex:auto;">
+<img style="max-width:130px;" src="public/wireframes/MS2_Wireframes14.jpg?raw=true">
+<small>User Types Word</small></div>](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes14.jpg?raw=true)
+[<div style="text-align:center;flex:auto;">
+<img style="max-width:130px" src="public/wireframes/MS2_Wireframes16.jpg?raw=true">
+<small>working</small></div>](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes16.jpg?raw=true)
+[<div style="text-align:center;flex:auto;">
+<img style="max-width:130px;" src="public/wireframes/MS2_Wireframes17.jpg?raw=true">
+<small>working</small></div>](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes17.jpg?raw=true)
+[<div style="text-align:center;">
+<img style="max-width:130px;" src="public/wireframes/MS2_Wireframes20.jpg?raw=true">
+<small>working</small></div>](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes20.jpg?raw=true)
+
+[<div style="max-width:130px;text-align:center;"><img src="public/wireframes/MS2_Wireframes21.jpg?raw=true" style="max-width:130px"><small>working</small></div>](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes21.jpg?raw=true)
+[<div style="max-width:130px;text-align:center;"><img src="public/wireframes/MS2_Wireframes22.jpg?raw=true" style="max-width:130px"><small>working</small></div>](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes22.jpg?raw=true)
+[<div style="max-width:130px;text-align:center;"><img src="public/wireframes/MS2_Wireframes22.jpg?raw=true" style="max-width:130px"><small>working</small></div>](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes22.jpg?raw=true)
+[<div style="max-width:130px;text-align:center;"><img src="public/wireframes/MS2_Wireframes22.jpg?raw=true" style="max-width:130px"><small>working</small></div>](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes22.jpg?raw=true)
 
 </div>
 
