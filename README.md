@@ -43,42 +43,55 @@ ___
 #### Concept
 ___
 
-- Products and Cart
+##### Appropriating Precedent
 
-    [ <div style="text-align:center"><img src="public/wireframes/MS2_Wireframes07.jpg?raw=true" width="500px"></div> ](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes07.jpg?raw=true)
-
-
-- Working with the API
-
-  [ <div style="text-align:center"><img src="public/wireframes/MS2_Wireframes22.jpg?raw=true" width="500px"></div> ](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes22.jpg?raw=true)
+[ <div style="text-align:center"><img src="public/wireframes/MS2_Wireframes07.jpg?raw=true" width="500px"></div> ](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes07.jpg?raw=true)
 
 
-  - Working with the API
+##### Working with the API
 
- <div style="justify-content:center; display: flex; flex-wrap: wrap;">
+  [ <div style="text-align:center"><img src="public/wireframes/MS2_Wireframes08.jpg?raw=true" width="500px"></div> ](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes08.jpg?raw=true)
 
-[<div style="text-align:center;flex:auto;">
-<img style="max-width:130px;" src="public/wireframes/MS2_Wireframes14.jpg?raw=true">
-<small>User Types Word</small></div>](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes14.jpg?raw=true)
-[<div style="text-align:center;flex:auto;">
-<img style="max-width:130px" src="public/wireframes/MS2_Wireframes16.jpg?raw=true">
-<small>working</small></div>](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes16.jpg?raw=true)
-[<div style="text-align:center;flex:auto;">
-<img style="max-width:130px;" src="public/wireframes/MS2_Wireframes17.jpg?raw=true">
-<small>working</small></div>](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes17.jpg?raw=true)
-[<div style="text-align:center;">
-<img style="max-width:130px;" src="public/wireframes/MS2_Wireframes20.jpg?raw=true">
-<small>working</small></div>](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes20.jpg?raw=true)
 
-[<div style="max-width:130px;text-align:center;"><img src="public/wireframes/MS2_Wireframes21.jpg?raw=true" style="max-width:130px"><small>working</small></div>](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes21.jpg?raw=true)
-[<div style="max-width:130px;text-align:center;"><img src="public/wireframes/MS2_Wireframes22.jpg?raw=true" style="max-width:130px"><small>working</small></div>](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes22.jpg?raw=true)
-[<div style="max-width:130px;text-align:center;"><img src="public/wireframes/MS2_Wireframes22.jpg?raw=true" style="max-width:130px"><small>working</small></div>](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes22.jpg?raw=true)
-[<div style="max-width:130px;text-align:center;"><img src="public/wireframes/MS2_Wireframes22.jpg?raw=true" style="max-width:130px"><small>working</small></div>](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes22.jpg?raw=true)
-
-</div>
+##### Working with the API
 
 
 
+<div style="text-align:center; padding-left: 3px"><a href="https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes13.jpg?raw=true" target="_blank" style="text-align:center;max-width:45%; display:flex; flex-direction: column; float:left">
+    <img src="https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes13.jpg?raw=true" style="width:100%">
+    <small>User Inputs</small>
+</a>
+
+<a href="https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes14.jpg?raw=true" target="_blank" style="text-align:center;max-width:45%; display:flex; flex-direction: column;">
+    <img src="https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes14.jpg?raw=true" style="width:100%">
+    <small>Managing Dual list states</small>
+</a></div>
+
+<div style="text-align:center; padding-left: 3px"><a href="https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes16.jpg?raw=true" target="_blank" style="text-align:center;max-width:45%; display:flex; flex-direction: column; float:left">
+    <img src="https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes16.jpg?raw=true" style="width:100%">
+    <small>Transcribing The Response</small>
+</a>
+
+<a href="https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes20.jpg?raw=true" target="_blank" style="text-align:center;max-width:45%; display:flex; flex-direction: column;">
+    <img src="https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes20.jpg?raw=true" style="width:100%">
+    <small>Managing Dual list states</small>
+</a></div>
+
+
+<div style="text-align:center; padding-left: 3px"><a href="https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes22.jpg?raw=true" target="_blank" style="text-align:center;max-width:45%; display:flex; flex-direction: column; float:left">
+    <img src="https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes22.jpg?raw=true" style="width:100%">
+    <small>Managing Repeats</small>
+</a>
+
+<a href="https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes25.jpg?raw=true" target="_blank" style="text-align:center;max-width:45%; display:flex; flex-direction: column;">
+    <img src="https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes25.jpg?raw=true" style="width:100%">
+    <small>Navigating Views</small>
+</a></div>
+
+
+<br/>
+
+<hr/>
 - Schematic mockups commenced in January 2021 to establish relationships between disparate components, and assign appropriate responsibilities. See [PDF of Wireframes]().
 
 <br>
