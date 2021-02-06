@@ -1,12 +1,11 @@
-import React from 'react'
-import { searchThesaurus } from '../services/mwThesaurusService'
-import { randomTerm } from '../helpers/random.helper'
-import { useState } from 'react'
-import Layout from "../components/layout/layout"
-import Results from '../components/results/results'
+import React, { useState } from 'react';
+import { searchThesaurus } from '../services/mwThesaurusService';
+import { randomTerm } from '../helpers/random.helper';
 
-const Index = ( props ) => {
+import Layout from '../components/layout/layout';
+import Results from '../components/results/results';
 
+const Index = (props) => {
   /*
     Add local states to state variables via useState Hooks, which adds
     state and lifecycle features to this otherwise 'stateless' function component.
@@ -24,7 +23,7 @@ const Index = ( props ) => {
     Declare `setSearchText` to be the function that updates its state.
    */
 
-  const [searchText, setSearchText] = useState(props.searchText)
+  const [searchText, setSearchText] = useState(props.searchText);
 
   /*
     `selection` state variable.
@@ -33,7 +32,7 @@ const Index = ( props ) => {
     Declare `setSelection` to be the function that updates its state.
    */
 
-  const [selection, setSelection] = useState('')
+  const [selection, setSelection] = useState('');
 
   /*
     `synonyms` state variable.
@@ -41,7 +40,7 @@ const Index = ( props ) => {
     Initialize `synonyms` to hold an initial value from our ServerSideProps,
     Declare `setSynonyms` to be the function that updates its state.
    */
-  const [results, setResults] = useState(props.results)
+  const [results, setResults] = useState(props.results);
 
   /*
     `loading` state variable.
@@ -110,37 +109,35 @@ const Index = ( props ) => {
       setLoading(false);
       setResults(res.data);
     }
-  }
+  };
 
   return (
-      <>
-        <Layout
-            search
-            loading={loading}
-            searchText={searchText}
-            onSearchTextChange={onSearchTextChange}
-        >
-          <Results
-              loading={loading}
-              results={results}
-              selection={selection}
-              onSelectionChange={onSelectionChange}
-          />
-        </Layout>
-      </>
-  )
-}
+    <>
+      <Layout
+        search
+        loading={loading}
+        searchText={searchText}
+        onSearchTextChange={onSearchTextChange}
+      >
+        <Results
+          loading={loading}
+          results={results}
+          selection={selection}
+          onSelectionChange={onSelectionChange}
+        />
+      </Layout>
+    </>
+  );
+};
 
 export const getServerSideProps = async () => {
   const searchText = randomTerm();
-  // const searchText = 'about'
   const res = await searchThesaurus(searchText);
-  console.log(res)
   return {
     props: {
-      searchText: searchText,
+      searchText,
       results: res.data,
-    }
+    },
   };
 };
 

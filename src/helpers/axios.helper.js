@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 /**
  * Helper function cancels unfinished queries.
@@ -20,9 +20,9 @@ import axios from 'axios'
 
 /** @type {cancelConfig} */
 const cancelConfig = {
-    request: null,
-    cancelToken: null
-}
+  request: null,
+  cancelToken: null,
+};
 
 /**
  * return a cancellable HTTP request.
@@ -33,40 +33,38 @@ const cancelConfig = {
 
 /** @return {Promise<object>} */
 async function axiosGetCancellable(url, config) {
+  // If the request is in progress, cancel the new ones.
 
-    // If the request is in progress, cancel the new ones.
+  if (cancelConfig.request) {
+    cancelConfig.request.cancel('canceled');
+  }
 
-    if (cancelConfig.request) {
-        cancelConfig.request.cancel('canceled');
+  // Otherwise, get the reference for the request and save it to the config.
+
+  cancelConfig.request = axios.CancelToken.source();
+
+  // Then save the cancel token.
+
+  cancelConfig.cancelToken = cancelConfig.request.token;
+
+  // Then copy the values from config and merge to this cancelConfig.
+  // Works the same way as setState(prevState => { return {...prevState, ...updatedValues}; });
+  // in merging update objects.
+  // Object.assign is used as we are controlling states in Index via useState hooks and not setState methods.
+
+  Object.assign(cancelConfig, config);
+
+  // This will always throw an uncaught error on the browser, but we expect this.
+  // So let the return call run and only catch errors that are not 'canceled'.
+
+  try {
+    const res = await axios.get(url, cancelConfig);
+    return res;
+  } catch (error) {
+    if (error.message !== 'canceled') {
+      throw error;
     }
-
-    // Otherwise, get the reference for the request and save it to the config.
-
-    cancelConfig.request = axios.CancelToken.source();
-
-    // Then save the cancel token.
-
-    cancelConfig.cancelToken = cancelConfig.request.token;
-
-    // Then copy the values from config and merge to this cancelConfig.
-    // Works the same way as setState(prevState => { return {...prevState, ...updatedValues}; });
-    // in merging update objects.
-    // Object.assign is used as we are controlling states in Index via useState hooks and not setState methods.
-
-    Object.assign(cancelConfig, config);
-
-    // This will always throw an uncaught error on the browser, but we expect this.
-    // So let the return call run and only catch errors that are not 'canceled'.
-
-    try {
-        const res = await axios.get(url, cancelConfig);
-        return res;
-    } catch (error) {
-        if (error.message !== 'canceled') {
-            throw error;
-        }
-    }
-
+  }
 }
 
 export { axiosGetCancellable };

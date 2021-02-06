@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
-import { useStyles } from "../../styles/display.styles"
-import { ReplaceSubStringNode } from "../../helpers/string.helper"
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
+import { useStyles } from '../../styles/display.styles';
+import { ReplaceSubStringNode } from '../../helpers/string.helper';
 
 /**
  * Helper functions to display a clean string.
@@ -27,7 +27,6 @@ import PropTypes from "prop-types";
  * @return {object}
  */
 
-
 /**
  * Component for showing a sense-definition's verbal illustration
  * (example sentence) to illustrate how a word is used in context.
@@ -44,44 +43,45 @@ import PropTypes from "prop-types";
  * )
  */
 const Display = ({
-                     sampleString,
-                     optionWord,
-                 }) => {
-    const classes = useStyles()
-    const subString = ReplaceSubStringNode(sampleString)
+  sampleString,
+  optionWord,
+}) => {
+  const classes = useStyles();
+  const subString = ReplaceSubStringNode(sampleString);
 
-    return (
-        <div className={classes.display}>
-            <FormatQuoteIcon
-                className={classes.iconLeft}
-            />
-            <span>
-                {subString[0]}
-            </span>
-            <span
-                className={classes.active}
-            >
-                {optionWord}
-            </span>
-            <span>
-                {subString[1]}.
-            </span>
-            <FormatQuoteIcon
-                className={classes.iconRight}
-            />
-        </div>
-    )
-}
-
-Display.propTypes = {
-    /**
-     * An example sentence featuring a Word.
-     */
-    sampleString: PropTypes.string.isRequired,
-    /**
-     * On of the synonymous terms interchangeable with the Word.
-     */
-    optionWord: PropTypes.string.isRequired,
+  return (
+    <div className={classes.display}>
+      <FormatQuoteIcon
+        className={classes.iconLeft}
+      />
+      <span>
+        {subString[0]}
+      </span>
+      <span
+        className={classes.active}
+      >
+        {optionWord}
+      </span>
+      <span>
+        {subString[1]}
+        .
+      </span>
+      <FormatQuoteIcon
+        className={classes.iconRight}
+      />
+    </div>
+  );
 };
 
-export default Display
+Display.propTypes = {
+  /**
+     * An example sentence featuring a Word.
+     */
+  sampleString: PropTypes.string.isRequired,
+  /**
+     * On of the synonymous terms interchangeable with the Word.
+     */
+  optionWord: PropTypes.string.isRequired,
+};
+
+export default Display;

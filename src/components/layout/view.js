@@ -1,109 +1,117 @@
-import React from "react";
-import Typography from "@material-ui/core/Typography";
-import { useDispatchTheme } from "../../context/theme.context";
-import { useStyles } from "../../styles/layout.styles"
-import Clear from "../actions/clear.button";
-import Search from "../search/search"
-import PropTypes from "prop-types";
-import HomeButton from "../actions/home.button"
-import SavesButton from "../actions/saves.button"
-import InfoButton from "../actions/info.button"
+import React from 'react';
+import Typography from '@material-ui/core/Typography';
+import PropTypes from 'prop-types';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
+import { useDispatchTheme } from '../../context/theme.context';
+import { useStyles } from '../../styles/layout.styles';
+import Clear from '../actions/clear.button';
+import Search from '../search/search';
+import HomeButton from '../actions/home.button';
+import SavesButton from '../actions/saves.button';
+import InfoButton from '../actions/info.button';
 
 const View = ({
-                  searchText,
-                  onSearchTextChange,
-                  loading,
-              }) => {
-    const classes = useStyles();
-    const viewDispatch = useDispatchTheme()
-    const value = viewDispatch.value
-    const home = value === 'search'
-    const saves = value === 'saves'
-    const info = value === 'info'
+  searchText,
+  onSearchTextChange,
+  loading,
+}) => {
+  const classes = useStyles();
+  const viewDispatch = useDispatchTheme();
+  const { value } = viewDispatch;
+  const home = value === 'search';
+  const saves = value === 'saves';
+  const info = value === 'info';
 
-    return (
-        <>
-            <Typography
-                className={classes.title}
-                component='h1'
-                variant="h5"
-                noWrap
-            >
-                Synonym
-            </Typography>
-            {
-                home &&
+  return (
+    <>
+      <Typography
+        className={classes.title}
+        component="h1"
+        variant="h5"
+        noWrap
+      >
+        Synonym
+      </Typography>
+      {
+                home
+                && (
                 <Typography
-                    className={classes.subTitle}
-                    component='h2'
-                    variant="h5"
-                    noWrap
+                  className={classes.subTitle}
+                  component="h2"
+                  variant="h5"
+                  noWrap
                 >
-                    /Search
+                  /Search
                 </Typography>
+                )
             }
-            {
-                saves &&
+      {
+                saves
+                && (
                 <Typography
-                    className={classes.subTitle}
-                    component='h2'
-                    variant="h5"
-                    noWrap
+                  className={classes.subTitle}
+                  component="h2"
+                  variant="h5"
+                  noWrap
                 >
-                    /Saves
+                  /Saves
                 </Typography>
+                )
             }
-            {
-                info &&
+      {
+                info
+                && (
                 <Typography
-                    className={classes.subTitle}
-                    component='h2'
-                    variant="h5"
-                    noWrap
+                  className={classes.subTitle}
+                  component="h2"
+                  variant="h5"
+                  noWrap
                 >
-                    /Story
+                  /Story
                 </Typography>
+                )
             }
-            <ButtonGroup
-                component={'nav'}
-                className={classes.inputGroup}
-            >
-                {
-                    home &&
+      <ButtonGroup
+        component="nav"
+        className={classes.inputGroup}
+      >
+        {
+                    home
+                    && (
                     <Search
-                        loading={loading}
-                        searchText={searchText}
-                        onSearchTextChange={onSearchTextChange}
+                      loading={loading}
+                      searchText={searchText}
+                      onSearchTextChange={onSearchTextChange}
                     />
+                    )
                 }
-                {
-                    saves && <Clear/>
+        {
+                    saves && <Clear />
                 }
-            </ButtonGroup>
-            <ButtonGroup
-                component={'nav'}
-                className={classes.navGroup}
-            >
-                {
+      </ButtonGroup>
+      <ButtonGroup
+        component="nav"
+        className={classes.navGroup}
+      >
+        {
 
-                    !info && <InfoButton/>
+                    !info && <InfoButton />
                 }
-                {
-                    !home && <HomeButton/>
+        {
+                    !home && <HomeButton />
                 }
-                {
-                    !saves && <SavesButton/>
+        {
+                    !saves && <SavesButton />
                 }
-            </ButtonGroup>
-        </>
-    )
-}
-
-View.propTypes = {
-    searchText: PropTypes.string,
-    loading: PropTypes.bool,
-    onSearchTextChange: PropTypes.func,
+      </ButtonGroup>
+    </>
+  );
 };
 
-export default View
+View.propTypes = {
+  searchText: PropTypes.string,
+  loading: PropTypes.bool,
+  onSearchTextChange: PropTypes.func,
+};
+
+export default View;

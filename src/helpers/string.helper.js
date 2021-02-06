@@ -27,23 +27,21 @@ import parse from 'html-react-parser';
  * @return  {string}             The same string with {it}{/it} replaced with <em></em> respectively.
  */
 
-export const ReplaceNodeTags = ({ string }) => {
+export const ReplaceNodeTags = ({ string }) =>
 
-    /**
+/**
      * Replaces {it} with <em> and {/it} with </em>.
      */
 
-    return parse(string
-        .replace(
-            /{it}/g,
-            "<em>"
-        )
-        .replace(
-            /{\/it}/g,
-            "</em>"
-        )
+  parse(string
+    .replace(
+      /{it}/g,
+      '<em>',
     )
-}
+    .replace(
+      /{\/it}/g,
+      '</em>',
+    ));
 
 /**
  * Converts a string to substrings split at the designated replaced nodes [{any}{/any}] insertion point.
@@ -59,33 +57,32 @@ export const ReplaceNodeTags = ({ string }) => {
  */
 
 export const ReplaceSubStringNode = (string) => {
-
-    /**
+  /**
      * Removes {ldquo} and {rdquo}.
      */
 
-    const cleanString = string
+  const cleanString = string
 
-        .replace(/{ldquo}/g, "")
-        .replace(/{rdquo}/g, "")
+    .replace(/{ldquo}/g, '')
+    .replace(/{rdquo}/g, '');
 
-    /**
+  /**
      * Replaces {it} and {/it} with '<>'.
      */
 
-    const subString = cleanString
+  const subString = cleanString
 
-        .replace(
-            /{(.+?)\/(.+?)}/g,
-            "<>"
-        )
+    .replace(
+      /{(.+?)\/(.+?)}/g,
+      '<>',
+    );
 
-    /**
+  /**
      * Returns an array of 2 substrings split at '<>'.
      */
 
-    return subString
-        .split(
-            "<>"
-        )
-}
+  return subString
+    .split(
+      '<>',
+    );
+};

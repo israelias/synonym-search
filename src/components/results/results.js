@@ -60,36 +60,6 @@ const Results = ({
                         />
                     </li>
                 ))}
-
-
-                {/*{results.map((result, index) => {*/}
-                {/*    if (!result.meta) {*/}
-                {/*        metaDispatch.setMeta(false)*/}
-                {/*    }*/}
-                {/*    else {*/}
-                {/*        metaDispatch.setMeta(true)*/}
-                {/*        metaDispatch.setRoot(results[0].hwi.hw)*/}
-                {/*        return (*/}
-                {/*            <li*/}
-                {/*                key={`head-${index}-${result.hwi.hw}`}*/}
-                {/*                id={`result-${index}-${result.hwi.hw}`}>*/}
-                {/*                    <Root*/}
-                {/*                        key={`result-${index}-${result.hwi.hw}`}*/}
-                {/*                        loading={loading}*/}
-                {/*                        uuid={*/}
-                {/*                            result.meta.target ?*/}
-                {/*                                result.meta.target.tuuid*/}
-                {/*                                : result.meta.uuid*/}
-                {/*                        }*/}
-                {/*                        root={result.hwi.hw}*/}
-                {/*                        label={result.fl}*/}
-                {/*                        senses={result.def[0].sseq}*/}
-                {/*                        onSelectionChange={onSelectionChange}*/}
-                {/*                    />*/}
-                {/*            </li>*/}
-                {/*        )*/}
-                {/*    }*/}
-                {/*})}*/}
             </List>
         </Collapse>
     );

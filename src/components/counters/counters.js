@@ -1,144 +1,158 @@
-import React from "react";
-import { withStyles } from "@material-ui/core/styles";
-import Tooltip from "@material-ui/core/Tooltip";
-import Zoom from "@material-ui/core/Zoom";
-import Chip from "@material-ui/core/Chip";
-import Avatar from "@material-ui/core/Avatar";
-import { useHistory } from "../../context/words.context";
-import { getSameSenseTotal, getSameHeadTotal, getSameWordTotal } from "../../helpers/counters.helper"
-import PropTypes from "prop-types";
+import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import Tooltip from '@material-ui/core/Tooltip';
+import Zoom from '@material-ui/core/Zoom';
+import Chip from '@material-ui/core/Chip';
+import Avatar from '@material-ui/core/Avatar';
+import PropTypes from 'prop-types';
+import { useHistory } from '../../context/words.context';
+import { getSameSenseTotal, getSameHeadTotal, getSameWordTotal } from '../../helpers/counters.helper';
 
 const StyledChip = withStyles((theme) => ({
-    root: {
-        position: 'absolute',
-        right: 0,
-    },
-    label: {
-        display: 'none',
-    },
-    avatar: {
-        marginRight: '2px !important',
-    }
+  root: {
+    position: 'absolute',
+    right: 0,
+  },
+  label: {
+    display: 'none',
+  },
+  avatar: {
+    marginRight: '2px !important',
+  },
 }))(Chip);
 
 export const SameWordShowTotal = ({
-                                      loading,
-                                      term,
-                                      definition,
-                                      label
-                                  }) => {
-    const wordsHistory = useHistory()
+  loading,
+  term,
+  definition,
+  label,
+}) => {
+  const wordsHistory = useHistory();
 
-    const sameWordTotal = getSameWordTotal(wordsHistory, term, definition, label)
+  const sameWordTotal = getSameWordTotal(wordsHistory, term, definition, label);
 
-    const showTotal = sameWordTotal > 0
+  const showTotal = sameWordTotal > 0;
 
-    return (
-        showTotal &&
-        <Zoom in={!loading}
-        >
-            <Tooltip
-                title={
+  return (
+    showTotal
+        && (
+        <Zoom in={!loading}>
+          <Tooltip
+            title={
                     `${term} as in ${definition} has been searched and saved ${sameWordTotal} times.`
-                }>
-                <StyledChip
-                    variant="outlined"
-                    color="default"
-                    size="small"
-                    avatar={
-                        <Avatar>{
+                }
+          >
+            <StyledChip
+              variant="outlined"
+              color="default"
+              size="small"
+              avatar={(
+                <Avatar>
+                  {
                             sameWordTotal
-                        }</Avatar>
-                    }
-                />
-            </Tooltip>
+                        }
+                </Avatar>
+                      )}
+            />
+          </Tooltip>
         </Zoom>
-    )
-}
+        )
+  );
+};
 
 SameWordShowTotal.propTypes = {
-    definition: PropTypes.string.isRequired,
-    term: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    loading: PropTypes.bool.isRequired,
+  definition: PropTypes.string.isRequired,
+  term: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 export const SameSenseShowTotal = ({
-                                       loading,
-                                       sense,
-                                       label
-                                   }) => {
-    const wordsHistory = useHistory()
+  loading,
+  sense,
+  label,
+}) => {
+  const wordsHistory = useHistory();
 
-    const senseTotal = getSameSenseTotal(wordsHistory, sense, label)
+  const senseTotal = getSameSenseTotal(wordsHistory, sense, label);
 
-    const showTotal = senseTotal > 0
+  const showTotal = senseTotal > 0;
 
-    return (
-        showTotal &&
+  return (
+    showTotal
+        && (
         <Zoom in={!loading}>
-            <Tooltip
-                title={
+          <Tooltip
+            title={
                     `I've saved ${senseTotal} words sharing the definition: ${sense}.`
-                }>
-                <StyledChip
-                    variant="outlined"
-                    color="secondary"
-                    size="small"
-                    avatar={
-                        <Avatar>{
+                }
+          >
+            <StyledChip
+              variant="outlined"
+              color="secondary"
+              size="small"
+              avatar={(
+                <Avatar>
+                  {
                             senseTotal
-                        }</Avatar>
-                    }
-                />
-            </Tooltip>
+                        }
+                </Avatar>
+                      )}
+            />
+          </Tooltip>
         </Zoom>
-    )
-}
+        )
+  );
+};
 
 SameSenseShowTotal.propTypes = {
-    sense: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    loading: PropTypes.bool,
+  sense: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  loading: PropTypes.bool,
 };
 
 export const SameHeadShowTotal = ({
-                                      loading,
-                                      root,
-                                      label,
-                                      uuid,
-                                  }) => {
-    const wordsHistory = useHistory()
+  loading,
+  root,
+  label,
+  uuid,
+}) => {
+  const wordsHistory = useHistory();
 
-    const headTotal = getSameHeadTotal(wordsHistory, root, uuid)
+  const headTotal = getSameHeadTotal(wordsHistory, root, uuid);
 
-    const showTotal = headTotal > 0
+  const showTotal = headTotal > 0;
 
-    return (
-        showTotal &&
+  return (
+    showTotal
+        && (
         <Zoom in={!loading}>
-            <Tooltip
-                title={
+          <Tooltip
+            title={
                     `${root} as a ${label} has appeared ${headTotal} times.`
-                }>
-                <StyledChip
-                    variant="outlined"
-                    color="primary"
-                    size="small"
-                    avatar={
-                        <Avatar>{
+                }
+          >
+            <StyledChip
+              variant="outlined"
+              color="primary"
+              size="small"
+              avatar={(
+                <Avatar>
+                  {
                             headTotal
-                        }</Avatar>
-                    }
-                />
-            </Tooltip>
+                        }
+                </Avatar>
+                      )}
+            />
+          </Tooltip>
         </Zoom>
-    )
-}
+        )
+  );
+};
 
 SameHeadShowTotal.propTypes = {
-    root: PropTypes.string.isRequired,
-    uuid: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    loading: PropTypes.bool.isRequired,
+  root: PropTypes.string.isRequired,
+  uuid: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  loading: PropTypes.bool.isRequired,
 };

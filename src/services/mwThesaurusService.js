@@ -1,4 +1,4 @@
-import { axiosGetCancellable } from "../helpers/axios.helper";
+import { axiosGetCancellable } from '../helpers/axios.helper';
 
 /**
  * API service function to fetch data from Thesaurus API.
@@ -12,7 +12,7 @@ import { axiosGetCancellable } from "../helpers/axios.helper";
  */
 
 const axiosConfig = {
-    baseURL: 'https://dictionaryapi.com/api/v3/references/',
+  baseURL: 'https://dictionaryapi.com/api/v3/references/',
 };
 
 /**
@@ -23,13 +23,13 @@ const axiosConfig = {
  */
 
 function searchThesaurus(searchText, selection) {
-    const query = selection ? selection : searchText;
-    const key = process.env.NEXT_PUBLIC_MW_THESAURUS_KEY;
+  const query = selection || searchText;
+  const key = process.env.NEXT_PUBLIC_MW_THESAURUS_KEY;
 
-    return axiosGetCancellable(
-        `/thesaurus/json/${query}?key=${key}`,
-        axiosConfig
-    );
+  return axiosGetCancellable(
+    `/thesaurus/json/${query}?key=${key}`,
+    axiosConfig,
+  );
 }
 
 export { searchThesaurus };

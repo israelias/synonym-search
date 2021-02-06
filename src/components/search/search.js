@@ -1,26 +1,26 @@
-import React from 'react'
-import Field from "./field"
-import { useStyles } from "../../styles/layout.styles"
+import React from 'react';
+import Field from './field';
+import { useStyles } from '../../styles/layout.styles';
 
 const Search = ({
-                    searchText,
-                    onSearchTextChange,
-                    loading,
-                }) => {
-    const classes = useStyles()
+  searchText,
+  onSearchTextChange,
+  loading,
+}) => {
+  const classes = useStyles();
 
-    return (
-        <div className={classes.input}>
-            <Field
-                loading={loading}
-                query={searchText}
-                label={"Search a Term"}
-                placeHolder={"Search"}
-                helperText={"any word..."}
-                onChange={(value) => onSearchTextChange(value)}
-            />
-        </div>
-    )
+  return (
+    <div className={classes.input}>
+      <Field
+        loading={loading}
+        query={searchText}
+        label="Search a Term"
+        placeHolder="Search"
+        helperText="any word..."
+        onChange={(value) => onSearchTextChange(value)}
+      />
+    </div>
+  );
 };
 
 export default Search;
