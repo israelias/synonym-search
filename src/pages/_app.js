@@ -20,7 +20,8 @@ export default function MyApp(props) {
 
   const ogTitle = 'How to retain all queried words during a thesaurus search session.';
 
-  const description = 'Sustain meaning by having a persistent overview of your search impulses with this reliable and interactive Thesaurus. Our progressive iteration of Merriam-Webster\'s Collegiate Thesaurus is built by developers at Code Institute to bridge the missing gap between sessions: a tool that is five steps ahead of the user\'s impulses.';
+  const description = 'SynonymSEARCH with Merriam-Webster\'s Thesaurus: How to retain all queried words during a thesaurus search session.\n'
+      + 'Sustain meaning by having a persistent overview of your search impulses with this reliable and interactive Thesaurus. Our progressive iteration of Merriam-Webster\'s Collegiate Thesaurus is built by developers at ';
 
   const ogImage = 'https://raw.githubusercontent.com/israelias/synonym-chaser/master/public/images/og-image-synsearch-app.png';
 
