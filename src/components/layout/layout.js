@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Launcher from '../shared/launcher';
-import ToggleTheme from '../actions/theme.button';
 import BackToTop from '../actions/scroll.button';
 import Saves from '../saves/saves';
 import View from './view';
@@ -58,7 +57,6 @@ const Layout = ({
         </TabPanel>
       </main>
       <nav>
-        {/* <ToggleTheme/> */}
         <Speed />
         <BackToTop />
       </nav>
@@ -78,10 +76,10 @@ const Layout = ({
 };
 
 Layout.propTypes = {
-  children: PropTypes.node,
-  searchText: PropTypes.string,
-  loading: PropTypes.bool,
-  onSearchTextChange: PropTypes.func,
+  children: PropTypes.node.isRequired,
+  searchText: PropTypes.string.isRequired,
+  loading: PropTypes.bool.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
 };
 
 export default Layout;

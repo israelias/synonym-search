@@ -54,8 +54,8 @@ Selection.propTypes = {
       sense: PropTypes.string,
       uuid: PropTypes.string,
       root: PropTypes.string,
-    }),
-  ),
+    }).isRequired,
+  ).isRequired,
 };
 
 export default Selection;

@@ -28,8 +28,7 @@ import parse from 'html-react-parser';
  */
 
 export const ReplaceNodeTags = ({ string }) =>
-
-/**
+    /**
      * Replaces {it} with <em> and {/it} with </em>.
      */
 
@@ -42,7 +41,6 @@ export const ReplaceNodeTags = ({ string }) =>
       /{\/it}/g,
       '</em>',
     ));
-
 /**
  * Converts a string to substrings split at the designated replaced nodes [{any}{/any}] insertion point.
  *

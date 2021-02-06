@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Field from './field';
 import { useStyles } from '../../styles/layout.styles';
 
@@ -21,6 +22,12 @@ const Search = ({
       />
     </div>
   );
+};
+
+Search.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 export default Search;

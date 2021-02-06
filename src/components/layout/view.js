@@ -109,9 +109,9 @@ const View = ({
 };
 
 View.propTypes = {
-  searchText: PropTypes.string,
-  loading: PropTypes.bool,
-  onSearchTextChange: PropTypes.func,
+  searchText: PropTypes.string.isRequired,
+  loading: PropTypes.bool.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
 };
 
 export default View;

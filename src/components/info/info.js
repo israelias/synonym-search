@@ -16,11 +16,9 @@ const Info = () => {
         About The App
       </h3>
       <Box borderLeft={1} borderRight={1} p={2} mb={10}>
-        <Typography variant="subtitle1">
-          Context providers are React hooks that allow you to easily access and manipulate state variables across
-          components from a context provider. In addition, reducers sort our queries and their results to construct a client-side cache of your data, which is kept up
-          to date for the duration of the browser's state, and as further queries are run, fetching more results from the API.
-        </Typography>
+        Context providers are React hooks that allow you to easily access and manipulate state variables across
+        components from a context provider. In addition, reducers sort our queries and their results to construct a client-side cache of your data, which is kept up
+        to date for the duration of the browser's state, and as further queries are run, fetching more results from the API.
         <br />
         <Typography variant="subtitle1">
           In this simple application, we integrate state hooks seamlessly with Material UI and Next by wrapping our page inside a HOC.

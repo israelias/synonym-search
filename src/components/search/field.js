@@ -4,6 +4,7 @@ import Fab from '@material-ui/core/Fab';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Backdrop from '@material-ui/core/Backdrop';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import PropTypes from 'prop-types';
 import { useDispatchTheme } from '../../context/theme.context';
 import Input from './input';
 
@@ -23,18 +24,18 @@ const Field = ({
   const { meta } = metaDispatch;
   const { root } = metaDispatch;
 
-  const handleSearchButton = (event) => {
+  const handleSearchButton = () => {
     setActive(true);
     setTimeout(() => {
       textInput.current && textInput.current.focus();
     }, 100);
   };
 
-  const handleClickAway = (event) => setActive(false);
+  const handleClickAway = () => setActive(false);
 
-  const handleBackDrop = (event) => setActive(false);
+  const handleBackDrop = () => setActive(false);
 
-  const onKeyPress = (event) => setActive(false);
+  const onKeyPress = () => setActive(false);
 
   const match = textInput.current ? textInput.current.value === root : false;
 
@@ -92,6 +93,15 @@ const Field = ({
       </>
     </ClickAwayListener>
   );
+};
+
+Field.propTypes = {
+  label: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  placeHolder: PropTypes.string,
+  helperText: PropTypes.string,
+  loading: PropTypes.bool.isRequired,
 };
 
 export default Field;
