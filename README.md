@@ -4,21 +4,23 @@
 ![](https://github.com/israelias/synonym-chaser/blob/master/public/og-image-synsearch-app01redblue_Light.png?raw=true)
 
 ---
-# Synonym Search App
+# SynonymSearch
 ---
-<!--I am Software Dev. Diploma candidate at Code Institute. For my second project on interactive front-end development, I made a Thesaurus web application. The project commenced in early December 2020, with two months before a Feb 2020 deadline. Right before Christmas, I began wireframing the things I wanted a Thesaurus to do.  I use Thesaurus.com often, for everything. I am by all means the user in my mind as I was developing the project. Let's see: I wanted a simple Thesaurus with one key differnce : the ability to have a larger overview of my "search session"... so that it's almost like I had been taking notes the whole time, in a way. I wasn't certain what that fully meant yet until I really learned JavaScript. For this project, I dove deep into the language. By new year, I was fully up to speed with React hooks and stateful components. Writing this now, barely a month and a half later, I can barely remember consciousness without JSX and React. The "overview" aka interactive Thesaurus feature was essentially a "saved list" of queries in a search session. Simple right? I started looking at it like a products list and a shopping cart -- for which there are enough references and examples to troubleshoot with as the project got more complicated, and moved into testing, etc. (which made me feel safer). Today I'm still pretty impressed that I got most of this working. Nothing compares to the many aha moments I had building this project. From Code Institute's IFD module to the relatively few React sources, I was able to go all the way pretty effectively. Some of what I wish to implement is deep merging the history, or some idea of what to do with a session's data. But I guess that's coming in Data Centric front end (next). Thanks for reading!-->
 
-<!--getting the JSON response to "stick" (mount) was my biggest challenge. server side props, calling on change, etc. lots of "undefined".  The API's response is deeply deeply nested. I wanted to focus my attention on this and not get distracted with design. And Material UI came in handy for this. as they are react components. I went throguh a version of the project.-->
-<!--The first time i got the reducer to work was magic. Coz all i did was follow the logic of the function. Stateful components are magic.!!!-->
+## A *meaningful* thesaurus.
 
-<!--jsconsole, json testing.-->
+Remember all the words you find when you use a Thesaurus.
 
-SynonymSearch is as an interactive Thesaurus that tracks and sorts a history of all search queries leading up to the current one. Using React reducer and context hooks, the app's Saved List tab functions as a shopping cart with a list of items saved (queried) from dynamic Results -- a list of products.
 
-SynonymSEARCH with Merriam-Webster's Thesaurus: How to retain all queried words during a thesaurus search session.  
-Sustain meaning by having a persistent overview of your search impulses with this reliable and interactive Thesaurus. Our progressive iteration of Merriam-Webster's Collegiate Thesaurus is built by developers at Code Institute to bridge the missing gap between sessions: a tool that is five steps ahead of the user's impulses.
+SynonymSearch helps you to review what you've just learned (and might otherwise forget) by sorting a list of all your search queries by their shared definitions as you're finding them. 
 
-This project is developed as part of MS2 Interactive Front End module at Code Institute. It is written to work with [Thesaurus API]() 's JSON response format, and is developed with [React]() via [Next.js](https://nextjs.org/), bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and deployed with [Vercel](https://vercel.com/import?filter=next.js&utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment))
+SynonymSearch lets you test the similarity of synonymous words by injecting them into a sentence whose meaning depends on the definition they share. The app helps you actively make sense of a definition and then review it against a repository of synonyms.
+
+<!-- SynonymSearch also always lets you know when you've found a word that you should "already know."  -->
+
+This project is developed as part of MS2 Interactive Front End module at Code Institute. It is written to work with [Merriam-Webster's Collegiate® Thesaurus](https://dictionaryapi.com/)'s JSON response format, and is developed with [React](https://reactjs.org/) via [Next.js](https://nextjs.org/), bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and deployed with [Vercel](https://nextjs.org/docs/deployment).
+
+Please visit the project here: [synonyms.vercel.app](https://synonyms.vercel.app/)
 
 ## Contents
 
@@ -66,30 +68,28 @@ ___
 
 - _As a new visitor, I want to have a good understanding of what the application does within a few seconds._
 
-<!--   - The app features a custom launch screen on initial page load which succinctly describes its purpose: "An interactive thesaurus app". -->
 
 - _As a new visitor, I want to intuitively understand how to navigate the site without additional instructions._
 
-<!--   - The website takes advantage of large floating action buttons (FAB) to quickly navigate between its three remote views: "Search", "Info", and "Saves". Visual metaphors are utilized to represent these view modes discretely and efficiently. Additionally, a floating "speed dial" button persists across views to quickly access the app's core actions: querying a term, clearing the saved history, and toggling light or dark mode. -->
+
 
 - _As a new visitor, I want to access valuable content from any device, with minimal wait time and with a minimal amount of clicks._
 
-<!--   - The website is modeled as a progressive web application to render a single-page-app's functionality without full page reloads. Its framework ensures flexibility across browsers. This helps achieve an experience that is similar to an optimized native application that is installed in a device. -->
+
 
 - _As a new visitor, I want to understand the source of the site's content._
 
-<!--   - The website is modeled as a progressive web application to render a single-page-app's functionality without full page reloads. Its framework ensures flexibility across browsers. This helps achieve an experience that is similar to an optimized native application that is installed in a device. -->
+
 
 #### __Returning Visitor Goals__
 ___
 
 - _As a Returning Visitor, I want to use a thesaurus to find groups of words with the same or similar meanings._
 
-<!--   - The application is written to return Synonyms, Related Words, Synonymous Phrases and Similar Words for any word in the english language via Thesaurus API. -->
+
 
 - _As a Returning Visitor, I want the ability to see a history of my searched words grouped by their synonymous definitions._
 
-<!--   - The website features the ability to view all previous queries, grouped by their sense definition, accessible via the Saves tab. -->
 
 
 #### __Frequent Visitor Goals__
@@ -97,15 +97,13 @@ ___
 
 - _As a frequent visitor, I want to have the option to preview how a word and its synonyms might be used in a sentence._
 
-<!--   - The website features a display string that interactively updates a word within the scope of that word's definition. -->
 
 - _As a Frequent Visitor, I want to understand if I am looking at a words that I have already searched before._
 
-<!--   - The website features a counter that increments when an exact word with the same definition, and displays next to the word in the search tab. -->
+
 
 - _As a frequent visitor, I want to know that I can delete mysearch history._
 
-<!--   - The website features ability to clear the cache. -->
 
 ### Concept
 ___
@@ -544,6 +542,6 @@ ___
 - The Slack community at Code Institute, namely the senior leads, for being generous and quick to offer endless assistance and advice.
 - Tutor Support at Code Institute for offering invaluable technical support.
 - My mentor Aaron Sinnott for his support, time investment and for helping to push this project to be the best that it can be.
-- thanks
+
 
 [Back to top](#table-of-contents)
