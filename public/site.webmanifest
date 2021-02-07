@@ -3,7 +3,7 @@
   "short_name": "Synonym/Search: An Interactive Thesaurus App",
   "icons": [
     {
-      "src": "/android-chrome-192x192.png",
+      "src": "/android-chrome-Dark-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
@@ -33,20 +33,20 @@
       "icons": [{"src": "/pwaManifestSplashDark.png", "sizes": "926x1524"}]
     }
   ],
-  "description": "SynonymSEARCH with Merriam-Webster's Thesaurus: How to retain all queried words during a thesaurus search session. Sustain meaning by having a persistent overview of your search impulses with this reliable and interactive Thesaurus. Our progressive iteration of Merriam-Webster's Collegiate Thesaurus is built by developers at Code Institute"
+  "description": "SynonymSEARCH with Merriam-Webster's Thesaurus: How to retain all queried words during a thesaurus search session. Sustain meaning by having a persistent overview of your search impulses with this reliable and interactive Thesaurus. Our progressive iteration of Merriam-Webster's Collegiate Thesaurus is built by developers at Code Institute",
   "screenshots": [
-    {
-      "src": "/images/og-image-synsearch-app01redblue_Dark.png",
+  {
+      "src": "/og-image-synsearch-app01redblue_Dark.png",
       "type": "image/png",
       "sizes": "2364x1262"
     },
     {
-      "src": "/images/og-image-synsearch-app04cyanruby_Dark.png",
+      "src": "/og-image-synsearch-app04cyanruby_Dark.png",
       "type": "image/png",
       "sizes": "2364x1262"
     },
     {
-      "src": "/images/og-image-synsearch-app01redblue_Light.png",
+      "src": "/og-image-synsearch-app01redblue_Light.png",
       "type": "image/png",
       "sizes": "2364x1262"
     }
