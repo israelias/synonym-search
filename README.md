@@ -1,11 +1,7 @@
 
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="176" height="20" role="img" aria-label="lighthouse performance: 51%"><title>lighthouse performance: 51%</title><linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="r"><rect width="176" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#r)"><rect width="141" height="20" fill="#555"/><rect x="141" width="35" height="20" fill="#fe7d37"/><rect width="176" height="20" fill="url(#s)"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><text aria-hidden="true" x="715" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="1310">lighthouse performance</text><text x="715" y="140" transform="scale(.1)" fill="#fff" textLength="1310">lighthouse performance</text><text aria-hidden="true" x="1575" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="250">51%</text><text x="1575" y="140" transform="scale(.1)" fill="#fff" textLength="250">51%</text></g></svg>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="172" height="20" role="img" aria-label="lighthouse accessibility: 83%"><title>lighthouse accessibility: 83%</title><linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="r"><rect width="172" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#r)"><rect width="137" height="20" fill="#555"/><rect x="137" width="35" height="20" fill="#a4a61d"/><rect width="172" height="20" fill="url(#s)"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><text aria-hidden="true" x="695" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="1270">lighthouse accessibility</text><text x="695" y="140" transform="scale(.1)" fill="#fff" textLength="1270">lighthouse accessibility</text><text aria-hidden="true" x="1535" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="250">83%</text><text x="1535" y="140" transform="scale(.1)" fill="#fff" textLength="250">83%</text></g></svg>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="192" height="20" role="img" aria-label="lighthouse best-practices: 100%"><title>lighthouse best-practices: 100%</title><linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="r"><rect width="192" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#r)"><rect width="149" height="20" fill="#555"/><rect x="149" width="43" height="20" fill="#4c1"/><rect width="192" height="20" fill="url(#s)"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><text aria-hidden="true" x="755" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="1390">lighthouse best-practices</text><text x="755" y="140" transform="scale(.1)" fill="#fff" textLength="1390">lighthouse best-practices</text><text aria-hidden="true" x="1695" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="330">100%</text><text x="1695" y="140" transform="scale(.1)" fill="#fff" textLength="330">100%</text></g></svg>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="124" height="20" role="img" aria-label="lighthouse seo: 99%"><title>lighthouse seo: 99%</title><linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="r"><rect width="124" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#r)"><rect width="89" height="20" fill="#555"/><rect x="89" width="35" height="20" fill="#4c1"/><rect width="124" height="20" fill="url(#s)"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><text aria-hidden="true" x="455" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="790">lighthouse seo</text><text x="455" y="140" transform="scale(.1)" fill="#fff" textLength="790">lighthouse seo</text><text aria-hidden="true" x="1055" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="250">99%</text><text x="1055" y="140" transform="scale(.1)" fill="#fff" textLength="250">99%</text></g></svg>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="128" height="20" role="img" aria-label="lighthouse pwa: 50%"><title>lighthouse pwa: 50%</title><linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="r"><rect width="128" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#r)"><rect width="93" height="20" fill="#555"/><rect x="93" width="35" height="20" fill="#fe7d37"/><rect width="128" height="20" fill="url(#s)"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><text aria-hidden="true" x="475" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="830">lighthouse pwa</text><text x="475" y="140" transform="scale(.1)" fill="#fff" textLength="830">lighthouse pwa</text><text aria-hidden="true" x="1095" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="250">50%</text><text x="1095" y="140" transform="scale(.1)" fill="#fff" textLength="250">50%</text></g></svg>
+![](https://github.com/israelias/synonym-chaser/blob/master/docs/badges/lighthouse_performance.svg?raw=true?sanitize=true) ![](https://github.com/israelias/synonym-chaser/blob/master/docs/badges/lighthouse_accessibility.svg?raw=true?sanitize=true) ![](https://github.com/israelias/synonym-chaser/blob/master/docs/badges/lighthouse_best-practices.svg?raw=true?sanitize=true)![](https://github.com/israelias/synonym-chaser/blob/master/docs/badges/lighthouse_seo.svg?raw=true?sanitize=true) ![](https://github.com/israelias/synonym-chaser/blob/master/docs/badges/lighthouse_pwa.svg?raw=true?sanitize=true) 
 
-![](https://github.com/israelias/synonym-chaser/blob/master/public/og-imag-synsearch-app01redblue_Light.png)
+![](https://github.com/israelias/synonym-chaser/blob/master/public/og-image-synsearch-app01redblue_Light.png?raw=true)
 
 ---
 # Synonym Search App
@@ -57,101 +53,228 @@ This project is developed as part of MS2 Interactive Front End module at Code In
     - [Code](#code)
     - [Content and Media](#content-and-media)
     - [Acknowledgements](#acknowledgements)
+
+___
 ___
 ## UX
 ___
-### Wireframes
+### User Stories
+___
+
+#### __New Visitor Goals__
+___
+
+- _As a new visitor, I want to have a good understanding of what the application does within a few seconds._
+
+<!--   - The app features a custom launch screen on initial page load which succinctly describes its purpose: "An interactive thesaurus app". -->
+
+- _As a new visitor, I want to intuitively understand how to navigate the site without additional instructions._
+
+<!--   - The website takes advantage of large floating action buttons (FAB) to quickly navigate between its three remote views: "Search", "Info", and "Saves". Visual metaphors are utilized to represent these view modes discretely and efficiently. Additionally, a floating "speed dial" button persists across views to quickly access the app's core actions: querying a term, clearing the saved history, and toggling light or dark mode. -->
+
+- _As a new visitor, I want to access valuable content from any device, with minimal wait time and with a minimal amount of clicks._
+
+<!--   - The website is modeled as a progressive web application to render a single-page-app's functionality without full page reloads. Its framework ensures flexibility across browsers. This helps achieve an experience that is similar to an optimized native application that is installed in a device. -->
+
+- _As a new visitor, I want to understand the source of the site's content._
+
+<!--   - The website is modeled as a progressive web application to render a single-page-app's functionality without full page reloads. Its framework ensures flexibility across browsers. This helps achieve an experience that is similar to an optimized native application that is installed in a device. -->
+
+#### __Returning Visitor Goals__
+___
+
+- _As a Returning Visitor, I want to use a thesaurus to find groups of words with the same or similar meanings._
+
+<!--   - The application is written to return Synonyms, Related Words, Synonymous Phrases and Similar Words for any word in the english language via Thesaurus API. -->
+
+- _As a Returning Visitor, I want the ability to see a history of my searched words grouped by their synonymous definitions._
+
+<!--   - The website features the ability to view all previous queries, grouped by their sense definition, accessible via the Saves tab. -->
+
+
+#### __Frequent Visitor Goals__
+___
+
+- _As a frequent visitor, I want to have the option to preview how a word and its synonyms might be used in a sentence._
+
+<!--   - The website features a display string that interactively updates a word within the scope of that word's definition. -->
+
+- _As a Frequent Visitor, I want to understand if I am looking at a words that I have already searched before._
+
+<!--   - The website features a counter that increments when an exact word with the same definition, and displays next to the word in the search tab. -->
+
+- _As a frequent visitor, I want to know that I can delete mysearch history._
+
+<!--   - The website features ability to clear the cache. -->
+
+### Concept
+___
+#### Wireframes
+____
+###### [View Complete Set of Schematic Wireframes](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes.pdf)
+
+- Schematic mockups commenced in early January 2021 to establish relationships between disparate components, and assign appropriate responsibilities. 
 ___
 ###### [View Schematic Results Component Ideation Board](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes29.jpg?raw=true)
 
-#### Concept
+#### Thinking in React
 ___
 
-##### Appropriating Precedent
-
-[<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes07.jpg?raw=true" width="400px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes07.jpg?raw=true)
-
-- Approaching it like a reducer and a cart etc
-
-##### Working with the API
-
-[<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes08.jpg?raw=true" width="400px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes08.jpg?raw=true)
+- ##### Appropriating Precedent
 
 
+    <br>
+    <details><summary> The React App's core functionality can be understood as a <em><b>Products List</b></em> with <em><b>products</b></em> fetched from a <em><b>store</b></em>  and a <em><b>Shopping Cart</b></em> with a list of <em><b>items</b></em> added that  can be removed and/or cleared </summary> 
+    <br>
 
-##### Understanding Lifecycles
+    [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes07.jpg?raw=true" width="400px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes07.jpg?raw=true)
 
-[<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes13.jpg?raw=true" width="400px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes13.jpg?raw=true)
-
-##### Understanding Lifecycles
-
-  [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes14.jpg?raw=true" width="400px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes14.jpg?raw=true)
-
-#####  Transcribing The Data
-
-   [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes16.jpg?raw=true" width="400px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes16.jpg?raw=true)
-
-##### Managing States
-
-[<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes20.jpg?raw=true" width="400px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes20.jpg?raw=true)
-
-##### Managing Duplicates
-
-[<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes22.jpg?raw=true" width="400px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes22.jpg?raw=true)
-
-##### Navigating Views
-
-  [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes25.jpg?raw=true" width="400px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes25.jpg?raw=true)
+    <br>
+    </details> 
+    <br>
 
 
-#### Component Breakdown
-___
-##### Results
+    <br>
+    <details><summary> With the ability to query the <em><b>Products List</b></em>     </summary> 
+    <br>
 
-[<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes11.jpg?raw=true" width="400px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes11.jpg?raw=true)
+   [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes14.jpg?raw=true" width="400px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes14.jpg?raw=true)
 
-##### Display
+    <br>
+    </details> 
+    <br>
+    
+    <br>
+    <details><summary> With the ability to manage <em><b>items</b></em> that are the same <em><b>products</b></em>   </summary> 
+    <br>
 
-[<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes28.jpg?raw=true" width="400px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes28.jpg?raw=true)
+  [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes22.jpg?raw=true" width="400px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes22.jpg?raw=true)
 
-##### Saves
+    <br>
+    </details> 
+    <br>
+    
+    <br>
+    <details><summary> And the ability to toggle between <em><b>Products List</b></em> and <em><b>Shopping Cart</b></em>   </summary> 
+    <br>
 
-  [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes12.jpg?raw=true" width="400px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes12.jpg?raw=true)
+    [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes25.jpg?raw=true" width="400px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes25.jpg?raw=true)
+
+    <br>
+    </details> 
+    <br>
 
 
 
+-  This approach helped break-down the project scope, and, most importantly, afford a benchmark for references for development and troubleshooting.
 
 
-- Schematic mockups commenced in January 2021 to establish relationships between disparate components, and assign appropriate responsibilities. See [PDF of Wireframes]().
-
-<br>
-<details><summary> List of Wireframes </summary>
-<br>
-
-- Schematic Wires
-  - [Components](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes01.jpg?raw=true)
-- Search: Landing
-  - [Web]()
-- Results: Introduction
-  - [Web]()
-- Display: Technologies
-  - [Web]()
-- Use Case: Examples
-  - [Web]()
-
-<br>
-</details>
-<br>
-
-#### Typography
+#### Design
 ___
 
-- Roboto with Material UI. Responsive Font Sizes..
+###### [View Complete Set of Schematic Wireframes](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes20.jpg?raw=true)
+<!-- 
+[<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes20.jpg?raw=true" width="400px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes20.jpg?raw=true) -->
 
-#### Color
-___
+#### NotePad
 
-- Default schemes: Deep-orange on light mode. Blue on dark mode. Background is black or white. Feature is on words.
+- A consistent top and bottom border is applied to all nodes with dynamic content. These discrete borders are designed to convey the material scale of a note pad as a familiar touchpoint to a user. These `wordBoxes` only vary in spacing and are responsible for visually conveying hierarchy in a the ***list of list of lists***.
+
+#### Theme
+
+- Material-UI's `ThemeProvider` wraps the app in order to pass styles down the component tree. See [Material-UI Theming](https://material-ui.com/styles/advanced/#advanced).
+
+##### Typography
+
+- The font family is set to an array of system fonts in order to adapt to device/platform/user configuration and avoid depending on an explicit typeface. A `commonSettings` object in `theme.context.js` contains a list of these overrides, which is merged with Material-UI's theme provider. See [Material-UI Global-css](https://material-ui.com/customization/globals/#global-css)
+
+
+    <br>
+    <details><summary> commonSettings </summary> 
+    <br>
+
+     ```
+         export const commonSettings = {
+          typography: {
+            fontFamily: [
+              '-apple-system',
+              'BlinkMacSystemFont',
+              '"Segoe UI"',
+              'Roboto',
+              '"Helvetica Neue"',
+              'Arial',
+              'sans-serif',
+              '"Apple Color Emoji"',
+              '"Segoe UI Emoji"',
+              '"Segoe UI Symbol"',
+            ].join(','),
+          },
+      }
+     ```
+
+    <br>
+    </details> 
+    <br>
+
+
+##### Color
+
+- The app features two sets of primary and secondary colors for a light theme and a dark theme configured via Material UI's [palette configuration](https://material.io/resources/color/#!/?view.left=0&view.right=0). Behaviors and states of colors rely on properties defined in [Material-UI's Default Theme object](https://material-ui.com/customization/default-theme/#default-theme). Secondary colors are set to neutral tone, while primaries are rendered as the singular "feature color". The minimal approach to color sets is to enhance a notepad
+
+
+
+    <br>
+    <details><summary> lightTheme instance </summary> 
+    <br>
+
+     ```
+     const lightTheme = createMuiTheme({
+             palette: {
+             type: 'light',
+             primary: {
+              main: '#ff3200',
+            },
+        secondary: {
+              main: grey[900],
+            },
+        },
+      ...commonSettings,
+      });
+
+     ```
+
+    <br>
+    </details> 
+    <br>
+
+
+
+    <br>
+    <details><summary> darkTheme instance </summary> 
+    <br>
+
+     ```
+     const darkTheme = createMuiTheme({
+      palette: {
+        type: 'dark',
+        primary: {
+          main: lightblue[500],
+        },
+        secondary: {
+          main: '#fafafa',
+        },
+        background: {
+          default: '#151515',
+        },
+      },
+      ...commonSettings,
+    });
+
+     ```
+
+    <br>
+    </details> 
+    <br>
 
 ___
 ___
@@ -160,68 +283,70 @@ ___
 ### Existing Features
 ___
 
-#### Search
+#### Dynamic Layout SPA
 ___
+  - The website is modeled as a progressive web application to render a single-page-app's functionality without full page reloads and optimized to perform like a native app. Its framework ensures flexibility across browsers. 
 
-  - The app utilizes Axios to manage responses from the API. The app's Search component is written to auto-cancel in the middle of typing so as to reduce the amount of requests to the API.  The Search component is built from Material-UI input elements and uses State hooks elicit *side-effects* `onSearchTextChange`.
+  - The website takes advantage of large floating action buttons (FAB) to quickly navigate between its three remote views: "Search", "Info", and "Saves". Visual metaphors are utilized to represent these view modes discretely and efficiently.
 
-#### Results ( the products )
+  - A floating "speed dial" button persists across views to quickly access the app's core actions: querying a term, clearing the saved history, and toggling light or dark mode.
+
+  - The app features a custom launch screen on initial page load to succinctly describe its purpose: "An interactive thesaurus app".
+
+#### Info 
 ___
-###### [View Schematic Results Component Ideation Board](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes11.jpg?raw=true)
-
-  - The Results component is programmed to showcase all Synonyms, Related Words, Synonymous Phrases, and Similar Words deeply nested in each of many definitions of all words matching the queried *searchText*.
-  - Clicking any of the words in Results adds that word to a Saved-List session ([via Context API and Reducer hooks](https://nextjs.org/docs/deployment)), produces new results from that word, and so on. The Results component is written to work specifically with the JSON response from the Thesaurus API.
-- To note, on succinctly representing the API response:
-  - Each query has several head-words ("about" as preposition, as adverb...):
-    - Each headWord has several definitions ("about" as in to be, "about as in to...):
-      - Each headWord defined in a particular way has:
-        - A definition.
-        - A string that uses the word in a sentence ([see Display String](https://nextjs.org/docs/deployment))
-        - A list of Synonyms
-        - A list of Related words
-        - A list of Synonymous Phrases
-        - A list of Similar Words
-- The Results component is essentially a wrapper to showcase the words as packaged options.
--  Component Sub Features:
-   -  Ability to see if and how many times a word has been queried before.
-   -  Ability to see if and how many words have been queried with the same definition.
-   -  Ability to see if and how many definitions queried share the same root.
-   -  Ability to match definition in a string (See Display String).
-
-#### Display String ( the preview )
+  - The website offers an info section to credit brands, namely, Merriam-Webster's Collegiate Thesaurus, and supply information about the app.
+  
+       
+#### Search / Results
 ___
-###### [View Schematic Display Component Ideation Board 1](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes27.jpg?raw=true)
+###### [View Schematic Results Component Ideation Board](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes11.jpg?raw=true)
 
-###### [View Schematic Display Component Ideation Board 2](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes28.jpg?raw=true)
+- The application is written to return lists of Synonyms, Related Words, Synonymous Phrases and Similar Words for any queried word in the english language via Thesaurus API. Each word is presented as an option to query.
 
-  -  The app offers the ability to "test" or "preview" how interchangeable or synonymous a word is relative to its definition. Much like previewing sizes, matches, colors in a list of products while shopping, the Display String offers a user's own subjective understanding of a word to determine further searching within a word's particular definition (clicking, `onSelectionChange`) or starting a new search (typing, `onSearchTextChange`).
+    - ##### Actions: 
+         -  Ability to see if and how many times a word has been queried before.
+         -  Ability to see if and how many words have been queried with the same definition.
+         -  Ability to see if and how many definitions queried share the same root.
+        -  Ability to match definition in a string (See [Verbal Illustration](#-verbal-illustration)).
 
-#### Saved List ( the cart )
+
+#### Saves
 ___
-###### [View Schematic Saved Selections Component Ideation Board](https://github.com/israelias/synonym-chaser/blob/master/public/wireframes/MS2_Wireframes12.jpg?raw=true)
-  -  Each saved word instance retains properties of the Results family it is "taken" from -- such as the word's particular definition, label, root word -- to increment values of duplicates and group words by sense definitions while ensuring each instance, no matter identical at name value, is distinct if the definition and sense is different.
--  Component Sub Features:
-   -  Ability to remove individual words from the list.
-   -  Ability to clear the list.
+  - The website features the ability to view all previous queries, grouped by their sense definition, accessible via the Saves tab.
+    - ##### Actions: 
+       -  Ability to remove individual words from the list.
+       -  Ability to clear the list.
 
-#### Counters Context ( and useReducer )
+#### Verbal Illustration
 ___
-  -  Text about `wordsHistoryDispatch`
+###### [View Schematic Display String Component Ideation Board]
 
-#### Theme Context ( and useMemo, useMediaQuery )
-___
-- Text about theme provider
+  - If a definition contains an example sentence, the website displays this as  verbal illustration to feature how a particular word might be used in context.
+  - On scroll and/or on hover, the word used in the sentence changes to the next word in the list of synonyms.
+     - ##### Actions: 
+       -  Ability to see a word in a sentence by touch/mouse/scroll event. 
+
+
+#### Counters / Reducers
+
+  - The website features a counter that increments when an exact word with the same definition, and displays next to the word in the search tab.
+
+
 
 ___
 ### Features Left to Implement
 ___
 
+   [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes16.jpg?raw=true" width="400px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes16.jpg?raw=true)
+   
 - Refine the search.
   - To refine search.
 - Database schema
   - To add schema with apollo client.
 - Deep merge
   - ability to merge history
+
 
 ___
 ___
@@ -265,44 +390,6 @@ ___
 ___
 ## Testing
 ___
-### User Testing
-___
-
-#### __New Visitor Goals__
-___
-
-1. _As a new visitor, I want to have a good understanding of what the application does within a few seconds._
-
-  - The website features a search text field prominently to indicate its primary purpose.
-
-2. _As a new visitor, I want to be led seamlessly through the site to arrive at valuable content with the minimum amount of clicks._
-
-  - The website is a single page app with Tabs to swipe between the two views: Search and Saves.
-
-#### __Returning Visitor Goeals__
-___
-
-1. _As a Returning Visitor, I want to find synonyms for a word._
-
-  - The application is written to return Synonyms, Related Words, Synonymous Phrases and Similar Words for any word in the english language via Thesaurus API..
-
-2. _As a Returning Visitor, I want to be able to reference previous words I have queried to understand how similar words with different meanings might relate to each other ._
-
-  - The website features the ability to view all previous queries, grouped by their sense definition..
-
-#### __Frequent Visitor Goals__
-___
-
-1. _As a frequent visitor, I want to better understand and compare the meanings of nuanced usages of a particular term._
-
-  - The website features a display string that interactively updates a word within the scope of that word's definition.
-
-2. _As a frequent visitor, I want to ensure I have control of the privacy of own search history._
-
-  - The website features ability to clear the cache.
-
-
-___
 ### Documentation Notes
 ___
 
@@ -322,6 +409,21 @@ ___
 2. Directory follows Vercel documentation but moved to src folder, .
 
 3. _Document custom and serverSide props.
+4. The app utilizes Axios to manage responses from the API. The app's Search component is written to auto-cancel in the middle of typing so as to reduce the amount of requests to the API.  The Search component is built from Material-UI input elements and uses State hooks elicit *side-effects* `onSearchTextChange`.
+5.  The Results component is written to work specifically with the JSON response from the Thesaurus API.
+6. To note, on succinctly representing the API response:
+  - Each query has several head-words ("about" as preposition, as adverb...):
+    - Each headWord has several definitions ("about" as in to be, "about as in to...):
+      - Each headWord defined in a particular way has:
+        - A definition.
+        - A string that uses the word in a sentence ([see Display String](https://nextjs.org/docs/deployment))
+        - A list of Synonyms
+        - A list of Related words
+        - A list of Synonymous Phrases
+        - A list of Similar Words
+7. Each saved word instance retains properties of the Results family it is "taken" from -- such as the word's particular definition, label, root word -- to increment values of duplicates and group words by sense definitions while ensuring each instance, no matter identical at name value, is distinct if the definition and sense is different
+8. Counters Context ( and useReducer ) Text about `wordsHistoryDispatch`
+9. Theme Context ( and useMemo, useMediaQuery )Text about theme provider
 
 >*Note: All descriptions of atypical methods can be found within style blocks in style.css.*
 
