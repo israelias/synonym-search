@@ -1,5 +1,5 @@
 
-![](https://github.com/israelias/synonym-chaser/blob/master/docs/badges/lighthouse_performance.svg?raw=true?sanitize=true) ![](https://github.com/israelias/synonym-chaser/blob/master/docs/badges/lighthouse_accessibility.svg?raw=true?sanitize=true) ![](https://github.com/israelias/synonym-chaser/blob/master/docs/badges/lighthouse_best-practices.svg?raw=true?sanitize=true)![](https://github.com/israelias/synonym-chaser/blob/master/docs/badges/lighthouse_seo.svg?raw=true?sanitize=true) ![](https://github.com/israelias/synonym-chaser/blob/master/docs/badges/lighthouse_pwa.svg?raw=true?sanitize=true) 
+![](https://github.com/israelias/synonym-chaser/blob/master/docs/badges/lighthouse_performance.svg?raw=true?sanitize=true) ![](https://github.com/israelias/synonym-chaser/blob/master/docs/badges/lighthouse_accessibility.svg?raw=true?sanitize=true) ![](https://github.com/israelias/synonym-chaser/blob/master/docs/badges/lighthouse_best-practices.svg?raw=true?sanitize=true)![](https://github.com/israelias/synonym-chaser/blob/master/docs/badges/lighthouse_seo.svg?raw=true?sanitize=true) ![](https://github.com/israelias/synonym-chaser/blob/master/docs/badges/lighthouse_pwa.svg?raw=true?sanitize=true)
 
 ![](https://github.com/israelias/synonym-chaser/blob/master/public/og-image-synsearch-app01redblue_Light.png?raw=true)
 
@@ -12,7 +12,7 @@
 Remember all the words you find when you use a Thesaurus.
 
 
-SynonymSearch helps you to review what you've just learned (and might otherwise forget) by sorting a list of all your search queries by their shared definitions as you're finding them. 
+SynonymSearch helps you to review what you've just learned (and might otherwise forget) by sorting a list of all your search queries by their shared definitions as you're finding them.
 
 SynonymSearch lets you test the similarity of synonymous words by injecting them into a sentence whose meaning depends on the definition they share. The app helps you actively make sense of a definition and then review it against a repository of synonyms.
 
@@ -91,7 +91,7 @@ ___
 ____
 ###### [View PDF Set of Schematic Wireframes](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes.pdf)
 
-- Schematic mockups commenced in early January 2021 to establish relationships between disparate components, and assign appropriate responsibilities. 
+- Schematic mockups commenced in early January 2021 to establish relationships between disparate components, and assign appropriate responsibilities.
 ___
 
 #### Thinking in React
@@ -99,51 +99,51 @@ ___
 
 - ##### Appropriating Precedent
 
-  
-    <details><summary> The React App's core functionality can be understood as a <em><b>Products List</b></em> with <em><b>products</b></em> fetched from a <em><b>store</b></em>  and a <em><b>Shopping Cart</b></em> with a list of <em><b>items</b></em> added that  can be removed and/or cleared... </summary> 
+
+    <details><summary> The React App's core functionality can be understood as a <em><b>Products List</b></em> with <em><b>products</b></em> fetched from a <em><b>store</b></em>  and a <em><b>Shopping Cart</b></em> with a list of <em><b>items</b></em> added that  can be removed and/or cleared... </summary>
     <br>
-    
+
     [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes07.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes07.jpg?raw=true)
 
     <br>
-    </details> 
+    </details>
     <br>
 
 
-    <details><summary> ...with the ability to query the <em><b>Products List</b></em>     </summary> 
+    <details><summary> ...with the ability to query the <em><b>Products List</b></em>     </summary>
     <br>
 
    [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes14.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes14.jpg?raw=true)
 
     <br>
-    </details> 
+    </details>
     <br>
-    
 
-    <details><summary> ...with the ability to manage <em><b>items</b></em> that are the same <em><b>products</b></em>   </summary> 
+
+    <details><summary> ...with the ability to manage <em><b>items</b></em> that are the same <em><b>products</b></em>   </summary>
     <br>
 
   [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes22.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes22.jpg?raw=true)
 
     <br>
-    </details> 
+    </details>
     <br>
-    
 
-    <details><summary> ...with the ability to toggle between <em><b>Products List</b></em> and <em><b>Shopping Cart</b></em>   </summary> 
+
+    <details><summary> ...with the ability to toggle between <em><b>Products List</b></em> and <em><b>Shopping Cart</b></em>   </summary>
     <br>
 
     [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes25.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes25.jpg?raw=true)
 
     <br>
-    </details> 
+    </details>
     <br>
     <br>
 
     >  This approach helped break-down the project scope, and, most importantly, afford a benchmark for references for development and troubleshooting.
 
     <br>
-    <details><summary> Lifecycle of a Result Instance  </summary> 
+    <details><summary> Lifecycle of a Result Instance  </summary>
     <br>
 
 
@@ -162,68 +162,68 @@ ___
       [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes06.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes06.jpg?raw=true)
 
     <br>
-    </details> 
+    </details>
     <br>
-    
-    <details><summary> Working with the API   </summary> 
+
+    <details><summary> Working with the API   </summary>
     <br>
 
     [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes08.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes08.jpg?raw=true)
     Merriam-Webster Thesaurus API's JSON response
     See sample response [Documentation](https://dictionaryapi.com/products/api-collegiate-thesaurus)
-    
-    
+
+
     [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes09.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes09.jpg?raw=true)
     Early concerns and considerations involved how to manage and deconstruct or write the schema of a result and which tools might help.
-    
+
     [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes10.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes09.jpg?raw=true)
     Earlier tests considered using [mw-dict](https://github.com/NdYAG/mw-dict) (Node.js Wrapper for Merriam Webster Developer API) as a helper, but eventually opted out of using this dependency.
 
     <br>
-    </details> 
+    </details>
     <br>
-    
-    
-    <details><summary> Results Scope (products)   </summary> 
+
+
+    <details><summary> Results Scope (products)   </summary>
     <br>
 
      [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes11.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes09.jpg?raw=true)
-    Early schematic breakdown of Results HOC. 
-    Composed to map, render and pass props down the component tree. 
+    Early schematic breakdown of Results HOC.
+    Composed to map, render and pass props down the component tree.
     Props are Merriam-Webster-schema-specific and are generated from every response returned by [searchThesaurus](https://github.com/israelias/synonym-chaser/blob/master/src/services/mwThesaurusService.js) API handler.
-    Now broken down to  `{Results} => {Root} => {Sense} => {Option}` 
+    Now broken down to  `{Results} => {Root} => {Sense} => {Option}`
     (See [results Directory](https://github.com/israelias/synonym-chaser/blob/master/src/components/results))
 
     <br>
-    </details> 
+    </details>
     <br>
-    
-    <details><summary> Selections Scope (cart)   </summary> 
+
+    <details><summary> Selections Scope (cart)   </summary>
     <br>
 
      [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes12.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes09.jpg?raw=true)
-    Early schematic breakdown of Selections component. Represents data from internal Context.Provider (see [HistoryProvider](https://github.com/israelias/synonym-chaser/blob/master/src/context/words.context.js)). 
-    Now broken down to  `{Saves} => {Selection}` 
+    Early schematic breakdown of Selections component. Represents data from internal Context.Provider (see [HistoryProvider](https://github.com/israelias/synonym-chaser/blob/master/src/context/words.context.js)).
+    Now broken down to  `{Saves} => {Selection}`
     (See [saves Directory](https://github.com/israelias/synonym-chaser/blob/master/src/components/saves))
 
     <br>
-    </details> 
+    </details>
     <br>
-    
-    <details><summary> Display Scope (product preview)   </summary> 
+
+    <details><summary> Display Scope (product preview)   </summary>
     <br>
 
      [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes26.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes09.jpg?raw=true)
-    Early schematic breakdown of Display component. 
-    Represents a manipulated string passed from `{Results} =>{Root} => {Sense}` via `{ReplaceSubStringNode}` (see [string.helper.js](https://github.com/israelias/synonym-chaser/blob/master/src/helpers/string.helper.js)). 
-    Now broken down to  `{Saves} => {Selection}` 
+    Early schematic breakdown of Display component.
+    Represents a manipulated string passed from `{Results} =>{Root} => {Sense}` via `{ReplaceSubStringNode}` (see [string.helper.js](https://github.com/israelias/synonym-chaser/blob/master/src/helpers/string.helper.js)).
+    Now broken down to  `{Saves} => {Selection}`
     (See [Display](https://github.com/israelias/synonym-chaser/blob/master/src/components/shared/string-display.js))
-    
+
     [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes27.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes09.jpg?raw=true)
     Display is now a dummy component as [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer#readme) is handled entirely between `{Sense} => {Option}` in Results tree (See [results Directory](https://github.com/israelias/synonym-chaser/blob/master/src/components/results))
-    
+
     <br>
-    </details> 
+    </details>
     <br>
 
 
@@ -233,20 +233,20 @@ ___
 
 - A consistent top and bottom border is applied to all nodes with dynamic content. These discrete borders are designed to convey the material scale of a note pad as a familiar touchpoint to a user. These `wordBoxes` only vary in spacing and are responsible for visually conveying hierarchy in a the ***list of list of lists***.
 
-   <details><summary> Literal loose leaf  </summary> 
+   <details><summary> Literal loose leaf  </summary>
     <br>
 
      [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes20.jpg?raw=true" width="300px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes01.jpg?raw=true)
-        Horizontal wordBox cells. 
+        Horizontal wordBox cells.
 
      [<div style="text-align:center"><img src="https://www.seekpng.com/png/full/307-3077665_loose-leaf-paper-clipart-clipart-panda-free-clipart.png" width="300px"></div>](https://www.seekpng.com/png/full/307-3077665_loose-leaf-paper-clipart-clipart-panda-free-clipart.png)
-     Loose leaf: A piece of paper that is not bound in place, or available on a continuoues roll, but typically punched so as to be organized in a ring binder. 
+     Loose leaf: A piece of paper that is not bound in place, or available on a continuoues roll, but typically punched so as to be organized in a ring binder.
 
      [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes01.jpg?raw=true" width="300px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes01.jpg?raw=true)
         Sample Page.
 
     <br>
-    </details> 
+    </details>
 
 
 ##### Theme
@@ -258,7 +258,7 @@ ___
 - The font family is set to an array of system fonts in order to adapt to device/platform/user configuration and avoid depending on an explicit typeface. A `commonSettings` object in `theme.context.js` contains a list of these overrides, which is merged with Material-UI's theme provider. See [Material-UI Global-css](https://material-ui.com/customization/globals/#global-css)
 
 
-    <details><summary> commonSettings </summary> 
+    <details><summary> commonSettings </summary>
     <br>
 
      ```
@@ -281,7 +281,7 @@ ___
      ```
 
     <br>
-    </details> 
+    </details>
 
 
 ##### Color
@@ -289,7 +289,7 @@ ___
 - The app features two sets of primary and secondary colors for a light theme and a dark theme configured via Material UI's [palette configuration](https://material.io/resources/color/#!/?view.left=0&view.right=0). Behaviors and states of colors rely on properties defined in [Material-UI's Default Theme object](https://material-ui.com/customization/default-theme/#default-theme). Secondary colors are set to neutral tone, while primaries are rendered as the singular "feature color". The minimal approach to color sets is to enhance a notepad
 
 
-    <details><summary> lightTheme instance </summary> 
+    <details><summary> lightTheme instance </summary>
     <br>
 
      ```
@@ -309,9 +309,9 @@ ___
      ```
 
     <br>
-    </details> 
+    </details>
     <br>
-    <details><summary> darkTheme instance </summary> 
+    <details><summary> darkTheme instance </summary>
     <br>
 
      ```
@@ -334,7 +334,7 @@ ___
      ```
 
     <br>
-    </details> 
+    </details>
     <br>
 
 ___
@@ -346,7 +346,7 @@ ___
 
 #### Dynamic Page
 ___
-  - The website is modeled as a progressive web application to render a single-page-app's functionality without full page reloads and optimized to perform like a native app. Its framework ensures flexibility across browsers. 
+  - The website is modeled as a progressive web application to render a single-page-app's functionality without full page reloads and optimized to perform like a native app. Its framework ensures flexibility across browsers.
 
   - The website takes advantage of large floating action buttons (FAB) to quickly navigate between its three remote views: "Search", "Info", and "Saves". Visual metaphors are utilized to represent these view modes discretely and efficiently.
 
@@ -354,15 +354,15 @@ ___
 
   - The app features a custom launch screen on initial page load to succinctly describe its purpose: "An interactive thesaurus app".
 
-#### Info 
+#### Info
 ___
   - The website offers an info section to credit brands, namely, Merriam-Webster's Collegiate Thesaurus, and supply information about the app.
-  
-       
+
+
 #### Search / Results
 ___
 - The application is written to return lists of Synonyms, Related Words, Synonymous Phrases and Similar Words for any queried word in the english language via Thesaurus API. Each word is presented as an option to query.
-- ##### Actions: 
+- ##### Actions:
  -  Ability to see if and how many times a word has been queried before.
  -  Ability to see if and how many words have been queried with the same definition.
  -  Ability to see if and how many definitions queried share the same root.
@@ -372,7 +372,7 @@ ___
 #### Saves
 ___
 - The website features the ability to view all previous queries, grouped by their sense definition, accessible via the Saves tab.
-- ##### Actions: 
+- ##### Actions:
 -  Ability to remove individual words from the list.
 -  Ability to clear the list.
 
@@ -381,8 +381,8 @@ ___
 
 - If a definition contains an example sentence, the website displays this as  verbal illustration to feature how a particular word might be used in context.
 - On scroll and/or on hover, the word used in the sentence changes to the next word in the list of synonyms.
-- ##### Actions: 
--  Ability to see a word in a sentence by touch/mouse/scroll event. 
+- ##### Actions:
+-  Ability to see a word in a sentence by touch/mouse/scroll event.
 
 ___
 ### Features Left to Implement
@@ -410,7 +410,7 @@ ___
 ### Programs and Software
 ___
 
-1. [WebStorm:](https://www.jetbrains.com/webstorm/) WebStorm 2020.3.2 by [JetBrains](https://www.jetbrains.com/) is the web development IDE used to locally construct the project 
+1. [WebStorm:](https://www.jetbrains.com/webstorm/) WebStorm 2020.3.2 by [JetBrains](https://www.jetbrains.com/) is the web development IDE used to locally construct the project
 2. [Git:](https://git-scm.com/) Git is used as the version control system and is utilized via the WebStorm terminal to `commit` to Git and `push` to GitHub.
 4. [GitHub:](https://github.com/) GitHub is used to store the project's code and directory upon concurrent `push`es via Git.
 5. [Adobe InDesign:](https://www.adobe.com/sea/products/xd.html) Adobe InDesign is used to mock wireframes.
@@ -427,13 +427,13 @@ ___
 3. Styles follor [this logic](https://github.com/mui-org/material-ui/blob/master/examples/nextjs/pages/_document.js) to work with Next.js
 2. Directory follows Vercel documentation but moved to src folder, .
 6. The `results` tree renders `jsx` components on every API call without initializing constants. Props and conditional expressions control the iteration of the response schema from MW-Thesaurus API. Note that values and Prop-Type verifications are specifically written to get the right data from this schema:
- 
-    <details><summary> Mapping conditionals down the tree </summary> 
+
+    <details><summary> Mapping conditionals down the tree </summary>
     <br>
-    
-     - Each query has several headWords 
+
+     - Each query has several headWords
           *("about" as preposition, as adverb...)*:
-        - Each headWord has several definitions 
+        - Each headWord has several definitions
            *("about" as in to be, "about as in to...)*:
           - Each headWord defined in a particular sense:
             - has A definition.
@@ -444,13 +444,13 @@ ___
             - may have A list of Similar Words
 
     <br>
-    </details> 
+    </details>
 
 7. Each saved word instance retains properties of the Results family it is "taken" from -- such as the word's particular definition, label, root word -- to increment values of duplicates and group words by sense definitions while ensuring each instance, no matter identical at name value, is distinct if the definition and sense is different
 8. React hooks `useReducer`, `useContext`, `createContext` are assembled together in `context/words.context` ([see HistoryProvider](https://github.com/israelias/synonym-chaser/blob/master/src/context/words.context.js)) to provide a context wrapper for components to share and consume the same data. Note that this logic is directly modeled from the example set in [next.js/examples/with-context-api](https://github.com/vercel/next.js/tree/canary/examples/with-context-api).
 9. Following what is achieved by `HistoryProvider`'s exported context wrapper hooks `useHistory` and `useDispatchHstory` -- which are utilized across higher-order components, shared components and helper functions in `helpers/*` to radically manipulate the DOM -- the same logic is repurposed to ride multiple hooks along a custom wrapper with MUI's ThemeProvider the ([see ThemeProvider](https://github.com/israelias/synonym-chaser/blob/master/src/context/theme.context.js)). In this case, setting the the view value, allows any component to change the page from anywhere, to name a few. Note that the catch-all nature of this Context layout provider.
 
-    <details><summary> All layout states in a Context Theme </summary> 
+    <details><summary> All layout states in a Context Theme </summary>
     <br>
 
     ``` jsx
@@ -519,7 +519,7 @@ ___
     ```
 
     <br>
-    </details> 
+    </details>
 
 
 >*Note: All descriptions of atypical methods can be found within comment blocks that follow jsDoc standards.*
