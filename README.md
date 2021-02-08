@@ -7,8 +7,8 @@
 # SynonymSearch
 ---
 
-## A *meaningful* thesaurus.
-
+***A *meaningful* thesaurus***
+___
 Remember all the words you find when you use a Thesaurus.
 
 
@@ -22,35 +22,49 @@ This project is developed as part of MS2 Interactive Front End module at Code In
 
 Please visit the project here: [synonyms.vercel.app](https://synonyms.vercel.app/)
 
+[TOC levels=3]: # "## Contents"
+
 ## Contents
-
-[TOC levels=1-3]: #
-
-# Table of Contents
-- [Resume Re: UX](#resume-re-ux)
+- [A *meaningful* thesaurus.](#a-meaningful-thesaurus)
+- [UX](#ux)
+  - [User Stories](#user-stories)
+  - [Concept](#concept)
+- [Features](#features)
+  - [Existing Features](#existing-features)
+  - [Features Left to Implement](#features-left-to-implement)
+- [Technologies](#technologies)
+  - [Frameworks and Libraries](#frameworks-and-libraries)
+  - [Programs and Software](#programs-and-software)
+- [Testing](#testing)
+  - [Documentation Notes](#documentation-notes)
+  - [Code Testing](#code-testing)
+  - [Accessibility Testing](#accessibility-testing)
+  - [Browser Testing](#browser-testing)
+  - [Known Bugs](#known-bugs)
+- [Deployment](#deployment)
+- [Cloning This Repository](#cloning-this-repository)
+- [Credits](#credits)
+  - [Code](#code)
+  - [Content and Media](#content-and-media)
+  - [Acknowledgements](#acknowledgements)
+<!--  - [A *meaningful* thesaurus.](#a-meaningful-thesaurus)-->
   - [UX](#ux)
-    - [1.0 Strategy](#10-strategy)
-    - [2.0 Scope](#20-scope)
-    - [3.0 Structure](#30-structure)
-    - [4.0 Skeleton](#40-skeleton)
-    - [5.0 Surface](#50-surface)
+    - [User Stories](#user-stories)
+    - [Concept](#concept)
   - [Features](#features)
     - [Existing Features](#existing-features)
     - [Features Left to Implement](#features-left-to-implement)
   - [Technologies](#technologies)
-    - [Languages](#languages)
     - [Frameworks and Libraries](#frameworks-and-libraries)
-    - [Plugins](#plugins)
     - [Programs and Software](#programs-and-software)
   - [Testing](#testing)
-    - [User Testing](#user-testing)
-    - [Notable Methods](#notable-methods)
     - [Documentation Notes](#documentation-notes)
     - [Code Testing](#code-testing)
     - [Accessibility Testing](#accessibility-testing)
     - [Browser Testing](#browser-testing)
     - [Known Bugs](#known-bugs)
   - [Deployment](#deployment)
+  - [Cloning This Repository](#cloning-this-repository)
   - [Credits](#credits)
     - [Code](#code)
     - [Content and Media](#content-and-media)
