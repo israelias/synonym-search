@@ -67,7 +67,7 @@ const Speed = ({
                 interactive
                 disableFocusListener
                 disableTouchListener
-                title="Clear Cache"
+                title="Toggle theme"
                 placement={matches ? 'right' : 'left'}
               >
                 <div>
