@@ -35,13 +35,13 @@ const SavesTab = () => {
 
         <Avatar
           className={
-                        clsx(
-                          classes.fill,
-                          wordsHistory.length > 0
-                            ? classes.history
-                            : null,
-                        )
-                    }
+            clsx(
+              classes.fill,
+              wordsHistory.length > 0
+                ? classes.history
+                : null,
+            )
+          }
           component={QueryBuilderIcon}
         />
       </Badge>

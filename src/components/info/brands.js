@@ -55,8 +55,7 @@ const Brands = ({ children }) => {
       <Logo
         name="Merriam-Webster"
         url="https://dictionaryapi.com/"
-        path="/images/MWLogo_forLightBackgrounds.svg"
-        darkImage="/images/MWLogo_forDarkBackgrounds.svg"
+        path="/images/merriamWebsterLogoLight.png"
       />
     </AvatarGroup>
   );

@@ -125,7 +125,6 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   active: {
-    marginLeft: '12px',
     '& > *': {
       marginLeft: '12px',
     },
@@ -152,9 +151,9 @@ export const useStyles = makeStyles((theme) => ({
     position: 'fixed',
     right: theme.spacing(2),
     justifyContent: 'flex-end',
-    transition: '.3s linear .3s',
+    // transition: '.3s linear .3s',
     '& > *': {
-      transition: '.3s linear .3s',
+      // transition: '.3s linear .3s',
       marginLeft: theme.spacing(1),
     },
   },
@@ -169,6 +168,7 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   inputGroup: {
+    zIndex: 1300,
     display: 'flex',
     position: 'fixed',
     top: theme.spacing(1.5),
