@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { searchThesaurus } from '../services/mwThesaurusService';
 import { randomTerm } from '../helpers/random.helper';
 

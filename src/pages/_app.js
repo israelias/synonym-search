@@ -21,7 +21,8 @@ export default function MyApp(props) {
   const ogTitle = 'How to retain all queried words during a thesaurus search session.';
 
   const description = 'SynonymSEARCH with Merriam-Webster\'s Thesaurus: How to retain all queried words during a thesaurus search session.\n'
-      + 'Sustain meaning by having a persistent overview of your search impulses with this reliable and interactive Thesaurus. Our progressive iteration of Merriam-Webster\'s Collegiate Thesaurus is built by developers at ';
+      + 'Sustain meaning by having a persistent overview of your search impulses with this reliable and interactive Thesaurus.\n'
+      + 'Our progressive iteration of Merriam-Webster\'s Collegiate Thesaurus is built by developers at Code Institute. ';
 
   const ogImage = 'https://raw.githubusercontent.com/israelias/synonym-chaser/master/public/images/og-image-synsearch-app.png';
 
@@ -30,6 +31,21 @@ export default function MyApp(props) {
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles);
+    }
+  }, []);
+
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').then(
+          (registration) => {
+            console.log('Service Worker registration successful with scope: ', registration.scope);
+          },
+          (err) => {
+            console.log('Service Worker registration failed: ', err);
+          },
+        );
+      });
     }
   }, []);
 
@@ -45,19 +61,19 @@ export default function MyApp(props) {
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="/apple-touch-icon.png"
+          href="/apple-touch-icon-Light.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href="/favicon-32x32.png"
+          href="/favicon-Light-32x32.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="16x16"
-          href="/favicon-16x16.png"
+          href="/favicon-Light-16x16.png"
         />
         <link
           rel="manifest"
@@ -66,7 +82,7 @@ export default function MyApp(props) {
         <link
           rel="mask-icon"
           href="/safari-pinned-tab.svg"
-          color="#ff0000"
+          color="#fafafa"
         />
         <meta
           name="msapplication-TileColor"
@@ -74,7 +90,7 @@ export default function MyApp(props) {
         />
         <meta
           name="theme-color"
-          content="#ffffff"
+          content="#fafafa"
         />
         <meta
           charSet="utf-8"
