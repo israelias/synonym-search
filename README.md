@@ -235,7 +235,7 @@ Display is now a dummy component as [react-intersection-observer](https://github
     <details><summary> commonSettings </summary>
     <br>
 
-     ```
+     ```jsx
          export const commonSettings = {
           typography: {
             fontFamily: [
@@ -266,7 +266,7 @@ Display is now a dummy component as [react-intersection-observer](https://github
     <details><summary> lightTheme instance </summary>
     <br>
 
-     ```
+     ```jsx
      const lightTheme = createMuiTheme({
              palette: {
              type: 'light',
@@ -288,7 +288,7 @@ Display is now a dummy component as [react-intersection-observer](https://github
     <details><summary> darkTheme instance </summary>
     <br>
 
-     ```
+     ```jsx
      const darkTheme = createMuiTheme({
       palette: {
         type: 'dark',
@@ -361,9 +361,18 @@ Display is now a dummy component as [react-intersection-observer](https://github
 ## Technologies
 ### Frameworks and Libraries
 
+1. [Node.js:](https://nodejs.org/en/) The runtime environment that allows the app to run asynchronous server-side scripts and events.(Bootstrapped with Nextjs)
+1. [Webpack:](https://webpack.js.org/) The static module bundler that builds a dependency graph mapping every module the project requires. (Bootstrapped with Nextjs)
 1. [React 17.0:](https://reactjs.org/) JavaScript Library for building user interfaces.
-3. [Nextjs 5.8.2:](https://nextjs.org/) React Framework for Production.
-4. [Material UI 4.11.1:](https://material-ui.com/) React component for faster and easier web development.
+1. [Babel:](https://babeljs.io/docs/en/) The toolchain compiler that transforms syntax to ensure all evolved code function, namely between `jsx`, `jss` `js`. (Bootstrapped with Nestjs)
+1. [Nextjs 5.8.2:](https://nextjs.org/) React Framework for Production. Nextjs is a toolkit for universal, server-rendered React.js applications. This framework leverages Webpack and Babel so that our interface is straightforwardly: `next` to develop, `next build` to prep for production and `next start` to serve.
+1. [Material UI 4.11.1:](https://material-ui.com/) React component for faster and easier web development. Includes [Material UI Icons](), [Material UI Lab](), [Material UI System]()
+1. [PropTypes:]()
+1. [React Intersection Observer:]()
+1. [Axios:]()
+1. [HTML React Parser:]()
+1. [clsx:]()
+
 
 ### Programs and Software
 
@@ -371,6 +380,7 @@ Display is now a dummy component as [react-intersection-observer](https://github
 2. [Git:](https://git-scm.com/) Git is used as the version control system and is utilized via the WebStorm terminal to `commit` to Git and `push` to GitHub.
 4. [GitHub:](https://github.com/) GitHub is used to store the project's code and directory upon concurrent `push`es via Git.
 5. [Adobe InDesign:](https://www.adobe.com/sea/products/xd.html) Adobe InDesign is used to mock wireframes.
+6. [jsOnline:]()
 
 ## Notes
 
