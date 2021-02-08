@@ -10,7 +10,7 @@ import Input from './input';
 
 const Field = ({
   label,
-  value,
+  // value,
   onChange,
   placeHolder,
   helperText,
@@ -23,6 +23,7 @@ const Field = ({
   const metaDispatch = useDispatchTheme();
   const { meta } = metaDispatch;
   const { root } = metaDispatch;
+  // const {value} = metaDispatch
 
   const handleSearchButton = () => {
     setActive(true);
@@ -40,8 +41,6 @@ const Field = ({
   const match = textInput.current ? textInput.current.value === root : false;
 
   active && trigger ? setActive(false) : null;
-
-  // active && match ? setTimeout(() => setActive(false), 2000): null
 
   useEffect(() => {
     if (active && match) {

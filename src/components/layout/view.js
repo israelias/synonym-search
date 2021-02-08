@@ -33,76 +33,75 @@ const View = ({
         Synonym
       </Typography>
       {
-                home
-                && (
-                <Typography
-                  className={classes.subTitle}
-                  component="h2"
-                  variant="h5"
-                  noWrap
-                >
-                  /Search
-                </Typography>
-                )
-            }
+        home
+        && (
+          <Typography
+            className={classes.subTitle}
+            component="h2"
+            variant="h5"
+            noWrap
+          >
+            /Search
+          </Typography>
+        )
+      }
       {
-                saves
-                && (
-                <Typography
-                  className={classes.subTitle}
-                  component="h2"
-                  variant="h5"
-                  noWrap
-                >
-                  /Saves
-                </Typography>
-                )
-            }
+        saves
+        && (
+          <Typography
+            className={classes.subTitle}
+            component="h2"
+            variant="h5"
+            noWrap
+          >
+            /Saves
+          </Typography>
+        )
+      }
       {
-                info
-                && (
-                <Typography
-                  className={classes.subTitle}
-                  component="h2"
-                  variant="h5"
-                  noWrap
-                >
-                  /Story
-                </Typography>
-                )
-            }
+        info
+        && (
+          <Typography
+            className={classes.subTitle}
+            component="h2"
+            variant="h5"
+            noWrap
+          >
+            /Story
+          </Typography>
+        )
+      }
       <ButtonGroup
         component="nav"
         className={classes.inputGroup}
       >
         {
-                    home
-                    && (
-                    <Search
-                      loading={loading}
-                      searchText={searchText}
-                      onSearchTextChange={onSearchTextChange}
-                    />
-                    )
-                }
+          home
+            && (
+              <Search
+                loading={loading}
+                searchText={searchText}
+                onSearchTextChange={onSearchTextChange}
+              />
+            )
+        }
         {
-                    saves && <Clear />
-                }
+          saves && <Clear />
+        }
       </ButtonGroup>
       <ButtonGroup
         component="nav"
         className={classes.navGroup}
       >
         {
-
-                    !info && <InfoButton />
-                }
+          !info && <InfoButton />
+        }
         {
-                    !home && <HomeButton />
-                }
+          !home && <HomeButton />
+        }
         {
-                    !saves && <SavesButton />
-                }
+          !saves && <SavesButton />
+        }
       </ButtonGroup>
     </>
   );

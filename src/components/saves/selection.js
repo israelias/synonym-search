@@ -33,13 +33,12 @@ const Selection = ({
             avatar={(
               <Avatar>
                 {
-                                selection.value > 0 && selection.value
-                            }
+                  selection.value > 0 && selection.value
+                }
               </Avatar>
-                          )}
+            )}
           />
         </ListItem>
-
       ))}
     </>
   );

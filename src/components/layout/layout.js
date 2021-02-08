@@ -57,7 +57,11 @@ const Layout = ({
         </TabPanel>
       </main>
       <nav>
-        <Speed />
+        <Speed
+          loading={loading}
+          onSearchTextChange={onSearchTextChange}
+          searchText={searchText}
+        />
         <BackToTop />
       </nav>
       <Footer>

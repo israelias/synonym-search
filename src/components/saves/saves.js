@@ -14,15 +14,6 @@ const Saves = () => {
 
   const wordsState = useHistory();
 
-  // if (!wordsState || wordsState.length === 0) {
-  //     return (
-  //         <Typography
-  //             variant="h3"
-  //         >
-  //             Your history will <br/> save <br/> here.
-  //         </Typography>
-  //     )
-  // }
   if (!wordsState || wordsState.length === 0) {
     return <span>Your history will save here.</span>;
   }
@@ -34,7 +25,6 @@ const Saves = () => {
       component="ol"
       id="saves-head"
     >
-
       {selections.map((selection, index) => (
         <li key={`saves-${index}`}>
           <div
@@ -50,8 +40,8 @@ const Saves = () => {
               >
                 <ReplaceNodeTags
                   string={
-                                        selection[0]
-                                    }
+                    selection[0]
+                  }
                 />
               </Typography>
               <SameSenseShowTotal
@@ -64,7 +54,6 @@ const Saves = () => {
             <Selection
               selections={selection[1]}
             />
-
           </ul>
         </li>
       ))}

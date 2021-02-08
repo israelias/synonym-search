@@ -1,23 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
-import Switch from '@material-ui/core/Switch';
+import React, { useEffect, useState } from 'react';
 import SpeedDial from '@material-ui/lab/SpeedDial';
 import SpeedDialIcon from '@material-ui/lab/SpeedDialIcon';
-import SpeedDialAction from '@material-ui/lab/SpeedDialAction';
 import Slide from '@material-ui/core/Slide';
-import Fab from '@material-ui/core/Fab';
 import clsx from 'clsx';
-import Avatar from '@material-ui/core/Avatar';
-import TonalityIcon from '@material-ui/icons/Tonality';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import SearchIcon from '@material-ui/icons/Search';
-import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
 import Grow from '@material-ui/core/Grow';
 import Tooltip from '@material-ui/core/Tooltip';
-import Box from '@material-ui/core/Box';
-import { useDispatchHistory } from '../../context/words.context';
-import Field from '../search/field';
-import Input from '../search/input';
 import { useStyles } from '../../styles/button.styles';
 import { useDispatchTheme } from '../../context/theme.context';
 import FixedBottom from '../shared/fixed-bottom';
@@ -26,15 +15,19 @@ import Search from '../search/search';
 import Clear from '../actions/clear.button';
 
 const Speed = ({
-  children, value, index, ...other
+  children,
+  value,
+  index,
+  searchText,
+  loading,
+  onSearchTextChange,
+  ...other
 }) => {
   const trigger = useScrollTrigger();
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState(false);
   const [direction, setDirection] = useState('up');
   const matches = useMediaQuery('(min-width:600px)');
-  const wordsDispatch = useDispatchHistory();
   const viewDispatch = useDispatchTheme();
   const view = viewDispatch.value ? viewDispatch.value : null;
 
@@ -44,7 +37,9 @@ const Speed = ({
 
   useEffect(() => {
     setTimeout(() => {
-      setOpen(false);
+      if (viewDispatch.value !== 'search') {
+        setOpen(false);
+      }
     }, 10);
   }, [view]);
 
@@ -55,7 +50,7 @@ const Speed = ({
           ariaLabel="actions"
           className={classes.speedDialGroup}
           FabProps={{
-            className: clsx(classes.speedDial),
+            className: clsx(classes.speedDial, classes.bottom),
             // className: clsx(classes.fab, classes.fabNav, classes.fabBottom),
             size: matches ? 'medium' : 'small',
             style: { padding: matches ? '12px' : '8px' },
@@ -94,6 +89,7 @@ const Speed = ({
               className={classes.speedDial}
               onClick={(e) => {
                 e.stopPropagation();
+                viewDispatch.setValue('search');
               }}
             >
               <Tooltip
@@ -104,7 +100,11 @@ const Speed = ({
                 placement={matches ? 'right' : 'left'}
               >
                 <div>
-                  <Search />
+                  <Search
+                    loading={loading}
+                    searchText={searchText}
+                    onSearchTextChange={onSearchTextChange}
+                  />
                 </div>
 
               </Tooltip>
@@ -140,4 +140,5 @@ const Speed = ({
     </Slide>
   );
 };
+
 export default Speed;

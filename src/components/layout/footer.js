@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import { useStyles } from '../../styles/layout.styles';
@@ -22,46 +22,47 @@ const Footer = ({ children }) => {
   return (
     <footer className={classes.footer}>
       {
-                info
-                    && (
-                    <Typography variant="caption">
-                      <Brands />
-                    </Typography>
-                    )
-            }
+        info
+        && (
+          <Typography variant="caption">
+            <Brands />
+          </Typography>
+        )
+      }
       {
-                history && show
-                && (
-                <Typography
-                  variant="caption"
-                  className={classes.fill}
-                >
-                  <span>
-                    You've saved
-                    {' '}
-                    {wordsState.length}
-                    {' '}
-                    words across
-                    {selections.length}
-                    {' '}
-                    distinct definitions.
-                    Click
-                    <em className={classes.inline}>{'\u2297'}</em>
-                    {' '}
-                    to delete a word or
-                    <b className={classes.wrap}>Clear</b>
-                    {' '}
-                    to clear the cache.
-                  </span>
-                </Typography>
-                )
-            }
+        history && show
+          && (
+            <Typography
+              variant="caption"
+              className={classes.fill}
+            >
+              <span>
+                You've saved
+                {' '}
+                {wordsState.length}
+                {' '}
+                words across
+                {selections.length}
+                {' '}
+                distinct definitions.
+                Click
+                <em className={classes.inline}>{'\u2297'}</em>
+                {' '}
+                to delete a word or
+                <b className={classes.wrap}>Clear</b>
+                {' '}
+                to clear the cache.
+              </span>
+            </Typography>
+          )
+      }
       <Typography variant="caption">
         <span>
           {children}
         </span>
         <span>
           Made by Joem Elias Sanez
+          {' '}
           {MyGithub}
         </span>
       </Typography>

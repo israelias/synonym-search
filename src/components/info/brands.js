@@ -9,7 +9,6 @@ import { useDispatchTheme } from '../../context/theme.context';
 
 const Brands = ({ children }) => {
   const classes = useStyles();
-  const matches = useMediaQuery('(min-width:600px)');
   const viewDispatch = useDispatchTheme();
   const [active, setActive] = useState(false);
   const { value } = viewDispatch;
@@ -25,19 +24,17 @@ const Brands = ({ children }) => {
   return (
     <AvatarGroup
       className={
-                clsx(
-                  classes.avatarGroup, active
-                    ? classes.active
-                    : classes.inactive,
-                )
-            }
-      onMouseEnter={() => setTimeout(() => setActive(true), 100)}
-      onMouseLeave={() => setTimeout(() => setActive(false), 750)}
+        clsx(
+          classes.avatarGroup, active
+            ? classes.active
+            : classes.inactive,
+        )
+      }
     >
       <Logo
         name="React"
         url="https://react.org/"
-        path="/images/reactLogoLight.png"
+        path="/images/reactLogo.png"
       />
       <Logo
         name="Next JS"
@@ -47,13 +44,13 @@ const Brands = ({ children }) => {
       <Logo
         name="Material UI"
         url="https://material-ui.com/"
-        path="/images/materialUILogo.png"
+        path="/images/materialUILogoLight.png"
         darkImage="/images/materialUILogoDark.png"
       />
       <Logo
         name="Code Institute"
         url="https://codeinstitute.net/"
-        path="/images/codeInstituteLogo.jpg"
+        path="/images/codeInstituteLogo.png"
       />
       <Logo
         name="Merriam-Webster"
