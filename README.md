@@ -511,6 +511,529 @@ Display is now a dummy component as [react-intersection-observer](https://github
 > *Note: All descriptions of atypical methods can be found within comment blocks that follow jsDoc standards.*
 
 ## Testing
+### User Testing
+- A user expects to see a description within a few seconds of arriving at the site
+    - Describe `Launcher`:
+    - `useEffect` with no dependencies allows `Launcher` to run once on initial page load
+    - `useContext` allows `Launcher` to set the current page view `value` to '`search`' after a timeout.
+    - Review:
+    - User sees heading "`Synonym Search An Interactive Thesaurus App`" for two and a half seconds upon arriving at the site.
+
+    <br>
+    <details><summary> Launcher </summary>
+    <br>
+
+    ```jsx
+    
+      import React, { useEffect, useState } from 'react';
+      import { useDispatchTheme } from '../../context/theme.context';
+    
+      const Launcher = () => {
+      const classes = useStyles();
+      const viewDispatch = useDispatchTheme();
+      const [open, setOpen] = useState(true);
+      const [showOpen, setShowOpen] = useState(true);
+
+      useEffect(() => {
+        setTimeout(() => {
+          setShowOpen(false);
+          setTimeout(() => {
+            setOpen(false);
+            viewDispatch.setValue('search');
+          }, 350);
+        }, 2500);
+      }, []);
+
+      return (
+        <>
+          <Backdrop
+            className={classes.backdrop}
+            open={open}
+          />
+          <Grow
+            in={showOpen}
+            unmountOnExit
+          >
+            <Box className={classes.launch}>
+                {... excerpt ...}
+                
+                  Synonym
+
+                  /Search
+
+                  An Interactive Thesaurus App
+                  
+                {... excerpt ... }
+            </Box>
+          </Grow>
+        </>
+
+      );
+    };
+
+
+    ```
+
+    <br>
+    </details>
+
+- A user wants to expediently navigate between views
+    - Describe `Speed (Dial)`:
+    - A persistent 'on-the-go' button with sub-buttons containing the app's most-used actions.
+    - Opens `onClick`.
+    - `FixedBottom`(forked from [FixedBottom]()) allows bottom `Speed Dial` to responsively move above the bottom bars on mobile when scrolling.
+    - `useScrollTrigger` allows `Speed Dial` to swap visibilities with `ScrollTop`, a floating action button that, when clicked, scrolls the window back to the top of the page via an anchor with `id="back-to-top"`.
+    - Props for `Search` are passed to `Speed Dial` to activate `onSearchTextChange`, a function that sends queries to the Thesaurus API.
+    - `useState` allows `useEffect` to always close `SpeedDial` whenever the page `value` via `useDispatch` changes, except when `Search` is `active`.
+    - Children:
+    - `ToggleTheme`, `Search`, `Clear`
+    - Scenario:
+    - User is in `Saves` View
+        - User clicks `SpeedDial`
+            - The `SpeedDial` is open
+            - User clicks the `ToggleTheme` action
+                - The theme changes to `not` this `<mode>`
+            - The `SpeedDial` is closed
+        - User is still in `Saves` View
+        - User clicks `SpeedDial`
+            - The `SpeedDial` is open
+            - User clicks the `Search` action
+                - The search input expands to focus
+            - The `SpeedDial` is still open
+        - User is in now in `Search` View
+        - User scrolls down
+            - The `SpeedDial` disappears
+            - The `ScrollTop` button appears
+                - User clicks `ScrollTop`
+            - The `SpeedDial` appears
+        - Window scrolls user back to top
+    - User continues
+    - Review:
+    - User is able to navigate in in the `x` and `y` dimensions (up/down *in* views, left/right *between* views) quickly by clicking `SpeedDial` actions for the views they represent. Additionally, button navigation per view is accessible in the page header. The other two views are `Saves` and `Info`, which are of the same floating-action-button family as the actions within `SpeedDial`. The consistency and singularity of theme, color and UI plays to a user's impulses and familiarity with the conveyed persistent touchpoint.
+
+    <br>
+    <details><summary> Speed Dial </summary>
+    <br>
+
+    ```jsx
+    
+      import React, { useEffect, useState } from 'react';
+      import { useDispatchTheme } from '../../context/theme.context';
+    
+      const Speed = ({
+          children,
+          value,
+          index,
+          searchText,
+          loading,
+          onSearchTextChange,
+          ...other
+        }) => {
+      const trigger = useScrollTrigger();
+      const classes = useStyles();
+      const [open, setOpen] = useState(false);
+      const [direction, setDirection] = useState('up');
+      const matches = useMediaQuery('(min-width:600px)');
+      const viewDispatch = useDispatchTheme();
+      const view = viewDispatch.value ? viewDispatch.value : null;
+
+      const handleClick = (event) => setOpen(!open);
+
+      open && trigger ? setOpen(false) : null;
+
+      useEffect(() => {
+        setTimeout(() => {
+          if (viewDispatch.value !== 'search') {
+            setOpen(false);
+          }
+        }, 10);
+      }, [view]);
+
+      return (
+        <Slide appear direction="up" in={!trigger}>
+          <FixedBottom offset={matches ? 16 : 48}>
+            <SpeedDial
+              ariaLabel="actions"
+              className={classes.speedDialGroup}
+              FabProps={{
+                className: clsx(classes.speedDial, classes.bottom),
+                size: matches ? 'medium' : 'small',
+                style: { padding: matches ? '12px' : '8px' },
+              }}
+              onClick={handleClick}
+              open={open}
+              direction={direction}
+            >
+
+            { ... Search action}
+            { ... Toggle theme action}
+            { ... Clear cache action}
+
+
+              />
+            </SpeedDial>
+
+          </FixedBottom>
+        </Slide>
+      );
+    };
+
+    export default Speed;
+
+
+    ```
+
+    <br>
+    </details>
+
+- A user wants to see reliable sources
+    - Describe `Brands` (Material-UI `AvatarGroup`):
+    - A set of logos of developer and/or open-source institutions without which the project would not exist.
+    - Represented with negative margins that allow icons to overlap.
+    - `useEffect` allows `useState` to flip margins when the page value is set to the current `view` => `Info`, which animates the avatars to expand as if to welcome a user to the info desk, while a short paragraph is featured to describe the "`SynonymStory`" behind "`SynonymSearch`"
+    - Children:
+    - Five `Logo` instances, one for each: `React`, `NextJS`, `MaterialUI`, `CodeInstitute` and `Merriam-Webster`.
+     - Scenario:
+    - User is in `Search` View
+        - User clicks `Info`
+    - User is in `Info` View
+        - The avatar of `Brands` appear
+            - User clicks `Merriam-Webster`
+            - A new tab opens to `Merriam-Webster Developer Center website` 
+        - The app view keeps User in `Info` 
+    - User continues
+    - Review:
+    - A User sees reliable sources to attribute the content to as well as the open-source nature of the information shared.
+
+    <br>
+    <details><summary> Brands </summary>
+    <br>
+
+    ```jsx
+    
+    import React, { useEffect, useState } from 'react';
+    import { useDispatchTheme } from '../../context/theme.context';
+    
+      const Brands = ({ children }) => {
+      const classes = useStyles();
+      const viewDispatch = useDispatchTheme();
+      const [active, setActive] = useState(false);
+      const { value } = viewDispatch;
+
+      useEffect(() => {
+        if (value === 'info') {
+          setTimeout(() => {
+            setActive(true);
+          }, 750);
+        }
+      }, []);
+
+      return (
+        <AvatarGroup
+          className={
+            clsx(
+              classes.avatarGroup, active
+                ? classes.active
+                : classes.inactive,
+            )
+          }
+        >
+          <Logo
+            name="React"
+            url="https://react.org/"
+            path="/images/reactLogo.png"
+          />
+          <Logo
+            name="Next JS"
+            url="https://nextjs.org/"
+            path="/images/nextJSLogo.svg"
+          />
+          <Logo
+            name="Material UI"
+            url="https://material-ui.com/"
+            path="/images/materialUILogoLight.png"
+            darkImage="/images/materialUILogoDark.png"
+          />
+          <Logo
+            name="Code Institute"
+            url="https://codeinstitute.net/"
+            path="/images/codeInstituteLogo.png"
+          />
+          <Logo
+            name="Merriam-Webster"
+            url="https://dictionaryapi.com/"
+            path="/images/merriamWebsterLogoLight.png"
+          />
+        </AvatarGroup>
+      );
+    };
+
+
+    ```
+
+    <br>
+    </details>
+- A user wants to search synonyms
+    - Describe `Search`:
+    - A higher-order-component tree that handles feedback pertaining to changes a user makes within a text input.
+    - A collection of dispatch functions to check the values of three states to conditionally render a warning color with a warning icon, an error color with an error icon and a success color with a success icon. These variables are: 
+    - `loading` : whether results are loading, 
+    - `meta` : whether a user's input produces a valid result,
+    - `root`: whether the first item in an array of result matches what the user has typed.
+    -  `useState` allows these conditions to change dynamically.
+    -  `useRef` is attached to the input component, and allow key and mouse events to conditionally`focus` the input prompt based on the above conditions.
+    - Children:
+    - `Field`,  `Input`.
+    - Scenario:
+     - User is in `Search` View
+        - User clicks `Search` action in header
+            - The search input expands to focus
+            - User types in <enter `immediately successful word`>
+        - Results update with synonyms of `immediately successful word`
+            - The search input is closed
+        - User clicks `Search` action in header
+            - The search input expands to focus
+            - User types <enter `incomplete word`>
+            - The icon adornment updates to a warning icon
+            - The search input background color updates to the warning color
+            - User types <enter `real word`>
+            - The icon adornment updates to a success icon
+            - The search input background color updates to the success color
+        - Results update with synonyms of `real word`
+            - The search input is closed
+        - User clicks `Search` action in header
+            - The search input expands to focus
+            - User types <enter `a word with no matches`>
+            - The icon adornment updates to an error icon
+            - The search input background color updates to the error color
+            - User types <enter `good word`>
+            - The icon adornment updates to a success icon
+            - The search input background color updates to the success color
+        - Results update with synonyms of `new word`
+            - The search input is closed
+    - User continues
+    - Review:
+    - A user is able to search for synonyms.
+    - A user is able to understand when and if there is a result for a search for synonyms.
+
+    <br>
+    <details><summary> Search(HOC), Field, Input  </summary>
+    <br>
+
+    ```jsx
+    
+    const Field = ({
+      label,
+      onChange,
+      placeHolder,
+      helperText,
+      loading,
+    }) => {
+      const theme = useTheme();
+      const trigger = useScrollTrigger();
+      const [active, setActive] = useState(false);
+      const textInput = useRef(null);
+      const metaDispatch = useDispatchTheme();
+      const { meta, root } = metaDispatch;
+
+      const handleSearchButton = () => {
+        setActive(true);
+        setTimeout(() => {
+          textInput.current && textInput.current.focus();
+        }, 100);
+      };
+
+      const handleClickAway = () => setActive(false);
+
+      const handleBackDrop = () => setActive(false);
+
+      const onKeyPress = () => setActive(false);
+
+      const match 
+          = textInput.current 
+          ? textInput.current.value === root 
+          : false;
+
+      active && trigger ? setActive(false) : null;
+
+      useEffect(() => {
+        if (active && match) {
+          setTimeout(() => {
+            setActive(false);
+          }, 2000);
+        }
+      }, []);
+
+  return (
+        <ClickAwayListener
+          onClickAway={handleClickAway}
+        >
+          <>
+            <Backdrop
+              open={active}
+              onClick={handleBackDrop}
+            />
+            <Fab
+              size="small"
+              color="primary"
+              aria-label="search"
+              onClick={handleSearchButton}
+              variant={active ? 'extended' : 'round'}
+              style={active ? {
+                backgroundColor:
+                                loading
+                                  ? theme.palette.warning.main
+                                  : !meta
+                                    ? theme.palette.error.main
+                                    : meta && match
+                                      ?theme.palette.success.main
+                                      : theme.palette.primary.main,
+              } : null}
+            >
+              <Input
+                label={label}
+                placeHolder={placeHolder}
+                helperText={helperText}
+                active={active}
+                match={match}
+                meta={meta}
+                loading={loading}
+                textInput={textInput}
+                onKeyPress={onKeyPress}
+                onChange={onChange}
+              />
+            </Fab>
+          </>
+        </ClickAwayListener>
+          );
+        };
+
+
+    ```
+
+    <br>
+    </details>
+- A user wants to see searched history
+    - Describe Saves:
+    - A list of words that a user has queried.
+    - `useHistory` is a Context hook to access the values stored in `HistoryProvider`.
+    - `useReducer` allows `HistoryProver` to group queried words by the definitions they share.  
+    - Children:
+    - `Selection`
+    - Requires:
+    - See [HistoryProvider]()
+    - Review:
+    - A user is able to see an overview of all previously queried words along with their definitions and their synonymous siblings.
+- A user wants to see a word used in a sentence
+    - Describe `Display`:
+    - Represents an example sentence or phrase that uses the word in its particular sense definition.
+    - A stateless component, used by `Sense` to pass a `sampleString` and `optionWord` prop, which activates an `Intersection Observer` and mouse events to dynamically change the `optionWord` prop.
+    - Helper functions are used for this component to return a clean string from the JSON response, whose original string is wrapped in `{it} {/it}` and `{lquo} {rquo}` nodes. As they are open and close tags, regex replace functions prove reliable in consistently cleaning the example string when a definition happens to have it. (See [example response from Theaurus API](https://dictionaryapi.com/products/api-collegiate-thesaurus))
+    - Requires:
+    - See [Sense](https://github.com/israelias/synonym-chaser/blob/master/src/components/results/sense.js), [Display](https://github.com/israelias/synonym-chaser/blob/master/src/components/shared/string-display.js), [ReplaceSubStringNode](https://github.com/israelias/synonym-chaser/blob/master/src/helpers/string.helper.js)
+    - Review:
+    - A user is able to see all words used in their respective contextual sentences.
+    - A user is able to update the sentence by scrolling (mobile) and/or hovering a word (mouse/desktop).
+- A user wants to see a tag next to repeat results (a.k.a words already saved)
+    - Describe `useReducer` in `HistoryProvider`:
+    - A reducer that increments the value property of a saved word object if it is the same as the new word being queried.
+    - Word objects stored in `HistoryProvider` are saved with properties that allow verification by comparing these properties against new words:
+    - Describe Word Type checks in `Counters`:
+    - Type definitions as Helper functions to reduce, sort, and group saved words in `History`
+    - Contains functions to:
+    - Check if a term already exists in history.
+    - Check if a sense definition already exists in history.
+    - Check if a headword already exists in history.
+    - Return the sum of the value property of word objects in an array.
+    - Return the length of the array of Word objects sharing the same sense definition.
+    - Return arrays of objects grouped by shared sense definition(s).
+    - Requires:
+    - See type functions in [Counters](https://github.com/israelias/synonym-chaser/blob/master/src/helpers/counters.helper.js), [HistoryProvider](https://github.com/israelias/synonym-chaser/blob/master/src/context/words.context.js)
+    - Review:
+    - A user is able to see a badge with a count next to a word that is already saved in session. 
+    - Additionally, the same functions are used in `Saves` view so a user can view the 'repeats' a.k.a. a user's saved words by the property definitions they share.
+    - Modeled after [nextjs/examples/with-context-api](https://github.com/vercel/next.js/blob/canary/examples/with-context-api/components/Counter.js)
+    <br>
+    <details><summary> Reducer Action/Type in HistoryProvider </summary>
+    <br>
+
+    ```jsx
+    
+      const [savedWords, dispatch] = useReducer((state, action) => {
+        switch (action.type) {
+          case 'add':
+            const wordIndex = state.findIndex((word) => word.uuid === action.uuid
+                        || word.name === action.name
+                        && word.sense === action.sense);
+            if (wordIndex !== -1) {
+              return state.map((word, i) => ({
+                ...word,
+                value: word.value + (wordIndex === i ? 1 : 0),
+              }));
+            }
+            return [
+              ...state,
+              {
+                id: state.length,
+                name: action.name,
+                value: 1,
+                root: action.root,
+                label: action.label,
+                uuid: action.uuid,
+                sense: action.sense,
+              },
+            ];
+
+          case 'remove':
+            return state.filter((word) => word.id !== action.id);
+          case 'clear':
+            return [];
+          default:
+            return state;
+        }
+      }, []);
+
+
+    ```
+
+    <br>
+    </details>
+  
+- A user wants to delete the saved search history
+    - Describle `Clear`:
+    - A button with a `DeleteForever` icon that is a `dispatch` function of `useReducer` from `HistoryProvider` which deletes everything from Context.
+    - Review:
+    - A user is able to delete his/her search history.
+    - Additionally, a user is able to delete individual words via a `Delete` icon represented by a Material-UI `Chip` component.
+    <br>
+    <details><summary> Clear </summary>
+    <br>
+
+    ```jsx
+        // clear.button.js
+        // excerpt
+        
+      const wordsDispatch = useDispatchHistory();
+
+      const handleClick = (event) => {
+        wordsDispatch({
+          type: 'clear',
+        });
+      };
+      
+      // words.context.js
+      // excerpt from reducer
+      // the above handler calls case 'remove'
+      
+      case 'remove':
+        return state.filter((word) => word.id !== action.id);
+
+    ```
+
+    <br>
+    </details>
+
+### Code Testing
 #### Lighthouse
 #### [Performance, Accessibility, Best Practices, SEO, PWA](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Latest Results](https://lighthouse.vercel-lighthouse-integration.now.sh/reports/synonym-chaser-d4oa432xn.vercel.app)
 - Lighthouse via Vercel is used to test performace, which produces unique results on every `git push`. [lighthouse-badges](https://github.com/emazzotta/lighthouse-badges) is used to generate new badges for every deployment by installing ```npm i -g lighthouse-badges``` and pushing the new hashed url to the array of urls:
