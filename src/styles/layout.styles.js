@@ -137,7 +137,6 @@ export const useStyles = makeStyles((theme) => ({
       transition: '.3s linear .3s',
       border: '2px solid',
       borderColor: theme.palette.secondary.light,
-      // borderRadius:
       '& > *': {
         width: '100%',
         height: '100%',
