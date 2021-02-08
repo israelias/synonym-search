@@ -3,12 +3,12 @@
 
 ![](https://github.com/israelias/synonym-chaser/blob/master/public/og-image-synsearch-app01redblue_Light.png?raw=true)
 
----
+
 # SynonymSearch
----
+
 
 ***A *meaningful* thesaurus***
-___
+
 Remember all the words you find when you use a Thesaurus.
 
 
@@ -25,60 +25,28 @@ Please visit the project here: [synonyms.vercel.app](https://synonyms.vercel.app
 [TOC levels=3]: # "## Contents"
 
 ## Contents
-- [A *meaningful* thesaurus.](#a-meaningful-thesaurus)
 - [UX](#ux)
   - [User Stories](#user-stories)
-  - [Concept](#concept)
+  - [Wireframes](#wireframes)
+  - [Design](#design)
 - [Features](#features)
   - [Existing Features](#existing-features)
   - [Features Left to Implement](#features-left-to-implement)
 - [Technologies](#technologies)
   - [Frameworks and Libraries](#frameworks-and-libraries)
   - [Programs and Software](#programs-and-software)
+- [Notes](#notes)
 - [Testing](#testing)
-  - [Documentation Notes](#documentation-notes)
-  - [Code Testing](#code-testing)
-  - [Accessibility Testing](#accessibility-testing)
-  - [Browser Testing](#browser-testing)
-  - [Known Bugs](#known-bugs)
 - [Deployment](#deployment)
 - [Cloning This Repository](#cloning-this-repository)
 - [Credits](#credits)
   - [Code](#code)
   - [Content and Media](#content-and-media)
   - [Acknowledgements](#acknowledgements)
-<!--  - [A *meaningful* thesaurus.](#a-meaningful-thesaurus)-->
-  - [UX](#ux)
-    - [User Stories](#user-stories)
-    - [Concept](#concept)
-  - [Features](#features)
-    - [Existing Features](#existing-features)
-    - [Features Left to Implement](#features-left-to-implement)
-  - [Technologies](#technologies)
-    - [Frameworks and Libraries](#frameworks-and-libraries)
-    - [Programs and Software](#programs-and-software)
-  - [Testing](#testing)
-    - [Documentation Notes](#documentation-notes)
-    - [Code Testing](#code-testing)
-    - [Accessibility Testing](#accessibility-testing)
-    - [Browser Testing](#browser-testing)
-    - [Known Bugs](#known-bugs)
-  - [Deployment](#deployment)
-  - [Cloning This Repository](#cloning-this-repository)
-  - [Credits](#credits)
-    - [Code](#code)
-    - [Content and Media](#content-and-media)
-    - [Acknowledgements](#acknowledgements)
 
-___
-___
 ## UX
-___
 ### User Stories
-___
-
 #### __New Visitor Goals__
-___
 
 - As a new visitor, I want to have a good understanding of what the application does within a few seconds.
 - As a new visitor, I want to intuitively understand how to navigate the site without additional instructions.
@@ -86,164 +54,156 @@ ___
 - As a new visitor, I want to understand the source of the site's content.
 
 #### __Returning Visitor Goals__
-___
 
 - As a Returning Visitor, I want to use a thesaurus to find groups of words with the same or similar meanings.
 - As a Returning Visitor, I want the ability to see a history of my searched words grouped by their synonymous definitions.
 
 #### __Frequent Visitor Goals__
-___
 
 - As a Frequent Visitor, I want to have the option to preview how a word and its synonyms might be used in a sentence.
 - As a Frequent Visitor, I want to understand if I am looking at results for a definition that I have already seen before.
 - As a Frequent Visitor, I want to know that I can delete my search history.
 
+### Wireframes
 
-### Concept
-___
-#### Wireframes
-____
 ###### [View PDF Set of Schematic Wireframes](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes.pdf)
 
-- Schematic mockups commenced in early January 2021 to establish relationships between disparate components, and assign appropriate responsibilities.
-___
+>  ##### *Schematic mockups commenced in early January 2021 to establish relationships between disparate components, and assign appropriate responsibilities.*
+
+<hr>
 
 #### Thinking in React
-___
+<hr>
+<details><summary>The React App's core functionality can be understood as a <em><b>Products List</b></em> with <em><b>products</b></em> fetched from a <em><b>store</b></em>  and a <em><b>Shopping Cart</b></em> with a list of <em><b>items</b></em> added that  can be removed and/or cleared</summary>
+<br>
 
-- ##### Appropriating Precedent
+[<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes07.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes07.jpg?raw=true)
 
+<br>
+</details>
 
-    <details><summary> The React App's core functionality can be understood as a <em><b>Products List</b></em> with <em><b>products</b></em> fetched from a <em><b>store</b></em>  and a <em><b>Shopping Cart</b></em> with a list of <em><b>items</b></em> added that  can be removed and/or cleared... </summary>
-    <br>
+<hr>
 
-    [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes07.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes07.jpg?raw=true)
+<details><summary>with the ability to query the <em><b>Products List</b></em>     </summary>
+<br>
 
-    <br>
-    </details>
-    <br>
+[<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes14.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes14.jpg?raw=true)
 
-
-    <details><summary> ...with the ability to query the <em><b>Products List</b></em>     </summary>
-    <br>
-
-   [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes14.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes14.jpg?raw=true)
-
-    <br>
-    </details>
-    <br>
+<br>
+</details>
+<hr>
 
 
-    <details><summary> ...with the ability to manage <em><b>items</b></em> that are the same <em><b>products</b></em>   </summary>
-    <br>
+<details><summary>with the ability to manage <em><b>products</b></em> that are already in <em><b>items</b></em> and vice versa   </summary>
+<br>
 
-  [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes22.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes22.jpg?raw=true)
+[<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes22.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes22.jpg?raw=true)
 
-    <br>
-    </details>
-    <br>
-
-
-    <details><summary> ...with the ability to toggle between <em><b>Products List</b></em> and <em><b>Shopping Cart</b></em>   </summary>
-    <br>
-
-    [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes25.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes25.jpg?raw=true)
-
-    <br>
-    </details>
-    <br>
-    <br>
-
-    >  This approach helped break-down the project scope, and, most importantly, afford a benchmark for references for development and troubleshooting.
-
-    <br>
-    <details><summary> Lifecycle of a Result Instance  </summary>
-    <br>
+<br>
+</details>
+<hr>
 
 
-     [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes02.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes02.jpg?raw=true)
-      Input(props), Saves(Context), Results(HOC)
+<details><summary>with the ability to toggle between <em><b>Products List</b></em> and <em><b>Shopping Cart</b></em>   </summary>
+<br>
 
-    [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes03.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes03.jpg?raw=true)
-    Input goes into Results to fetch list of Options from API
+[<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes25.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes25.jpg?raw=true)
 
-      [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes04.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes04.jpg?raw=true)
-      Selected Option is added to Saves Store
+<br>
+</details>
+<hr>
 
-    [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes05.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes05.jpg?raw=true)
-    Selected Option is New Input
+>  ##### *This approach helped break-down the project scope, and, most importantly, afford a benchmark for references for development and troubleshooting.* 
+>  see Thinking in React ([Docs](https://reactjs.org/docs/thinking-in-react.html))
 
-      [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes06.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes06.jpg?raw=true)
+#### Component Breakdown
 
-    <br>
-    </details>
-    <br>
-
-    <details><summary> Working with the API   </summary>
-    <br>
-
-    [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes08.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes08.jpg?raw=true)
-    Merriam-Webster Thesaurus API's JSON response
-    See sample response [Documentation](https://dictionaryapi.com/products/api-collegiate-thesaurus)
+<br>
+<details><summary> Lifecycle of a Result Instance  </summary>
+<br>
 
 
-    [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes09.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes09.jpg?raw=true)
-    Early concerns and considerations involved how to manage and deconstruct or write the schema of a result and which tools might help.
+ [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes02.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes02.jpg?raw=true)
+  Input(props), Saves(Context), Results(HOC)
 
-    [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes10.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes09.jpg?raw=true)
-    Earlier tests considered using [mw-dict](https://github.com/NdYAG/mw-dict) (Node.js Wrapper for Merriam Webster Developer API) as a helper, but eventually opted out of using this dependency.
+[<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes03.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes03.jpg?raw=true)
+Input goes into Results to fetch list of Options from API
 
-    <br>
-    </details>
-    <br>
+  [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes04.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes04.jpg?raw=true)
+  Selected Option is added to Saves Store
 
+[<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes05.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes05.jpg?raw=true)
+Selected Option is New Input
 
-    <details><summary> Results Scope (products)   </summary>
-    <br>
+  [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes06.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes06.jpg?raw=true)
 
-     [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes11.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes09.jpg?raw=true)
-    Early schematic breakdown of Results HOC.
-    Composed to map, render and pass props down the component tree.
-    Props are Merriam-Webster-schema-specific and are generated from every response returned by [searchThesaurus](https://github.com/israelias/synonym-chaser/blob/master/src/services/mwThesaurusService.js) API handler.
-    Now broken down to  `{Results} => {Root} => {Sense} => {Option}`
-    (See [results Directory](https://github.com/israelias/synonym-chaser/blob/master/src/components/results))
+<br>
+</details>
+<hr>
 
-    <br>
-    </details>
-    <br>
+<details><summary> Working with the API   </summary>
+<br>
 
-    <details><summary> Selections Scope (cart)   </summary>
-    <br>
-
-     [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes12.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes09.jpg?raw=true)
-    Early schematic breakdown of Selections component. Represents data from internal Context.Provider (see [HistoryProvider](https://github.com/israelias/synonym-chaser/blob/master/src/context/words.context.js)).
-    Now broken down to  `{Saves} => {Selection}`
-    (See [saves Directory](https://github.com/israelias/synonym-chaser/blob/master/src/components/saves))
-
-    <br>
-    </details>
-    <br>
-
-    <details><summary> Display Scope (product preview)   </summary>
-    <br>
-
-     [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes26.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes09.jpg?raw=true)
-    Early schematic breakdown of Display component.
-    Represents a manipulated string passed from `{Results} =>{Root} => {Sense}` via `{ReplaceSubStringNode}` (see [string.helper.js](https://github.com/israelias/synonym-chaser/blob/master/src/helpers/string.helper.js)).
-    Now broken down to  `{Saves} => {Selection}`
-    (See [Display](https://github.com/israelias/synonym-chaser/blob/master/src/components/shared/string-display.js))
-
-    [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes27.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes09.jpg?raw=true)
-    Display is now a dummy component as [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer#readme) is handled entirely between `{Sense} => {Option}` in Results tree (See [results Directory](https://github.com/israelias/synonym-chaser/blob/master/src/components/results))
-
-    <br>
-    </details>
-    <br>
+[<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes08.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes08.jpg?raw=true)
+Merriam-Webster Thesaurus API's JSON response
+See sample response [Documentation](https://dictionaryapi.com/products/api-collegiate-thesaurus)
 
 
-#### Design
-___
-##### Loose Leaf
+[<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes09.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes09.jpg?raw=true)
+Early concerns and considerations involved how to manage and deconstruct or write the schema of a result and which tools might help.
+
+[<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes10.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes09.jpg?raw=true)
+Earlier tests considered using [mw-dict](https://github.com/NdYAG/mw-dict) (Node.js Wrapper for Merriam Webster Developer API) as a helper, but eventually opted out of using this dependency.
+
+<br>
+</details>
+<hr>
+
+<details><summary> Results Scope (products)   </summary>
+<br>
+
+ [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes11.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes09.jpg?raw=true)
+Early schematic breakdown of Results HOC.
+Composed to map, render and pass props down the component tree.
+Props are Merriam-Webster-schema-specific and are generated from every response returned by [searchThesaurus](https://github.com/israelias/synonym-chaser/blob/master/src/services/mwThesaurusService.js) API handler.
+Now broken down to  `{Results} => {Root} => {Sense} => {Option}`
+(See [results Directory](https://github.com/israelias/synonym-chaser/blob/master/src/components/results))
+
+<br>
+</details>
+<hr>
+
+<details><summary> Selections Scope (cart)   </summary>
+<br>
+
+ [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes12.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes09.jpg?raw=true)
+Early schematic breakdown of Selections component. Represents data from internal Context.Provider (see [HistoryProvider](https://github.com/israelias/synonym-chaser/blob/master/src/context/words.context.js)).
+Now broken down to  `{Saves} => {Selection}`
+(See [saves Directory](https://github.com/israelias/synonym-chaser/blob/master/src/components/saves))
+
+<br>
+</details>
+<hr>
+
+<details><summary> Display Scope (product preview)   </summary>
+<br>
+
+ [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes26.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes09.jpg?raw=true)
+Early schematic breakdown of Display component.
+Represents a manipulated string passed from `{Results} =>{Root} => {Sense}` via `{ReplaceSubStringNode}` (see [string.helper.js](https://github.com/israelias/synonym-chaser/blob/master/src/helpers/string.helper.js)).
+Now broken down to  `{Saves} => {Selection}`
+(See [Display](https://github.com/israelias/synonym-chaser/blob/master/src/components/shared/string-display.js))
+
+[<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes27.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes09.jpg?raw=true)
+Display is now a dummy component as [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer#readme) is handled entirely between `{Sense} => {Option}` in Results tree (See [results Directory](https://github.com/israelias/synonym-chaser/blob/master/src/components/results))
+
+<br>
+</details>
+<hr>
+
+
+### Design
+#### Loose Leaf
 
 - A consistent top and bottom border is applied to all nodes with dynamic content. These discrete borders are designed to convey the material scale of a note pad as a familiar touchpoint to a user. These `wordBoxes` only vary in spacing and are responsible for visually conveying hierarchy in a the ***list of list of lists***.
 
@@ -263,11 +223,11 @@ ___
     </details>
 
 
-##### Theme
+#### Theme
 
 - Material-UI's `ThemeProvider` wraps the app in order to pass styles down the component tree. See [Material-UI Theming](https://material-ui.com/styles/advanced/#advanced).
 
-##### Typography
+#### Typography
 
 - The font family is set to an array of system fonts in order to adapt to device/platform/user configuration and avoid depending on an explicit typeface. A `commonSettings` object in `theme.context.js` contains a list of these overrides, which is merged with Material-UI's theme provider. See [Material-UI Global-css](https://material-ui.com/customization/globals/#global-css)
 
@@ -298,7 +258,7 @@ ___
     </details>
 
 
-##### Color
+#### Color
 
 - The app features two sets of primary and secondary colors for a light theme and a dark theme configured via Material UI's [palette configuration](https://material.io/resources/color/#!/?view.left=0&view.right=0). Behaviors and states of colors rely on properties defined in [Material-UI's Default Theme object](https://material-ui.com/customization/default-theme/#default-theme). Secondary colors are set to neutral tone, while primaries are rendered as the singular "feature color". The minimal approach to color sets is to enhance a notepad
 
@@ -324,7 +284,7 @@ ___
 
     <br>
     </details>
-    <br>
+  
     <details><summary> darkTheme instance </summary>
     <br>
 
@@ -351,15 +311,10 @@ ___
     </details>
     <br>
 
-___
-___
-## Features
-___
-### Existing Features
-___
 
+## Features
+### Existing Features
 #### Dynamic Page
-___
   - The website is modeled as a progressive web application to render a single-page-app's functionality without full page reloads and optimized to perform like a native app. Its framework ensures flexibility across browsers.
 
   - The website takes advantage of large floating action buttons (FAB) to quickly navigate between its three remote views: "Search", "Info", and "Saves". Visual metaphors are utilized to represent these view modes discretely and efficiently.
@@ -369,12 +324,10 @@ ___
   - The app features a custom launch screen on initial page load to succinctly describe its purpose: "An interactive thesaurus app".
 
 #### Info
-___
   - The website offers an info section to credit brands, namely, Merriam-Webster's Collegiate Thesaurus, and supply information about the app.
 
 
 #### Search / Results
-___
 - The application is written to return lists of Synonyms, Related Words, Synonymous Phrases and Similar Words for any queried word in the english language via Thesaurus API. Each word is presented as an option to query.
 - ##### Actions:
  -  Ability to see if and how many times a word has been queried before.
@@ -382,25 +335,20 @@ ___
  -  Ability to see if and how many definitions queried share the same root.
 -  Ability to match definition in a string (See [Verbal Illustration](#-verbal-illustration)).
 
-
 #### Saves
-___
 - The website features the ability to view all previous queries, grouped by their sense definition, accessible via the Saves tab.
 - ##### Actions:
 -  Ability to remove individual words from the list.
 -  Ability to clear the list.
 
 #### Verbal Illustration
-___
 
 - If a definition contains an example sentence, the website displays this as  verbal illustration to feature how a particular word might be used in context.
 - On scroll and/or on hover, the word used in the sentence changes to the next word in the list of synonyms.
 - ##### Actions:
 -  Ability to see a word in a sentence by touch/mouse/scroll event.
 
-___
 ### Features Left to Implement
-___
 
 - Ability to deep-merge from a localStorage and/or Apollo Client.
 - Ability to manage user search history after browser session.
@@ -409,39 +357,28 @@ ___
 - "Feeling Lucky" random word query.
 - Prevent default refresh on browser refresh.
 - Make installable.
-___
-___
+
 ## Technologies
-___
 ### Frameworks and Libraries
-___
 
 1. [React 17.0:](https://reactjs.org/) JavaScript Library for building user interfaces.
 3. [Nextjs 5.8.2:](https://nextjs.org/) React Framework for Production.
 4. [Material UI 4.11.1:](https://material-ui.com/) React component for faster and easier web development.
 
-___
 ### Programs and Software
-___
 
 1. [WebStorm:](https://www.jetbrains.com/webstorm/) WebStorm 2020.3.2 by [JetBrains](https://www.jetbrains.com/) is the web development IDE used to locally construct the project
 2. [Git:](https://git-scm.com/) Git is used as the version control system and is utilized via the WebStorm terminal to `commit` to Git and `push` to GitHub.
 4. [GitHub:](https://github.com/) GitHub is used to store the project's code and directory upon concurrent `push`es via Git.
 5. [Adobe InDesign:](https://www.adobe.com/sea/products/xd.html) Adobe InDesign is used to mock wireframes.
 
-___
-___
-## Testing
-___
-### Documentation Notes
-___
+## Notes
 
 1. Styles are written in [jss](https://cssinjs.org/jss-syntax/?v=v10.5.1) syntax and follow the spec for [Material-UI](https://material-ui.com/styles/advanced/#theming) to play nicely with [Nextjs](https://nextjs.org/docs/getting-started) Server-side rendering, which includes [this logic](https://github.com/mui-org/material-ui/blob/master/examples/nextjs/pages/_document.js) of customizing `pages/_document`  to to inject server-side rendered styles into the markup right before it's used. Note that this is an unofficial recommendation, and should be refactored if/when MUI releases an official plugin for Nextjs similar to the one for [MUI/Gatsby](https://github.com/hupe1980/gatsby-plugin-material-ui).
 1. All style objects are created with MUI's `makeStyles` hook and follow guidelines in [MUI style Docs](https://material-ui.com/styles/advanced/#makestyles) for theming. This includes CSS overrides and media queries. Style objects for main components are separated by scope in the [styles Directory](https://github.com/israelias/synonym-chaser/blob/master/src/styles/) and imported in modules as required. However, some components, namely, `Launcher`, have all style props declared in the component file itself. Note that all styles should eventually be exported from one directory for consistency.
 1. Styles follor [this logic](https://github.com/mui-org/material-ui/blob/master/examples/nextjs/pages/_document.js) to work with Next.js
 1. Directory follows Vercel documentation but moved to src folder, .
 1. The `results` tree renders `jsx` components on every API call without initializing constants. Props and conditional expressions control the iteration of the response schema from MW-Thesaurus API. Note that values and Prop-Type verifications are specifically written to get the right data from this schema:
-
     <details><summary> Mapping conditionals down the tree </summary>
     <br>
 
@@ -459,11 +396,9 @@ ___
 
     <br>
     </details>
-
 1. Each saved word instance retains properties of the Results family it is "taken" from -- such as the word's particular definition, label, root word -- to increment values of duplicates and group words by sense definitions while ensuring each instance, no matter identical at name value, is distinct if the definition and sense is different
 1. React hooks `useReducer`, `useContext`, `createContext` are assembled together in `context/words.context` ([see HistoryProvider](https://github.com/israelias/synonym-chaser/blob/master/src/context/words.context.js)) to provide a context wrapper for components to share and consume the same data. Note that this logic is directly modeled from the example set in [next.js/examples/with-context-api](https://github.com/vercel/next.js/tree/canary/examples/with-context-api).
 1. Following what is achieved by `HistoryProvider`'s exported context wrapper hooks `useHistory` and `useDispatchHstory` -- which are utilized across higher-order components, shared components and helper functions in `helpers/*` to radically manipulate the DOM -- the same logic is repurposed to ride multiple hooks along a custom wrapper with MUI's ThemeProvider the ([see ThemeProvider](https://github.com/israelias/synonym-chaser/blob/master/src/context/theme.context.js)). In this case, setting the the view value, allows any component to change the page from anywhere, to name a few. Note that the catch-all nature of this Context layout provider.
-
     <details><summary> All layout states in a Context Theme </summary>
     <br>
 
@@ -534,7 +469,6 @@ ___
 
     <br>
     </details>
-
 1. Using MW-Thesaurus is free for non-commercial and/or educational purposes. Featured brand logos in the info tab is to follow branding guidelines requested by but not limited to Merriam-Webster's Development center.
 1. The registered Thesaurus API key linked to this project is currently public. Following [this discussion](https://github.com/vercel/next.js/discussions/12531), the effort to protect API calls on the client side is aimless as the private key will always be exposed. Further configuration to have an internal endpoint in `/pages/api` should be considered following [Nextjs API routes](https://nextjs.org/docs/api-routes/introduction). Note that the key has been exposed from `.env.local` for the reasons above and for the educational purposes of the project.
 
@@ -564,23 +498,24 @@ ___
 
     <br>
     </details>
-    <br>
+    
 
 > *Note: All descriptions of atypical methods can be found within comment blocks that follow jsDoc standards.*
 
-### Code Testing
-___
+## Testing
 #### Lighthouse
-###### [Performance, Accessibility, Best Practices, SEO, PWA](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Latest Results](https://lighthouse.vercel-lighthouse-integration.now.sh/reports/synonym-chaser-d4oa432xn.vercel.app)
+#### [Performance, Accessibility, Best Practices, SEO, PWA](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Latest Results](https://lighthouse.vercel-lighthouse-integration.now.sh/reports/synonym-chaser-d4oa432xn.vercel.app)
 - Lighthouse via Vercel is used to test performace, which produces unique results on every `git push`. [lighthouse-badges](https://github.com/emazzotta/lighthouse-badges) is used to generate new badges for every deployment by installing ```npm i -g lighthouse-badges``` and pushing the new hashed url to the array of urls:
 
     ```
-    lighthouse-badges -o docs/badges -r -u https://synonyms.vercel.app/ [... all other urls]
+    lighthouse-badges 
+    -o docs/badges -r 
+    -u https://synonyms.vercel.app/ [... all other urls]
                        
-                       Output to docs/badges
-                       Badges will contain therespective
-                       average score(s) of all the urls supplied, combined
-
+   # Output to docs/badges
+   # Badges will contain the respective
+      average score(s) of all the urls 
+      supplied, combined
     ```
 - Lighthouse's metrics, namely Accessibility and Performance generate specific flags on each audit. Adjustments are made on each push that specifically address any issues. 
   
@@ -592,10 +527,10 @@ ___
 #### Browser Testing
 
 - Throughout the development of the project, in-browser dev tools were used to test for consistency across browsers. The browsers themselves were equally used for general use-case testing. The following browsers' per-device applications were accessed with an iPhone 11 Pro, MacBook Pro 15" and iPad Pro 12.9":
-  - Chrome Version: 83
-  - Firefox 82
-  - Opera 72
-  - Safari 14
+- Chrome Version: 83
+- Firefox 82
+- Opera 72
+- Safari 14
 
 <!-- ### Known Bugs
 ___
@@ -605,46 +540,39 @@ ___
 
 [Back to top](#table-of-contents)
 
-___
-___
 ## Deployment
 
-- The project is developed with [React](https://reactjs.org/) via [Next.js](https://nextjs.org/), bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and deployed with [Vercel](https://nextjs.org/docs/deployment).
-This is achieved via the following steps.
-
-1. Committing and pushing the code from my local IDE to Github via Git and my MacBook's iTerm terminal.
-1. Logging in to Vercel and clicking the [New Project](https://vercel.com/new) CTA.
-2. Accessing "Import Git Repository" via the select input, located at the top-left of the immediate prompt.
-3. Clicking "Import" on the repository named "synonym-chaser"
-4. Selecting the default "Personal Account" along with the default "master" root directory.
-5. Clicking "Deploy"
-6. Barring errors, await the prompt for:
-> "Congratulation! Your project has been successfully deployed."
+- The project is developed with [React](https://reactjs.org/) via [Next.js](https://nextjs.org/), bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and deployed with [Vercel](https://nextjs.org/docs/deployment), which I achieved with the following steps:
+- `commit` and `push` the code from my local IDE to Github via Git and my MacBook Pro's iTerm terminal.
+- Log in to Vercel and click the [New Project](https://vercel.com/new) CTA.
+- Access "Import Git Repository" via the `select` input, located at the top-left of the immediate prompt.
+- Click "Import" on the repository named "synonym-chaser"
+- Select the default "Personal Account" along with the default "master" root directory.
+- Click "Deploy"
+- Barring errors, await the prompt for:
+> ##### "Your project has been successfully deployed."
 
 [Back to top](#table-of-contents)
 
-___
-___
 ## Cloning This Repository
-- Clone this repo by running: `git clone https://github.com/israelias/synonym-chaser`
-- `cd synonym-chaser`
- `npm install`
+
+- Clone this repo by running: 
 ```bash
 git clone https://github.com/israelias/synonym-chaser
 ```
 
-at the jump, cd to the name of this repo:
+- at the jump, `cd` to the name of this repo:
 
 ```bash
 cd synonym-chaser
 ```
 
-install the package:
+- install the package and deps:
 
 ```bash
 npm install 
 ```
-and run the development server:
+- and run the development server:
 
 ```bash
 npm run dev  
@@ -654,13 +582,10 @@ yarn dev
 
 open your browser to [localhost:3000](http://localhost:3000/)
 
-##### useful linkes [Next JS Docs](https://github.com/imranhsayed/next-js-app)
-___
-___
+##### useful: [Next JS Docs](https://github.com/imranhsayed/next-js-app)
+
 ## Credits
-___
 ### Code
-___
 
 - [Github Repos](). [WIP]
 - [withContext](). [WIP]
@@ -668,12 +593,9 @@ ___
 - [Material UI components]() [WIP]
 
 ### Content and Media
-___
-
 - [Merriam-Webster's Collegiate Thesaurus]()
 
 ### Acknowledgements
-___
 
 - [Search App HTML5 markup](https://stackoverflow.com/questions/3255109/marking-up-a-search-result-list-with-html5-semantics)
 - [Intersection Observer](https://developers.google.com/web/updates/2017/09/sticky-headers)
