@@ -437,10 +437,10 @@ ___
 ___
 
 1. Styles are written in [jss](https://cssinjs.org/jss-syntax/?v=v10.5.1) syntax and follow the spec for [Material-UI](https://material-ui.com/styles/advanced/#theming) to play nicely with [Nextjs](https://nextjs.org/docs/getting-started) Server-side rendering, which includes [this logic](https://github.com/mui-org/material-ui/blob/master/examples/nextjs/pages/_document.js) of customizing `pages/_document`  to to inject server-side rendered styles into the markup right before it's used. Note that this is an unofficial recommendation, and should be refactored if/when MUI releases an official plugin for Nextjs similar to the one for [MUI/Gatsby](https://github.com/hupe1980/gatsby-plugin-material-ui).
-2. All style objects are created with MUI's `makeStyles` hook and follow guidelines in [MUI style Docs](https://material-ui.com/styles/advanced/#makestyles) for theming. This includes CSS overrides and media queries. Style objects for main components are separated by scope in the [styles Directory](https://github.com/israelias/synonym-chaser/blob/master/src/styles/) and imported in modules as required. However, some components, namely, `Launcher`, have all style props declared in the component file itself. Note that all styles should eventually be exported from one directory for consistency.
-3. Styles follor [this logic](https://github.com/mui-org/material-ui/blob/master/examples/nextjs/pages/_document.js) to work with Next.js
-2. Directory follows Vercel documentation but moved to src folder, .
-6. The `results` tree renders `jsx` components on every API call without initializing constants. Props and conditional expressions control the iteration of the response schema from MW-Thesaurus API. Note that values and Prop-Type verifications are specifically written to get the right data from this schema:
+1. All style objects are created with MUI's `makeStyles` hook and follow guidelines in [MUI style Docs](https://material-ui.com/styles/advanced/#makestyles) for theming. This includes CSS overrides and media queries. Style objects for main components are separated by scope in the [styles Directory](https://github.com/israelias/synonym-chaser/blob/master/src/styles/) and imported in modules as required. However, some components, namely, `Launcher`, have all style props declared in the component file itself. Note that all styles should eventually be exported from one directory for consistency.
+1. Styles follor [this logic](https://github.com/mui-org/material-ui/blob/master/examples/nextjs/pages/_document.js) to work with Next.js
+1. Directory follows Vercel documentation but moved to src folder, .
+1. The `results` tree renders `jsx` components on every API call without initializing constants. Props and conditional expressions control the iteration of the response schema from MW-Thesaurus API. Note that values and Prop-Type verifications are specifically written to get the right data from this schema:
 
     <details><summary> Mapping conditionals down the tree </summary>
     <br>
@@ -460,9 +460,9 @@ ___
     <br>
     </details>
 
-7. Each saved word instance retains properties of the Results family it is "taken" from -- such as the word's particular definition, label, root word -- to increment values of duplicates and group words by sense definitions while ensuring each instance, no matter identical at name value, is distinct if the definition and sense is different
-8. React hooks `useReducer`, `useContext`, `createContext` are assembled together in `context/words.context` ([see HistoryProvider](https://github.com/israelias/synonym-chaser/blob/master/src/context/words.context.js)) to provide a context wrapper for components to share and consume the same data. Note that this logic is directly modeled from the example set in [next.js/examples/with-context-api](https://github.com/vercel/next.js/tree/canary/examples/with-context-api).
-9. Following what is achieved by `HistoryProvider`'s exported context wrapper hooks `useHistory` and `useDispatchHstory` -- which are utilized across higher-order components, shared components and helper functions in `helpers/*` to radically manipulate the DOM -- the same logic is repurposed to ride multiple hooks along a custom wrapper with MUI's ThemeProvider the ([see ThemeProvider](https://github.com/israelias/synonym-chaser/blob/master/src/context/theme.context.js)). In this case, setting the the view value, allows any component to change the page from anywhere, to name a few. Note that the catch-all nature of this Context layout provider.
+1. Each saved word instance retains properties of the Results family it is "taken" from -- such as the word's particular definition, label, root word -- to increment values of duplicates and group words by sense definitions while ensuring each instance, no matter identical at name value, is distinct if the definition and sense is different
+1. React hooks `useReducer`, `useContext`, `createContext` are assembled together in `context/words.context` ([see HistoryProvider](https://github.com/israelias/synonym-chaser/blob/master/src/context/words.context.js)) to provide a context wrapper for components to share and consume the same data. Note that this logic is directly modeled from the example set in [next.js/examples/with-context-api](https://github.com/vercel/next.js/tree/canary/examples/with-context-api).
+1. Following what is achieved by `HistoryProvider`'s exported context wrapper hooks `useHistory` and `useDispatchHstory` -- which are utilized across higher-order components, shared components and helper functions in `helpers/*` to radically manipulate the DOM -- the same logic is repurposed to ride multiple hooks along a custom wrapper with MUI's ThemeProvider the ([see ThemeProvider](https://github.com/israelias/synonym-chaser/blob/master/src/context/theme.context.js)). In this case, setting the the view value, allows any component to change the page from anywhere, to name a few. Note that the catch-all nature of this Context layout provider.
 
     <details><summary> All layout states in a Context Theme </summary>
     <br>
@@ -535,56 +535,61 @@ ___
     <br>
     </details>
 
-10: Using MW-Thesaurus is free for non-commercial and/or educational purposes. Featured brand logos in the info tab is to follow branding guidelines requested by but not limited to Merriam-Webster's Development center.
-1.  For the educational purposes of the project, the API key is currently public. Further configuration to have an internal endpoint in `/pages/api` should be considered. See [this discussion](https://github.com/vercel/next.js/discussions/12531) and [Nextjs API routes](https://nextjs.org/docs/api-routes/introduction).
+1. Using MW-Thesaurus is free for non-commercial and/or educational purposes. Featured brand logos in the info tab is to follow branding guidelines requested by but not limited to Merriam-Webster's Development center.
+1. The registered Thesaurus API key linked to this project is currently public. Following [this discussion](https://github.com/vercel/next.js/discussions/12531), the effort to protect API calls on the client side is aimless as the private key will always be exposed. Further configuration to have an internal endpoint in `/pages/api` should be considered following [Nextjs API routes](https://nextjs.org/docs/api-routes/introduction). Note that the key has been exposed from `.env.local` for the reasons above and for the educational purposes of the project.
 
-<details><summary> Current implementation </summary>
-<br>
+    <details><summary> mwThesaurusService.js </summary>
+    <br>
 
-```  jsx
+    ```  jsx
 
-    const axiosConfig = { baseURL: 'https://dictionaryapi.com/api/v3/references/', }; 
-    
-    function searchThesaurus(searchText, selection) { 
-        const query = selection || searchText; 
-      
-        // Key is processed from ignored env.local
-        // use this method if API endpoint is set up in /pages/api/*
-        const key = process.env.MW_THESAURUS_KEY;
-    
-      return axiosGetCancellable(
-        `/thesaurus/json/${query}?key=${key}`,
-        axiosConfig,
-      );
-    }
+        const axiosConfig = { baseURL: 'https://dictionaryapi.com/api/v3/references/', }; 
 
-```
+        function searchThesaurus(searchText, selection) { 
+            const query = selection || searchText; 
 
-<br>
-</details>
+            // Key is processed from ignored env.local
+            // use this method if API endpoint is set up in /pages/api/*
+            const key = process.env.MW_THESAURUS_KEY;
+            // @note Key is explicitly declared otherwise
+            // for Production/submission
+
+          return axiosGetCancellable(
+            `/thesaurus/json/${query}?key=${key}`,
+            axiosConfig,
+          );
+        }
+
+    ```
+
+    <br>
+    </details>
+    <br>
 
 > *Note: All descriptions of atypical methods can be found within comment blocks that follow jsDoc standards.*
 
 ### Code Testing
 ___
+#### Lighthouse
+###### [Performance, Accessibility, Best Practices, SEO, PWA](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Latest Results](https://lighthouse.vercel-lighthouse-integration.now.sh/reports/synonym-chaser-d4oa432xn.vercel.app)
+- Lighthouse via Vercel is used to test performace, which produces unique results on every `git push`. [lighthouse-badges](https://github.com/emazzotta/lighthouse-badges) is used to generate new badges for every deployment by installing ```npm i -g lighthouse-badges``` and pushing the new hashed url to the array of urls:
 
-- The W3C Markup Validator (Nu Html Checker) and W3C CSS Validator Services continue to be used to validate the single html page (index.html) and the css URI of the project (/assets/style.css) to ensure no errors, alerts or flags pertaining to html and css syntax. Some warnings for "potential misuse of aria-label" were reviewed; the elements that remain are deemed usable and beneficial. See [Accessibility Testing](#accessibility-testing).
+    ```
+    lighthouse-badges -o docs/badges -r -u https://synonyms.vercel.app/ [... all other urls]
+                       
+                       Output to docs/badges
+                       Badges will contain therespective
+                       average score(s) of all the urls supplied, combined
 
-    - [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Fisraelias.github.io%2Fresume-redux%2Findex.html)
-  - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](http://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fisraelias.github.io%2Fresume-redux%2Fassets%2Fcss%2Fstyle.css&profile=css3svg&usermedium=all&warning=1&vextwarning=)
-  - [Vercel Testing](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Fisraelias.github.io%2Fresume-redux%2Findex.html)
-  - [Vercel Plugin](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](http://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fisraelias.github.io%2Fresume-redux%2Fassets%2Fcss%2Fstyle.css&profile=css3svg&usermedium=all&warning=1&vextwarning=)
+    ```
+- Lighthouse's metrics, namely Accessibility and Performance generate specific flags on each audit. Adjustments are made on each push that specifically address any issues. 
+  
 
-> Note: 1) Several parse errors are flagged around vendor prefixes. [AutoPrefixer](https://autoprefixer.github.io/)'s web version was used to manually add vendor prefixes without the PostCSS plugin.
-> 2\) W3C is [widely known](https://stackoverflow.com/questions/57661659/w3c-css-validation-parse-error-on-variables) to attach a parse error to every custom property/custom variable.
+#### ChromeVox
 
-### Accessibility Testing
-___
+- [ChromeVox Extension](https://chrome.google.com/webstore/detail/chromevox-classic-extensi/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en) was used to ensure that screen-reader accessibility standards are met. This was done by walking through the entire project with the screen-reader plugin enabled. Various adjustments were made following these tests. Notably, the tab-index order of nav elements, and changing refining HTML5 semantic elements for `role` clarity.
 
-- [ChromeVox Extension](https://chrome.google.com/webstore/detail/chromevox-classic-extensi/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en) was used to ensure that screen-reader accessibility standards are met. This was done by walking through the entire project with the screen-reader plugin enabled. Various adjustments were made following these tests. Notably, positioning of the checkbox `input` and its highly styled `label` were adjusted to have egalitarian accessibility.
-
-### Browser Testing
-___
+#### Browser Testing
 
 - Throughout the development of the project, in-browser dev tools were used to test for consistency across browsers. The browsers themselves were equally used for general use-case testing. The following browsers' per-device applications were accessed with an iPhone 11 Pro, MacBook Pro 15" and iPad Pro 12.9":
   - Chrome Version: 83
@@ -592,11 +597,11 @@ ___
   - Opera 72
   - Safari 14
 
-### Known Bugs
+<!-- ### Known Bugs
 ___
 
 - xx.
-- xx.
+- xx. -->
 
 [Back to top](#table-of-contents)
 
@@ -604,42 +609,42 @@ ___
 ___
 ## Deployment
 
-The project uses GitHub Pages to deploy index.html from the root directory of the project's repository. This is achieved via the following steps.
+- The project is developed with [React](https://reactjs.org/) via [Next.js](https://nextjs.org/), bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and deployed with [Vercel](https://nextjs.org/docs/deployment).
+This is achieved via the following steps.
 
 1. Committing and pushing the code from my local IDE to Github via Git and my MacBook's iTerm terminal.
-1. Logging in to GitHub and accessing the [GitHub Repository](https://github.com/israelias/resume-redux) for this project.
-2. Accessing "Settings" via its tab button, located at the end (right) of the repository's menu tabs.
-3. Scrolling down to the sixth section of the "Settings" page, to "GitHub Pages"
-4. Beneath "Source", selecting the dropdown defaultly set to "None" and choosing "Master Branch".
-5. Waiting for the page to refresh and finding a note above "Source" to appear and indicate:
-    > "Your site is published at *https://username.github.io/repository-name/*"
-
-Code is locally run via WebStorm as described in [Programs and Software ](#programs-and-software). Two branches.
-
-The project can be used as a means for featuring a variety of media. To clone this repository (*Exact literature is sourced from Code Institute's template*):
-
-1. Select the Repository from the Github Dashboard.
-1. Click on the "Clone or download" green button located above and to the right of the File Structure table.
-1. Click on the "clipboard icon" to the right of the Git URL to copy the web URL of the Clone.
-1. Open your preferred Integrated Development Environment (IDE) and navigate to the terminal window.
-1. Change the directory to where you want to clone the repository to.
-1. Paste the Git URL copied from above and click "Ok".
+1. Logging in to Vercel and clicking the [New Project](https://vercel.com/new) CTA.
+2. Accessing "Import Git Repository" via the select input, located at the top-left of the immediate prompt.
+3. Clicking "Import" on the repository named "synonym-chaser"
+4. Selecting the default "Personal Account" along with the default "master" root directory.
+5. Clicking "Deploy"
+6. Barring errors, await the prompt for:
+> "Congratulation! Your project has been successfully deployed."
 
 [Back to top](#table-of-contents)
 
 ___
 ___
 ## Cloning This Repository
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the project:
-
+- Clone this repo by running: `git clone https://github.com/israelias/synonym-chaser`
+- `cd synonym-chaser`
+ `npm install`
 ```bash
-npx create-next-app --example environment-variables environment-variables-app  
-# or  
-yarn create next-app --example environment-variables environment-variables-app  
+git clone https://github.com/israelias/synonym-chaser
 ```
 
-run the development server:
+at the jump, cd to the name of this repo:
+
+```bash
+cd synonym-chaser
+```
+
+install the package:
+
+```bash
+npm install 
+```
+and run the development server:
 
 ```bash
 npm run dev  
@@ -647,6 +652,9 @@ npm run dev
 yarn dev  
 ```
 
+open your browser to [localhost:3000](http://localhost:3000/)
+
+##### useful linkes [Next JS Docs](https://github.com/imranhsayed/next-js-app)
 ___
 ___
 ## Credits
@@ -654,30 +662,22 @@ ___
 ### Code
 ___
 
-- Damien L. Gilliams' tutorial on [how to embed LinkedIn recommendations](https://www.damosdesigns.com/LinkedinRecommendationsOnWebsite/) takes care of a whole section in the project, and is a great lesson on appropriation. Directly following Mr. Gilliams' tutorial, the style block for `#target-six`'s Recommendations section in style.css are only slightly modified from the tutorial. This style block includes Mr. Gilliams' original comments.  Equally, the code in index.html for the Recommendations section is taken from the owner's public LinkedIn profile, with adjustments per Mr. Gilliams' tutorial. One adjustment for the project was to wrap each recommendation item in a `<figure>` element, both for semantic clarity and for application of some of the project's signature styles such as a gradient and a border radius.
-
-- Taking Damien L Gilliams' LinkedIn CSS styles a steph further, the list of awards featured in `#target-six`'s Awards section in index.html applies Mr. Gilliams' appropriation style to the "Accomplishments" section of the owner's public LinkedIn profile. Code for this extensive `<ul>` was only slightly modified for margins. The CSS rulesets extracted from this exercise are added to the style block following the Recommendations style block and Mr. Gilliams's notes in style.css.
-
-- GitHub's  progress bar styles and language colors were appropriated in the project by inspecting the HTML of the project's repository page, and using the colors it assigns for languages. [MDBootstrap's Progress bar](https://mdbootstrap.com/docs/standard/components/progress/) class was then utilized to show these percentages.
-
-- The landing section's "highlighted text" feature uses CSS from [John Negoita's examples](https://medium.com/@codingdudecom/highlight-text-css-97331a5b71b5). Complete descriptions of customization is described in style.css.
+- [Github Repos](). [WIP]
+- [withContext](). [WIP]
+- [Reducers reference]() [WIP]
+- [Material UI components]() [WIP]
 
 ### Content and Media
 ___
 
-- All written content and media outside of iconography and typography are conceived by the owner or retrieved from the owner's public profiles.
-- Thesaurus API.
+- [Merriam-Webster's Collegiate Thesaurus]()
 
 ### Acknowledgements
 ___
 
-- Reducers reference.
-- React blogs.
-- Material UI components.
 - [Search App HTML5 markup](https://stackoverflow.com/questions/3255109/marking-up-a-search-result-list-with-html5-semantics)
 - [Intersection Observer](https://developers.google.com/web/updates/2017/09/sticky-headers)
 - The site's favicon was generated via [Real Favicon Generator.net](https://realfavicongenerator.net/) following Philippe Bernard's [comprehensive summary on favicons](https://css-tricks.com/favicon-quiz/).
-- Github Repo module.
 - The development of this README.md takes precedent from various templates and samples throughout Code Institute's course. The development of the UX section and Jesse Garret's Five Planes of UX equally take direct inspiration from Code Institute's course.
 - The Slack community at Code Institute, namely the senior leads, for being generous and quick to offer endless assistance and advice.
 - Tutor Support at Code Institute for offering invaluable technical support.
