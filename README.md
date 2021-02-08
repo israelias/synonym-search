@@ -22,6 +22,8 @@ This project is developed as part of MS2 Interactive Front End module at Code In
 
 Please visit the project here: [synonyms.vercel.app](https://synonyms.vercel.app/)
 
+>*Note for reference: Earlier scheme was named 'synonym-chaser'*
+
 [TOC levels=3]: # "## Contents"
 
 ## Contents
