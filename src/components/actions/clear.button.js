@@ -1,10 +1,10 @@
 import React from 'react';
 import Fab from '@material-ui/core/Fab';
-import clsx from 'clsx'
+import clsx from 'clsx';
 import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useDispatchHistory } from '../../context/words.context';
 import { useStyles } from '../../styles/layout.styles';
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const Clear = ({ speed }) => {
   const classes = useStyles();
@@ -32,8 +32,11 @@ const Clear = ({ speed }) => {
       >
         <DeleteSweepIcon />
         {
-          !matches
-          && 'Clear'
+          speed
+            ? ''
+            : !matches
+              ? 'Clear'
+              : ''
         }
       </Fab>
     </div>
