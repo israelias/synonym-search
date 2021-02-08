@@ -24,7 +24,7 @@ const axiosConfig = {
 
 function searchThesaurus(searchText, selection) {
   const query = selection || searchText;
-  const key = process.env.NEXT_PUBLIC_MW_THESAURUS_KEY;
+  const key = process.env.MW_THESAURUS_KEY;
 
   return axiosGetCancellable(
     `/thesaurus/json/${query}?key=${key}`,
