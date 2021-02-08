@@ -367,11 +367,10 @@ Display is now a dummy component as [react-intersection-observer](https://github
 - [Babel:](https://babeljs.io/docs/en/) The toolchain compiler that transforms syntax to ensure all evolved code function, namely between `jsx`, `jss` `js`. (Bootstrapped with Nestjs)
 - [Nextjs 5.8.2:](https://nextjs.org/) React Framework for Production. Nextjs is a toolkit for universal, server-rendered React.js applications. This framework leverages Webpack and Babel so that our interface is straightforwardly: `next` to develop, `next build` to prep for production and `next start` to serve.
 - [Material UI 4.11.1:](https://material-ui.com/) React component for faster and easier web development. Includes [Material UI Icons](), [Material UI Lab](), [Material UI System]()
-- [PropTypes:]()
-- [React Intersection Observer:]()
-- [Axios:]()
-- [HTML React Parser:]()
-- [clsx:]()
+- [PropTypes:](https://reactjs.org/docs/typechecking-with-proptypes.html) The Typechecking tool to handle bugs as components are composed.
+- [React Intersection Observer:](https://www.npmjs.com/package/react-intersection-observer) The react module that implements Intersection Observer API to spy on elements as they enter and leave the viewport
+- [Axios:](https://github.com/axios/axios) The promise-based HTTP client for the browser and node.js that handles calls to Thesaurus API.
+- [clsx:](https://developer.aliyun.com/mirror/npm/package/clsx):Tiny utility for constructing classnames conditionally
 
 
 ### Programs and Software
@@ -380,7 +379,6 @@ Display is now a dummy component as [react-intersection-observer](https://github
 - [Git:](https://git-scm.com/) Git is used as the version control system and is utilized via the WebStorm terminal to `commit` to Git and `push` to GitHub.
 - [GitHub:](https://github.com/) GitHub is used to store the project's code and directory upon concurrent `push`es via Git.
 - [Adobe InDesign:](https://www.adobe.com/sea/products/xd.html) Adobe InDesign is used to mock wireframes.
-- [jsOnline:]()
 
 ## Notes
 
@@ -1035,7 +1033,8 @@ Display is now a dummy component as [react-intersection-observer](https://github
 
 ### Code Testing
 #### Lighthouse
-#### [Performance, Accessibility, Best Practices, SEO, PWA](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Latest Results](https://lighthouse.vercel-lighthouse-integration.now.sh/reports/synonym-chaser-d4oa432xn.vercel.app)
+##### Performance, Accessibility, Best Practices, SEO, PWA
+[View Latest Results](https://lighthouse.vercel-lighthouse-integration.now.sh/reports/synonym-chaser-nomfze9v6.vercel.app)
 - Lighthouse via Vercel is used to test performace, which produces unique results on every `git push`. [lighthouse-badges](https://github.com/emazzotta/lighthouse-badges) is used to generate new badges for every deployment by installing ```npm i -g lighthouse-badges``` and pushing the new hashed url to the array of urls:
 
     ```
@@ -1118,18 +1117,16 @@ open your browser to [localhost:3000](http://localhost:3000/)
 ## Credits
 ### Code
 
-- [Github Repos](). [WIP]
-- [withContext](). [WIP]
-- [Reducers reference]() [WIP]
-- [Material UI components]() [WIP]
+- [Vlad Guleaev's tutorial](https://github.com/vguleaev/Waldev-Nextjs-tutorial) on React, NextJS and working with an API with his Github repos search app. 
+- NextJS [with-context-api](https://github.com/vercel/next.js/tree/canary/examples/with-context-api) example was benchmarked for context API composition
+- Material-UI [with-nextjs](https://github.com/mui-org/material-ui/tree/master/examples/nextjs) example was benchmarked for optimized styling with Next.
+
 
 ### Content and Media
-- [Merriam-Webster's Collegiate Thesaurus]()
+- All content outside of the short description in `info` is via [Merriam-Webster's Collegiate Thesaurus](https://dictionaryapi.com/).
 
 ### Acknowledgements
 
-- [Search App HTML5 markup](https://stackoverflow.com/questions/3255109/marking-up-a-search-result-list-with-html5-semantics)
-- [Intersection Observer](https://developers.google.com/web/updates/2017/09/sticky-headers)
 - The site's favicon was generated via [Real Favicon Generator.net](https://realfavicongenerator.net/) following Philippe Bernard's [comprehensive summary on favicons](https://css-tricks.com/favicon-quiz/).
 - The development of this README.md takes precedent from various templates and samples throughout Code Institute's course. The development of the UX section and Jesse Garret's Five Planes of UX equally take direct inspiration from Code Institute's course.
 - The Slack community at Code Institute, namely the senior leads, for being generous and quick to offer endless assistance and advice.
