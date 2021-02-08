@@ -40,3 +40,23 @@ export const MerriamWebster = (
     Merriam-Webster's Collegiate® Thesaurus
   </Link>
 );
+
+export const CodeInstitute = (
+  <Link
+    href="https://codeinstitute.net/"
+    target="_blank"
+    rel="noreferrer"
+  >
+    Code Institute
+  </Link>
+);
+
+export const MS2 = (
+  <Link
+    href="https://github.com/israelias/synonym-chaser"
+    target="_blank"
+    rel="noreferrer"
+  >
+    here
+  </Link>
+);

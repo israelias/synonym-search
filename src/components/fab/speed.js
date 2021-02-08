@@ -51,7 +51,6 @@ const Speed = ({
           className={classes.speedDialGroup}
           FabProps={{
             className: clsx(classes.speedDial, classes.bottom),
-            // className: clsx(classes.fab, classes.fabNav, classes.fabBottom),
             size: matches ? 'medium' : 'small',
             style: { padding: matches ? '12px' : '8px' },
           }}
@@ -71,13 +70,10 @@ const Speed = ({
                 title="Clear Cache"
                 placement={matches ? 'right' : 'left'}
               >
-
                 <div>
                   <ToggleTheme />
                 </div>
-
               </Tooltip>
-
             </div>
           </Grow>
           <Grow
@@ -106,12 +102,9 @@ const Speed = ({
                     onSearchTextChange={onSearchTextChange}
                   />
                 </div>
-
               </Tooltip>
-
             </div>
           </Grow>
-
           <Grow
             in={open}
           >
@@ -123,19 +116,13 @@ const Speed = ({
                 title="Clear Cache"
                 placement={matches ? 'right' : 'left'}
               >
-
                 <div>
                   <Clear speed />
                 </div>
-
               </Tooltip>
-
             </div>
           </Grow>
-
-          />
         </SpeedDial>
-
       </FixedBottom>
     </Slide>
   );

@@ -9,6 +9,17 @@ import { groupBySense } from '../../helpers/counters.helper';
 import Selection from './selection';
 import { useStyles } from '../../styles/main.styles';
 
+/**
+ * A list of words that a user has queried grouped by the
+ * definitions they share.
+ *
+ * Represents manipulated data from HistoryProvider.
+ *
+ * @see HistoryProvider
+ * @since  1.20.21
+ * @file   defines Saves
+ */
+
 const Saves = () => {
   const classes = useStyles();
 

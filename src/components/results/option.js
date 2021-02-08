@@ -6,6 +6,19 @@ import PropTypes from 'prop-types';
 import { useDispatchHistory } from '../../context/words.context';
 import { SameWordShowTotal } from '../counters/counters';
 
+/**
+ * The primary active touchpoint.
+ *
+ * Represents a selectable word in the results tree.
+ *
+ * @action adds word to HistoryProvider
+ * @action queries word
+ *
+ * @see Sense
+ * @since  1.20.21
+ * @file   defines Option
+ */
+
 const Option = ({
   loading,
   onChange,
@@ -30,8 +43,8 @@ const Option = ({
           trackVisibility
           delay={100}
           onChange={
-                        (inView, entry) => onScrollTrigger(option.wd)
-                    }
+            (inView, entry) => onScrollTrigger(option.wd)
+          }
         >
           <ListItem
             button

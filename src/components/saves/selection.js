@@ -6,6 +6,18 @@ import PropTypes from 'prop-types';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useDispatchHistory } from '../../context/words.context';
 
+/**
+ * A stateful Material-UI Chip component.
+ *
+ * Represents a word saved in HistoryProvider.
+ *
+ * @action deletable
+ *
+ * @see Saves
+ * @since  1.20.21
+ * @file   defines Selection
+ */
+
 const Selection = ({
   selections,
 }) => {

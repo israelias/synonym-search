@@ -8,6 +8,16 @@ import Display from '../shared/string-display';
 import Option from './option';
 import { useStyles } from '../../styles/main.styles';
 
+/**
+ * Represents the definition and Display.
+ *
+ * @action listens to Option to change Display
+ *
+ * @see Root
+ * @since  1.20.21
+ * @file   defines Sense
+ */
+
 const Sense = ({
   loading,
   sense,

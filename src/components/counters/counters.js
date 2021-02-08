@@ -36,26 +36,26 @@ export const SameWordShowTotal = ({
   return (
     showTotal
         && (
-        <Zoom in={!loading}>
-          <Tooltip
-            title={
-                    `${term} as in ${definition} has been searched and saved ${sameWordTotal} times.`
-                }
-          >
-            <StyledChip
-              variant="outlined"
-              color="default"
-              size="small"
-              avatar={(
-                <Avatar>
-                  {
-                            sameWordTotal
-                        }
-                </Avatar>
-                      )}
-            />
-          </Tooltip>
-        </Zoom>
+          <Zoom in={!loading}>
+            <Tooltip
+              title={
+                `${term} as in ${definition} has been searched and saved ${sameWordTotal} times.`
+              }
+            >
+              <StyledChip
+                variant="outlined"
+                color="default"
+                size="small"
+                avatar={(
+                  <Avatar>
+                    {
+                      sameWordTotal
+                    }
+                  </Avatar>
+                )}
+              />
+            </Tooltip>
+          </Zoom>
         )
   );
 };
@@ -81,26 +81,26 @@ export const SameSenseShowTotal = ({
   return (
     showTotal
         && (
-        <Zoom in={!loading}>
-          <Tooltip
-            title={
-                    `I've saved ${senseTotal} words sharing the definition: ${sense}.`
-                }
-          >
-            <StyledChip
-              variant="outlined"
-              color="secondary"
-              size="small"
-              avatar={(
-                <Avatar>
-                  {
-                            senseTotal
-                        }
-                </Avatar>
-                      )}
-            />
-          </Tooltip>
-        </Zoom>
+          <Zoom in={!loading}>
+            <Tooltip
+              title={
+                `I've saved ${senseTotal} words sharing the definition: ${sense}.`
+              }
+            >
+              <StyledChip
+                variant="outlined"
+                color="secondary"
+                size="small"
+                avatar={(
+                  <Avatar>
+                    {
+                      senseTotal
+                    }
+                  </Avatar>
+                )}
+              />
+            </Tooltip>
+          </Zoom>
         )
   );
 };
@@ -126,26 +126,26 @@ export const SameHeadShowTotal = ({
   return (
     showTotal
         && (
-        <Zoom in={!loading}>
-          <Tooltip
-            title={
-                    `${root} as a ${label} has appeared ${headTotal} times.`
-                }
-          >
-            <StyledChip
-              variant="outlined"
-              color="primary"
-              size="small"
-              avatar={(
-                <Avatar>
-                  {
-                            headTotal
-                        }
-                </Avatar>
-                      )}
-            />
-          </Tooltip>
-        </Zoom>
+          <Zoom in={!loading}>
+            <Tooltip
+              title={
+                `${root} as a ${label} has appeared ${headTotal} times.`
+              }
+            >
+              <StyledChip
+                variant="outlined"
+                color="primary"
+                size="small"
+                avatar={(
+                  <Avatar>
+                    {
+                      headTotal
+                    }
+                  </Avatar>
+                )}
+              />
+            </Tooltip>
+          </Zoom>
         )
   );
 };

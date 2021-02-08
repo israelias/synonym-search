@@ -18,10 +18,10 @@ const Clear = ({ speed }) => {
   };
 
   return (
-    <div className={clsx(classes.input)}>
+    <div className={clsx(classes.input, !speed && classes.top)}>
       <Fab
         variant={
-          speed || matches
+          speed
             ? 'round'
             : 'extended'
         }
@@ -32,7 +32,7 @@ const Clear = ({ speed }) => {
       >
         <DeleteSweepIcon />
         {
-          !speed || !matches
+          !matches
           && 'Clear'
         }
       </Fab>

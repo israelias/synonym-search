@@ -7,13 +7,22 @@ import ErrorOutlineOutlinedIcon from '@material-ui/icons/ErrorOutlineOutlined';
 import CheckCircleOutlinedIcon from '@material-ui/icons/CheckCircleOutlined';
 import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
 
+/**
+ * A text input that responde to the same state hooks as its parent.
+ *
+ * Changes icon.
+ *
+ * @see Field
+ * @since  1.20.21
+ * @file   defines Input
+ */
+
 const Input = ({
   active,
   meta,
   loading,
   match,
   textInput,
-  helperText,
   onChange,
   onKeyPress,
   placeHolder,
@@ -32,8 +41,6 @@ const Input = ({
         size="medium"
         placeholder={placeHolder}
         label={label}
-                    // helperText={helperText}
-                    // hiddenLabel={true}
         autoFocus
         fullWidth
         autoComplete="on"
@@ -57,7 +64,7 @@ const Input = ({
                   ? <CheckCircleOutlinedIcon />
                   : <SearchIcon />}
           </InputAdornment>
-                      )}
+        )}
       />
     </Grow>
 

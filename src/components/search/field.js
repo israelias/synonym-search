@@ -8,9 +8,19 @@ import PropTypes from 'prop-types';
 import { useDispatchTheme } from '../../context/theme.context';
 import Input from './input';
 
+/**
+ * A floating action button that controls the overall state of Search
+ * and the text input it passes props to.
+ *
+ * Changes color.
+ *
+ * @see Search
+ * @since  1.20.21
+ * @file   defines Field
+ */
+
 const Field = ({
   label,
-  // value,
   onChange,
   placeHolder,
   helperText,
@@ -21,9 +31,7 @@ const Field = ({
   const [active, setActive] = useState(false);
   const textInput = useRef(null);
   const metaDispatch = useDispatchTheme();
-  const { meta } = metaDispatch;
-  const { root } = metaDispatch;
-  // const {value} = metaDispatch
+  const { meta, root } = metaDispatch;
 
   const handleSearchButton = () => {
     setActive(true);
@@ -67,13 +75,13 @@ const Field = ({
           variant={active ? 'extended' : 'round'}
           style={active ? {
             backgroundColor:
-                            loading
-                              ? theme.palette.warning.main
-                              : !meta
-                                ? theme.palette.error.main
-                                : meta && match
-                                  ? theme.palette.success.main
-                                  : theme.palette.primary.main,
+              loading
+                ? theme.palette.warning.main
+                : !meta
+                  ? theme.palette.error.main
+                  : meta && match
+                    ? theme.palette.success.main
+                    : theme.palette.primary.main,
           } : null}
         >
           <Input

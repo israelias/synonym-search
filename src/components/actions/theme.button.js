@@ -6,7 +6,6 @@ import { useDispatchTheme } from '../../context/theme.context';
 
 const ToggleTheme = () => {
   const themeDispatch = useDispatchTheme();
-  const matches = useMediaQuery('(min-width:600px)');
 
   const handleClick = () => {
     themeDispatch.setDarkMode(!themeDispatch.darkMode);

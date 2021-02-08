@@ -5,12 +5,12 @@ export const useStyles = makeStyles((theme) => ({
     maxWidth: '100%',
     backgroundColor: 'inherit',
     position: 'relative',
-    fontSize: '18px', // test repeat
-    lineHeight: 1.2395, // test repeat
+    fontSize: '18px',
+    lineHeight: 1.2395,
     [theme.breakpoints.up('sm')]: {
       marginLeft: '8rem',
-      fontSize: '14px', // test repeat
-      lineHeight: 1.2475, // test repeat
+      fontSize: '14px',
+      lineHeight: 1.2475,
     },
   },
   subheader: {

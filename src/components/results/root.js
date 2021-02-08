@@ -6,6 +6,14 @@ import { SameHeadShowTotal } from '../counters/counters';
 import Sense from './sense';
 import { useStyles } from '../../styles/main.styles';
 
+/**
+ * Represents the head word and start of one article (result).
+ *
+ * @see Results
+ * @since  1.20.21
+ * @file   defines Root
+ */
+
 const Root = ({
   root,
   label,
@@ -58,8 +66,8 @@ const Root = ({
           uuid={uuid}
           label={label}
           onSelectionChange={
-                        (value) => onSelectionChange(value)
-                    }
+            (value) => onSelectionChange(value)
+          }
         />
       ))}
     </article>

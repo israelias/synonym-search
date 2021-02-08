@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
 import Logo from '../shared/logo';
 import { useStyles } from '../../styles/layout.styles';

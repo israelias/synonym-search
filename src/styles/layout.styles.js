@@ -71,7 +71,6 @@ export const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     paddingLeft: '0.8rem',
     backgroundColor: theme.palette.background.default,
-    // transition: '.3s linear .3s',
     [theme.breakpoints.up('sm')]: {
       right: '1.6rem',
       left: '8rem',
@@ -151,9 +150,7 @@ export const useStyles = makeStyles((theme) => ({
     position: 'fixed',
     right: theme.spacing(2),
     justifyContent: 'flex-end',
-    // transition: '.3s linear .3s',
     '& > *': {
-      // transition: '.3s linear .3s',
       marginLeft: theme.spacing(1),
     },
   },
@@ -174,12 +171,12 @@ export const useStyles = makeStyles((theme) => ({
     top: theme.spacing(1.5),
     right: theme.spacing(15),
     '& > *': {
-      // transition: '.3s linear .3s',
-      // marginLeft: theme.spacing(1)
     },
   },
   input: {
     zIndex: 1500,
   },
-
+  top: {
+    paddingTop: theme.spacing(.5),
+  }
 }));

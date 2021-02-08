@@ -34,6 +34,7 @@ export default function MyApp(props) {
     }
   }, []);
 
+  // Boiler plate PWA initial attempt
   useEffect(() => {
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {

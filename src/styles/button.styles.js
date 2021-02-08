@@ -27,7 +27,6 @@ export const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
   },
   speedDialGroup: {
-    // padding: theme.spacing(1),
     zIndex: 1200,
     right: theme.spacing(2),
     left: 'auto',

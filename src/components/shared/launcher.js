@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
     filter: 'blur(.5rem)',
     width: '100%',
     height: '100%',
-
   },
   launch: {
     backgroundColor: 'inherit',
@@ -105,7 +104,6 @@ const Launcher = () => {
         in={showOpen}
         unmountOnExit
       >
-        {/* <Paper elevation={5}> */}
         <Box p={2} className={classes.launch}>
           <Skeleton
             className={classes.skeleton}
@@ -142,7 +140,6 @@ const Launcher = () => {
             />
           </div>
         </Box>
-        {/* </Paper> */}
       </Grow>
     </>
 
