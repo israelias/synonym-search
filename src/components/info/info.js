@@ -40,7 +40,7 @@ const Info = () => {
         <br/>
         <Typography variant="subtitle1">
           The application is developed as part of MS2 Interactive Front End module at {CodeInstitute}. It is written for
-          {MerriamWebster}'s format, developed with React via {NextJS}, and deployed with Vercel. View the Github Repository {MS2}.
+          {''} {MerriamWebster}'s format, developed with React via {NextJS}, and deployed with Vercel. View the Github Repository {MS2}.
         </Typography>
       </Box>
     </div>
