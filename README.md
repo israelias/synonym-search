@@ -361,34 +361,32 @@ Display is now a dummy component as [react-intersection-observer](https://github
 ## Technologies
 ### Frameworks and Libraries
 
-1. [Node.js:](https://nodejs.org/en/) The runtime environment that allows the app to run asynchronous server-side scripts and events.(Bootstrapped with Nextjs)
-1. [Webpack:](https://webpack.js.org/) The static module bundler that builds a dependency graph mapping every module the project requires. (Bootstrapped with Nextjs)
-1. [React 17.0:](https://reactjs.org/) JavaScript Library for building user interfaces.
-1. [Babel:](https://babeljs.io/docs/en/) The toolchain compiler that transforms syntax to ensure all evolved code function, namely between `jsx`, `jss` `js`. (Bootstrapped with Nestjs)
-1. [Nextjs 5.8.2:](https://nextjs.org/) React Framework for Production. Nextjs is a toolkit for universal, server-rendered React.js applications. This framework leverages Webpack and Babel so that our interface is straightforwardly: `next` to develop, `next build` to prep for production and `next start` to serve.
-1. [Material UI 4.11.1:](https://material-ui.com/) React component for faster and easier web development. Includes [Material UI Icons](), [Material UI Lab](), [Material UI System]()
-1. [PropTypes:]()
-1. [React Intersection Observer:]()
-1. [Axios:]()
-1. [HTML React Parser:]()
-1. [clsx:]()
+- [Node.js:](https://nodejs.org/en/) The runtime environment that allows the app to run asynchronous server-side scripts and events.(Bootstrapped with Nextjs)
+- [Webpack:](https://webpack.js.org/) The static module bundler that builds a dependency graph mapping every module the project requires. (Bootstrapped with Nextjs)
+- [React 17.0:](https://reactjs.org/) JavaScript Library for building user interfaces.
+- [Babel:](https://babeljs.io/docs/en/) The toolchain compiler that transforms syntax to ensure all evolved code function, namely between `jsx`, `jss` `js`. (Bootstrapped with Nestjs)
+- [Nextjs 5.8.2:](https://nextjs.org/) React Framework for Production. Nextjs is a toolkit for universal, server-rendered React.js applications. This framework leverages Webpack and Babel so that our interface is straightforwardly: `next` to develop, `next build` to prep for production and `next start` to serve.
+- [Material UI 4.11.1:](https://material-ui.com/) React component for faster and easier web development. Includes [Material UI Icons](), [Material UI Lab](), [Material UI System]()
+- [PropTypes:]()
+- [React Intersection Observer:]()
+- [Axios:]()
+- [HTML React Parser:]()
+- [clsx:]()
 
 
 ### Programs and Software
 
-1. [WebStorm:](https://www.jetbrains.com/webstorm/) WebStorm 2020.3.2 by [JetBrains](https://www.jetbrains.com/) is the web development IDE used to locally construct the project
-2. [Git:](https://git-scm.com/) Git is used as the version control system and is utilized via the WebStorm terminal to `commit` to Git and `push` to GitHub.
-4. [GitHub:](https://github.com/) GitHub is used to store the project's code and directory upon concurrent `push`es via Git.
-5. [Adobe InDesign:](https://www.adobe.com/sea/products/xd.html) Adobe InDesign is used to mock wireframes.
-6. [jsOnline:]()
+- [WebStorm:](https://www.jetbrains.com/webstorm/) WebStorm 2020.3.2 by [JetBrains](https://www.jetbrains.com/) is the web development IDE used to locally construct the project
+- [Git:](https://git-scm.com/) Git is used as the version control system and is utilized via the WebStorm terminal to `commit` to Git and `push` to GitHub.
+- [GitHub:](https://github.com/) GitHub is used to store the project's code and directory upon concurrent `push`es via Git.
+- [Adobe InDesign:](https://www.adobe.com/sea/products/xd.html) Adobe InDesign is used to mock wireframes.
+- [jsOnline:]()
 
 ## Notes
 
-1. Styles are written in [jss](https://cssinjs.org/jss-syntax/?v=v10.5.1) syntax and follow the spec for [Material-UI](https://material-ui.com/styles/advanced/#theming) to play nicely with [Nextjs](https://nextjs.org/docs/getting-started) Server-side rendering, which includes [this logic](https://github.com/mui-org/material-ui/blob/master/examples/nextjs/pages/_document.js) of customizing `pages/_document`  to to inject server-side rendered styles into the markup right before it's used. Note that this is an unofficial recommendation, and should be refactored if/when MUI releases an official plugin for Nextjs similar to the one for [MUI/Gatsby](https://github.com/hupe1980/gatsby-plugin-material-ui).
-1. All style objects are created with MUI's `makeStyles` hook and follow guidelines in [MUI style Docs](https://material-ui.com/styles/advanced/#makestyles) for theming. This includes CSS overrides and media queries. Style objects for main components are separated by scope in the [styles Directory](https://github.com/israelias/synonym-chaser/blob/master/src/styles/) and imported in modules as required. However, some components, namely, `Launcher`, have all style props declared in the component file itself. Note that all styles should eventually be exported from one directory for consistency.
-1. Styles follor [this logic](https://github.com/mui-org/material-ui/blob/master/examples/nextjs/pages/_document.js) to work with Next.js
-1. Directory follows Vercel documentation but moved to src folder, .
-1. The `results` tree renders `jsx` components on every API call without initializing constants. Props and conditional expressions control the iteration of the response schema from MW-Thesaurus API. Note that values and Prop-Type verifications are specifically written to get the right data from this schema:
+- Styles are written in [jss](https://cssinjs.org/jss-syntax/?v=v10.5.1) syntax and follow the spec for [Material-UI](https://material-ui.com/styles/advanced/#theming) to play nicely with [Nextjs](https://nextjs.org/docs/getting-started) Server-side rendering, which includes [this logic](https://github.com/mui-org/material-ui/blob/master/examples/nextjs/pages/_document.js) of customizing `pages/_document`  to to inject server-side rendered styles into the markup right before it's used. Note that this is an unofficial recommendation, and should be refactored if/when MUI releases an official plugin for Nextjs similar to the one for [MUI/Gatsby](https://github.com/hupe1980/gatsby-plugin-material-ui).
+- All style objects are created with MUI's `makeStyles` hook and follow guidelines in [MUI style Docs](https://material-ui.com/styles/advanced/#makestyles) for theming. This includes CSS overrides and media queries. Style objects for main components are separated by scope in the [styles Directory](https://github.com/israelias/synonym-chaser/blob/master/src/styles/) and imported in modules as required. However, some components, namely, `Launcher`, have all style props declared in the component file itself. Note that all styles should eventually be exported from one directory for consistency.
+- The `results` tree renders `jsx` components on every API call without initializing constants. Props and conditional expressions control the iteration of the response schema from MW-Thesaurus API. Note that values and Prop-Type verifications are specifically written to get the right data from this schema:
     <details><summary> Mapping conditionals down the tree </summary>
     <br>
 
@@ -406,9 +404,9 @@ Display is now a dummy component as [react-intersection-observer](https://github
 
     <br>
     </details>
-1. Each saved word instance retains properties of the Results family it is "taken" from -- such as the word's particular definition, label, root word -- to increment values of duplicates and group words by sense definitions while ensuring each instance, no matter identical at name value, is distinct if the definition and sense is different
-1. React hooks `useReducer`, `useContext`, `createContext` are assembled together in `context/words.context` ([see HistoryProvider](https://github.com/israelias/synonym-chaser/blob/master/src/context/words.context.js)) to provide a context wrapper for components to share and consume the same data. Note that this logic is directly modeled from the example set in [next.js/examples/with-context-api](https://github.com/vercel/next.js/tree/canary/examples/with-context-api).
-1. Following what is achieved by `HistoryProvider`'s exported context wrapper hooks `useHistory` and `useDispatchHstory` -- which are utilized across higher-order components, shared components and helper functions in `helpers/*` to radically manipulate the DOM -- the same logic is repurposed to ride multiple hooks along a custom wrapper with MUI's ThemeProvider the ([see ThemeProvider](https://github.com/israelias/synonym-chaser/blob/master/src/context/theme.context.js)). In this case, setting the the view value, allows any component to change the page from anywhere, to name a few. Note that the catch-all nature of this Context layout provider.
+- Each saved word instance retains properties of the Results family it is "taken" from -- such as the word's particular definition, label, root word -- to increment values of duplicates and group words by sense definitions while ensuring each instance, no matter identical at name value, is distinct if the definition and sense is different
+- React hooks `useReducer`, `useContext`, `createContext` are assembled together in `context/words.context` ([see HistoryProvider](https://github.com/israelias/synonym-chaser/blob/master/src/context/words.context.js)) to provide a context wrapper for components to share and consume the same data. Note that this logic is directly modeled from the example set in [next.js/examples/with-context-api](https://github.com/vercel/next.js/tree/canary/examples/with-context-api).
+- Following what is achieved by `HistoryProvider`'s exported context wrapper hooks `useHistory` and `useDispatchHstory` -- which are utilized across higher-order components, shared components and helper functions in `helpers/*` to radically manipulate the DOM -- the same logic is repurposed to ride multiple hooks along a custom wrapper with MUI's ThemeProvider the ([see ThemeProvider](https://github.com/israelias/synonym-chaser/blob/master/src/context/theme.context.js)). In this case, setting the the view value, allows any component to change the page from anywhere, to name a few. Note that the catch-all nature of this Context layout provider.
     <details><summary> All layout states in a Context Theme </summary>
     <br>
 
@@ -479,8 +477,8 @@ Display is now a dummy component as [react-intersection-observer](https://github
 
     <br>
     </details>
-1. Using MW-Thesaurus is free for non-commercial and/or educational purposes. Featured brand logos in the info tab is to follow branding guidelines requested by but not limited to Merriam-Webster's Development center.
-1. The registered Thesaurus API key linked to this project is currently public. Following [this discussion](https://github.com/vercel/next.js/discussions/12531), the effort to protect API calls on the client side is aimless as the private key will always be exposed. Further configuration to have an internal endpoint in `/pages/api` should be considered following [Nextjs API routes](https://nextjs.org/docs/api-routes/introduction). Note that the key has been exposed from `.env.local` for the reasons above and for the educational purposes of the project.
+- Using MW-Thesaurus is free for non-commercial and/or educational purposes. Featured brand logos in the info tab is to follow branding guidelines requested by but not limited to Merriam-Webster's Development center.
+- The registered Thesaurus API key linked to this project is currently public. Following [this discussion](https://github.com/vercel/next.js/discussions/12531), the effort to protect API calls on the client side is aimless as the private key will always be exposed. Further configuration to have an internal endpoint in `/pages/api` should be considered following [Nextjs API routes](https://nextjs.org/docs/api-routes/introduction). Note that the key has been exposed from `.env.local` for the reasons above and for the educational purposes of the project.
 
     <details><summary> mwThesaurusService.js </summary>
     <br>
