@@ -4,11 +4,7 @@ import React, {
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import grey from '@material-ui/core/colors/grey';
-import yellow from '@material-ui/core/colors/yellow';
-import red from '@material-ui/core/colors/red';
 import lightblue from '@material-ui/core/colors/lightBlue';
-import deeporange from '@material-ui/core/colors/deepOrange';
-import cyan from '@material-ui/core/colors/cyan';
 
 export const ThemeDispatchContext = createContext();
 export const ThemeStateContext = createContext();
@@ -111,11 +107,9 @@ const lightTheme = createMuiTheme({
     type: 'light',
     primary: {
       main: '#ff3200',
-      // main: '#39AB10'
     },
     secondary: {
       main: grey[900],
-      // main: '#006d9f'
     },
   },
   ...commonSettings,
@@ -126,15 +120,12 @@ const darkTheme = createMuiTheme({
     type: 'dark',
     primary: {
       main: lightblue[500],
-      // main: yellow[600]
-      // main: '#004990'
     },
     secondary: {
       main: '#fafafa',
     },
     background: {
       default: '#151515',
-      // default: '#000'
     },
   },
   ...commonSettings,
@@ -167,16 +158,15 @@ export const ThemeContextProvider = ({ children }) => {
         setRoot,
       }}
     >
-      <ThemeStateContext.Provider
-        value={{ commonSettings }}
+      <ThemeProvider
+        theme={
+          darkMode
+            ? darkTheme
+            : lightTheme
+        }
       >
-        <ThemeProvider theme={darkMode
-          ? darkTheme
-          : lightTheme}
-        >
-          {children}
-        </ThemeProvider>
-      </ThemeStateContext.Provider>
+        {children}
+      </ThemeProvider>
     </ThemeDispatchContext.Provider>
   );
 };
