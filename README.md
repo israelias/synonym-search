@@ -535,8 +535,35 @@ ___
     <br>
     </details>
 
+10: Using MW-Thesaurus is free for non-commercial and/or educational purposes. Featured brand logos in the info tab is to follow branding guidelines requested by but not limited to Merriam-Webster's Development center.
+1.  For the educational purposes of the project, the API key is currently public. Further configuration to have an internal endpoint in `/pages/api` should be considered. See [this discussion](https://github.com/vercel/next.js/discussions/12531) and [Nextjs API routes](https://nextjs.org/docs/api-routes/introduction).
 
->*Note: All descriptions of atypical methods can be found within comment blocks that follow jsDoc standards.*
+<details><summary> Current implementation </summary>
+<br>
+
+```  jsx
+
+    const axiosConfig = { baseURL: 'https://dictionaryapi.com/api/v3/references/', }; 
+    
+    function searchThesaurus(searchText, selection) { 
+        const query = selection || searchText; 
+      
+        // Key is processed from ignored env.local
+        // use this method if API endpoint is set up in /pages/api/*
+        const key = process.env.MW_THESAURUS_KEY;
+    
+      return axiosGetCancellable(
+        `/thesaurus/json/${query}?key=${key}`,
+        axiosConfig,
+      );
+    }
+
+```
+
+<br>
+</details>
+
+> *Note: All descriptions of atypical methods can be found within comment blocks that follow jsDoc standards.*
 
 ### Code Testing
 ___
@@ -548,7 +575,7 @@ ___
   - [Vercel Testing](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Fisraelias.github.io%2Fresume-redux%2Findex.html)
   - [Vercel Plugin](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](http://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fisraelias.github.io%2Fresume-redux%2Fassets%2Fcss%2Fstyle.css&profile=css3svg&usermedium=all&warning=1&vextwarning=)
 
-> Note: 1) Several parse errors are flagged around vendor prefixes. [AutoPrefixer](https://autoprefixer.github.io/)'s web version was used to manually add vendor prefixes without the PostCSS plugin.  
+> Note: 1) Several parse errors are flagged around vendor prefixes. [AutoPrefixer](https://autoprefixer.github.io/)'s web version was used to manually add vendor prefixes without the PostCSS plugin.
 > 2\) W3C is [widely known](https://stackoverflow.com/questions/57661659/w3c-css-validation-parse-error-on-variables) to attach a parse error to every custom property/custom variable.
 
 ### Accessibility Testing
