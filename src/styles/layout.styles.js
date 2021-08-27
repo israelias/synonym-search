@@ -170,13 +170,12 @@ export const useStyles = makeStyles((theme) => ({
     position: 'fixed',
     top: theme.spacing(1.5),
     right: theme.spacing(15),
-    '& > *': {
-    },
+    '& > *': {},
   },
   input: {
     zIndex: 1500,
   },
   top: {
-    paddingTop: theme.spacing(.5),
-  }
+    paddingTop: theme.spacing(0.5),
+  },
 }));

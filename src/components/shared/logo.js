@@ -8,9 +8,7 @@ import PropTypes from 'prop-types';
 import { useStyles } from '../../styles/layout.styles';
 import { useDispatchTheme } from '../../context/theme.context';
 
-const Logo = ({
-  url, name, path, darkImage,
-}) => {
+const Logo = ({ url, name, path, darkImage }) => {
   const darkSrc = darkImage || path;
   const viewDispatch = useDispatchTheme();
   const classes = useStyles();
@@ -23,22 +21,14 @@ const Logo = ({
       size="small"
       target="_blank"
       rel="noreferrer"
-      className={
-        clsx(
-          matches && classes.large,
-        )
-      }
+      className={clsx(matches && classes.large)}
     >
       <Image
         alt={name}
         width={matches ? 50 : 24}
         height={matches ? 50 : 2}
         fill
-        src={
-          viewDispatch.darkMode
-            ? darkSrc
-            : path
-        }
+        src={viewDispatch.darkMode ? darkSrc : path}
       />
     </Fab>
   );

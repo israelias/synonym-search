@@ -20,24 +20,14 @@ const Clear = ({ speed }) => {
   return (
     <div className={clsx(classes.input, !speed && classes.top)}>
       <Fab
-        variant={
-          speed
-            ? 'round'
-            : 'extended'
-        }
+        variant={speed ? 'round' : 'extended'}
         size="small"
         color="primary"
         aria-label="clear"
         onClick={handleClick}
       >
         <DeleteSweepIcon />
-        {
-          speed
-            ? ''
-            : !matches
-              ? 'Clear'
-              : ''
-        }
+        {speed ? '' : !matches ? 'Clear' : ''}
       </Fab>
     </div>
   );

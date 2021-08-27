@@ -12,19 +12,24 @@ export default function MyApp(props) {
 
   const siteURL = 'https://synonym-chaser-845fgehna.vercel.app/';
 
-  const title = 'SynonymSEARCH with Merriam-Webster\'s Thesaurus: How to retain all queried words during a thesaurus search session.';
+  const title =
+    "SynonymSEARCH with Merriam-Webster's Thesaurus: How to retain all queried words during a thesaurus search session.";
 
   const shortTitle = 'Synonym/Search: An Interactive Thesaurus App';
 
-  const ogSiteName = 'SynonymSEARCH: Developed with Merriam-Webster\'s Collegiate Thesaurus';
+  const ogSiteName =
+    "SynonymSEARCH: Developed with Merriam-Webster's Collegiate Thesaurus";
 
-  const ogTitle = 'How to retain all queried words during a thesaurus search session.';
+  const ogTitle =
+    'How to retain all queried words during a thesaurus search session.';
 
-  const description = 'SynonymSEARCH with Merriam-Webster\'s Thesaurus: How to retain all queried words during a thesaurus search session.\n'
-      + 'Sustain meaning by having a persistent overview of your search impulses with this reliable and interactive Thesaurus.\n'
-      + 'Our progressive iteration of Merriam-Webster\'s Collegiate Thesaurus is built by developers at Code Institute. ';
+  const description =
+    "SynonymSEARCH with Merriam-Webster's Thesaurus: How to retain all queried words during a thesaurus search session.\n" +
+    'Sustain meaning by having a persistent overview of your search impulses with this reliable and interactive Thesaurus.\n' +
+    "Our progressive iteration of Merriam-Webster's Collegiate Thesaurus is built by developers at Code Institute. ";
 
-  const ogImage = 'https://raw.githubusercontent.com/israelias/synonym-chaser/master/public/images/og-image-synsearch-app.png';
+  const ogImage =
+    'https://raw.githubusercontent.com/israelias/synonym-chaser/master/public/images/og-image-synsearch-app.png';
 
   useEffect(() => {
     // Remove the server-side injected CSS.
@@ -40,11 +45,14 @@ export default function MyApp(props) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js').then(
           (registration) => {
-            console.log('Service Worker registration successful with scope: ', registration.scope);
+            console.log(
+              'Service Worker registration successful with scope: ',
+              registration.scope
+            );
           },
           (err) => {
             console.log('Service Worker registration failed: ', err);
-          },
+          }
         );
       });
     }
@@ -76,26 +84,15 @@ export default function MyApp(props) {
           sizes="16x16"
           href="/favicon-Light-16x16.png"
         />
-        <link
-          rel="manifest"
-          href="/site.webmanifest"
-        />
+        <link rel="manifest" href="/site.webmanifest" />
         <link
           rel="mask-icon"
           href="/safari-pinned-tab.svg"
           color="#fafafa"
         />
-        <meta
-          name="msapplication-TileColor"
-          content="#00a300"
-        />
-        <meta
-          name="theme-color"
-          content="#fafafa"
-        />
-        <meta
-          charSet="utf-8"
-        />
+        <meta name="msapplication-TileColor" content="#00a300" />
+        <meta name="theme-color" content="#fafafa" />
+        <meta charSet="utf-8" />
         {/* https://megatags.co/#generate-tags */}
         <title>{title}</title>
         {/* Search Engine */}

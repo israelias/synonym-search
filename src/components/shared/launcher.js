@@ -96,14 +96,8 @@ const Launcher = () => {
 
   return (
     <>
-      <Backdrop
-        className={classes.backdrop}
-        open={open}
-      />
-      <Grow
-        in={showOpen}
-        unmountOnExit
-      >
+      <Backdrop className={classes.backdrop} open={open} />
+      <Grow in={showOpen} unmountOnExit>
         <Box p={2} className={classes.launch}>
           <Skeleton
             className={classes.skeleton}
@@ -142,7 +136,6 @@ const Launcher = () => {
         </Box>
       </Grow>
     </>
-
   );
 };
 

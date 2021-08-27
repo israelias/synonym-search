@@ -42,45 +42,29 @@ import { ReplaceSubStringNode } from '../../helpers/string.helper';
  *   <Display sampleString={sampleString} optionWord={optionWord} />
  * )
  */
-const Display = ({
-  sampleString,
-  optionWord,
-}) => {
+const Display = ({ sampleString, optionWord }) => {
   const classes = useStyles();
   const subString = ReplaceSubStringNode(sampleString);
 
   return (
     <div className={classes.display}>
-      <FormatQuoteIcon
-        className={classes.iconLeft}
-      />
-      <span>
-        {subString[0]}
-      </span>
-      <span
-        className={classes.active}
-      >
-        {optionWord}
-      </span>
-      <span>
-        {subString[1]}
-        .
-      </span>
-      <FormatQuoteIcon
-        className={classes.iconRight}
-      />
+      <FormatQuoteIcon className={classes.iconLeft} />
+      <span>{subString[0]}</span>
+      <span className={classes.active}>{optionWord}</span>
+      <span>{subString[1]}.</span>
+      <FormatQuoteIcon className={classes.iconRight} />
     </div>
   );
 };
 
 Display.propTypes = {
   /**
-     * An example sentence featuring a Word.
-     */
+   * An example sentence featuring a Word.
+   */
   sampleString: PropTypes.string.isRequired,
   /**
-     * On of the synonymous terms interchangeable with the Word.
-     */
+   * On of the synonymous terms interchangeable with the Word.
+   */
   optionWord: PropTypes.string.isRequired,
 };
 

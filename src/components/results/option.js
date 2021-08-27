@@ -42,9 +42,7 @@ const Option = ({
           threshold={0.2}
           trackVisibility
           delay={100}
-          onChange={
-            (inView, entry) => onScrollTrigger(option.wd)
-          }
+          onChange={(inView, entry) => onScrollTrigger(option.wd)}
         >
           <ListItem
             button
@@ -64,10 +62,7 @@ const Option = ({
               onChange(option.wd);
             }}
           >
-
-            <ListItemText
-              primary={option.wd}
-            />
+            <ListItemText primary={option.wd} />
 
             <SameWordShowTotal
               term={option.wd}
@@ -75,10 +70,8 @@ const Option = ({
               definition={sense}
               loading={loading}
             />
-
           </ListItem>
         </InView>
-
       ))}
     </>
   );
@@ -88,7 +81,7 @@ Option.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
       wd: PropTypes.string,
-    }),
+    })
   ),
   definition: PropTypes.string,
   root: PropTypes.string.isRequired,

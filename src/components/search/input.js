@@ -30,11 +30,7 @@ const Input = ({
 }) => (
   <>
     {!active && <SearchIcon />}
-    <Grow
-      in={active}
-      mountOnEnter
-      unmountOnExit
-    >
+    <Grow in={active} mountOnEnter unmountOnExit>
       <InputBase
         id="search-input"
         color="secondary"
@@ -54,20 +50,21 @@ const Input = ({
             event.preventDefault();
           }
         }}
-        startAdornment={(
+        startAdornment={
           <InputAdornment position="start">
-            {loading
-              ? <HelpOutlineOutlinedIcon />
-              : !meta
-                ? <ErrorOutlineOutlinedIcon />
-                : meta && match
-                  ? <CheckCircleOutlinedIcon />
-                  : <SearchIcon />}
+            {loading ? (
+              <HelpOutlineOutlinedIcon />
+            ) : !meta ? (
+              <ErrorOutlineOutlinedIcon />
+            ) : meta && match ? (
+              <CheckCircleOutlinedIcon />
+            ) : (
+              <SearchIcon />
+            )}
           </InputAdornment>
-        )}
+        }
       />
     </Grow>
-
   </>
 );
 

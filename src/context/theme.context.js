@@ -1,7 +1,13 @@
 import React, {
-  createContext, useState, useContext, useMemo,
+  createContext,
+  useState,
+  useContext,
+  useMemo,
 } from 'react';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import {
+  createMuiTheme,
+  ThemeProvider,
+} from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import grey from '@material-ui/core/colors/grey';
 import lightblue from '@material-ui/core/colors/lightBlue';
@@ -136,13 +142,13 @@ export const ThemeContextProvider = ({ children }) => {
   const [value, setValue] = useState('launch');
   const [meta, setMeta] = useState(true);
   const [root, setRoot] = useState('');
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  const prefersDarkMode = useMediaQuery(
+    '(prefers-color-scheme: dark)'
+  );
 
   useMemo(
-    () => (prefersDarkMode
-      ? setDarkMode(true)
-      : setDarkMode(false)),
-    [prefersDarkMode],
+    () => (prefersDarkMode ? setDarkMode(true) : setDarkMode(false)),
+    [prefersDarkMode]
   );
 
   return (
@@ -158,18 +164,13 @@ export const ThemeContextProvider = ({ children }) => {
         setRoot,
       }}
     >
-      <ThemeProvider
-        theme={
-          darkMode
-            ? darkTheme
-            : lightTheme
-        }
-      >
+      <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
         {children}
       </ThemeProvider>
     </ThemeDispatchContext.Provider>
   );
 };
 
-export const useDispatchTheme = () => useContext(ThemeDispatchContext);
+export const useDispatchTheme = () =>
+  useContext(ThemeDispatchContext);
 export const useThemeState = () => useContext(ThemeStateContext);

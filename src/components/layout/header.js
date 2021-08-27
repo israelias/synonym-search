@@ -9,14 +9,8 @@ const Header = ({ children }) => {
   const classes = useStyles();
   const trigger = useScrollTrigger();
   return (
-    <Slide
-      appear
-      direction="down"
-      in={!trigger}
-    >
-      <header
-        className={classes.header}
-      >
+    <Slide appear direction="down" in={!trigger}>
+      <header className={classes.header}>
         {children}
 
         <Toolbar />

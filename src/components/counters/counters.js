@@ -6,7 +6,11 @@ import Chip from '@material-ui/core/Chip';
 import Avatar from '@material-ui/core/Avatar';
 import PropTypes from 'prop-types';
 import { useHistory } from '../../context/words.context';
-import { getSameSenseTotal, getSameHeadTotal, getSameWordTotal } from '../../helpers/counters.helper';
+import {
+  getSameSenseTotal,
+  getSameHeadTotal,
+  getSameWordTotal,
+} from '../../helpers/counters.helper';
 
 const StyledChip = withStyles((theme) => ({
   root: {
@@ -29,34 +33,30 @@ export const SameWordShowTotal = ({
 }) => {
   const wordsHistory = useHistory();
 
-  const sameWordTotal = getSameWordTotal(wordsHistory, term, definition, label);
+  const sameWordTotal = getSameWordTotal(
+    wordsHistory,
+    term,
+    definition,
+    label
+  );
 
   const showTotal = sameWordTotal > 0;
 
   return (
-    showTotal
-        && (
-          <Zoom in={!loading}>
-            <Tooltip
-              title={
-                `${term} as in ${definition} has been searched and saved ${sameWordTotal} times.`
-              }
-            >
-              <StyledChip
-                variant="outlined"
-                color="default"
-                size="small"
-                avatar={(
-                  <Avatar>
-                    {
-                      sameWordTotal
-                    }
-                  </Avatar>
-                )}
-              />
-            </Tooltip>
-          </Zoom>
-        )
+    showTotal && (
+      <Zoom in={!loading}>
+        <Tooltip
+          title={`${term} as in ${definition} has been searched and saved ${sameWordTotal} times.`}
+        >
+          <StyledChip
+            variant="outlined"
+            color="default"
+            size="small"
+            avatar={<Avatar>{sameWordTotal}</Avatar>}
+          />
+        </Tooltip>
+      </Zoom>
+    )
   );
 };
 
@@ -67,11 +67,7 @@ SameWordShowTotal.propTypes = {
   loading: PropTypes.bool.isRequired,
 };
 
-export const SameSenseShowTotal = ({
-  loading,
-  sense,
-  label,
-}) => {
+export const SameSenseShowTotal = ({ loading, sense, label }) => {
   const wordsHistory = useHistory();
 
   const senseTotal = getSameSenseTotal(wordsHistory, sense, label);
@@ -79,29 +75,20 @@ export const SameSenseShowTotal = ({
   const showTotal = senseTotal > 0;
 
   return (
-    showTotal
-        && (
-          <Zoom in={!loading}>
-            <Tooltip
-              title={
-                `I've saved ${senseTotal} words sharing the definition: ${sense}.`
-              }
-            >
-              <StyledChip
-                variant="outlined"
-                color="secondary"
-                size="small"
-                avatar={(
-                  <Avatar>
-                    {
-                      senseTotal
-                    }
-                  </Avatar>
-                )}
-              />
-            </Tooltip>
-          </Zoom>
-        )
+    showTotal && (
+      <Zoom in={!loading}>
+        <Tooltip
+          title={`I've saved ${senseTotal} words sharing the definition: ${sense}.`}
+        >
+          <StyledChip
+            variant="outlined"
+            color="secondary"
+            size="small"
+            avatar={<Avatar>{senseTotal}</Avatar>}
+          />
+        </Tooltip>
+      </Zoom>
+    )
   );
 };
 
@@ -111,12 +98,7 @@ SameSenseShowTotal.propTypes = {
   loading: PropTypes.bool,
 };
 
-export const SameHeadShowTotal = ({
-  loading,
-  root,
-  label,
-  uuid,
-}) => {
+export const SameHeadShowTotal = ({ loading, root, label, uuid }) => {
   const wordsHistory = useHistory();
 
   const headTotal = getSameHeadTotal(wordsHistory, root, uuid);
@@ -124,29 +106,20 @@ export const SameHeadShowTotal = ({
   const showTotal = headTotal > 0;
 
   return (
-    showTotal
-        && (
-          <Zoom in={!loading}>
-            <Tooltip
-              title={
-                `${root} as a ${label} has appeared ${headTotal} times.`
-              }
-            >
-              <StyledChip
-                variant="outlined"
-                color="primary"
-                size="small"
-                avatar={(
-                  <Avatar>
-                    {
-                      headTotal
-                    }
-                  </Avatar>
-                )}
-              />
-            </Tooltip>
-          </Zoom>
-        )
+    showTotal && (
+      <Zoom in={!loading}>
+        <Tooltip
+          title={`${root} as a ${label} has appeared ${headTotal} times.`}
+        >
+          <StyledChip
+            variant="outlined"
+            color="primary"
+            size="small"
+            avatar={<Avatar>{headTotal}</Avatar>}
+          />
+        </Tooltip>
+      </Zoom>
+    )
   );
 };
 

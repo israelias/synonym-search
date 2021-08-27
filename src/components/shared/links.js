@@ -12,11 +12,7 @@ export const MaterialUI = (
 );
 
 export const NextJS = (
-  <Link
-    href="https://nextjs.org/"
-    target="_blank"
-    rel="noreferrer"
-  >
+  <Link href="https://nextjs.org/" target="_blank" rel="noreferrer">
     Next.js
   </Link>
 );
