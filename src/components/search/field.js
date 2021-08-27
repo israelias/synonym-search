@@ -46,7 +46,9 @@ const Field = ({
 
   const onKeyPress = () => setActive(false);
 
-  const match = textInput.current ? textInput.current.value === root : false;
+  const match = textInput.current
+    ? textInput.current.value === root
+    : false;
 
   active && trigger ? setActive(false) : null;
 
@@ -59,30 +61,28 @@ const Field = ({
   }, []);
 
   return (
-    <ClickAwayListener
-      onClickAway={handleClickAway}
-    >
+    <ClickAwayListener onClickAway={handleClickAway}>
       <>
-        <Backdrop
-          open={active}
-          onClick={handleBackDrop}
-        />
+        <Backdrop open={active} onClick={handleBackDrop} />
         <Fab
           size="small"
           color="primary"
           aria-label="search"
           onClick={handleSearchButton}
           variant={active ? 'extended' : 'round'}
-          style={active ? {
-            backgroundColor:
-              loading
-                ? theme.palette.warning.main
-                : !meta
-                  ? theme.palette.error.main
-                  : meta && match
+          style={
+            active
+              ? {
+                  backgroundColor: loading
+                    ? theme.palette.warning.main
+                    : !meta
+                    ? theme.palette.error.main
+                    : meta && match
                     ? theme.palette.success.main
                     : theme.palette.primary.main,
-          } : null}
+                }
+              : null
+          }
         >
           <Input
             label={label}

@@ -1,0 +1,7 @@
+build/*
+out/*
+node_modules/
+src/serviceWorker.js
+public/*
+docs/*
+src/test/*

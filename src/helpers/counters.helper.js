@@ -35,7 +35,10 @@
  * @return  {boolean}              true if the new word/term is the same as the saved word object.
  */
 
-const isSameWord = (word, term, definition, label) => label === word.label && definition === word.sense && term === word.name;
+const isSameWord = (word, term, definition, label) =>
+  label === word.label &&
+  definition === word.sense &&
+  term === word.name;
 
 /**
  * Checks if a sense definition already exists in our saved context history.
@@ -46,7 +49,8 @@ const isSameWord = (word, term, definition, label) => label === word.label && de
  * @return  {boolean}              true if the sense definition is the same as the word object's sense definition..
  */
 
-const isSameSense = (word, sense, label) => sense === word.sense && label === word.label;
+const isSameSense = (word, sense, label) =>
+  sense === word.sense && label === word.label;
 
 /**
  * Checks if a headword already exists in our saved context history.
@@ -57,7 +61,8 @@ const isSameSense = (word, sense, label) => sense === word.sense && label === wo
  * @return  {boolean}              true if the current root/headword is the same as a saved word object.
  */
 
-const isSameHead = (word, root, uuid) => root === word.root && uuid === word.uuid;
+const isSameHead = (word, root, uuid) =>
+  root === word.root && uuid === word.uuid;
 
 /**
  * Returns the sum of the value property of word objects in an array.
@@ -66,7 +71,8 @@ const isSameHead = (word, root, uuid) => root === word.root && uuid === word.uui
  * @return  {object}              true if the current root/headword is the same as a saved word object.
  */
 
-const getTotal = (element) => element.reduce((prev, cur) => prev + cur.value, 0);
+const getTotal = (element) =>
+  element.reduce((prev, cur) => prev + cur.value, 0);
 
 /**
  * Returns the sum of the value property of word objects in an array.
@@ -78,9 +84,12 @@ const getTotal = (element) => element.reduce((prev, cur) => prev + cur.value, 0)
  * @return  {number}              The total number of times the Word has been queried.
  */
 
-export const getSameWordTotal = (element, term, definition, label) => getTotal(
-  element.filter((item) => isSameWord(item, term, definition, label)),
-);
+export const getSameWordTotal = (element, term, definition, label) =>
+  getTotal(
+    element.filter((item) =>
+      isSameWord(item, term, definition, label)
+    )
+  );
 
 /**
  * Returns the sum of the value property of word objects in an array.
@@ -91,9 +100,8 @@ export const getSameWordTotal = (element, term, definition, label) => getTotal(
  * @return  {number}              The total number of times the Word has been queried.
  */
 
-export const getSameHeadTotal = (element, root, uuid) => getTotal(
-  element.filter((item) => isSameHead(item, root, uuid)),
-);
+export const getSameHeadTotal = (element, root, uuid) =>
+  getTotal(element.filter((item) => isSameHead(item, root, uuid)));
 
 /**
  * Returns the length of the array of Word objects sharing the same sense definition.
@@ -104,7 +112,8 @@ export const getSameHeadTotal = (element, root, uuid) => getTotal(
  * @return  {number}              The total number of words with the same sense definition.
  */
 
-export const getSameSenseTotal = (element, sense, label) => element.filter((item) => isSameSense(item, sense, label)).length;
+export const getSameSenseTotal = (element, sense, label) =>
+  element.filter((item) => isSameSense(item, sense, label)).length;
 
 /**
  * Returns arrays of objects grouped by shared sense definition(s).
@@ -113,13 +122,10 @@ export const getSameSenseTotal = (element, sense, label) => element.filter((item
  * @return  {[array]}              An array of object arrays grouped by shared sense definitions.
  */
 
-export const groupBySense = (element) => Object.entries(
-  element.reduce((result, words) => {
-    result[words.sense] = [
-      ...result[words.sense]
-                || [],
-      words,
-    ];
-    return result;
-  }, {}),
-);
+export const groupBySense = (element) =>
+  Object.entries(
+    element.reduce((result, words) => {
+      result[words.sense] = [...(result[words.sense] || []), words];
+      return result;
+    }, {})
+  );

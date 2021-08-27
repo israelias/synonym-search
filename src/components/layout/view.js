@@ -10,11 +10,7 @@ import HomeButton from '../actions/home.button';
 import SavesButton from '../actions/saves.button';
 import InfoButton from '../actions/info.button';
 
-const View = ({
-  searchText,
-  onSearchTextChange,
-  loading,
-}) => {
+const View = ({ searchText, onSearchTextChange, loading }) => {
   const classes = useStyles();
   const viewDispatch = useDispatchTheme();
   const { value } = viewDispatch;
@@ -32,76 +28,50 @@ const View = ({
       >
         Synonym
       </Typography>
-      {
-        home
-        && (
-          <Typography
-            className={classes.subTitle}
-            component="h2"
-            variant="h5"
-            noWrap
-          >
-            /Search
-          </Typography>
-        )
-      }
-      {
-        saves
-        && (
-          <Typography
-            className={classes.subTitle}
-            component="h2"
-            variant="h5"
-            noWrap
-          >
-            /Saves
-          </Typography>
-        )
-      }
-      {
-        info
-        && (
-          <Typography
-            className={classes.subTitle}
-            component="h2"
-            variant="h5"
-            noWrap
-          >
-            /Story
-          </Typography>
-        )
-      }
-      <ButtonGroup
-        component="nav"
-        className={classes.inputGroup}
-      >
-        {
-          home
-            && (
-              <Search
-                loading={loading}
-                searchText={searchText}
-                onSearchTextChange={onSearchTextChange}
-              />
-            )
-        }
-        {
-          saves && <Clear />
-        }
+      {home && (
+        <Typography
+          className={classes.subTitle}
+          component="h2"
+          variant="h5"
+          noWrap
+        >
+          /Search
+        </Typography>
+      )}
+      {saves && (
+        <Typography
+          className={classes.subTitle}
+          component="h2"
+          variant="h5"
+          noWrap
+        >
+          /Saves
+        </Typography>
+      )}
+      {info && (
+        <Typography
+          className={classes.subTitle}
+          component="h2"
+          variant="h5"
+          noWrap
+        >
+          /Story
+        </Typography>
+      )}
+      <ButtonGroup component="nav" className={classes.inputGroup}>
+        {home && (
+          <Search
+            loading={loading}
+            searchText={searchText}
+            onSearchTextChange={onSearchTextChange}
+          />
+        )}
+        {saves && <Clear />}
       </ButtonGroup>
-      <ButtonGroup
-        component="nav"
-        className={classes.navGroup}
-      >
-        {
-          !info && <InfoButton />
-        }
-        {
-          !home && <HomeButton />
-        }
-        {
-          !saves && <SavesButton />
-        }
+      <ButtonGroup component="nav" className={classes.navGroup}>
+        {!info && <InfoButton />}
+        {!home && <HomeButton />}
+        {!saves && <SavesButton />}
       </ButtonGroup>
     </>
   );

@@ -32,16 +32,11 @@ const SavesTab = () => {
         variant="standard"
         badgeContent={wordsHistory.length}
       >
-
         <Avatar
-          className={
-            clsx(
-              classes.fill,
-              wordsHistory.length > 0
-                ? classes.history
-                : null,
-            )
-          }
+          className={clsx(
+            classes.fill,
+            wordsHistory.length > 0 ? classes.history : null
+          )}
           component={QueryBuilderIcon}
         />
       </Badge>

@@ -59,9 +59,7 @@ const Speed = ({
           open={open}
           direction={direction}
         >
-          <Grow
-            in={open}
-          >
+          <Grow in={open}>
             <div className={classes.speedDial}>
               <Tooltip
                 interactive
@@ -76,11 +74,7 @@ const Speed = ({
               </Tooltip>
             </div>
           </Grow>
-          <Grow
-            in={open}
-            mountOnEnter
-            unmountOnExit
-          >
+          <Grow in={open} mountOnEnter unmountOnExit>
             <div
               className={classes.speedDial}
               onClick={(e) => {
@@ -105,9 +99,7 @@ const Speed = ({
               </Tooltip>
             </div>
           </Grow>
-          <Grow
-            in={open}
-          >
+          <Grow in={open}>
             <div className={classes.speedDial}>
               <Tooltip
                 interactive

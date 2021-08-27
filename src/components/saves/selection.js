@@ -18,19 +18,14 @@ import { useDispatchHistory } from '../../context/words.context';
  * @file   defines Selection
  */
 
-const Selection = ({
-  selections,
-}) => {
+const Selection = ({ selections }) => {
   const wordsDispatch = useDispatchHistory();
   const matches = useMediaQuery('(min-width:600px)');
 
   return (
     <>
       {selections.map((selection) => (
-        <ListItem
-          component="li"
-          key={`selection-${selection.name}`}
-        >
+        <ListItem component="li" key={`selection-${selection.name}`}>
           <Chip
             color="default"
             variant={matches ? 'outlined' : 'default'}
@@ -42,13 +37,11 @@ const Selection = ({
                 id: selection.id,
               });
             }}
-            avatar={(
+            avatar={
               <Avatar>
-                {
-                  selection.value > 0 && selection.value
-                }
+                {selection.value > 0 && selection.value}
               </Avatar>
-            )}
+            }
           />
         </ListItem>
       ))}
@@ -65,7 +58,7 @@ Selection.propTypes = {
       sense: PropTypes.string,
       uuid: PropTypes.string,
       root: PropTypes.string,
-    }).isRequired,
+    }).isRequired
   ).isRequired,
 };
 

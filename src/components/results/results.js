@@ -42,10 +42,7 @@ const Results = ({
   metaDispatch.setRoot(results[0].hwi.hw);
 
   return (
-
-    <Collapse
-      in={!loading}
-    >
+    <Collapse in={!loading}>
       <List
         component="ol"
         className={classes.root}
@@ -78,24 +75,22 @@ const Results = ({
 
 Results.propTypes = {
   /**
-     * General component description in JSDoc format. Markdown is *supported*.
-     */
+   * General component description in JSDoc format. Markdown is *supported*.
+   */
   results: PropTypes.arrayOf(
     PropTypes.shape({
       def: PropTypes.arrayOf(
         PropTypes.shape({
           sseq: PropTypes.array.isRequired,
-        }),
+        })
       ).isRequired,
       fl: PropTypes.string.isRequired,
       hwi: PropTypes.shape({
         hw: PropTypes.string.isRequired,
       }),
       meta: PropTypes.object.isRequired,
-      shortdef: PropTypes.arrayOf(
-        PropTypes.string,
-      ),
-    }),
+      shortdef: PropTypes.arrayOf(PropTypes.string),
+    })
   ).isRequired,
   loading: PropTypes.bool.isRequired,
   onSelectionChange: PropTypes.func.isRequired,

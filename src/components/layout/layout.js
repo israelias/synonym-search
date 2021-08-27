@@ -29,10 +29,7 @@ const Layout = ({
   return (
     <>
       <Head>
-        <meta
-          name="description"
-          content={description}
-        />
+        <meta name="description" content={description} />
         <meta name="og:title" content={searchText} />
       </Head>
       <Launcher />
@@ -71,8 +68,7 @@ const Layout = ({
           variant="subtitle2"
           noWrap
         >
-          /
-          {searchText}
+          /{searchText}
         </Typography>
       </Footer>
     </>

@@ -45,7 +45,6 @@ export const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up('sm')]: {
           alignSelf: 'flex-start',
         },
-
       },
     },
   },

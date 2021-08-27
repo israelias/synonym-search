@@ -18,9 +18,11 @@ export const HistoryProvider = ({ children }) => {
   const [savedWords, dispatch] = useReducer((state, action) => {
     switch (action.type) {
       case 'add':
-        const wordIndex = state.findIndex((word) => word.uuid === action.uuid
-                    || word.name === action.name
-                    && word.sense === action.sense);
+        const wordIndex = state.findIndex(
+          (word) =>
+            word.uuid === action.uuid ||
+            (word.name === action.name && word.sense === action.sense)
+        );
         if (wordIndex !== -1) {
           return state.map((word, i) => ({
             ...word,
@@ -59,4 +61,5 @@ export const HistoryProvider = ({ children }) => {
 };
 
 export const useHistory = () => useContext(HistoryStateContext);
-export const useDispatchHistory = () => useContext(HistoryDispatchContext);
+export const useDispatchHistory = () =>
+  useContext(HistoryDispatchContext);

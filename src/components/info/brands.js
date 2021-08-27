@@ -22,13 +22,10 @@ const Brands = ({ children }) => {
 
   return (
     <AvatarGroup
-      className={
-        clsx(
-          classes.avatarGroup, active
-            ? classes.active
-            : classes.inactive,
-        )
-      }
+      className={clsx(
+        classes.avatarGroup,
+        active ? classes.active : classes.inactive
+      )}
     >
       <Logo
         name="React"

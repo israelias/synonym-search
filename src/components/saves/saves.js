@@ -32,28 +32,21 @@ const Saves = () => {
   const selections = groupBySense(wordsState);
 
   return (
-    <List
-      component="ol"
-      id="saves-head"
-    >
+    <List component="ol" id="saves-head">
       {selections.map((selection, index) => (
         <li key={`saves-${index}`}>
           <div
             key={`saves-content-${index}`}
-            className={clsx(classes.subheader, classes.subheaderSense)}
+            className={clsx(
+              classes.subheader,
+              classes.subheaderSense
+            )}
           >
             <div
               className={clsx(classes.heading, classes.headingSense)}
             >
-              <Typography
-                variant="body2"
-                component="h3"
-              >
-                <ReplaceNodeTags
-                  string={
-                    selection[0]
-                  }
-                />
+              <Typography variant="body2" component="h3">
+                <ReplaceNodeTags string={selection[0]} />
               </Typography>
               <SameSenseShowTotal
                 sense={selection[0]}
@@ -62,9 +55,7 @@ const Saves = () => {
             </div>
           </div>
           <ul>
-            <Selection
-              selections={selection[1]}
-            />
+            <Selection selections={selection[1]} />
           </ul>
         </li>
       ))}

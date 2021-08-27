@@ -28,44 +28,61 @@
       "version": "detect"
     }
   },
-  "plugins": [
-    "react",
-    "react-hooks",
-    "jsx-a11y"
-  ],
+  "plugins": ["react", "react-hooks", "jsx-a11y"],
   "rules": {
-    "react/jsx-filename-extension": [
-      1,
+    "object-curly-spacing": ["warn", "always"],
+    "no-unused-vars": "off",
+    "no-shadow": "off",
+    "strict": [2, "never"],
+    "react/jsx-uses-react": 2,
+    "react/jsx-uses-vars": 2,
+    "no-nested-ternary": "off",
+    "react/no-array-index-key": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "react/jsx-key": "error",
+    "react/jsx-props-no-spreading": "off",
+    "import/prefer-default-export": "off",
+    "react/jsx-boolean-value": "off",
+    "react/prop-types": "off",
+    "react/no-unescaped-entities": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-wrap-multilines": "off",
+    "react/destructuring-assignment": "off",
+    "react/react-in-jsx-scope": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
       {
-        "extensions": [
-          ".js"
+        "devDependencies": [
+          "**/*.test.js",
+          "**/*.test.jsx",
+          "**/*.test.ts",
+          "**/*.test.tsx",
+          "src/tests/**/*"
         ]
       }
     ],
-    "no-tabs": [
+    "no-plusplus": [
       "error",
       {
-        "allowIndentationTabs": true
+        "allowForLoopAfterthoughts": true
       }
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".js", ".jsx", ".tsx", ".ts"] }
     ],
     "max-len": [
-      "error",
+      "warn",
       {
-        "code": 90,
-        "tabWidth": 2,
-        "ignoreUrls": true
-      }
-    ],
-    "indent": [
-      "error",
-      2,
-      {
-        "SwitchCase": 1
+        "code": 80,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreComments": true
       }
     ],
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "no-console": "off",
-    "react/prop-types": 1
-  }
+    "no-console": "off"
+  },
+  "jsx-a11y/click-events-have-key-events": "off",
+  "eslintjsx-a11y/no-static-element-interactions": "off"
 }

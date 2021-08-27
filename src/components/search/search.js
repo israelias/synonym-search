@@ -11,11 +11,7 @@ import { useStyles } from '../../styles/layout.styles';
  * @file   defines Search
  */
 
-const Search = ({
-  searchText,
-  onSearchTextChange,
-  loading,
-}) => {
+const Search = ({ searchText, onSearchTextChange, loading }) => {
   const classes = useStyles();
 
   return (

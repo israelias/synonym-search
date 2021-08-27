@@ -31,20 +31,10 @@ const Root = ({
         key={`head-content-${root}`}
         className={clsx(classes.subheader, classes.subheaderRoot)}
       >
-        <div
-          className={classes.heading}
-        >
-          <Typography
-            variant="h6"
-            component="h4"
-          >
-            {root}
-            ,
-            {' '}
-            <Typography
-              variant="h6"
-              component="em"
-            >
+        <div className={classes.heading}>
+          <Typography variant="h6" component="h4">
+            {root},{' '}
+            <Typography variant="h6" component="em">
               {label}
             </Typography>
           </Typography>
@@ -65,9 +55,7 @@ const Root = ({
           root={root}
           uuid={uuid}
           label={label}
-          onSelectionChange={
-            (value) => onSelectionChange(value)
-          }
+          onSelectionChange={(value) => onSelectionChange(value)}
         />
       ))}
     </article>
@@ -76,9 +64,7 @@ const Root = ({
 
 Root.propTypes = {
   senses: PropTypes.arrayOf(
-    PropTypes.arrayOf(
-      PropTypes.array.isRequired,
-    ),
+    PropTypes.arrayOf(PropTypes.array.isRequired)
   ),
   root: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,

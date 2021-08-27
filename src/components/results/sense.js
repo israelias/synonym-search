@@ -43,15 +43,8 @@ const Sense = ({
         id={sense[0][1].dt[0][1]}
       >
         <div className={clsx(classes.heading, classes.headingSense)}>
-          <Typography
-            variant="body2"
-            component="h5"
-          >
-            <ReplaceNodeTags
-              string={
-                sense[0][1].dt[0][1]
-              }
-            />
+          <Typography variant="body2" component="h5">
+            <ReplaceNodeTags string={sense[0][1].dt[0][1]} />
           </Typography>
           <SameSenseShowTotal
             loading={loading}
@@ -60,87 +53,76 @@ const Sense = ({
           />
         </div>
         {/* sense[0][1].dt[1][1][0].t */}
-        {sense[0][1].dt[1]
-          && (
-            <Display
-              key={`display-${sense[0][1].dt[1][1][0].t}`}
-              sampleString={sense[0][1].dt[1][1][0].t}
-              optionWord={optionWord}
-            />
-          )}
+        {sense[0][1].dt[1] && (
+          <Display
+            key={`display-${sense[0][1].dt[1][1][0].t}`}
+            sampleString={sense[0][1].dt[1][1][0].t}
+            optionWord={optionWord}
+          />
+        )}
       </div>
 
       <ul>
-        {sense[0][1].syn_list
-          && (
-            <Option
-              key={`synonyms-of-${root}`}
-              loading={loading}
-              options={sense[0][1].syn_list[0]}
-              definition="Synonyms"
-              root={root}
-              label={label}
-              uuid={uuid}
-              sense={sense[0][1].dt[0][1]}
-              onMouseOver={onMouseOver}
-              onChange={onChange}
-              onScrollTrigger={onScrollTrigger}
-            />
-          )}
-        {
-          sense[0][1].rel_list
-            && (
-              <Option
-                key={`related-words-to-${root}`}
-                loading={loading}
-                options={sense[0][1].rel_list[0]}
-                definition="Related Words"
-                root={root}
-                label={label}
-                uuid={uuid}
-                sense={sense[0][1].dt[0][1]}
-                onMouseOver={onMouseOver}
-                onChange={onChange}
-                onScrollTrigger={onScrollTrigger}
-              />
-            )
-        }
-        {
-          sense[0][1].phrase_list
-            && (
-              <Option
-                key={`synonymous-phrases-of-${root}`}
-                loading={loading}
-                options={sense[0][1].phrase_list[0]}
-                definition="Synonymous Phrases"
-                root={root}
-                label={label}
-                uuid={uuid}
-                sense={sense[0][1].dt[0][1]}
-                onMouseOver={onMouseOver}
-                onChange={onChange}
-                onScrollTrigger={onScrollTrigger}
-              />
-            )
-        }
-        {
-          sense[0][1].sim_list
-            && (
-              <Option
-                key={`similar-words-to-${root}`}
-                loading={loading}
-                options={[].concat(sense[0][1].sim_list).flat()}
-                definition="Similar Words"
-                root={root}
-                label={label}
-                uuid={uuid}
-                sense={sense[0][1].dt[0][1]}
-                onMouseOver={onMouseOver}
-                onChange={onChange}
-                onScrollTrigger={onScrollTrigger}
-              />
-            )
-        }
+        {sense[0][1].syn_list && (
+          <Option
+            key={`synonyms-of-${root}`}
+            loading={loading}
+            options={sense[0][1].syn_list[0]}
+            definition="Synonyms"
+            root={root}
+            label={label}
+            uuid={uuid}
+            sense={sense[0][1].dt[0][1]}
+            onMouseOver={onMouseOver}
+            onChange={onChange}
+            onScrollTrigger={onScrollTrigger}
+          />
+        )}
+        {sense[0][1].rel_list && (
+          <Option
+            key={`related-words-to-${root}`}
+            loading={loading}
+            options={sense[0][1].rel_list[0]}
+            definition="Related Words"
+            root={root}
+            label={label}
+            uuid={uuid}
+            sense={sense[0][1].dt[0][1]}
+            onMouseOver={onMouseOver}
+            onChange={onChange}
+            onScrollTrigger={onScrollTrigger}
+          />
+        )}
+        {sense[0][1].phrase_list && (
+          <Option
+            key={`synonymous-phrases-of-${root}`}
+            loading={loading}
+            options={sense[0][1].phrase_list[0]}
+            definition="Synonymous Phrases"
+            root={root}
+            label={label}
+            uuid={uuid}
+            sense={sense[0][1].dt[0][1]}
+            onMouseOver={onMouseOver}
+            onChange={onChange}
+            onScrollTrigger={onScrollTrigger}
+          />
+        )}
+        {sense[0][1].sim_list && (
+          <Option
+            key={`similar-words-to-${root}`}
+            loading={loading}
+            options={[].concat(sense[0][1].sim_list).flat()}
+            definition="Similar Words"
+            root={root}
+            label={label}
+            uuid={uuid}
+            sense={sense[0][1].dt[0][1]}
+            onMouseOver={onMouseOver}
+            onChange={onChange}
+            onScrollTrigger={onScrollTrigger}
+          />
+        )}
       </ul>
     </section>
   );
@@ -158,8 +140,8 @@ Sense.propTypes = {
           syn_list: PropTypes.array,
           sim_list: PropTypes.array,
         }),
-      ]),
-    ),
+      ])
+    )
   ),
   root: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
