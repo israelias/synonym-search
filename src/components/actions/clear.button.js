@@ -1,8 +1,8 @@
 import React from 'react';
-import Fab from '@material-ui/core/Fab';
+import Fab from '@mui/material/Fab';
 import clsx from 'clsx';
-import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { useDispatchHistory } from '../../context/words.context';
 import { useStyles } from '../../styles/layout.styles';
 

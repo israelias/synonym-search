@@ -1,6 +1,6 @@
 import React from 'react';
-import Fab from '@material-ui/core/Fab';
-import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import Fab from '@mui/material/Fab';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { useStyles } from '../../styles/layout.styles';
 import { a11yProps } from '../../helpers/views.helper';
 import { useDispatchTheme } from '../../context/theme.context';

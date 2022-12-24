@@ -1,8 +1,8 @@
 import React from 'react';
-import Fab from '@material-ui/core/Fab';
-import Badge from '@material-ui/core/Badge';
-import Avatar from '@material-ui/core/Avatar';
-import QueryBuilderIcon from '@material-ui/icons/QueryBuilder';
+import Fab from '@mui/material/Fab';
+import Badge from '@mui/material/Badge';
+import Avatar from '@mui/material/Avatar';
+import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
 import clsx from 'clsx';
 import { useStyles } from '../../styles/layout.styles';
 import { a11yProps } from '../../helpers/views.helper';
@@ -24,7 +24,7 @@ const SavesTab = () => {
     >
       <Badge
         color="primary"
-        overlap="circle"
+        overlap="circular"
         anchorOrigin={{
           vertical: 'top',
           horizontal: 'right',

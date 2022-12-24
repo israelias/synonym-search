@@ -1,9 +1,9 @@
 import React from 'react';
-import ListItem from '@material-ui/core/ListItem';
-import Avatar from '@material-ui/core/Avatar';
-import Chip from '@material-ui/core/Chip';
+import ListItem from '@mui/material/ListItem';
+import Avatar from '@mui/material/Avatar';
+import Chip from '@mui/material/Chip';
 import PropTypes from 'prop-types';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { useDispatchHistory } from '../../context/words.context';
 
 /**

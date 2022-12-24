@@ -1,11 +1,13 @@
 import React from 'react';
 import Document, {
-  Html,
   Head,
+  Html,
   Main,
   NextScript,
 } from 'next/document';
-import { ServerStyleSheets } from '@material-ui/core/styles';
+import { ServerStyleSheets } from '@mui/styles';
+import createEmotionServer from '@emotion/server/create-instance';
+import createEmotionCache from '../helpers/theme.helper';
 
 export default class MyDocument extends Document {
   render() {
@@ -13,9 +15,9 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* PWA primary color */}
-          <meta name="theme-color" content={'#fafafa'} />
+          <meta name="theme-color" content="#fafafa" />
 
-          {/*Global site tag (gtag.js) - Google Analytics*/}
+          {/* Global site tag (gtag.js) - Google Analytics */}
 
           <script
             async
@@ -71,21 +73,43 @@ MyDocument.getInitialProps = async (ctx) => {
   const sheets = new ServerStyleSheets();
   const originalRenderPage = ctx.renderPage;
 
+  // You can consider sharing the same emotion cache between all the SSR requests to speed up performance.
+  // However, be aware that it can have global side effects.
+  const cache = createEmotionCache();
+  const { extractCriticalToChunks } = createEmotionServer(cache);
+
+  /* eslint-disable */
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App) => (props) =>
-        sheets.collect(<App {...props} />),
+      enhanceApp: (App) =>
+        function EnhanceApp(props) {
+          return sheets.collect(
+            <App emotionCache={cache} {...props} />
+          );
+          // return <App emotionCache={cache} {...props} />;
+        },
     });
+  /* eslint-enable */
 
   const initialProps = await Document.getInitialProps(ctx);
-
-  // @ THIS WAS PRODUCING A BUILD ERROR
+  // This is important. It prevents emotion to render invalid HTML.
+  // See https://github.com/mui-org/material-ui/issues/26561#issuecomment-855286153
+  const emotionStyles = extractCriticalToChunks(initialProps.html);
+  const emotionStyleTags = emotionStyles.styles.map((style) => (
+    <style
+      data-emotion={`${style.key} ${style.ids.join(' ')}`}
+      key={style.key}
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{ __html: style.css }}
+    />
+  ));
 
   return {
     ...initialProps,
     // Styles fragment is rendered after the app and page rendering finish.
     styles: [
       ...React.Children.toArray(initialProps.styles),
+      // ...emotionStyleTags,
       sheets.getStyleElement(),
     ],
   };
@@ -93,12 +117,12 @@ MyDocument.getInitialProps = async (ctx) => {
   // @ THIS FIXED THE EXPORT
 
   // if (Object.keys(initialProps).length > 0) {
-  //     // return pageProps only when its present
-  //     return {
-  //         ...initialProps,
-  //         // Styles fragment is rendered after the app and page rendering finish.
-  //         styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],};
-  //
+  //   // return pageProps only when its present
+  //   return {
+  //     ...initialProps,
+  //     // Styles fragment is rendered after the app and page rendering finish.
+  //     styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],
+  //   };
   // }
   // return {};
 };

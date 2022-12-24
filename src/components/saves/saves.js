@@ -1,6 +1,6 @@
 import React from 'react';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
+import List from '@mui/material/List';
+import Typography from '@mui/material/Typography';
 import clsx from 'clsx';
 import { useHistory } from '../../context/words.context';
 import { SameSenseShowTotal } from '../counters/counters';

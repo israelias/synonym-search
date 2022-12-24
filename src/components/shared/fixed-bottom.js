@@ -44,11 +44,14 @@ export default class FixedBottom extends Component {
   }
 
   computeOffsetBottom = () => {
-    if (!this.anchorRef.current) {
+    // const elementRef = React.useRef(this.anchorRef);
+    // console.log('ref', this.anchorRef);
+    const { anchorRef } = this.props;
+    if (!anchorRef.current) {
       return;
     }
-
-    const { bottom } = this.anchorRef.current.getBoundingClientRect();
+    // console.log('ref', this.anchorRef.current);
+    const { bottom } = anchorRef.current.getBoundingClientRect();
     const { offset } = this.props;
     if (Math.floor(bottom) > window.innerHeight) {
       this.setState({
@@ -60,18 +63,31 @@ export default class FixedBottom extends Component {
   };
 
   render() {
+    console.log('this.anchorRef', this.anchorRef);
+    console.log('this.anchorRef.current', this.anchorRef?.current);
+    console.log(
+      'this.anchorRef.current',
+      this.anchorRef?.current?.getBoundingClientRect()
+    );
+    console.log('this.state', this.state);
+    console.log('this.props', this.props);
+    // const elementRef = React.useRef(this.anchorRef);
+    // console.log('elementRef.current', elementRef.current);
     const { bottom } = this.state;
-    const { children, offset } = this.props;
+    const { children, offset, anchorRef } = this.props;
     const node = React.cloneElement(React.Children.only(children), {
       style: {
         ...children.props.style,
         bottom,
         position: 'fixed',
       },
+      ref: anchorRef,
     });
+    console.log('node', node);
     return (
       <>
         {node}
+        {/* <div style={{ bottom, position: 'fixed' }}>{children}</div> */}
         {/* This div is used to run compute the offset without adding a ref */}
         {/* on the rendered children */}
         <div
@@ -85,3 +101,5 @@ export default class FixedBottom extends Component {
     );
   }
 }
+
+// export default {};

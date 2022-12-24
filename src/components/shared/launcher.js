@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Box from '@material-ui/core/Box';
-import Backdrop from '@material-ui/core/Backdrop';
-import Grow from '@material-ui/core/Grow';
-import Skeleton from '@material-ui/lab/Skeleton';
+import Typography from '@mui/material/Typography';
+import makeStyles from '@mui/styles/makeStyles';
+import Box from '@mui/material/Box';
+import Backdrop from '@mui/material/Backdrop';
+import Grow from '@mui/material/Grow';
+import Skeleton from '@mui/material/Skeleton';
 import { useDispatchTheme } from '../../context/theme.context';
 
 const useStyles = makeStyles((theme) => ({
@@ -94,49 +94,47 @@ const Launcher = () => {
     }, 2500);
   }, []);
 
-  return (
-    <>
-      <Backdrop className={classes.backdrop} open={open} />
-      <Grow in={showOpen} unmountOnExit>
-        <Box p={2} className={classes.launch}>
+  return <>
+    <Backdrop className={classes.backdrop} open={open} />
+    <Grow in={showOpen} unmountOnExit>
+      <Box p={2} className={classes.launch}>
+        <Skeleton
+          className={classes.skeleton}
+          width="100%"
+          variant="rectangular"
+          height="3px"
+          animation="wave"
+        />
+        <div className={classes.inner}>
+          <Typography
+            className={classes.title}
+            component="h1"
+            variant="h5"
+            noWrap
+          >
+            Synonym
+          </Typography>
+          <Typography
+            className={classes.subTitle}
+            component="h2"
+            variant="h5"
+            noWrap
+          >
+            /Search
+          </Typography>
+        </div>
+        <div className={classes.splash}>
+          <Typography variant="subtitle1">
+            An Interactive Thesaurus App
+          </Typography>
           <Skeleton
-            className={classes.skeleton}
-            width="100%"
-            variant="rect"
-            height="3px"
-            animation="wave"
+            variant="rectangular"
+            className={classes.skeletonBottom}
           />
-          <div className={classes.inner}>
-            <Typography
-              className={classes.title}
-              component="h1"
-              variant="h5"
-              noWrap
-            >
-              Synonym
-            </Typography>
-            <Typography
-              className={classes.subTitle}
-              component="h2"
-              variant="h5"
-              noWrap
-            >
-              /Search
-            </Typography>
-          </div>
-          <div className={classes.splash}>
-            <Typography variant="subtitle1">
-              An Interactive Thesaurus App
-            </Typography>
-            <Skeleton
-              variant="rect"
-              className={classes.skeletonBottom}
-            />
-          </div>
-        </Box>
-      </Grow>
-    </>
-  );
+        </div>
+      </Box>
+    </Grow>
+  </>;
 };
 
 export default Launcher;

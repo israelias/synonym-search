@@ -1,6 +1,6 @@
 import React from 'react';
-import Fab from '@material-ui/core/Fab';
-import PlayCircleOutlineOutlinedIcon from '@material-ui/icons/PlayCircleOutlineOutlined';
+import Fab from '@mui/material/Fab';
+import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
 import { useStyles } from '../../styles/layout.styles';
 import { a11yProps } from '../../helpers/views.helper';
 import { useDispatchTheme } from '../../context/theme.context';

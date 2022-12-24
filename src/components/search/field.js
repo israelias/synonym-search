@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useTheme } from '@material-ui/core/styles';
-import Fab from '@material-ui/core/Fab';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Backdrop from '@material-ui/core/Backdrop';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import { useTheme } from '@mui/material/styles';
+import Fab from '@mui/material/Fab';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
+import Backdrop from '@mui/material/Backdrop';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
 import PropTypes from 'prop-types';
 import { useDispatchTheme } from '../../context/theme.context';
 import Input from './input';

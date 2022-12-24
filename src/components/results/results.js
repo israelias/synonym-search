@@ -1,6 +1,6 @@
 import React from 'react';
-import Collapse from '@material-ui/core/Collapse';
-import List from '@material-ui/core/List';
+import Collapse from '@mui/material/Collapse';
+import List from '@mui/material/List';
 import PropTypes from 'prop-types';
 import Root from './root';
 import { useDispatchTheme } from '../../context/theme.context';

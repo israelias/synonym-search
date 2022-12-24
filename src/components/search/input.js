@@ -1,11 +1,11 @@
 import React from 'react';
-import SearchIcon from '@material-ui/icons/Search';
-import Grow from '@material-ui/core/Grow';
-import InputBase from '@material-ui/core/InputBase';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import ErrorOutlineOutlinedIcon from '@material-ui/icons/ErrorOutlineOutlined';
-import CheckCircleOutlinedIcon from '@material-ui/icons/CheckCircleOutlined';
-import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
+import SearchIcon from '@mui/icons-material/Search';
+import Grow from '@mui/material/Grow';
+import InputBase from '@mui/material/InputBase';
+import InputAdornment from '@mui/material/InputAdornment';
+import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
+import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 
 /**
  * A text input that responde to the same state hooks as its parent.

@@ -1,12 +1,21 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import CssBaseline from '@mui/material/CssBaseline';
+import { CacheProvider } from '@emotion/react';
 import { ThemeContextProvider } from '../context/theme.context';
 import { HistoryProvider } from '../context/words.context';
+import createEmotionCache from '../helpers/theme.helper';
+
+// Client-side cache, shared for the whole session of the user in the browser.
+const clientSideEmotionCache = createEmotionCache();
 
 export default function MyApp(props) {
-  const { Component, pageProps } = props;
+  const {
+    Component,
+    emotionCache = clientSideEmotionCache,
+    pageProps,
+  } = props;
 
   const userName = '@israelias';
 
@@ -59,7 +68,7 @@ export default function MyApp(props) {
   }, []);
 
   return (
-    <>
+    <CacheProvider value={emotionCache}>
       <Head>
         <meta
           name="viewport"
@@ -121,6 +130,7 @@ export default function MyApp(props) {
         <meta name="twitter:description" content={description} />
         <meta name="twitter:site" content={userName} />
       </Head>
+      {/* <CacheProvider value={emotionCache}> */}
       <ThemeContextProvider>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
@@ -129,7 +139,8 @@ export default function MyApp(props) {
           <Component {...pageProps} />
         </HistoryProvider>
       </ThemeContextProvider>
-    </>
+      {/* </CacheProvider> */}
+    </CacheProvider>
   );
 }
 

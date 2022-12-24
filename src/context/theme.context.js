@@ -1,16 +1,18 @@
 import React, {
   createContext,
-  useState,
   useContext,
   useMemo,
+  useState,
 } from 'react';
 import {
-  createMuiTheme,
+  createTheme,
+  StyledEngineProvider,
   ThemeProvider,
-} from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import grey from '@material-ui/core/colors/grey';
-import lightblue from '@material-ui/core/colors/lightBlue';
+  adaptV4Theme,
+} from '@mui/material/styles';
+
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { grey, lightBlue as lightblue } from '@mui/material/colors';
 
 export const ThemeDispatchContext = createContext();
 export const ThemeStateContext = createContext();
@@ -108,34 +110,38 @@ export const commonSettings = {
   },
 };
 
-const lightTheme = createMuiTheme({
-  palette: {
-    type: 'light',
-    primary: {
-      main: '#ff3200',
+const lightTheme = createTheme(
+  adaptV4Theme({
+    palette: {
+      mode: 'light',
+      primary: {
+        main: '#ff3200',
+      },
+      secondary: {
+        main: grey[900],
+      },
     },
-    secondary: {
-      main: grey[900],
-    },
-  },
-  ...commonSettings,
-});
+    ...commonSettings,
+  })
+);
 
-const darkTheme = createMuiTheme({
-  palette: {
-    type: 'dark',
-    primary: {
-      main: lightblue[500],
+const darkTheme = createTheme(
+  adaptV4Theme({
+    palette: {
+      mode: 'dark',
+      primary: {
+        main: lightblue[500],
+      },
+      secondary: {
+        main: '#fafafa',
+      },
+      background: {
+        default: '#151515',
+      },
     },
-    secondary: {
-      main: '#fafafa',
-    },
-    background: {
-      default: '#151515',
-    },
-  },
-  ...commonSettings,
-});
+    ...commonSettings,
+  })
+);
 
 export const ThemeContextProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(false);
@@ -152,22 +158,26 @@ export const ThemeContextProvider = ({ children }) => {
   );
 
   return (
-    <ThemeDispatchContext.Provider
-      value={{
-        darkMode,
-        setDarkMode,
-        value,
-        setValue,
-        meta,
-        setMeta,
-        root,
-        setRoot,
-      }}
-    >
-      <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-        {children}
-      </ThemeProvider>
-    </ThemeDispatchContext.Provider>
+    <>
+      <ThemeDispatchContext.Provider
+        value={{
+          darkMode,
+          setDarkMode,
+          value,
+          setValue,
+          meta,
+          setMeta,
+          root,
+          setRoot,
+        }}
+      >
+        <StyledEngineProvider injectFirst>
+          <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+            {children}
+          </ThemeProvider>
+        </StyledEngineProvider>
+      </ThemeDispatchContext.Provider>
+    </>
   );
 };
 

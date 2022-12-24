@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import { useStyles } from '../../styles/layout.styles';
 import { MyGithub } from '../shared/links';
 import { useDispatchTheme } from '../../context/theme.context';

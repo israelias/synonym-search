@@ -1,14 +1,14 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Tooltip from '@material-ui/core/Tooltip';
-import Zoom from '@material-ui/core/Zoom';
-import Chip from '@material-ui/core/Chip';
-import Avatar from '@material-ui/core/Avatar';
+import withStyles from '@mui/styles/withStyles';
+import Tooltip from '@mui/material/Tooltip';
+import Zoom from '@mui/material/Zoom';
+import Chip from '@mui/material/Chip';
+import Avatar from '@mui/material/Avatar';
 import PropTypes from 'prop-types';
 import { useHistory } from '../../context/words.context';
 import {
-  getSameSenseTotal,
   getSameHeadTotal,
+  getSameSenseTotal,
   getSameWordTotal,
 } from '../../helpers/counters.helper';
 
@@ -37,7 +37,7 @@ export const SameWordShowTotal = ({
     wordsHistory,
     term,
     definition,
-    label
+    label,
   );
 
   const showTotal = sameWordTotal > 0;
@@ -67,7 +67,11 @@ SameWordShowTotal.propTypes = {
   loading: PropTypes.bool.isRequired,
 };
 
-export const SameSenseShowTotal = ({ loading, sense, label }) => {
+export const SameSenseShowTotal = ({
+  loading,
+  sense,
+  label,
+}) => {
   const wordsHistory = useHistory();
 
   const senseTotal = getSameSenseTotal(wordsHistory, sense, label);
@@ -98,7 +102,12 @@ SameSenseShowTotal.propTypes = {
   loading: PropTypes.bool,
 };
 
-export const SameHeadShowTotal = ({ loading, root, label, uuid }) => {
+export const SameHeadShowTotal = ({
+  loading,
+  root,
+  label,
+  uuid,
+}) => {
   const wordsHistory = useHistory();
 
   const headTotal = getSameHeadTotal(wordsHistory, root, uuid);

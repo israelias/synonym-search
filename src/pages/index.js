@@ -130,9 +130,14 @@ const Index = (props) => {
   );
 };
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async (context) => {
   const searchText = randomTerm();
   const res = await searchThesaurus(searchText);
+  if (!res) {
+    return {
+      notFound: true,
+    };
+  }
   return {
     props: {
       searchText,

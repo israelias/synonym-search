@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import AvatarGroup from '@material-ui/lab/AvatarGroup';
+import AvatarGroup from '@mui/material/AvatarGroup';
 import Logo from '../shared/logo';
 import { useStyles } from '../../styles/layout.styles';
 import { useDispatchTheme } from '../../context/theme.context';

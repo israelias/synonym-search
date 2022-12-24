@@ -1,5 +1,5 @@
 import React from 'react';
-import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
+import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import PropTypes from 'prop-types';
 import { useStyles } from '../../styles/display.styles';
 import { ReplaceSubStringNode } from '../../helpers/string.helper';

@@ -1,8 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import Fab from '@material-ui/core/Fab';
-import Link from '@material-ui/core/Link';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import Fab from '@mui/material/Fab';
+import Link from '@mui/material/Link';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { useStyles } from '../../styles/layout.styles';
