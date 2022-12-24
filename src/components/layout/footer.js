@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import { useStyles } from '../../styles/layout.styles';
@@ -8,6 +8,10 @@ import { useHistory } from '../../context/words.context';
 import { groupBySense } from '../../helpers/counters.helper';
 import Brands from '../info/brands';
 
+/**
+ * It's a footer that displays the app's name, the author's name, and a link to the author's Github
+ * @returns Footer is being returned.
+ */
 const Footer = ({ children }) => {
   const classes = useStyles();
   const viewDispatch = useDispatchTheme();
