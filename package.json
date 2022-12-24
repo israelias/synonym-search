@@ -2,6 +2,20 @@
   "name": "synonym-search",
   "version": "0.1.0",
   "private": true,
+  "bugs": {
+    "url": "https://github.com/israelias/synonym-search/issues"
+  },
+  "license": "UNLICENSED",
+  "author": {
+    "name": "Joem Elias Sanez",
+    "email": "israelias.js@gmail.com"
+  },
+  "description": "A Meaningful Thesaurus Web App",
+  "homepage": "https://github.com/israelias/synonym-search#readme",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/israelias/synonym-search.git"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -36,5 +50,8 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0"
+  },
+  "engines": {
+    "node": ">= 10.13 <18"
   }
 }
