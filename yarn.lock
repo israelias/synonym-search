@@ -1045,16 +1045,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn@npm:^8.0.5":
-  version: 8.8.1
-  resolution: "acorn@npm:8.8.1"
-  bin:
-    acorn: bin/acorn
-  checksum: 4079b67283b94935157698831967642f24a075c52ce3feaaaafe095776dfbe15d86a1b33b1e53860fc0d062ed6c83f4284a5c87c85b9ad51853a01173da6097f
-  languageName: node
-  linkType: hard
-
-"acorn@npm:^8.8.0":
+"acorn@npm:^8.8.0, acorn@npm:^8.8.2":
   version: 8.8.2
   resolution: "acorn@npm:8.8.2"
   bin:
@@ -5476,7 +5467,7 @@ __metadata:
     "@material-ui/icons": ^4.11.2
     "@material-ui/lab": ^4.0.0-alpha.57
     "@material-ui/system": ^4.11.3
-    acorn: ^8.0.5
+    acorn: ^8.8.2
     axios: ^1.4.0
     babel-eslint: ^10.1.0
     clsx: ^1.1.1
