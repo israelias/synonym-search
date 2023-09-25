@@ -6,6 +6,7 @@ import Layout from '../components/layout/layout';
 import Results from '../components/results/results';
 
 const Index = (props) => {
+  <<<<<<< HEAD
   /*
     Add local states to state variables via useState Hooks, which adds
     state and lifecycle features to this otherwise 'stateless' function component.
@@ -15,6 +16,7 @@ const Index = (props) => {
     the second is a function that lets us update that state value.
     We will call this function from an event handler further below.
    */
+  =======
 
   /*
     `searchText` state variable.
