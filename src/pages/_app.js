@@ -30,7 +30,7 @@ export default function MyApp(props) {
 
   const ogImage =
     'https://raw.githubusercontent.com/israelias/synonym-chaser/master/public/images/og-image-synsearch-app.png';
-
+  <<<<<<< HEAD
   useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
@@ -38,6 +38,7 @@ export default function MyApp(props) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);
+  =======
 
   // Boiler plate PWA initial attempt
   useEffect(() => {
