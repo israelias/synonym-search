@@ -38,7 +38,7 @@
     "react-intersection-observer": "^9.5.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.8",
+    "@babel/core": "^7.23.2",
     "@babel/plugin-proposal-class-properties": "^7.12.13",
     "@babel/plugin-syntax-class-properties": "^7.12.13",
     "@babel/preset-react": "^7.22.5",
