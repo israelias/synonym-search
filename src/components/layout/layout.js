@@ -22,7 +22,7 @@ const Layout = ({
   onSearchTextChange,
 }) => {
   const classes = useStyles();
-  const { value, hasSession } = useDispatchTheme();
+  const { value, hasSession, root } = useDispatchTheme();
   const description = `Search results for ${searchText}.`;
 
   return (
@@ -31,7 +31,7 @@ const Layout = ({
         <meta name="description" content={description} />
         <meta name="og:title" content={searchText} />
       </Head>
-      {!hasSession && <Launcher />}
+      {/* {(!hasSession || root.length === 0) && <Launcher />} */}
       <Header>
         <View
           loading={loading}

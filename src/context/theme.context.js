@@ -177,7 +177,7 @@ export const ThemeContextProvider = ({ children }) => {
     } else {
       setHasSession(false);
       setDarkMode(false);
-      setValue('launch');
+      setValue('search');
       setMeta(true);
       setRoot('');
     }

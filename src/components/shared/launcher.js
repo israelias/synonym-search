@@ -85,16 +85,18 @@ const Launcher = () => {
   const [showOpen, setShowOpen] = useState(true);
 
   useEffect(() => {
-    if (!hasSession || root.length > 0) {
+    if (hasSession || root.length > 0) {
+      setOpen(false);
+    } else {
       setTimeout(() => {
         setShowOpen(false);
         setTimeout(() => {
           setOpen(false);
-          // setValue('search');
+          setValue('search');
         }, 350);
       }, 2500);
     }
-  }, []);
+  }, [hasSession, root]);
 
   return (
     <>
