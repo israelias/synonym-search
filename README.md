@@ -192,7 +192,7 @@ Now broken down to  `{Saves} => {Selection}`
 
  [<div style="text-align:center"><img src="https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes26.jpg?raw=true" width="600px"></div>](https://github.com/israelias/synonym-chaser/blob/master/docs/wireframes/MS2_Wireframes09.jpg?raw=true)
 Early schematic breakdown of Display component.
-Represents a manipulated string passed from `{Results} =>{Root} => {Sense}` via `{ReplaceSubStringNode}` (see [string.helper.js](https://github.com/israelias/synonym-chaser/blob/master/src/helpers/string.helper.js)).
+Represents a manipulated string passed from `{Results} =>{Root} => {Sense}` via `{ReplaceSubStringNode}` (see [string.helper.ts](https://github.com/israelias/synonym-chaser/blob/master/src/helpers/string.helper.js)).
 Now broken down to  `{Saves} => {Selection}`
 (See [Display](https://github.com/israelias/synonym-chaser/blob/master/src/components/shared/string-display.js))
 
@@ -231,7 +231,7 @@ Display is now a dummy component as [react-intersection-observer](https://github
 
 #### Typography
 
-- The font family is set to an array of system fonts in order to adapt to device/platform/user configuration and avoid depending on an explicit typeface. A `commonSettings` object in `theme.context.js` contains a list of these overrides, which is merged with Material-UI's theme provider. See [Material-UI Global-css](https://material-ui.com/customization/globals/#global-css)
+- The font family is set to an array of system fonts in order to adapt to device/platform/user configuration and avoid depending on an explicit typeface. A `commonSettings` object in `theme.context.tsx` contains a list of these overrides, which is merged with Material-UI's theme provider. See [Material-UI Global-css](https://material-ui.com/customization/globals/#global-css)
 
 
     <details><summary> commonSettings </summary>
@@ -480,7 +480,7 @@ Display is now a dummy component as [react-intersection-observer](https://github
 - Using MW-Thesaurus is free for non-commercial and/or educational purposes. Featured brand logos in the info tab is to follow branding guidelines requested by but not limited to Merriam-Webster's Development center.
 - The registered Thesaurus API key linked to this project is currently public. Following [this discussion](https://github.com/vercel/next.js/discussions/12531), the effort to protect API calls on the client side is aimless as the private key will always be exposed. Further configuration to have an internal endpoint in `/pages/api` should be considered following [Nextjs API routes](https://nextjs.org/docs/api-routes/introduction). Note that the key has been exposed from `.env.local` for the reasons above and for the educational purposes of the project.
 
-    <details><summary> mwThesaurusService.js </summary>
+    <details><summary> mwThesaurusService.ts </summary>
     <br>
 
     ```  jsx
@@ -1010,7 +1010,7 @@ Display is now a dummy component as [react-intersection-observer](https://github
     <br>
 
     ```jsx
-        // clear.button.js
+        // clear.button.tsx
         // excerpt
         
       const wordsDispatch = useDispatchHistory();
@@ -1021,7 +1021,7 @@ Display is now a dummy component as [react-intersection-observer](https://github
         });
       };
       
-      // words.context.js
+      // words.context.tsx
       // excerpt from reducer
       // the above handler calls case 'remove'
       
