@@ -12,19 +12,19 @@ import { useHistory } from '../../context/words.context';
 const SavesTab = () => {
   const classes = useStyles();
   const wordsHistory = useHistory();
-  const viewDispatch = useDispatchTheme();
+  const { setValue } = useDispatchTheme();
 
   return (
     <Fab
       className={classes.nav}
       size="small"
       color="secondary"
-      onClick={() => viewDispatch.setValue('saves')}
+      onClick={() => setValue('saves')}
       {...a11yProps('saves')}
     >
       <Badge
         color="primary"
-        overlap="circle"
+        overlap="circular"
         anchorOrigin={{
           vertical: 'top',
           horizontal: 'right',

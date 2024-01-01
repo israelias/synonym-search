@@ -30,8 +30,7 @@ const Field = ({
   const trigger = useScrollTrigger();
   const [active, setActive] = useState(false);
   const textInput = useRef(null);
-  const metaDispatch = useDispatchTheme();
-  const { meta, root } = metaDispatch;
+  const { meta, root } = useDispatchTheme();
 
   const handleSearchButton = () => {
     setActive(true);
@@ -69,7 +68,7 @@ const Field = ({
           color="primary"
           aria-label="search"
           onClick={handleSearchButton}
-          variant={active ? 'extended' : 'round'}
+          variant={active ? 'extended' : 'circular'}
           style={
             active
               ? {
