@@ -10,7 +10,7 @@ import createEmotionCache from '../helpers/theme.helper';
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
-export default function MyApp(props) {
+export default function MyApp(props: { Component: any; emotionCache?: any; pageProps: any }) {
   const {
     Component,
     emotionCache = clientSideEmotionCache,
@@ -42,9 +42,9 @@ export default function MyApp(props) {
 
   useEffect(() => {
     // Remove the server-side injected CSS.
-    const jssStyles = document.querySelector('#jss-server-side');
+    const jssStyles = document.querySelector('jss-server-side');
     if (jssStyles) {
-      jssStyles.parentElement.removeChild(jssStyles);
+      jssStyles?.parentElement?.removeChild(jssStyles);
     }
   }, []);
 
