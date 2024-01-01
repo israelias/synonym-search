@@ -1,4 +1,4 @@
-import makeStyles from '@mui/styles/makeStyles';
+import { makeStyles } from '@mui/styles';
 
 export const useStyles = makeStyles((theme) => ({
   header: {
@@ -104,8 +104,8 @@ export const useStyles = makeStyles((theme) => ({
     color: theme.palette.primary.light,
   },
   fill: {
-    width: '100%',
-    height: '100%',
+    width: '22px',
+    height: '22px',
   },
   wrap: {
     textTransform: 'uppercase',
