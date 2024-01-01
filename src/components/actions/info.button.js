@@ -7,7 +7,7 @@ import { useDispatchTheme } from '../../context/theme.context';
 
 const InfoTab = () => {
   const classes = useStyles();
-  const viewDispatch = useDispatchTheme();
+  const { setValue } = useDispatchTheme();
 
   return (
     <Fab
@@ -15,7 +15,7 @@ const InfoTab = () => {
       size="small"
       color="secondary"
       aria-label="Back to results"
-      onClick={() => viewDispatch.setValue('info')}
+      onClick={() => setValue('info')}
       {...a11yProps('info')}
     >
       <InfoOutlinedIcon />

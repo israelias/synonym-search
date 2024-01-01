@@ -23,7 +23,7 @@ const Results = ({
   onSelectionChange,
 }) => {
   const classes = useStyles();
-  const metaDispatch = useDispatchTheme();
+  const { setMeta, setRoot } = useDispatchTheme();
 
   if (loading) {
     return <span>Loading.</span>;
@@ -34,12 +34,12 @@ const Results = ({
   }
 
   if (!results[0].meta) {
-    metaDispatch.setMeta(false);
+    setMeta(false);
     return <span>Error.</span>;
   }
 
-  metaDispatch.setMeta(true);
-  metaDispatch.setRoot(results[0].hwi.hw);
+  setMeta(true);
+  setRoot(results[0].hwi.hw);
 
   return (
     <Collapse in={!loading}>

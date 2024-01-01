@@ -5,10 +5,10 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useDispatchTheme } from '../../context/theme.context';
 
 const ToggleTheme = () => {
-  const themeDispatch = useDispatchTheme();
+  const { setDarkMode, darkMode } = useDispatchTheme();
 
   const handleClick = () => {
-    themeDispatch.setDarkMode(!themeDispatch.darkMode);
+    setDarkMode(!darkMode);
   };
 
   return (

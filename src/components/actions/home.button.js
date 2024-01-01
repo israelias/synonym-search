@@ -7,7 +7,7 @@ import { useDispatchTheme } from '../../context/theme.context';
 
 const HomeTab = () => {
   const classes = useStyles();
-  const viewDispatch = useDispatchTheme();
+  const { setValue } = useDispatchTheme();
 
   return (
     <Fab
@@ -16,7 +16,7 @@ const HomeTab = () => {
       color="secondary"
       style={{ transform: 'scale(-1, 1)' }}
       aria-label="Back to results"
-      onClick={() => viewDispatch.setValue('search')}
+      onClick={() => setValue('search')}
       {...a11yProps('search')}
     >
       <PlayCircleOutlineOutlinedIcon />

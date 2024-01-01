@@ -10,7 +10,7 @@ import { useDispatchTheme } from '../../context/theme.context';
 
 const Logo = ({ url, name, path, darkImage }) => {
   const darkSrc = darkImage || path;
-  const viewDispatch = useDispatchTheme();
+  const { darkMode } = useDispatchTheme();
   const classes = useStyles();
   const matches = useMediaQuery('(min-width:600px)');
 
@@ -28,7 +28,7 @@ const Logo = ({ url, name, path, darkImage }) => {
         width={matches ? 50 : 24}
         height={matches ? 50 : 2}
         fill
-        src={viewDispatch.darkMode ? darkSrc : path}
+        src={darkMode ? darkSrc : path}
       />
     </Fab>
   );

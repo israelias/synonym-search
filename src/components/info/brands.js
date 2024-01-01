@@ -8,9 +8,8 @@ import { useDispatchTheme } from '../../context/theme.context';
 
 const Brands = ({ children }) => {
   const classes = useStyles();
-  const viewDispatch = useDispatchTheme();
+  const { value } = useDispatchTheme();
   const [active, setActive] = useState(false);
-  const { value } = viewDispatch;
 
   useEffect(() => {
     if (value === 'info') {
