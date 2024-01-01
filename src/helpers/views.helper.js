@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const TabPanel = ({ children, value, index, ...other }) => {
-  return (
+  return value === index ? (
     <section
       role="tabpanel"
       hidden={value !== index}
@@ -9,9 +9,9 @@ export const TabPanel = ({ children, value, index, ...other }) => {
       aria-labelledby={`tab-${index}`}
       {...other}
     >
-      {value === index && <>{children}</>}
+      {children}
     </section>
-  );
+  ): null;
 };
 
 export const a11yProps = (index) => {
