@@ -1,5 +1,5 @@
-import Link from '@mui/material/Link';
 import React from 'react';
+import Link from '@mui/material/Link';
 
 export const MaterialUI = (
   <Link
@@ -49,7 +49,7 @@ export const CodeInstitute = (
 
 export const MS2 = (
   <Link
-    href="https://github.com/israelias/synonym-chaser"
+    href="https://github.com/israelias/synonym-search"
     target="_blank"
     rel="noreferrer"
   >

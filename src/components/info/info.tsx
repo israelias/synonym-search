@@ -1,6 +1,5 @@
 import React from 'react';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import { Typography, Box } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import {
   MaterialUI,

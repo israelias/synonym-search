@@ -12,10 +12,12 @@ import Brands from '../info/brands';
  * It's a footer that displays the app's name, the author's name, and a link to the author's Github
  * @returns Footer is being returned.
  */
-const Footer = ({ children }) => {
+const Footer = ({ children }: {
+  children: React.ReactNode;
+}) => {
   const classes = useStyles();
-  const viewDispatch = useDispatchTheme();
-  const { value } = viewDispatch;
+  const { value } = useDispatchTheme();
+
   const home = value === 'search';
   const info = value === 'info';
   const history = value === 'saves';

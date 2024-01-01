@@ -1,11 +1,10 @@
+'use client';
 import React from 'react';
-import Toolbar from '@mui/material/Toolbar';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
-import Slide from '@mui/material/Slide';
-import PropTypes from 'prop-types';
+import { Toolbar, Slide, useScrollTrigger } from '@mui/material';
+
 import { useStyles } from '../../styles/layout.styles';
 
-const Header = ({ children }) => {
+const Header = ({ children }: { children: React.ReactNode }) => {
   const classes = useStyles();
   const trigger = useScrollTrigger();
   return (
@@ -17,10 +16,6 @@ const Header = ({ children }) => {
       </header>
     </Slide>
   );
-};
-
-Header.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default Header;

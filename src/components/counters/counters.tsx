@@ -1,9 +1,6 @@
 import React from 'react';
-import withStyles from '@mui/styles/withStyles';
-import Tooltip from '@mui/material/Tooltip';
-import Zoom from '@mui/material/Zoom';
-import Chip from '@mui/material/Chip';
-import Avatar from '@mui/material/Avatar';
+import { withStyles } from '@mui/styles';
+import { Tooltip, Zoom, Chip, Avatar } from '@mui/material';
 import PropTypes from 'prop-types';
 import { useHistory } from '../../context/words.context';
 import {
@@ -30,6 +27,11 @@ export const SameWordShowTotal = ({
   term,
   definition,
   label,
+}: {
+  loading: boolean;
+  term: string;
+  definition: string;
+  label: string;
 }) => {
   const wordsHistory = useHistory();
 
@@ -42,8 +44,7 @@ export const SameWordShowTotal = ({
 
   const showTotal = sameWordTotal > 0;
 
-  return (
-    showTotal && (
+  return showTotal ? (
       <Zoom in={!loading}>
         <Tooltip
           title={`${term} as in ${definition} has been searched and saved ${sameWordTotal} times.`}
@@ -56,8 +57,7 @@ export const SameWordShowTotal = ({
           />
         </Tooltip>
       </Zoom>
-    )
-  );
+    ) : null
 };
 
 SameWordShowTotal.propTypes = {
@@ -71,6 +71,10 @@ export const SameSenseShowTotal = ({
   loading,
   sense,
   label,
+}: {
+  loading: boolean;
+  sense: string;
+  label: string;
 }) => {
   const wordsHistory = useHistory();
 
@@ -78,8 +82,7 @@ export const SameSenseShowTotal = ({
 
   const showTotal = senseTotal > 0;
 
-  return (
-    showTotal && (
+  return showTotal ? (
       <Zoom in={!loading}>
         <Tooltip
           title={`I've saved ${senseTotal} words sharing the definition: ${sense}.`}
@@ -92,8 +95,7 @@ export const SameSenseShowTotal = ({
           />
         </Tooltip>
       </Zoom>
-    )
-  );
+    ) : null
 };
 
 SameSenseShowTotal.propTypes = {
@@ -107,6 +109,11 @@ export const SameHeadShowTotal = ({
   root,
   label,
   uuid,
+}: {
+  loading: boolean;
+  root: string;
+  label: string;
+  uuid: string;
 }) => {
   const wordsHistory = useHistory();
 
@@ -114,8 +121,7 @@ export const SameHeadShowTotal = ({
 
   const showTotal = headTotal > 0;
 
-  return (
-    showTotal && (
+  return showTotal ? (
       <Zoom in={!loading}>
         <Tooltip
           title={`${root} as a ${label} has appeared ${headTotal} times.`}
@@ -128,8 +134,7 @@ export const SameHeadShowTotal = ({
           />
         </Tooltip>
       </Zoom>
-    )
-  );
+    ) : null;
 };
 
 SameHeadShowTotal.propTypes = {

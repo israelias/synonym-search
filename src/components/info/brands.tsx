@@ -6,7 +6,9 @@ import Logo from '../shared/logo';
 import { useStyles } from '../../styles/layout.styles';
 import { useDispatchTheme } from '../../context/theme.context';
 
-const Brands = ({ children }) => {
+const Brands = ({ children } : {
+  children: React.ReactNode;
+}) => {
   const classes = useStyles();
   const viewDispatch = useDispatchTheme();
   const [active, setActive] = useState(false);

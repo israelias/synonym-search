@@ -1,8 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+import { Toolbar, Typography } from '@mui/material';
 import Launcher from '../shared/launcher';
 import BackToTop from '../actions/scroll.button';
 import Saves from '../saves/saves';
@@ -20,10 +19,14 @@ const Layout = ({
   searchText,
   loading,
   onSearchTextChange,
+}: {
+  children: React.ReactNode;
+  searchText: string;
+  loading: boolean;
+  onSearchTextChange: (text: string) => void;
 }) => {
   const classes = useStyles();
-  const themeDispatch = useDispatchTheme();
-  const value = themeDispatch.value ? themeDispatch.value : 'launch';
+  const { value, hasSession } = useDispatchTheme();
   const description = `Search results for ${searchText}.`;
 
   return (
@@ -32,7 +35,7 @@ const Layout = ({
         <meta name="description" content={description} />
         <meta name="og:title" content={searchText} />
       </Head>
-      <Launcher />
+      {!hasSession && <Launcher />}
       <Header>
         <View
           loading={loading}

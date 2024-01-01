@@ -10,10 +10,14 @@ import HomeButton from '../actions/home.button';
 import SavesButton from '../actions/saves.button';
 import InfoButton from '../actions/info.button';
 
-const View = ({ searchText, onSearchTextChange, loading }) => {
+const View = ({ searchText, onSearchTextChange, loading }: {
+  searchText: string;
+  onSearchTextChange: (text: string) => void;
+  loading: boolean;
+}) => {
   const classes = useStyles();
-  const viewDispatch = useDispatchTheme();
-  const { value } = viewDispatch;
+  const { value } = useDispatchTheme();
+
   const home = value === 'search';
   const saves = value === 'saves';
   const info = value === 'info';
