@@ -1,7 +1,6 @@
 import React from 'react';
-import Fab from '@mui/material/Fab';
+import { Fab, useMediaQuery } from '@mui/material';
 import TonalityIcon from '@mui/icons-material/Tonality';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import { useDispatchTheme } from '../../context/theme.context';
 
 const ToggleTheme = () => {

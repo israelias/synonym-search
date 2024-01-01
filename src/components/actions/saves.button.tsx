@@ -1,7 +1,5 @@
 import React from 'react';
-import Fab from '@mui/material/Fab';
-import Badge from '@mui/material/Badge';
-import Avatar from '@mui/material/Avatar';
+import { Fab, Badge, Avatar } from '@mui/material';
 import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
 import clsx from 'clsx';
 import { useStyles } from '../../styles/layout.styles';
@@ -12,14 +10,14 @@ import { useHistory } from '../../context/words.context';
 const SavesTab = () => {
   const classes = useStyles();
   const wordsHistory = useHistory();
-  const viewDispatch = useDispatchTheme();
+  const { setValue } = useDispatchTheme();
 
   return (
     <Fab
-      className={classes.nav}
+      // className={classes.nav}
       size="small"
       color="secondary"
-      onClick={() => viewDispatch.setValue('saves')}
+      onClick={() => setValue('saves')}
       {...a11yProps('saves')}
     >
       <Badge
@@ -31,10 +29,25 @@ const SavesTab = () => {
         }}
         variant="standard"
         badgeContent={wordsHistory.length}
+        // sx={{
+        //   width: 22,
+        //   height: 22,
+        // }}
+        // style={{
+        //   width: '22px',
+        //   height: '22px',
+        // }}
       >
         <Avatar
+          // style={{
+          //   width: '100%',
+          //   height: '100%',
+          // }}
+          // className={clsx(
+          //   classes.fill,
+          //   wordsHistory.length > 0 ? classes.history : null
+          // )}
           className={clsx(
-            classes.fill,
             wordsHistory.length > 0 ? classes.history : null
           )}
           component={QueryBuilderIcon}

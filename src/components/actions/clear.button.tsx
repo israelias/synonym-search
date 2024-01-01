@@ -1,17 +1,16 @@
 import React from 'react';
-import Fab from '@mui/material/Fab';
-import clsx from 'clsx';
+import { Fab, useMediaQuery } from '@mui/material';
 import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import clsx from 'clsx';
 import { useDispatchHistory } from '../../context/words.context';
 import { useStyles } from '../../styles/layout.styles';
 
-const Clear = ({ speed }) => {
+const Clear = ({ speed }: { speed: boolean }) => {
   const classes = useStyles();
   const matches = useMediaQuery('(max-width:598px)');
   const wordsDispatch = useDispatchHistory();
 
-  const handleClick = (event) => {
+  const handleClick = () => {
     wordsDispatch({
       type: 'clear',
     });
@@ -20,7 +19,7 @@ const Clear = ({ speed }) => {
   return (
     <div className={clsx(classes.input, !speed && classes.top)}>
       <Fab
-        variant={speed ? 'round' : 'extended'}
+        variant={speed ? 'circular' : 'extended'}
         size="small"
         color="primary"
         aria-label="clear"
