@@ -84,6 +84,7 @@ MyDocument.getInitialProps = async (ctx) => {
       enhanceApp: (App) =>
         function EnhanceApp(props) {
           return sheets.collect(
+            // @ts-ignore
             <App emotionCache={cache} {...props} />
           );
           // return <App emotionCache={cache} {...props} />;
@@ -109,7 +110,7 @@ MyDocument.getInitialProps = async (ctx) => {
     // Styles fragment is rendered after the app and page rendering finish.
     styles: [
       ...React.Children.toArray(initialProps.styles),
-      // ...emotionStyleTags,
+      ...emotionStyleTags,
       sheets.getStyleElement(),
     ],
   };
