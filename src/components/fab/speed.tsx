@@ -1,16 +1,14 @@
+'use client';
 import React, { useEffect, useState, useRef } from 'react';
-import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
-import Slide from '@mui/material/Slide';
 import clsx from 'clsx';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import Grow from '@mui/material/Grow';
-import Tooltip from '@mui/material/Tooltip';
+import { SpeedDial, Slide, useScrollTrigger, useMediaQuery, Grow, Tooltip } from '@mui/material';
+
 import { useStyles } from '../../styles/button.styles';
 import { useDispatchTheme } from '../../context/theme.context';
 
-import BottomRef from '../shared/fixed-bottom';
+import BottomRef from '../shared/bottom-ref';
+import FixedBottom from '../shared/fixed-bottom';
 import ToggleTheme from '../actions/theme.button';
 import Search from '../search/search';
 import Clear from '../actions/clear.button';
@@ -22,43 +20,51 @@ const Speed = ({
   searchText,
   loading,
   onSearchTextChange,
-  ...other
+}:{
+  children?: React.ReactNode;
+  value?: string;
+  index?: number;
+  searchText: string;
+  loading: boolean;
+  onSearchTextChange: (text: string) => void;
 }) => {
   const trigger = useScrollTrigger();
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  const [direction, setDirection] = useState('up');
+  const [direction, setDirection] = useState<'down' | 'left' | 'right' | 'up'>('up');
   const matches = useMediaQuery('(min-width:600px)');
-  const viewDispatch = useDispatchTheme();
-  const view = viewDispatch.value ? viewDispatch.value : null;
+  const { value: view, setValue } = useDispatchTheme();
 
-  const handleClick = (event) => setOpen(!open);
+  const handleClick = () => setOpen(!open);
 
-  // open && trigger ? setOpen(false) : null;
+  open && trigger ? setOpen(false) : null;
 
-  useEffect(() => {
-    if (open && trigger) {
-      setOpen(false);
-    }
-  }, [open, trigger]);
+
+  // useEffect(() => {
+  //   if (open && trigger) {
+  //     setOpen(false);
+  //   }
+  // }, [open, trigger]);
 
   useEffect(() => {
     setTimeout(() => {
-      if (viewDispatch.value !== 'search') {
+      if (view !== 'search') {
         setOpen(false);
       }
     }, 10);
   }, [view]);
 
-  const elementRef = React.forwardRef();
+  // const elementRef = React.forwardRef();
 
   return (
-    <Slide appear direction="up" in={!trigger}>
+    <FixedBottom offset={matches ? 16 : 48}>
+    <Slide appear direction={direction} in={!trigger}>
+
       <SpeedDial
         ariaLabel="actions"
         className={classes.speedDialGroup}
         FabProps={{
-          className: clsx(classes.speedDial, classes.bottom),
+          className: clsx(classes.speedDial, classes.fabBottom),
           size: matches ? 'medium' : 'small',
           style: { padding: matches ? '12px' : '8px' },
         }}
@@ -66,15 +72,14 @@ const Speed = ({
         onClick={handleClick}
         open={open}
         direction={direction}
-        style={{
-          position: 'fixed',
-          bottom: matches ? '16px' : '48px',
-        }}
+        // style={{
+        //   position: 'fixed',
+        //   bottom: matches ? '16px' : '48px',
+        // }}
       >
         <Grow in={open}>
           <div className={classes.speedDial}>
             <Tooltip
-              interactive
               disableFocusListener
               disableTouchListener
               title="Toggle theme"
@@ -91,11 +96,10 @@ const Speed = ({
             className={classes.speedDial}
             onClick={(e) => {
               e.stopPropagation();
-              viewDispatch.setValue('search');
+              setValue('search');
             }}
           >
             <Tooltip
-              interactive
               disableFocusListener
               disableTouchListener
               title="Search"
@@ -114,7 +118,6 @@ const Speed = ({
         <Grow in={open}>
           <div className={classes.speedDial}>
             <Tooltip
-              interactive
               disableFocusListener
               disableTouchListener
               title="Clear Cache"
@@ -127,7 +130,9 @@ const Speed = ({
           </div>
         </Grow>
       </SpeedDial>
+
     </Slide>
+</FixedBottom>
   );
 };
 

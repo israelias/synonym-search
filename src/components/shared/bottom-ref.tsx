@@ -10,13 +10,16 @@ import throttle from 'lodash.throttle';
 
 const SAFARI_MOBILE_BOTTOM_MENU_HEIGHT = 44;
 
-const BottomRef = ({ children, offset = 0 }) => {
+const BottomRef = ({ children, offset = 0 }: {
+  children: React.ReactNode;
+  offset?: number;
+}) => {
   const [defaultOffset, setDefaultOffset] = useState(0);
   const [defaultBottom, setDefaultBottom] = useState(defaultOffset);
 
-  const anchorRef = React.useRef(null);
+  const anchorRef: React.MutableRefObject<HTMLDivElement | null> = React.useRef(null);
 
-  const computeOffsetBottoms = (_anchorRef, _offset) => {
+  const computeOffsetBottoms = (_anchorRef: React.MutableRefObject<HTMLDivElement>, _offset: number) => {
     // const elementRef = React.useRef(this.anchorRef);
     console.log('ref', _anchorRef);
     if (!_anchorRef.current) {
@@ -48,10 +51,10 @@ const BottomRef = ({ children, offset = 0 }) => {
       return;
     }
     console.log('ref', anchorRef.current);
-    const bottom = anchorRef.current?.getBoundingClientRect()?.bottom;
+    const bottom = anchorRef?.current?.getBoundingClientRect()?.bottom;
     console.log(
       'ref',
-      anchorRef.current?.getBoundingClientRect()?.bottom
+      anchorRef?.current?.getBoundingClientRect()?.bottom
     );
 
     if (Math.floor(bottom) > window.innerHeight) {
@@ -70,9 +73,7 @@ const BottomRef = ({ children, offset = 0 }) => {
   useEffect(() => {
     if (anchorRef.current) {
       window.addEventListener('scroll', () => {
-        if (anchorRef.current) {
-          handleScroll();
-        }
+        handleScroll();
       });
 
       // returned function will be called on component unmount
