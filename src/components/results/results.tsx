@@ -1,6 +1,5 @@
 import React from 'react';
-import Collapse from '@mui/material/Collapse';
-import List from '@mui/material/List';
+import { Collapse, List } from '@mui/material';
 import PropTypes from 'prop-types';
 import Root from './root';
 import { useDispatchTheme } from '../../context/theme.context';
@@ -21,6 +20,11 @@ const Results = ({
   loading,
   selection,
   onSelectionChange,
+}: {
+  results: any[];
+  loading: boolean;
+  selection?: string;
+  onSelectionChange: (event: React.SyntheticEvent, value: string) => void;
 }) => {
   const classes = useStyles();
   const metaDispatch = useDispatchTheme();

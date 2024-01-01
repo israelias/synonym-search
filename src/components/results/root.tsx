@@ -22,6 +22,14 @@ const Root = ({
   loading,
   selection,
   onSelectionChange,
+}: {
+  root: string;
+  label: string;
+  uuid: string;
+  senses: any[];
+  loading: boolean;
+  selection?: string;
+  onSelectionChange: (value: string) => void;
 }) => {
   const classes = useStyles();
 

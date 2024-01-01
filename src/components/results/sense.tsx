@@ -25,16 +25,23 @@ const Sense = ({
   root,
   label,
   uuid,
+}: {
+  loading: boolean;
+  sense: any;
+  onSelectionChange: (value: string) => void;
+  root: string;
+  label: string;
+  uuid: string;
 }) => {
   const classes = useStyles();
 
   const [optionWord, setOptionWord] = useState(root);
 
-  const onScrollTrigger = (word) => setOptionWord(word);
+  const onScrollTrigger = (word: string) => setOptionWord(word);
 
-  const onMouseOver = (word) => setOptionWord(word);
+  const onMouseOver = (word: string) => setOptionWord(word);
 
-  const onChange = (value) => onSelectionChange(value);
+  const onChange = (value: string) => onSelectionChange(value);
 
   return (
     <section>
@@ -44,6 +51,7 @@ const Sense = ({
       >
         <div className={clsx(classes.heading, classes.headingSense)}>
           <Typography variant="body2" component="h5">
+            {/* @ts-ignore */}
             <ReplaceNodeTags string={sense[0][1].dt[0][1]} />
           </Typography>
           <SameSenseShowTotal

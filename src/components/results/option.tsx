@@ -1,6 +1,5 @@
 import React from 'react';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
+import { ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { InView } from 'react-intersection-observer';
 import PropTypes from 'prop-types';
 import { useDispatchHistory } from '../../context/words.context';
@@ -30,6 +29,17 @@ const Option = ({
   label,
   onMouseOver,
   onScrollTrigger,
+}: {
+  loading: boolean;
+  onChange: (value: string) => void;
+  options: any;
+  definition: string;
+  root: string;
+  sense: string;
+  uuid: string;
+  label: string;
+  onMouseOver: (word: string) => void;
+  onScrollTrigger: (word: string) => void;
 }) => {
   const wordsDispatch = useDispatchHistory();
 
@@ -45,7 +55,7 @@ const Option = ({
           onChange={(inView, entry) => onScrollTrigger(option.wd)}
         >
           <ListItem
-            button
+            // button={true}
             component="div"
             value={option.wd}
             key={option.wd}
