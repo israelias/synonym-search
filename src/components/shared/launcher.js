@@ -80,18 +80,20 @@ const useStyles = makeStyles((theme) => ({
 
 const Launcher = () => {
   const classes = useStyles();
-  const viewDispatch = useDispatchTheme();
+  const { setValue, hasSession, root } = useDispatchTheme();
   const [open, setOpen] = useState(true);
   const [showOpen, setShowOpen] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      setShowOpen(false);
+    if (!hasSession || root.length > 0) {
       setTimeout(() => {
-        setOpen(false);
-        viewDispatch.setValue('search');
-      }, 350);
-    }, 2500);
+        setShowOpen(false);
+        setTimeout(() => {
+          setOpen(false);
+          // setValue('search');
+        }, 350);
+      }, 2500);
+    }
   }, []);
 
   return (
