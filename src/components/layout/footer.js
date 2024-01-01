@@ -10,8 +10,7 @@ import Brands from '../info/brands';
 
 const Footer = ({ children }) => {
   const classes = useStyles();
-  const viewDispatch = useDispatchTheme();
-  const { value } = viewDispatch;
+  const { value } = useDispatchTheme();
   const home = value === 'search';
   const info = value === 'info';
   const history = value === 'saves';

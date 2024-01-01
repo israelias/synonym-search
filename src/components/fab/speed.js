@@ -28,8 +28,7 @@ const Speed = ({
   const [open, setOpen] = useState(false);
   const [direction, setDirection] = useState('up');
   const matches = useMediaQuery('(min-width:600px)');
-  const viewDispatch = useDispatchTheme();
-  const view = viewDispatch.value ? viewDispatch.value : null;
+  const { value: view, setValue } = useDispatchTheme();
 
   const handleClick = (event) => setOpen(!open);
 
@@ -37,7 +36,7 @@ const Speed = ({
 
   useEffect(() => {
     setTimeout(() => {
-      if (viewDispatch.value !== 'search') {
+      if (view !== 'search') {
         setOpen(false);
       }
     }, 10);
@@ -50,7 +49,7 @@ const Speed = ({
           ariaLabel="actions"
           className={classes.speedDialGroup}
           FabProps={{
-            className: clsx(classes.speedDial, classes.bottom),
+            className: clsx(classes.speedDial, classes.fabBottom),
             size: matches ? 'medium' : 'small',
             style: { padding: matches ? '12px' : '8px' },
           }}
@@ -79,7 +78,7 @@ const Speed = ({
               className={classes.speedDial}
               onClick={(e) => {
                 e.stopPropagation();
-                viewDispatch.setValue('search');
+                setValue('search');
               }}
             >
               <Tooltip

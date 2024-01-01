@@ -111,10 +111,19 @@ const Index = (props) => {
     }
   };
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const value = sessionStorage.getItem('theme');
+      if (value !== null) {
+        const sessionStore = JSON.parse(value);
+        onSearchTextChange(sessionStore.root);
+      }
+    }
+  }, []);
+
   return (
     <>
       <Layout
-        search
         loading={loading}
         searchText={searchText}
         onSearchTextChange={onSearchTextChange}
