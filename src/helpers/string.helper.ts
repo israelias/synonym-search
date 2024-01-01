@@ -27,12 +27,10 @@ import parse from 'html-react-parser';
  * @return  {string}             The same string with {it}{/it} replaced with <em></em> respectively.
  */
 
-export const ReplaceNodeTags = ({ string }) =>
-  /**
-   * Replaces {it} with <em> and {/it} with </em>.
-   */
+export const ReplaceNodeTags = ({ string } : { string: string }) => {
+  return parse(string.replace(/{it}/g, '<em>').replace(/{\/it}/g, '</em>'));
+}
 
-  parse(string.replace(/{it}/g, '<em>').replace(/{\/it}/g, '</em>'));
 /**
  * Converts a string to substrings split at the designated replaced nodes [{any}{/any}] insertion point.
  *
@@ -46,7 +44,7 @@ export const ReplaceNodeTags = ({ string }) =>
  * @return  {[string]}           An array containing two substrings split at the {it}{/it}} mark.
  */
 
-export const ReplaceSubStringNode = (string) => {
+export const ReplaceSubStringNode = (string: string) => {
   /**
    * Removes {ldquo} and {rdquo}.
    */

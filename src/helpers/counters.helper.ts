@@ -35,7 +35,7 @@
  * @return  {boolean}              true if the new word/term is the same as the saved word object.
  */
 
-const isSameWord = (word, term, definition, label) =>
+const isSameWord = (word: Word, term: string, definition: string, label: string): boolean =>
   label === word.label &&
   definition === word.sense &&
   term === word.name;
@@ -49,7 +49,7 @@ const isSameWord = (word, term, definition, label) =>
  * @return  {boolean}              true if the sense definition is the same as the word object's sense definition..
  */
 
-const isSameSense = (word, sense, label) =>
+const isSameSense = (word: Word, sense: string, label: string): boolean =>
   sense === word.sense && label === word.label;
 
 /**
@@ -61,17 +61,17 @@ const isSameSense = (word, sense, label) =>
  * @return  {boolean}              true if the current root/headword is the same as a saved word object.
  */
 
-const isSameHead = (word, root, uuid) =>
+const isSameHead = (word: Word, root: string, uuid: string): boolean =>
   root === word.root && uuid === word.uuid;
 
 /**
  * Returns the sum of the value property of word objects in an array.
  *
  * @param   {[Word]} element       A word object saved in our context
- * @return  {object}              true if the current root/headword is the same as a saved word object.
+ * @return  {number}              true if the current root/headword is the same as a saved word object.
  */
 
-const getTotal = (element) =>
+const getTotal = (element: Word[]): number =>
   element.reduce((prev, cur) => prev + cur.value, 0);
 
 /**
@@ -84,7 +84,7 @@ const getTotal = (element) =>
  * @return  {number}              The total number of times the Word has been queried.
  */
 
-export const getSameWordTotal = (element, term, definition, label) =>
+export const getSameWordTotal = (element: Word[], term: string, definition: string, label: string): number =>
   getTotal(
     element.filter((item) =>
       isSameWord(item, term, definition, label)
@@ -100,7 +100,7 @@ export const getSameWordTotal = (element, term, definition, label) =>
  * @return  {number}              The total number of times the Word has been queried.
  */
 
-export const getSameHeadTotal = (element, root, uuid) =>
+export const getSameHeadTotal = (element: Word[], root: string, uuid: string): number =>
   getTotal(element.filter((item) => isSameHead(item, root, uuid)));
 
 /**
@@ -112,19 +112,15 @@ export const getSameHeadTotal = (element, root, uuid) =>
  * @return  {number}              The total number of words with the same sense definition.
  */
 
-export const getSameSenseTotal = (element, sense, label) =>
+export const getSameSenseTotal = (element: Word[], sense: string, label: string): number =>
   element.filter((item) => isSameSense(item, sense, label)).length;
 
-/**
- * Returns arrays of objects grouped by shared sense definition(s).
- *
- * @param   {[Word]} element       The current context value: ab array of word objects.
- * @return  {[array]}              An array of object arrays grouped by shared sense definitions.
- */
 
-export const groupBySense = (element) =>
+
+export const groupBySense = (element: Word[]) =>
   Object.entries(
     element.reduce((result, words) => {
+      // @ts-ignore
       result[words.sense] = [...(result[words.sense] || []), words];
       return result;
     }, {})

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { AxiosRequestConfig, CancelTokenSource, CancelTokenStatic, AxiosError } from 'axios'
 
 /**
  * Helper function cancels unfinished queries.
@@ -18,8 +19,16 @@ import axios from 'axios';
  * @property    {object} cancelToken
  */
 
-/** @type {cancelConfig} */
-const cancelConfig = {
+type CancelConfig = {
+  request: null | {
+    cancel: (arg0: string) => void;
+    source?: CancelTokenSource;
+   cancelToken?: CancelTokenStatic;
+  };
+  cancelToken: null | string;
+}
+
+const cancelConfig: CancelConfig = {
   request: null,
   cancelToken: null,
 };
@@ -32,7 +41,7 @@ const cancelConfig = {
  */
 
 /** @return {Promise<object>} */
-async function axiosGetCancellable(url, config) {
+async function axiosGetCancellable(url: string, config: AxiosRequestConfig ) {
   // If the request is in progress, cancel the new ones.
 
   if (cancelConfig.request) {
@@ -58,9 +67,10 @@ async function axiosGetCancellable(url, config) {
   // So let the return call run and only catch errors that are not 'canceled'.
 
   try {
+    // @ts-ignore
     const res = await axios.get(url, cancelConfig);
     return res;
-  } catch (error) {
+  } catch (error: AxiosError) {
     if (error.message !== 'canceled') {
       throw error;
     }

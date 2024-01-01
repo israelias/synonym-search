@@ -1,6 +1,11 @@
 import React from 'react';
 
-export const TabPanel = ({ children, value, index, ...other }) => {
+export const TabPanel = ({ children, value, index, ...other }: {
+  children: React.ReactNode;
+  index: string;
+  value: string;
+  other?: any;
+}) => {
   return (
     <section
       role="tabpanel"
@@ -14,7 +19,7 @@ export const TabPanel = ({ children, value, index, ...other }) => {
   );
 };
 
-export const a11yProps = (index) => {
+export const a11yProps = (index: string) => {
   return {
     id: `tab-${index}`,
     'aria-controls': `panel-${index}`,

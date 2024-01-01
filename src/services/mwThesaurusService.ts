@@ -22,7 +22,7 @@ const axiosConfig = {
  * @return  {object}             Response object of query
  */
 
-function searchThesaurus(searchText, selection) {
+function searchThesaurus(searchText: string, selection?: string): object {
   const query = selection || searchText;
   const key = 'c212ac04-42cc-42dd-91fa-635bef08991c';
   // const key = process.env.MW_THESAURUS_KEY;
