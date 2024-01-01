@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer, useEffect, useState } from 'react';
 
 /**
  * Context wrapper to reduce, sort and group counts.
@@ -46,10 +46,33 @@ export const HistoryProvider = ({ children }) => {
         return state.filter((word) => word.id !== action.id);
       case 'clear':
         return [];
+      case 'restore':
+        return action.words;
       default:
         return state;
     }
   }, []);
+
+  const [sessionValue, setSessionValue] = useState(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setSessionValue(sessionStorage.getItem('syns'))
+    }
+  }, []);
+
+  useEffect(() => {
+    if (sessionValue !== null) {
+      const sessionStore = JSON.parse(sessionValue);      // convert date string into Date object in messages
+      dispatch({ type: 'restore', words: sessionStore });
+    }
+  }, [sessionValue])
+
+  useEffect(() => {
+    if (savedWords.length > 0) {
+      sessionStorage.setItem('syns', JSON.stringify(savedWords));
+    }
+  }, [savedWords]);
 
   return (
     <HistoryDispatchContext.Provider value={dispatch}>
