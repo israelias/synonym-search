@@ -42,7 +42,10 @@ import { ReplaceSubStringNode } from '../../helpers/string.helper';
  *   <Display sampleString={sampleString} optionWord={optionWord} />
  * )
  */
-const Display = ({ sampleString, optionWord }) => {
+const Display = ({ sampleString, optionWord }: {
+  sampleString: string;
+  optionWord: string;
+}) => {
   const classes = useStyles();
   const subString = ReplaceSubStringNode(sampleString);
 

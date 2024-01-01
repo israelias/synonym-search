@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Typography from '@mui/material/Typography';
+import { Typography, Box, Backdrop, Grow, Skeleton } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
-import Box from '@mui/material/Box';
-import Backdrop from '@mui/material/Backdrop';
-import Grow from '@mui/material/Grow';
-import Skeleton from '@mui/material/Skeleton';
 import { useDispatchTheme } from '../../context/theme.context';
 
 const useStyles = makeStyles((theme) => ({
@@ -80,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Launcher = () => {
   const classes = useStyles();
-  const viewDispatch = useDispatchTheme();
+  const { setValue } = useDispatchTheme();
   const [open, setOpen] = useState(true);
   const [showOpen, setShowOpen] = useState(true);
 
@@ -89,7 +85,7 @@ const Launcher = () => {
       setShowOpen(false);
       setTimeout(() => {
         setOpen(false);
-        viewDispatch.setValue('search');
+        setValue('search');
       }, 350);
     }, 2500);
   }, []);
