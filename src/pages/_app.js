@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Script from 'next/script';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -120,6 +121,13 @@ export default function MyApp(props) {
         <meta name="twitter:title" content={ogTitle} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:site" content={userName} />
+        {/* ADSense */}
+        <Script
+          id="adsbygoogle-init"
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2907518490044345"
+        />
       </Head>
       <ThemeContextProvider>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
