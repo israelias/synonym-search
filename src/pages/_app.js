@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import Script from 'next/script';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import CssBaseline from '@material-ui/core/CssBaseline';
