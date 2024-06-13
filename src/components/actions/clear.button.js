@@ -15,12 +15,14 @@ const Clear = ({ speed }) => {
     wordsDispatch({
       type: 'clear',
     });
+    sessionStorage.removeItem('syns');
+    sessionStorage.removeItem('theme');
   };
 
   return (
     <div className={clsx(classes.input, !speed && classes.top)}>
       <Fab
-        variant={speed ? 'round' : 'extended'}
+        variant={speed ? 'circular' : 'extended'}
         size="small"
         color="primary"
         aria-label="clear"

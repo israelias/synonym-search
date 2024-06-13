@@ -3,9 +3,10 @@ import React, {
   useState,
   useContext,
   useMemo,
+  useEffect,
 } from 'react';
 import {
-  createMuiTheme,
+  createTheme,
   ThemeProvider,
 } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -108,7 +109,8 @@ export const commonSettings = {
   },
 };
 
-const lightTheme = createMuiTheme({
+const lightTheme = createTheme({
+  ...commonSettings,
   palette: {
     type: 'light',
     primary: {
@@ -118,10 +120,10 @@ const lightTheme = createMuiTheme({
       main: grey[900],
     },
   },
-  ...commonSettings,
 });
 
-const darkTheme = createMuiTheme({
+const darkTheme = createTheme({
+  ...commonSettings,
   palette: {
     type: 'dark',
     primary: {
@@ -134,14 +136,27 @@ const darkTheme = createMuiTheme({
       default: '#151515',
     },
   },
-  ...commonSettings,
 });
 
 export const ThemeContextProvider = ({ children }) => {
+  const [sessionValue, setSessionValue] = useState(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setSessionValue(sessionStorage.getItem('theme'))
+    }
+  }, []);
+
   const [darkMode, setDarkMode] = useState(false);
-  const [value, setValue] = useState('launch');
+
+  const [value, setValue] = useState('');
+
   const [meta, setMeta] = useState(true);
+
   const [root, setRoot] = useState('');
+
+  const [hasSession, setHasSession] = useState(false);
+
   const prefersDarkMode = useMediaQuery(
     '(prefers-color-scheme: dark)'
   );
@@ -151,18 +166,54 @@ export const ThemeContextProvider = ({ children }) => {
     [prefersDarkMode]
   );
 
+  useEffect(() => {
+    if (sessionValue !== null) {
+      const sessionStore = JSON.parse(sessionValue);
+      setHasSession(true);
+      setDarkMode(sessionStore.darkMode);
+      setValue(sessionStore.value);
+      setMeta(sessionStore.meta);
+      setRoot(sessionStore.root);
+    } else {
+      setHasSession(false);
+      setDarkMode(false);
+      setValue('search');
+      setMeta(true);
+      setRoot('');
+    }
+  }, [sessionValue]);
+
+  useEffect(() => {
+    if (root.length > 0) {
+      sessionStorage.setItem('theme', JSON.stringify({
+        darkMode,
+        value,
+        meta,
+        root,
+        date: new Date(),
+      }));
+    }
+  }, [darkMode, value, meta, root]);
+
+  const themeValue = useMemo(
+    () => ({
+      darkMode,
+      setDarkMode,
+      value,
+      setValue,
+      meta,
+      setMeta,
+      root,
+      setRoot,
+      hasSession,
+      setHasSession,
+    }),
+    [darkMode, value, meta, root, hasSession],
+  );
+
   return (
     <ThemeDispatchContext.Provider
-      value={{
-        darkMode,
-        setDarkMode,
-        value,
-        setValue,
-        meta,
-        setMeta,
-        root,
-        setRoot,
-      }}
+      value={themeValue}
     >
       <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
         {children}
@@ -173,4 +224,4 @@ export const ThemeContextProvider = ({ children }) => {
 
 export const useDispatchTheme = () =>
   useContext(ThemeDispatchContext);
-export const useThemeState = () => useContext(ThemeStateContext);
+

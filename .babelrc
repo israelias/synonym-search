@@ -8,6 +8,8 @@
       {
         "loose": true
       }
-    ]
+    ],
+    "@babel/plugin-syntax-class-properties"
   ]
+
 }
